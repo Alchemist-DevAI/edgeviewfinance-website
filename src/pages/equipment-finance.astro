@@ -1,0 +1,774 @@
+---
+// Equipment Finance Page - Strategic Equipment Financing for Commercial Trades
+// Optimized for Ben the Business Builder ICP (excluding residential builders)
+export const prerender = true;
+
+const siteData = {
+  title: "Equipment Finance Australia | Commercial Trades & Civil Contractors | EVFBS",
+  description: "Strategic equipment financing for commercial trades, civil contractors, and industrial businesses. Heavy machinery, vehicles, and specialised equipment finance from $20K to $500K+ with competitive rates.",
+  keywords: "equipment finance Australia, commercial vehicle finance, heavy machinery loans, trade equipment financing, civil contractor equipment, industrial equipment finance"
+};
+---
+
+<html lang="en-AU">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={siteData.description} />
+    <meta name="keywords" content={siteData.keywords} />
+    
+    <!-- Equipment Finance Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://edgeviewfinance.com.au/equipment-finance",
+      "name": "Equipment Finance",
+      "alternateName": "Commercial Equipment Financing",
+      "description": "Strategic equipment financing for commercial trades, civil contractors, and industrial businesses with competitive rates and flexible terms",
+      "serviceType": "Equipment Financing",
+      "provider": {
+        "@type": "FinancialService",
+        "@id": "https://edgeviewfinance.com.au/#organization",
+        "name": "Edgeview Finance Business Solutions",
+        "areaServed": {
+          "@type": "Country",
+          "name": "Australia"
+        }
+      },
+      "offers": {
+        "@type": "Offer",
+        "name": "Equipment Finance Solutions",
+        "description": "Flexible equipment financing from $20K to $500K+ for commercial trades and civil contractors",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Equipment Finance",
+          "category": "Commercial Finance"
+        }
+      },
+      "audience": {
+        "@type": "BusinessAudience",
+        "businessType": ["Commercial Trades", "Civil Contractors", "Industrial Businesses"],
+        "numberOfEmployees": "10-25"
+      }
+    }
+    </script>
+    
+    <title>{siteData.title}</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>Edgeview Finance</h1>
+                    <span>Business Solutions</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/services">Services</a></li>
+                    <li><a href="/equipment-finance" class="active">Equipment Finance</a></li>
+                    <li><a href="/working-capital">Working Capital</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact" class="cta-button">Expert Consultation</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero service-hero">
+            <div class="hero-content">
+                <div class="breadcrumb">
+                    <a href="/">Home</a> > <a href="/services">Services</a> > Equipment Finance
+                </div>
+                <h1>Strategic Equipment Finance for Commercial Trades & Civil Contractors</h1>
+                <p class="hero-subtitle">
+                    Professional equipment financing solutions from $20K to $500K+ for heavy machinery, commercial vehicles, and specialised trade equipment. Competitive rates with flexible terms designed for established commercial businesses.
+                </p>
+                <div class="hero-cta">
+                    <a href="/get-quote?service=equipment-finance" class="primary-button">Get Equipment Finance Quote</a>
+                    <a href="/calculator" class="secondary-button">Calculate Repayments</a>
+                </div>
+                <div class="trust-indicators">
+                    <span>✓ 24-48 Hour Approvals</span>
+                    <span>✓ Competitive Commercial Rates</span>
+                    <span>✓ $500M+ Equipment Financed</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Equipment Types Section -->
+        <section class="equipment-types">
+            <div class="container">
+                <h2>Equipment We Finance for Commercial Trades</h2>
+                <div class="equipment-grid">
+                    <div class="equipment-category">
+                        <h3>Heavy Machinery & Construction</h3>
+                        <ul>
+                            <li>Excavators, Diggers & Earthmoving Equipment</li>
+                            <li>Cranes & Lifting Equipment</li>
+                            <li>Concrete Pumps & Mixers</li>
+                            <li>Bulldozers & Graders</li>
+                            <li>Compactors & Road Construction</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="equipment-category">
+                        <h3>Commercial Vehicles & Fleet</h3>
+                        <ul>
+                            <li>Commercial Utes & Work Vehicles</li>
+                            <li>Truck & Heavy Vehicle Fleet</li>
+                            <li>Specialised Service Vehicles</li>
+                            <li>Trailers & Transport Equipment</li>
+                            <li>Van Conversions & Fit-Outs</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="equipment-category">
+                        <h3>Trade & Industrial Equipment</h3>
+                        <ul>
+                            <li>Welding & Fabrication Machinery</li>
+                            <li>HVAC Installation Equipment</li>
+                            <li>Electrical Testing & Safety Equipment</li>
+                            <li>Workshop Tools & Machinery</li>
+                            <li>Material Handling Equipment</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="equipment-category">
+                        <h3>Specialised Contractor Equipment</h3>
+                        <ul>
+                            <li>Mining & Resources Equipment</li>
+                            <li>Agricultural & Farming Machinery</li>
+                            <li>Telecommunications Equipment</li>
+                            <li>Medical & Healthcare Equipment</li>
+                            <li>Technology & IT Infrastructure</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="process-section">
+            <div class="container">
+                <h2>Professional Equipment Finance Process</h2>
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Equipment Assessment</h3>
+                        <p>We evaluate your equipment needs, business capacity, and optimal financing structure aligned with your cash flow requirements.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Strategic Structuring</h3>
+                        <p>Our team structures the finance solution to maximize tax benefits and minimise business disruption during equipment acquisition.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Lender Comparison</h3>
+                        <p>We negotiate with multiple commercial lenders to secure competitive rates and terms specific to your industry and equipment type.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Fast Settlement</h3>
+                        <p>Professional management of documentation and settlement processes ensures you can deploy your equipment quickly and efficiently.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="benefits-section">
+            <div class="container">
+                <h2>Why Commercial Trades Choose EVFBS Equipment Finance</h2>
+                <div class="benefits-grid">
+                    <div class="benefit">
+                        <h3>Industry Expertise</h3>
+                        <p>Deep understanding of commercial trades, civil contracting, and industrial business requirements. We know your equipment and industry challenges.</p>
+                    </div>
+                    
+                    <div class="benefit">
+                        <h3>Flexible Terms</h3>
+                        <p>Loan terms from 12-60 months with seasonal payment options and balloon payments available to match your business cash flow patterns.</p>
+                    </div>
+                    
+                    <div class="benefit">
+                        <h3>Competitive Rates</h3>
+                        <p>Access to commercial finance rates typically 2-4% lower than consumer finance, with equipment security reducing your overall cost of capital.</p>
+                    </div>
+                    
+                    <div class="benefit">
+                        <h3>Tax Optimisation</h3>
+                        <p>Strategic structuring to maximize depreciation benefits, and other tax advantages available to commercial businesses.</p>
+                    </div>
+                    
+                    <div class="benefit">
+                        <h3>Cash Flow Protection</h3>
+                        <p>Preserve working capital for operations while acquiring essential equipment. Structured to maintain healthy cash flow during growth phases.</p>
+                    </div>
+                    
+                    <div class="benefit">
+                        <h3>Fast Approvals</h3>
+                        <p>24-48 hour approval processes for established commercial businesses, enabling you to secure equipment quickly for time-sensitive projects.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Finance Options -->
+        <section class="finance-options">
+            <div class="container">
+                <h2>Equipment Finance Solutions Available</h2>
+                <div class="options-grid">
+                    <div class="option-card">
+                        <h3>Equipment Loan</h3>
+                        <p>Traditional ownership model with equipment as security</p>
+                        <ul>
+                            <li>Loan amounts: $20K - $500K+</li>
+                            <li>Terms: 12-60 months</li>
+                            <li>Immediate ownership</li>
+                            <li>Full depreciation benefits</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="option-card">
+                        <h3>Equipment Lease</h3>
+                        <p>Operational lease with end-of-term options</p>
+                        <ul>
+                            <li>Lower monthly payments</li>
+                            <li>100% tax deductible</li>
+                            <li>Upgrade options available</li>
+                            <li>Maintenance packages</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="option-card">
+                        <h3>Hire Purchase</h3>
+                        <p>Ownership transfer at completion</p>
+                        <ul>
+                            <li>Fixed monthly payments</li>
+                            <li>Balloon payment options</li>
+                            <li>GST and tax benefits</li>
+                            <li>Equipment ownership</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Finance Your Next Equipment Purchase?</h2>
+                <p>Join hundreds of commercial trades and civil contractors who've secured strategic equipment finance through our professional service.</p>
+                <div class="cta-buttons">
+                    <a href="/get-quote?service=equipment-finance" class="primary-button large">Get Equipment Finance Quote</a>
+                    <a href="/contact" class="secondary-button large">Speak with Equipment Finance Specialist</a>
+                </div>
+                <div class="contact-info">
+                    <p>Quick consultation available: <strong>1300 XXX XXX</strong> | Monday-Friday 8AM-6PM AEST</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Equipment Finance</h4>
+                    <ul>
+                        <li><a href="/heavy-machinery-finance">Heavy Machinery</a></li>
+                        <li><a href="/vehicle-finance">Commercial Vehicles</a></li>
+                        <li><a href="/trade-equipment-finance">Trade Equipment</a></li>
+                        <li><a href="/equipment-lease">Equipment Leasing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Other Services</h4>
+                    <ul>
+                        <li><a href="/commercial-property">Commercial Property</a></li>
+                        <li><a href="/working-capital">Working Capital</a></li>
+                        <li><a href="/invoice-financing">Invoice Financing</a></li>
+                        <li><a href="/personal-lending">Personal Lending</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="/equipment-finance-calculator">Equipment Calculator</a></li>
+                        <li><a href="/blog/equipment-finance-guide">Finance Guide</a></li>
+                        <li><a href="/case-studies/equipment-finance">Success Stories</a></li>
+                        <li><a href="/faqs/equipment-finance">Equipment Finance FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Phone: 1300 XXX XXX<br/>
+                    Email: equipment@edgeviewfinance.com.au<br/>
+                    Hours: Mon-Fri 8AM-6PM AEST</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Edgeview Finance Business Solutions. All rights reserved. | 
+                <a href="/privacy">Privacy Policy</a> | 
+                <a href="/terms">Terms of Service</a> | 
+                <a href="/credit-guide">Credit Guide</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        /* Import base styles from index.astro */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles - Reuse from index */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        
+        .logo h1 {
+            color: #2c5aa0;
+            font-size: 1.5rem;
+            margin-bottom: -5px;
+        }
+        
+        .logo span {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #2c5aa0;
+        }
+        
+        .cta-button {
+            background: #e67e22 !important;
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .cta-button:hover {
+            background: #d35400 !important;
+        }
+        
+        /* Service Hero Section */
+        .service-hero {
+            background: linear-gradient(135deg, #2c5aa0 0%, #3498db 100%);
+            color: white;
+            padding: 60px 20px 80px;
+            text-align: center;
+        }
+        
+        .breadcrumb {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+        
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .service-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
+        
+        .hero-cta {
+            margin-bottom: 2rem;
+            gap: 1rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .primary-button {
+            background: #e67e22;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .primary-button:hover {
+            background: #d35400;
+            transform: translateY(-2px);
+        }
+        
+        .secondary-button {
+            background: transparent;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border: 2px solid white;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .secondary-button:hover {
+            background: white;
+            color: #2c5aa0;
+        }
+        
+        .trust-indicators {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0.9;
+        }
+        
+        /* Equipment Types Section */
+        .equipment-types {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+        
+        .equipment-types h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c5aa0;
+        }
+        
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .equipment-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .equipment-category h3 {
+            color: #2c5aa0;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .equipment-category ul {
+            list-style: none;
+        }
+        
+        .equipment-category li {
+            padding: 0.4rem 0;
+            padding-left: 1rem;
+            position: relative;
+        }
+        
+        .equipment-category li:before {
+            content: "→";
+            color: #e67e22;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Process Section */
+        .process-section {
+            padding: 80px 20px;
+        }
+        
+        .process-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c5aa0;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .step {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .step-number {
+            background: #e67e22;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+        
+        .step h3 {
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+        }
+        
+        /* Benefits Section */
+        .benefits-section {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+        
+        .benefits-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c5aa0;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .benefit {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .benefit h3 {
+            color: #e67e22;
+            margin-bottom: 1rem;
+        }
+        
+        /* Finance Options */
+        .finance-options {
+            padding: 80px 20px;
+        }
+        
+        .finance-options h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c5aa0;
+        }
+        
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .option-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #e67e22;
+        }
+        
+        .option-card h3 {
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+        }
+        
+        .option-card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .option-card li {
+            padding: 0.3rem 0;
+            padding-left: 1rem;
+            position: relative;
+        }
+        
+        .option-card li:before {
+            content: "✓";
+            color: #27ae60;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: #2c5aa0;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .large {
+            font-size: 1.2rem;
+            padding: 18px 36px;
+        }
+        
+        .contact-info {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 20px 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            color: #e67e22;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #555;
+            padding-top: 1rem;
+            text-align: center;
+            color: #ccc;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .service-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .equipment-grid,
+            .process-steps,
+            .benefits-grid,
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .trust-indicators {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</body>
+</html>

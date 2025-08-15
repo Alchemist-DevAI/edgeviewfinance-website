@@ -1,16 +1,628 @@
 ---
+// EVFBS Homepage - Australian Commercial Finance Services
+// Optimized for "Ben the Business Builder" ICP
+export const prerender = true;
 
+const siteData = {
+  title: "Edgeview Finance Business Solutions | Commercial Finance Australia",
+  description: "Strategic commercial finance solutions for Australian trades and service businesses. Equipment finance, commercial property, working capital, and business loans with expert partnership.",
+  keywords: "commercial finance Australia, equipment finance, business loans, trade finance, working capital, commercial property finance"
+};
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang="en-AU">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={siteData.description} />
+    <meta name="keywords" content={siteData.keywords} />
+    
+    <!-- Australian Business Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FinancialService",
+      "@id": "https://edgeviewfinance.com.au/#organization",
+      "name": "Edgeview Finance Business Solutions",
+      "alternateName": "EVFBS",
+      "description": "Strategic commercial finance brokerage specializing in equipment finance, commercial property, and business growth solutions for Australian trades and service businesses",
+      "url": "https://edgeviewfinance.com.au",
+      "serviceType": "Commercial Finance Brokerage",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Australia"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Commercial Finance Solutions",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Equipment Finance",
+              "description": "Strategic equipment finance for commercial trades, civil contractors, and industrial businesses"
+            }
+          },
+          {
+            "@type": "Offer", 
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Commercial Property Finance",
+              "description": "Professional property finance for business premises and commercial investment"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Working Capital Solutions",
+              "description": "Strategic working capital and cash flow management for commercial trades"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Invoice Financing",
+              "description": "Unlock cash from unpaid invoices for established commercial trade businesses"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Personal Home Lending",
+              "description": "Professional home lending leveraging commercial business success"
+            }
+          }
+        ]
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+61-XXX-XXX-XXX",
+        "contactType": "customer service",
+        "areaServed": "AU",
+        "availableLanguage": "English"
+      }
+    }
+    </script>
+    
+    <!-- Open Graph for Social Sharing -->
+    <meta property="og:title" content={siteData.title} />
+    <meta property="og:description" content={siteData.description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://edgeviewfinance.com.au" />
+    <meta property="og:locale" content="en_AU" />
+    
+    <title>{siteData.title}</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>Edgeview Finance</h1>
+                    <span>Business Solutions</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/services">Services</a></li>
+                    <li><a href="/equipment-finance">Equipment Finance</a></li>
+                    <li><a href="/working-capital">Working Capital</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact" class="cta-button">Expert Consultation</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section - Ben the Business Builder Focus -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Strategic Commercial Finance Partnership for Australian Business Growth</h1>
+                <p class="hero-subtitle">
+                    Equipment finance, commercial property, working capital, and personal lending solutions designed for business builders like you. 
+                    Professional assessment and strategic guidance for sustainable growth.
+                </p>
+                <div class="hero-cta">
+                    <a href="/get-quote" class="primary-button">Get Professional Assessment</a>
+                    <a href="/calculator" class="secondary-button">Calculate Repayments</a>
+                </div>
+                <div class="trust-indicators">
+                    <span>✓ Licensed Australian Finance Broker</span>
+                    <span>✓ ASIC Compliant Service</span>
+                    <span>✓ 500+ Strategic Finance Solutions</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Overview - ICP Specific -->
+        <section class="services-overview">
+            <div class="container">
+                <h2>Strategic Finance Solutions for Professional Business Growth</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>Equipment Finance</h3>
+                        <p>Strategic equipment financing for commercial trades, civil contractors, and industrial businesses. Competitive rates from $20K to $500K+ with flexible terms.</p>
+                        <ul>
+                            <li>Heavy machinery & construction equipment</li>
+                            <li>Commercial vehicles & fleet expansion</li>
+                            <li>Industrial tools & workshop equipment</li>
+                            <li>Specialised trade machinery & technology</li>
+                        </ul>
+                        <a href="/equipment-finance">Explore Solutions →</a>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3>Commercial Property Finance</h3>
+                        <p>Professional property finance for business premises acquisition or investment opportunities with strategic structuring.</p>
+                        <ul>
+                            <li>Business premises purchase</li>
+                            <li>Commercial property investment</li>
+                            <li>Property development funding</li>
+                            <li>Refinancing existing properties</li>
+                        </ul>
+                        <a href="/commercial-property">Explore Solutions →</a>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3>Working Capital Solutions</h3>
+                        <p>Strategic working capital and cash flow management for commercial trades and civil contractors. Support business operations and growth initiatives.</p>
+                        <ul>
+                            <li>Cash flow bridging for payment delays</li>
+                            <li>Invoice factoring & discounting</li>
+                            <li>Business line of credit facilities</li>
+                            <li>Seasonal funding for peak demand</li>
+                        </ul>
+                        <a href="/working-capital">Explore Solutions →</a>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3>Invoice Financing</h3>
+                        <p>Unlock cash tied up in unpaid invoices to smooth cash flow and fund ongoing commercial work. Ideal for established trade businesses.</p>
+                        <ul>
+                            <li>80-100% invoice value upfront</li>
+                            <li>Selective invoice finance options</li>
+                            <li>Commercial client payment acceleration</li>
+                            <li>AI-driven cash flow optimization</li>
+                        </ul>
+                        <a href="/invoice-financing">Explore Solutions →</a>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3>Personal Home Lending</h3>
+                        <p>Professional home lending services for business owners, leveraging commercial success for competitive personal finance terms.</p>
+                        <ul>
+                            <li>Owner-occupier home loans</li>
+                            <li>Investment property finance</li>
+                            <li>Self-employed lending solutions</li>
+                            <li>Equity release for business growth</li>
+                        </ul>
+                        <a href="/personal-lending">Explore Solutions →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Value Proposition - Why Choose EVFBS -->
+        <section class="value-proposition">
+            <div class="container">
+                <h2>Why Commercial Trades & Civil Contractors Choose EVFBS</h2>
+                <div class="benefits-grid">
+                    <div class="benefit">
+                        <h3>AI-Enhanced Financial Intelligence</h3>
+                        <p>Advanced analytics turn your financial data into actionable insights and forecasts. We provide AI-driven analysis of cash flow, borrowing power, and optimal finance structure.</p>
+                    </div>
+                    <div class="benefit">
+                        <h3>Commercial Trades Expertise</h3>
+                        <p>Deep specialisation in commercial trades, civil contractors, and industrial businesses. We understand project cash cycles, payment terms, and growth challenges - excluding high-risk residential building.</p>
+                    </div>
+                    <div class="benefit">
+                        <h3>Professional Assessment Process</h3>
+                        <p>Comprehensive evaluation and strategic structuring to ensure finance solutions align with your business goals and capacity.</p>
+                    </div>
+                    <div class="benefit">
+                        <h3>Transparent Professional Service</h3>
+                        <p>Clear communication, transparent pricing, and professional guidance throughout the entire finance process. ASIC-compliant service you can trust.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Partner for Strategic Business Growth?</h2>
+                <p>Join hundreds of Australian business builders who've secured strategic finance solutions through our professional partnership approach.</p>
+                <div class="cta-buttons">
+                    <a href="/get-quote" class="primary-button large">Request Professional Assessment</a>
+                    <a href="/contact" class="secondary-button large">Speak with a Finance Specialist</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Edgeview Finance Business Solutions</h4>
+                    <p>Licensed Australian Finance Broker<br/>
+                    ACL: [License Number]<br/>
+                    ABN: [ABN Number]</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="/equipment-finance">Equipment Finance</a></li>
+                        <li><a href="/commercial-property">Commercial Property</a></li>
+                        <li><a href="/working-capital">Working Capital</a></li>
+                        <li><a href="/invoice-financing">Invoice Financing</a></li>
+                        <li><a href="/personal-lending">Personal Lending</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="/calculator">Loan Calculator</a></li>
+                        <li><a href="/blog">Finance Guides</a></li>
+                        <li><a href="/case-studies">Success Stories</a></li>
+                        <li><a href="/faqs">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Phone: 1300 XXX XXX<br/>
+                    Email: enquiries@edgeviewfinance.com.au<br/>
+                    Hours: Mon-Fri 8AM-6PM AEST</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Edgeview Finance Business Solutions. All rights reserved. | 
+                <a href="/privacy">Privacy Policy</a> | 
+                <a href="/terms">Terms of Service</a> | 
+                <a href="/credit-guide">Credit Guide</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        
+        .logo h1 {
+            color: #2c5aa0;
+            font-size: 1.5rem;
+            margin-bottom: -5px;
+        }
+        
+        .logo span {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            color: #2c5aa0;
+        }
+        
+        .cta-button {
+            background: #e67e22 !important;
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .cta-button:hover {
+            background: #d35400 !important;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c5aa0 0%, #3498db 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
+        
+        .hero-cta {
+            margin-bottom: 2rem;
+            gap: 1rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .primary-button {
+            background: #e67e22;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .primary-button:hover {
+            background: #d35400;
+            transform: translateY(-2px);
+        }
+        
+        .secondary-button {
+            background: transparent;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border: 2px solid white;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .secondary-button:hover {
+            background: white;
+            color: #2c5aa0;
+        }
+        
+        .trust-indicators {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0.9;
+        }
+        
+        /* Services Section */
+        .services-overview {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+        
+        .services-overview h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c5aa0;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-card h3 {
+            color: #2c5aa0;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card ul {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        
+        .service-card li {
+            padding: 0.3rem 0;
+            padding-left: 1rem;
+            position: relative;
+        }
+        
+        .service-card li:before {
+            content: "✓";
+            color: #27ae60;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Value Proposition */
+        .value-proposition {
+            padding: 80px 20px;
+        }
+        
+        .value-proposition h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c5aa0;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .benefit h3 {
+            color: #e67e22;
+            margin-bottom: 1rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: #2c5aa0;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .large {
+            font-size: 1.2rem;
+            padding: 18px 36px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 20px 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            color: #e67e22;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #555;
+            padding-top: 1rem;
+            text-align: center;
+            color: #ccc;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .nav-menu {
+                display: none; /* Would implement mobile menu here */
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .trust-indicators {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</body>
 </html>
