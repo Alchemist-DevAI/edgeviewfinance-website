@@ -1,0 +1,38 @@
+# Robots.txt for Edgeview Finance Business Solutions
+# Optimized for Australian Commercial Finance SEO
+
+User-agent: *
+Allow: /
+
+# Priority pages for Australian commercial finance
+Allow: /equipment-finance
+Allow: /working-capital
+Allow: /business-loans
+Allow: /services
+Allow: /contact
+Allow: /calculator
+
+# Blog and resources for SEO
+Allow: /blog
+Allow: /resources
+Allow: /case-studies
+
+# Location pages for local SEO
+Allow: /sydney
+Allow: /melbourne
+Allow: /brisbane
+Allow: /perth
+Allow: /adelaide
+
+# Block unnecessary crawling
+Disallow: /admin
+Disallow: /api
+Disallow: /_astro
+Disallow: /temp
+Disallow: /test
+
+# Important: Point to XML sitemap
+Sitemap: https://edgeviewfinance.com.au/sitemap-index.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1

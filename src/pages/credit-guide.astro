@@ -1,0 +1,1576 @@
+---
+// EVFBS Credit Guide - ASIC RG 206 Compliant Credit Guide
+// Mandatory ASIC compliance document for commercial finance brokerage
+export const prerender = true;
+
+const siteData = {
+  title: "Credit Guide | Edgeview Finance Business Solutions - ASIC Compliant Commercial Finance Broker",
+  description: "Comprehensive ASIC RG 206 compliant credit guide for EVFBS commercial finance brokerage services. Essential information about our credit licence, services, fees, complaints process, and your rights under the National Credit Code.",
+  keywords: "ASIC credit guide, RG 206 compliance, commercial finance broker, National Credit Code, Australian Credit Licence, credit representative information, finance broker fees"
+};
+
+const lastUpdated = "15 August 2025";
+const reviewDate = "15 August 2026";
+const creditLicenceNumber = "ACL-XXXXXX"; // Replace with actual ACL number
+const abnNumber = "XX XXX XXX XXX"; // Replace with actual ABN
+---
+
+<html lang="en-AU">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={siteData.description} />
+    <meta name="keywords" content={siteData.keywords} />
+    
+    <!-- Credit Guide Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://edgeviewfinance.com.au/credit-guide#webpage",
+      "name": "Credit Guide - ASIC RG 206 Compliant",
+      "description": "ASIC compliant credit guide for Edgeview Finance Business Solutions commercial finance brokerage services",
+      "url": "https://edgeviewfinance.com.au/credit-guide",
+      "dateModified": "2025-08-15",
+      "publisher": {
+        "@type": "FinancialService",
+        "@id": "https://edgeviewfinance.com.au/#organization",
+        "name": "Edgeview Finance Business Solutions",
+        "hasCredential": {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "Australian Credit Licence",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "Australian Securities and Investments Commission",
+            "alternateName": "ASIC"
+          }
+        }
+      },
+      "mainEntity": {
+        "@type": "Article",
+        "@id": "https://edgeviewfinance.com.au/credit-guide#article",
+        "headline": "Credit Guide - Commercial Finance Brokerage Services",
+        "datePublished": "2025-08-15",
+        "dateModified": "2025-08-15",
+        "author": {
+          "@type": "Organization",
+          "name": "Edgeview Finance Business Solutions"
+        },
+        "about": {
+          "@type": "Thing",
+          "name": "Credit Guide and Consumer Rights",
+          "description": "Comprehensive information about credit services, fees, complaints process, and consumer rights under Australian credit legislation"
+        }
+      }
+    }
+    </script>
+    
+    <!-- Open Graph for Social Sharing -->
+    <meta property="og:title" content={siteData.title} />
+    <meta property="og:description" content={siteData.description} />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://edgeviewfinance.com.au/credit-guide" />
+    <meta property="og:locale" content="en_AU" />
+    
+    <title>{siteData.title}</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>Edgeview Finance</h1>
+                    <span>Business Solutions</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/services">Services</a></li>
+                    <li><a href="/equipment-finance">Equipment Finance</a></li>
+                    <li><a href="/working-capital">Working Capital</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact" class="cta-button">Expert Consultation</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Credit Guide</h1>
+                <p class="hero-subtitle">
+                    ASIC RG 206 compliant credit guide providing essential information about our commercial finance 
+                    brokerage services, licensing, fees, and your rights under the National Consumer Credit Protection Act 2009.
+                </p>
+                <div class="hero-meta">
+                    <span><strong>Last Updated:</strong> {lastUpdated}</span>
+                    <span><strong>Next Review:</strong> {reviewDate}</span>
+                    <span><strong>ASIC Compliant:</strong> RG 206</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Important Notice -->
+        <section class="important-notice">
+            <div class="container">
+                <div class="notice-box">
+                    <h2>Important Information</h2>
+                    <p>
+                        This Credit Guide is provided to you under section 126 of the National Consumer Credit Protection Act 2009. 
+                        It contains important information about our credit services, including our Australian Credit Licence details, 
+                        the services we provide, how we are remunerated, and your rights and obligations.
+                    </p>
+                    <p><strong>Please read this document carefully before engaging our services.</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Navigation -->
+        <section class="quick-nav">
+            <div class="container">
+                <h2>Quick Navigation</h2>
+                <div class="nav-links">
+                    <a href="#licensee">Licensee Information</a>
+                    <a href="#representative">Credit Representative</a>
+                    <a href="#services">Services Provided</a>
+                    <a href="#remuneration">Fees & Commission</a>
+                    <a href="#conflicts">Conflicts of Interest</a>
+                    <a href="#complaints">Complaints Process</a>
+                    <a href="#privacy">Privacy Information</a>
+                    <a href="#contact">Contact Details</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Credit Licensee Information -->
+        <section class="credit-section" id="licensee">
+            <div class="container">
+                <h2>Australian Credit Licensee Information</h2>
+                <div class="content">
+                    <div class="licensee-details">
+                        <div class="detail-card">
+                            <h3>Credit Licensee</h3>
+                            <p><strong>Entity Name:</strong> Edgeview Finance Business Solutions Pty Ltd</p>
+                            <p><strong>Australian Business Number (ABN):</strong> {abnNumber}</p>
+                            <p><strong>Australian Credit Licence (ACL):</strong> {creditLicenceNumber}</p>
+                            <p><strong>ASIC Registration:</strong> Australian Credit Licensee</p>
+                        </div>
+                        
+                        <div class="detail-card">
+                            <h3>Licence Authorisation</h3>
+                            <p>
+                                Our Australian Credit Licence authorises us to engage in credit activities including:
+                            </p>
+                            <ul>
+                                <li>Providing credit assistance by suggesting or assisting with credit contract applications</li>
+                                <li>Suggesting or assisting with credit contract changes or refinancing</li>
+                                <li>Suggesting credit providers to customers</li>
+                                <li>Assisting customers to understand credit contract features and risks</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="detail-card">
+                            <h3>Registered Office</h3>
+                            <p>
+                                <strong>Address:</strong><br/>
+                                [Business Address]<br/>
+                                [City, State, Postcode]<br/>
+                                Australia
+                            </p>
+                            <p><strong>Business Hours:</strong> Monday to Friday, 8:00 AM - 6:00 PM AEST</p>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4>ASIC Verification</h4>
+                        <p>
+                            You can verify our licence details on the ASIC Professional Registers at 
+                            <a href="https://connectonline.asic.gov.au" target="_blank" rel="noopener noreferrer">
+                            https://connectonline.asic.gov.au</a> using our ACL number {creditLicenceNumber}.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Credit Representative Information -->
+        <section class="credit-section" id="representative">
+            <div class="container">
+                <h2>Credit Representative Information</h2>
+                <div class="content">
+                    <h3>Authorised Credit Representative</h3>
+                    <p>
+                        [Credit Representative Name] operates as an authorised credit representative of 
+                        Edgeview Finance Business Solutions Pty Ltd under our Australian Credit Licence.
+                    </p>
+                    
+                    <div class="representative-details">
+                        <div class="rep-card">
+                            <h4>Representative Details</h4>
+                            <p><strong>Name:</strong> [Credit Representative Name]</p>
+                            <p><strong>Credit Representative Number:</strong> [CRN Number]</p>
+                            <p><strong>Qualifications:</strong> Certificate IV in Finance and Mortgage Broking</p>
+                            <p><strong>Professional Memberships:</strong> Finance Brokers Association of Australia (FBAA)</p>
+                        </div>
+                        
+                        <div class="rep-card">
+                            <h4>Authorisation Scope</h4>
+                            <p>Our credit representative is authorised to:</p>
+                            <ul>
+                                <li>Provide credit assistance for commercial finance products</li>
+                                <li>Assist with loan applications and documentation</li>
+                                <li>Liaise with lenders on behalf of clients</li>
+                                <li>Provide ongoing account management and support</li>
+                                <li>Conduct responsible lending assessments</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>Professional Standards</h3>
+                    <p>
+                        Our credit representative maintains professional standards through:
+                    </p>
+                    <ul>
+                        <li>Annual continuing professional development (CPD) training</li>
+                        <li>Adherence to the Code of Conduct for Credit Services</li>
+                        <li>Regular compliance monitoring and audits</li>
+                        <li>Professional indemnity insurance coverage</li>
+                        <li>Membership of industry professional bodies</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Provided -->
+        <section class="credit-section" id="services">
+            <div class="container">
+                <h2>Credit Services We Provide</h2>
+                <div class="content">
+                    <h3>Commercial Finance Brokerage Services</h3>
+                    <p>
+                        Under our Australian Credit Licence, we provide credit assistance services specifically 
+                        focused on commercial finance solutions for Australian businesses.
+                    </p>
+
+                    <div class="services-grid">
+                        <div class="service-detail">
+                            <h4>Equipment Finance</h4>
+                            <ul>
+                                <li>Commercial vehicle and machinery finance</li>
+                                <li>Construction and trade equipment funding</li>
+                                <li>Technology and IT equipment finance</li>
+                                <li>Chattel mortgages and hire purchase agreements</li>
+                                <li>Operating and finance lease arrangements</li>
+                            </ul>
+                            <p><strong>Loan Range:</strong> $20,000 to $2,000,000+</p>
+                        </div>
+
+                        <div class="service-detail">
+                            <h4>Commercial Property Finance</h4>
+                            <ul>
+                                <li>Business premises purchase and refinancing</li>
+                                <li>Commercial property investment loans</li>
+                                <li>Development and construction finance</li>
+                                <li>Strata title and industrial property finance</li>
+                                <li>Commercial mortgage solutions</li>
+                            </ul>
+                            <p><strong>Loan Range:</strong> $100,000 to $10,000,000+</p>
+                        </div>
+
+                        <div class="service-detail">
+                            <h4>Working Capital Solutions</h4>
+                            <ul>
+                                <li>Business line of credit facilities</li>
+                                <li>Overdraft and cash flow funding</li>
+                                <li>Invoice factoring and discounting</li>
+                                <li>Trade finance and debtor finance</li>
+                                <li>Seasonal and project-specific funding</li>
+                            </ul>
+                            <p><strong>Facility Range:</strong> $50,000 to $5,000,000+</p>
+                        </div>
+
+                        <div class="service-detail">
+                            <h4>Personal Lending (Business-Related)</h4>
+                            <ul>
+                                <li>Self-employed home loans</li>
+                                <li>Investment property finance for business owners</li>
+                                <li>Low-doc and bank statement lending</li>
+                                <li>Asset-based lending solutions</li>
+                                <li>Private lending arrangements</li>
+                            </ul>
+                            <p><strong>Loan Range:</strong> $100,000 to $5,000,000+</p>
+                        </div>
+                    </div>
+
+                    <h3>Credit Assistance Services</h3>
+                    <p>Our specific credit assistance services include:</p>
+                    <ul>
+                        <li><strong>Credit Product Selection:</strong> Suggesting appropriate credit products and lenders based on your needs</li>
+                        <li><strong>Application Assistance:</strong> Helping prepare and submit credit applications</li>
+                        <li><strong>Document Preparation:</strong> Assisting with required documentation and compliance</li>
+                        <li><strong>Lender Negotiation:</strong> Negotiating terms and conditions on your behalf</li>
+                        <li><strong>Ongoing Support:</strong> Post-settlement assistance and account management</li>
+                        <li><strong>Refinancing Advice:</strong> Periodic review and refinancing opportunities</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <h4>Important Note: Commercial Focus</h4>
+                        <p>
+                            Our services are specifically designed for commercial finance and business lending. 
+                            We do not provide consumer credit assistance for personal purchases unrelated to business activities.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Remuneration and Fees -->
+        <section class="credit-section" id="remuneration">
+            <div class="container">
+                <h2>How We Are Remunerated</h2>
+                <div class="content">
+                    <h3>Commission-Based Model</h3>
+                    <p>
+                        We operate on a commission-based model where we receive payments from lenders when 
+                        successful finance arrangements are established. This means our services are typically 
+                        provided at no direct cost to you.
+                    </p>
+
+                    <div class="remuneration-details">
+                        <div class="fee-category">
+                            <h4>Upfront Commission</h4>
+                            <p>
+                                We receive an upfront commission from the lender when your loan settles. 
+                                This commission is calculated as a percentage of the loan amount:
+                            </p>
+                            <ul>
+                                <li><strong>Equipment Finance:</strong> 0.5% to 2.5% of loan amount</li>
+                                <li><strong>Commercial Property:</strong> 0.6% to 1.2% of loan amount</li>
+                                <li><strong>Working Capital:</strong> 1.0% to 3.0% of facility limit</li>
+                                <li><strong>Personal Lending:</strong> 0.65% to 1.1% of loan amount</li>
+                            </ul>
+                            <p>
+                                <em>Commission rates vary based on loan type, lender, loan amount, and terms. 
+                                Specific commission amounts will be disclosed in your quote.</em>
+                            </p>
+                        </div>
+
+                        <div class="fee-category">
+                            <h4>Trail Commission</h4>
+                            <p>
+                                For some loan products, we may receive ongoing trail commission 
+                                throughout the life of the loan:
+                            </p>
+                            <ul>
+                                <li><strong>Home Loans:</strong> 0.15% to 0.25% per annum of outstanding balance</li>
+                                <li><strong>Some Commercial Facilities:</strong> 0.10% to 0.50% per annum</li>
+                                <li><strong>Line of Credit Facilities:</strong> 0.25% to 0.75% per annum of limit</li>
+                            </ul>
+                            <p>
+                                Trail commission is paid by the lender and does not affect your interest rate or loan terms.
+                            </p>
+                        </div>
+
+                        <div class="fee-category">
+                            <h4>Direct Fees (When Applicable)</h4>
+                            <p>
+                                In specific circumstances, we may charge direct fees for our services:
+                            </p>
+                            <ul>
+                                <li><strong>Complex Structuring Fee:</strong> $2,500 to $15,000 for sophisticated commercial structures</li>
+                                <li><strong>Due Diligence Fee:</strong> $1,500 to $5,000 for detailed financial analysis</li>
+                                <li><strong>Documentation Review Fee:</strong> $500 to $2,000 for complex legal documentation</li>
+                                <li><strong>Unsuccessful Application Fee:</strong> $500 to $2,500 (only if disclosed upfront)</li>
+                            </ul>
+                            <p>
+                                <strong>Important:</strong> Any direct fees will be clearly disclosed and agreed upon 
+                                in writing before we commence work on your application.
+                            </p>
+                        </div>
+                    </div>
+
+                    <h3>Third-Party Payments</h3>
+                    <p>
+                        We may receive payments or benefits from third parties including:
+                    </p>
+                    <ul>
+                        <li>Lender marketing and training events</li>
+                        <li>Professional development and education programs</li>
+                        <li>Technology platform and software subsidies</li>
+                        <li>Industry conference and networking event support</li>
+                    </ul>
+                    <p>
+                        These benefits do not influence our credit assistance services or product recommendations, 
+                        which are based on your specific needs and circumstances.
+                    </p>
+
+                    <div class="highlight-box">
+                        <h4>Transparency Commitment</h4>
+                        <p>
+                            We are committed to full transparency about our remuneration. Before proceeding with 
+                            any application, we will provide you with specific details of:
+                        </p>
+                        <ul>
+                            <li>Exact commission amounts we will receive</li>
+                            <li>Any direct fees that may apply</li>
+                            <li>Alternative remuneration structures available</li>
+                            <li>How our remuneration may influence our recommendations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conflicts of Interest -->
+        <section class="credit-section" id="conflicts">
+            <div class="container">
+                <h2>Conflicts of Interest</h2>
+                <div class="content">
+                    <h3>Managing Conflicts of Interest</h3>
+                    <p>
+                        We are committed to managing conflicts of interest to ensure our recommendations 
+                        are in your best interests. We have policies and procedures to identify, 
+                        manage, and disclose any potential conflicts.
+                    </p>
+
+                    <div class="conflict-categories">
+                        <div class="conflict-type">
+                            <h4>Remuneration-Based Conflicts</h4>
+                            <p>
+                                Different lenders may pay different commission rates, which could potentially 
+                                influence our recommendations. To manage this conflict:
+                            </p>
+                            <ul>
+                                <li>We maintain a diverse panel of lenders with competitive rates</li>
+                                <li>Our recommendations are based on a comparison process considering your needs</li>
+                                <li>We disclose commission rates before you sign any applications</li>
+                                <li>We provide explanations for our recommendations beyond just commission</li>
+                            </ul>
+                        </div>
+
+                        <div class="conflict-type">
+                            <h4>Lender Relationships</h4>
+                            <p>
+                                We maintain ongoing business relationships with multiple lenders. These relationships:
+                            </p>
+                            <ul>
+                                <li>Enable us to access competitive products and faster processing</li>
+                                <li>May include volume-based incentives that we disclose transparently</li>
+                                <li>Do not prevent us from recommending the most suitable lender for your needs</li>
+                                <li>Are managed through our conflicts of interest policy</li>
+                            </ul>
+                        </div>
+
+                        <div class="conflict-type">
+                            <h4>Related Entity Interests</h4>
+                            <p>
+                                We do not have ownership interests in any lending institutions. However:
+                            </p>
+                            <ul>
+                                <li>We may have referral arrangements with professional service providers</li>
+                                <li>Any financial interests in related businesses are disclosed</li>
+                                <li>We maintain independence in our credit assistance services</li>
+                                <li>Referrals to related entities are disclosed and optional</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>Conflict Management Strategies</h3>
+                    <p>When conflicts of interest arise, we manage them by:</p>
+                    <ul>
+                        <li><strong>Disclosure:</strong> Full disclosure of any relevant conflicts before providing advice</li>
+                        <li><strong>Avoidance:</strong> Declining to act where conflicts cannot be managed appropriately</li>
+                        <li><strong>Management:</strong> Implementing procedures to ensure conflicts don't compromise our advice</li>
+                        <li><strong>Documentation:</strong> Recording conflicts and management strategies in your file</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <h4>Your Right to Know</h4>
+                        <p>
+                            You have the right to ask about any potential conflicts of interest that may 
+                            affect our services. We encourage you to discuss any concerns about our 
+                            recommendations or the basis for our advice.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Complaints Process -->
+        <section class="credit-section" id="complaints">
+            <div class="container">
+                <h2>Complaints and Dispute Resolution</h2>
+                <div class="content">
+                    <h3>Internal Complaints Process</h3>
+                    <p>
+                        If you have a complaint about our credit services, we have an internal 
+                        dispute resolution process to address your concerns promptly and fairly.
+                    </p>
+
+                    <div class="complaints-process">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Lodge Your Complaint</h4>
+                                <p>Contact us with your complaint using any of the following methods:</p>
+                                <ul>
+                                    <li><strong>Phone:</strong> 1300 XXX XXX</li>
+                                    <li><strong>Email:</strong> complaints@edgeviewfinance.com.au</li>
+                                    <li><strong>Written:</strong> Post to our registered office</li>
+                                    <li><strong>In Person:</strong> During business hours</li>
+                                </ul>
+                                <p>Please provide details of your complaint including relevant dates, documents, and your desired outcome.</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Acknowledgment</h4>
+                                <p>We will acknowledge your complaint within <strong>1 business day</strong> and provide:</p>
+                                <ul>
+                                    <li>Confirmation we have received your complaint</li>
+                                    <li>A reference number for tracking</li>
+                                    <li>The name of the person handling your complaint</li>
+                                    <li>Information about our complaints process</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Investigation</h4>
+                                <p>We will investigate your complaint by:</p>
+                                <ul>
+                                    <li>Reviewing all relevant documentation and records</li>
+                                    <li>Consulting with relevant staff and systems</li>
+                                    <li>Seeking additional information if required</li>
+                                    <li>Considering applicable laws and industry standards</li>
+                                </ul>
+                                <p><strong>Timeframe:</strong> Most complaints are resolved within 21 days. Complex matters may take up to 45 days.</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Resolution</h4>
+                                <p>We will provide a written response including:</p>
+                                <ul>
+                                    <li>Our findings and the reasons for our decision</li>
+                                    <li>Any remedial action we will take</li>
+                                    <li>Any compensation or corrective measures</li>
+                                    <li>Information about external dispute resolution options</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>External Dispute Resolution</h3>
+                    <p>
+                        If you are not satisfied with our internal resolution, or if we do not 
+                        respond within 45 days, you can lodge a complaint with the Australian 
+                        Financial Complaints Authority (AFCA).
+                    </p>
+
+                    <div class="external-complaints">
+                        <div class="external-option">
+                            <h4>Australian Financial Complaints Authority (AFCA)</h4>
+                            <div class="contact-info">
+                                <p><strong>Website:</strong> <a href="https://www.afca.org.au" target="_blank" rel="noopener noreferrer">www.afca.org.au</a></p>
+                                <p><strong>Phone:</strong> 1800 931 678</p>
+                                <p><strong>Email:</strong> info@afca.org.au</p>
+                                <p><strong>Post:</strong> Australian Financial Complaints Authority<br/>
+                                GPO Box 3, Melbourne VIC 3001</p>
+                            </div>
+                            <p>
+                                AFCA is a free service established by the Australian Government to 
+                                resolve complaints about financial services. AFCA can make determinations 
+                                that are binding on us, but not on you.
+                            </p>
+                        </div>
+
+                        <div class="external-option">
+                            <h4>Australian Securities and Investments Commission (ASIC)</h4>
+                            <div class="contact-info">
+                                <p><strong>Website:</strong> <a href="https://www.asic.gov.au" target="_blank" rel="noopener noreferrer">www.asic.gov.au</a></p>
+                                <p><strong>Phone:</strong> 1300 300 630</p>
+                                <p><strong>Online:</strong> ASIC Report Misconduct page</p>
+                            </div>
+                            <p>
+                                ASIC regulates our credit licence and can investigate breaches 
+                                of credit legislation and licensing conditions.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4>No Cost Complaints Service</h4>
+                        <p>
+                            Our internal complaints handling service is provided at no cost to you. 
+                            AFCA's service is also free. You may wish to seek independent legal 
+                            advice, though this is at your own cost.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Privacy Information -->
+        <section class="credit-section" id="privacy">
+            <div class="container">
+                <h2>Privacy and Personal Information</h2>
+                <div class="content">
+                    <h3>How We Handle Your Information</h3>
+                    <p>
+                        We collect, use, and disclose personal information (including credit information) 
+                        in accordance with the Privacy Act 1988 and the Credit Reporting Privacy Code 2014.
+                    </p>
+
+                    <div class="privacy-summary">
+                        <div class="privacy-item">
+                            <h4>Information Collection</h4>
+                            <p>We collect personal information including:</p>
+                            <ul>
+                                <li>Identity and contact information</li>
+                                <li>Financial and employment details</li>
+                                <li>Credit information from credit reporting bodies</li>
+                                <li>Information from referees and other sources</li>
+                            </ul>
+                        </div>
+
+                        <div class="privacy-item">
+                            <h4>Information Use</h4>
+                            <p>We use your information to:</p>
+                            <ul>
+                                <li>Assess your credit needs and borrowing capacity</li>
+                                <li>Recommend suitable credit products</li>
+                                <li>Submit applications to lenders</li>
+                                <li>Manage our ongoing relationship with you</li>
+                            </ul>
+                        </div>
+
+                        <div class="privacy-item">
+                            <h4>Information Disclosure</h4>
+                            <p>We may disclose your information to:</p>
+                            <ul>
+                                <li>Credit providers and their representatives</li>
+                                <li>Credit reporting bodies</li>
+                                <li>Professional service providers</li>
+                                <li>Our related entities and service providers</li>
+                            </ul>
+                        </div>
+
+                        <div class="privacy-item">
+                            <h4>Your Privacy Rights</h4>
+                            <p>You have the right to:</p>
+                            <ul>
+                                <li>Access your personal information</li>
+                                <li>Request correction of inaccurate information</li>
+                                <li>Make a privacy complaint</li>
+                                <li>Opt out of direct marketing</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4>Full Privacy Policy</h4>
+                        <p>
+                            For complete information about how we handle your personal information, 
+                            please read our full <a href="/privacy">Privacy Policy</a>. You can also 
+                            contact our Privacy Officer at privacy@edgeviewfinance.com.au with any 
+                            privacy-related questions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Information -->
+        <section class="credit-section" id="contact">
+            <div class="container">
+                <h2>Contact Information</h2>
+                <div class="content">
+                    <div class="contact-grid">
+                        <div class="contact-card">
+                            <h3>Credit Licensee</h3>
+                            <p><strong>Edgeview Finance Business Solutions Pty Ltd</strong></p>
+                            <p>Australian Credit Licence: {creditLicenceNumber}</p>
+                            <p>ABN: {abnNumber}</p>
+                            <p><strong>Registered Office:</strong><br/>
+                            [Business Address]<br/>
+                            [City, State, Postcode]</p>
+                        </div>
+
+                        <div class="contact-card">
+                            <h3>General Enquiries</h3>
+                            <p><strong>Phone:</strong> 1300 XXX XXX</p>
+                            <p><strong>Email:</strong> enquiries@edgeviewfinance.com.au</p>
+                            <p><strong>Business Hours:</strong><br/>
+                            Monday to Friday<br/>
+                            8:00 AM - 6:00 PM AEST</p>
+                        </div>
+
+                        <div class="contact-card">
+                            <h3>Complaints</h3>
+                            <p><strong>Phone:</strong> 1300 XXX XXX</p>
+                            <p><strong>Email:</strong> complaints@edgeviewfinance.com.au</p>
+                            <p><strong>Response Time:</strong><br/>
+                            Acknowledgment within 1 business day<br/>
+                            Resolution within 21-45 days</p>
+                        </div>
+
+                        <div class="contact-card">
+                            <h3>Privacy Officer</h3>
+                            <p><strong>Email:</strong> privacy@edgeviewfinance.com.au</p>
+                            <p><strong>Phone:</strong> 1300 XXX XXX</p>
+                            <p><strong>Purpose:</strong><br/>
+                            Privacy enquiries and complaints<br/>
+                            Information access requests</p>
+                        </div>
+                    </div>
+
+                    <h3>Professional Memberships</h3>
+                    <div class="memberships">
+                        <p><strong>Finance Brokers Association of Australia (FBAA)</strong><br/>
+                        Member Number: [FBAA Number]</p>
+                        
+                        <p><strong>Mortgage & Finance Association of Australia (MFAA)</strong><br/>
+                        Member Number: [MFAA Number]</p>
+                    </div>
+
+                    <h3>Professional Indemnity Insurance</h3>
+                    <p>
+                        We maintain professional indemnity insurance that satisfies the requirements 
+                        for compensation arrangements under section 912B of the Corporations Act 2001.
+                    </p>
+                    
+                    <div class="insurance-details">
+                        <p><strong>Insurer:</strong> [Insurance Company Name]</p>
+                        <p><strong>Policy Number:</strong> [Policy Number]</p>
+                        <p><strong>Coverage Amount:</strong> $[Amount] per claim</p>
+                        <p><strong>Period:</strong> [Coverage Period]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legal Disclaimers -->
+        <section class="legal-disclaimers">
+            <div class="container">
+                <h2>Important Legal Information</h2>
+                <div class="disclaimers-content">
+                    <div class="disclaimer-box">
+                        <h3>General Disclaimer</h3>
+                        <p>
+                            This Credit Guide contains general information only and does not consider your 
+                            specific needs, objectives, or financial situation. Before making any decisions 
+                            about credit products, you should consider whether they are appropriate for your 
+                            circumstances and seek independent financial advice if necessary.
+                        </p>
+                    </div>
+
+                    <div class="disclaimer-box">
+                        <h3>Credit Product Information</h3>
+                        <p>
+                            Credit products have different features, costs, and risks. Interest rates, fees, 
+                            and terms vary between lenders and may change. You should read and understand 
+                            all product disclosure statements and terms and conditions before proceeding 
+                            with any credit application.
+                        </p>
+                    </div>
+
+                    <div class="disclaimer-box">
+                        <h3>Responsible Lending Obligations</h3>
+                        <p>
+                            We are required to comply with responsible lending obligations under the 
+                            National Consumer Credit Protection Act 2009. This includes making reasonable 
+                            inquiries about your requirements and objectives, taking reasonable steps 
+                            to verify your financial situation, and making reasonable assessments about 
+                            whether credit products are unsuitable for you.
+                        </p>
+                    </div>
+
+                    <div class="disclaimer-box">
+                        <h3>Limitation of Liability</h3>
+                        <p>
+                            While we take reasonable care in providing credit assistance services, 
+                            we cannot guarantee that credit applications will be approved or that 
+                            specific terms will be achieved. Our liability is limited to the 
+                            re-performance of our services or refund of fees paid (where applicable).
+                        </p>
+                    </div>
+                </div>
+
+                <div class="version-control">
+                    <h3>Document Control</h3>
+                    <p><strong>Version:</strong> 2.1</p>
+                    <p><strong>Effective Date:</strong> {lastUpdated}</p>
+                    <p><strong>Next Review Date:</strong> {reviewDate}</p>
+                    <p><strong>Approved By:</strong> Credit Licensee</p>
+                    <p><strong>ASIC Compliance:</strong> RG 206</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Questions About Our Credit Services?</h2>
+                <p>Our licensed credit professionals are available to discuss your commercial finance needs and explain our services in detail.</p>
+                <div class="cta-buttons">
+                    <a href="/contact" class="primary-button large">Speak with a Credit Professional</a>
+                    <a href="/get-quote" class="secondary-button large">Get a Finance Quote</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Edgeview Finance Business Solutions</h4>
+                    <p>Licensed Australian Finance Broker<br/>
+                    ACL: {creditLicenceNumber}<br/>
+                    ABN: {abnNumber}</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="/equipment-finance">Equipment Finance</a></li>
+                        <li><a href="/commercial-property">Commercial Property</a></li>
+                        <li><a href="/working-capital">Working Capital</a></li>
+                        <li><a href="/invoice-financing">Invoice Financing</a></li>
+                        <li><a href="/personal-lending">Personal Lending</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                        <li><a href="/credit-guide" class="active">Credit Guide</a></li>
+                        <li><a href="/complaints">Complaints Process</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Phone: 1300 XXX XXX<br/>
+                    Email: enquiries@edgeviewfinance.com.au<br/>
+                    Complaints: complaints@edgeviewfinance.com.au<br/>
+                    Hours: Mon-Fri 8AM-6PM AEST</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Edgeview Finance Business Solutions. All rights reserved. | 
+                <a href="/privacy">Privacy Policy</a> | 
+                <a href="/terms">Terms of Service</a> | 
+                <a href="/credit-guide" class="active">Credit Guide</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        
+        .logo h1 {
+            color: #2c5aa0;
+            font-size: 1.5rem;
+            margin-bottom: -5px;
+        }
+        
+        .logo span {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            color: #2c5aa0;
+        }
+        
+        .cta-button {
+            background: #e67e22 !important;
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .cta-button:hover {
+            background: #d35400 !important;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c5aa0 0%, #3498db 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
+        
+        .hero-meta {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+        
+        /* Important Notice */
+        .important-notice {
+            padding: 40px 20px;
+            background: #fdf6e3;
+            border-bottom: 3px solid #e67e22;
+        }
+        
+        .notice-box {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .notice-box h2 {
+            color: #d35400;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .notice-box p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Quick Navigation */
+        .quick-nav {
+            padding: 40px 20px;
+            background: white;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .quick-nav h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #2c5aa0;
+        }
+        
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .nav-links a {
+            background: #f8f9fa;
+            color: #2c5aa0;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .nav-links a:hover {
+            background: #2c5aa0;
+            color: white;
+            border-color: #2c5aa0;
+        }
+        
+        /* Credit Sections */
+        .credit-section {
+            padding: 60px 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .credit-section:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .credit-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #2c5aa0;
+            border-bottom: 3px solid #e67e22;
+            padding-bottom: 0.5rem;
+        }
+        
+        .credit-section h3 {
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem 0;
+            color: #e67e22;
+        }
+        
+        .credit-section h4 {
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+            color: #2c5aa0;
+        }
+        
+        .content {
+            max-width: 1000px;
+        }
+        
+        .content p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+        
+        .content ul, .content ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+        }
+        
+        .content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Licensee Details */
+        .licensee-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .detail-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid #2c5aa0;
+        }
+        
+        .detail-card h3 {
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+            margin-top: 0;
+        }
+        
+        /* Representative Details */
+        .representative-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .rep-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            border: 2px solid #e67e22;
+        }
+        
+        .rep-card h4 {
+            color: #e67e22;
+            margin-bottom: 1rem;
+            margin-top: 0;
+        }
+        
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .service-detail {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+        
+        .service-detail h4 {
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+        
+        .service-detail p {
+            font-weight: 600;
+            color: #e67e22;
+            margin-top: 1rem;
+        }
+        
+        /* Remuneration Details */
+        .remuneration-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .fee-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .fee-category h4 {
+            color: #e67e22;
+            margin-bottom: 1rem;
+            margin-top: 0;
+        }
+        
+        /* Conflict Categories */
+        .conflict-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .conflict-type {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #d35400;
+        }
+        
+        .conflict-type h4 {
+            color: #d35400;
+            margin-bottom: 1rem;
+            margin-top: 0;
+        }
+        
+        /* Complaints Process Steps */
+        .complaints-process {
+            margin: 2rem 0;
+        }
+        
+        .step {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .step-number {
+            background: #e67e22;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .step-content h4 {
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+            margin-top: 0;
+        }
+        
+        /* External Complaints */
+        .external-complaints {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .external-option {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            border: 2px solid #2c5aa0;
+        }
+        
+        .external-option h4 {
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+            margin-top: 0;
+        }
+        
+        .contact-info {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+        }
+        
+        /* Privacy Summary */
+        .privacy-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .privacy-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #27ae60;
+        }
+        
+        .privacy-item h4 {
+            color: #27ae60;
+            margin-bottom: 1rem;
+            margin-top: 0;
+        }
+        
+        /* Contact Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+        
+        .contact-card h3 {
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+            margin-top: 0;
+        }
+        
+        .memberships {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+        
+        .insurance-details {
+            background: #e8f4f8;
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin: 2rem 0;
+        }
+        
+        /* Legal Disclaimers */
+        .legal-disclaimers {
+            padding: 60px 20px;
+            background: #f8f9fa;
+        }
+        
+        .disclaimers-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .disclaimer-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .disclaimer-box h3 {
+            color: #e74c3c;
+            margin-bottom: 1rem;
+            margin-top: 0;
+        }
+        
+        .version-control {
+            background: #2c3e50;
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .version-control h3 {
+            color: #ecf0f1;
+            margin-bottom: 1rem;
+        }
+        
+        /* Highlight Boxes */
+        .highlight-box {
+            background: #e8f4f8;
+            border-left: 4px solid #2c5aa0;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .highlight-box h4 {
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+            margin-top: 0;
+        }
+        
+        .highlight-box a {
+            color: #2c5aa0;
+            font-weight: 600;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: #2c5aa0;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .primary-button {
+            background: #e67e22;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .primary-button:hover {
+            background: #d35400;
+            transform: translateY(-2px);
+        }
+        
+        .secondary-button {
+            background: transparent;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border: 2px solid white;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .secondary-button:hover {
+            background: white;
+            color: #2c5aa0;
+        }
+        
+        .large {
+            font-size: 1.2rem;
+            padding: 18px 36px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 20px 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            color: #e67e22;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover,
+        .footer-section a.active {
+            color: white;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #555;
+            padding-top: 1rem;
+            text-align: center;
+            color: #ccc;
+        }
+        
+        .footer-bottom a.active {
+            color: #e67e22;
+            font-weight: 600;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hero-meta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .credit-section h2 {
+                font-size: 2rem;
+            }
+            
+            .licensee-details,
+            .representative-details,
+            .services-grid,
+            .remuneration-details,
+            .conflict-categories,
+            .external-complaints,
+            .privacy-summary,
+            .contact-grid,
+            .disclaimers-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .credit-section {
+                padding: 40px 10px;
+            }
+            
+            .container {
+                padding: 0 10px;
+            }
+            
+            .detail-card,
+            .rep-card,
+            .service-detail,
+            .fee-category,
+            .conflict-type,
+            .step,
+            .external-option,
+            .privacy-item,
+            .contact-card,
+            .disclaimer-box {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</body>
+</html>
