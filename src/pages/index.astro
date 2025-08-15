@@ -11,18 +11,18 @@ import TestimonialCard from '../components/TestimonialCard.astro';
 import Footer from '../components/Footer.astro';
 
 const siteData = {
-  title: "Fast Commercial Finance. No Runaround. | Edgeview Finance",
-  description: "Get equipment finance approved in 24 hours, not 6 weeks. Australian businesses use our proven system to secure equipment loans and commercial finance faster than banks. Zero upfront fees.",
-  keywords: "commercial finance Australia, equipment finance, 24 hour approval, business loans, trade finance, no upfront fees"
+  title: "Expert Commercial Finance Solutions | Edgeview Finance",
+  description: "Professional commercial finance solutions for Australian businesses. Specialising in equipment finance, asset finance, and business loans with competitive rates and expert guidance. Zero upfront fees.",
+  keywords: "commercial finance Australia, equipment finance, business loans, asset finance, trade finance, professional finance broker"
 };
 
 // Service data using Hormozi value propositions
 const services = [
   {
     title: "Equipment Finance",
-    description: "Stop waiting months for equipment approval. Get the machinery you need to grow your business in 24 hours, not 6 weeks.",
+    description: "Access competitive equipment finance solutions tailored to your business needs. Professional service with flexible terms and comprehensive support.",
     features: [
-      "24-hour approvals guaranteed",
+      "Competitive approval processes",
       "$20K to $500K+ funding",
       "Zero upfront fees or surprises", 
       "Flexible payment terms",
@@ -32,22 +32,22 @@ const services = [
     href: "/services/equipment-finance",
     variant: "featured",
     priceRange: "$20K - $500K+",
-    approvalTime: "24 hours"
+    approvalTime: "Efficient processing"
   },
   {
     title: "Commercial Loans", 
-    description: "Need working capital fast? Skip the bank delays. Get business funding approved while competitors wait in line.",
+    description: "Comprehensive working capital solutions designed for established businesses. Expert guidance through streamlined processes.",
     features: [
-      "No bank delays or bureaucracy",
+      "Streamlined application process",
       "Working capital up to $250K",
-      "Same-day pre-approval",
+      "Professional assessment",
       "Cash flow based assessment",
       "Use funds for anything"
     ],
     icon: "business",
     href: "/services/commercial-loans",
     priceRange: "$10K - $250K",
-    approvalTime: "Same day"
+    approvalTime: "Efficient service"
   },
   {
     title: "Asset Finance",
@@ -62,7 +62,7 @@ const services = [
     icon: "asset",
     href: "/services/asset-finance", 
     priceRange: "$15K - $1M+",
-    approvalTime: "48 hours"
+    approvalTime: "Professional service"
   },
   {
     title: "Hire Purchase",
@@ -77,14 +77,14 @@ const services = [
     icon: "hire",
     href: "/services/hire-purchase",
     priceRange: "$5K - $300K",
-    approvalTime: "24 hours"
+    approvalTime: "Expert guidance"
   }
 ];
 
 // Social proof testimonials
 const testimonials = [
   {
-    quote: "Got my excavator approved in one day. Banks wanted 6 weeks and endless paperwork. These guys just get it done.",
+    quote: "Professional service with competitive terms. The team understood our business needs and provided excellent guidance throughout the process.",
     author: "Mark Thompson",
     company: "Thompson Earthworks", 
     location: "Gold Coast, QLD",
@@ -103,7 +103,7 @@ const testimonials = [
     loanAmount: "$75K"
   },
   {
-    quote: "Fast, professional, no runaround. Got three new vans financed while my competitor was still waiting for bank approval.",
+    quote: "Excellent service and competitive rates. The team made the finance process smooth and straightforward for our business expansion.",
     author: "David Wilson",
     company: "Wilson Electrical",
     location: "Sunshine Coast, QLD",
@@ -121,9 +121,9 @@ const testimonials = [
     
     <!-- Hero Section - Hormozi Framework Applied -->
     <Hero 
-      headline="Fast Commercial Finance. No Runaround."
-      subheadline="Get equipment finance approved in 24 hours, not 6 weeks"
-      description="Stop waiting months for finance. Australian businesses use our proven system to secure equipment loans, commercial finance, and asset purchase funding faster than banks. Zero upfront fees."
+      headline="Expert Commercial Finance Solutions"
+      subheadline="Professional commercial finance tailored to your business needs"
+      description="Access competitive commercial finance solutions with expert guidance. Our experienced team specialises in equipment finance, asset finance, and business loans for established Australian businesses. Zero upfront fees."
       primaryCTA={{
         text: "Get Quote in 60 Seconds",
         href: "/get-quote"
@@ -145,7 +145,7 @@ const testimonials = [
       <div class="container-default">
         <div class="text-center max-w-4xl mx-auto">
           <h2 class="text-4xl lg:text-5xl font-bold text-brand-grey-900 mb-6">
-            Tired of Bank Delays Killing Your Business Growth?
+            Looking for the Right Commercial Finance Partner?"
           </h2>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             <div class="text-center">
@@ -154,8 +154,8 @@ const testimonials = [
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 class="text-xl font-semibold text-brand-grey-900 mb-2">6+ Week Delays</h3>
-              <p class="text-brand-grey-700">Banks take forever. Competitors get equipment first.</p>
+              <h3 class="text-xl font-semibold text-brand-grey-900 mb-2">Complex Processes</h3>
+              <p class="text-brand-grey-700">Navigate finance options with confidence and clarity.</p>
             </div>
             <div class="text-center">
               <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -163,8 +163,8 @@ const testimonials = [
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 3h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16c-.77.833.192 2.5 1.732 2.5z" />
                 </svg>
               </div>
-              <h3 class="text-xl font-semibold text-brand-grey-900 mb-2">Hidden Fees</h3>
-              <p class="text-brand-grey-700">Upfront costs drain cash before you even start.</p>
+              <h3 class="text-xl font-semibold text-brand-grey-900 mb-2">Transparent Pricing</h3>
+              <p class="text-brand-grey-700">Clear terms with no hidden costs or surprises.</p>
             </div>
             <div class="text-center">
               <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -172,13 +172,13 @@ const testimonials = [
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </div>
-              <h3 class="text-xl font-semibold text-brand-grey-900 mb-2">Endless Paperwork</h3>
-              <p class="text-brand-grey-700">Complex forms and bureaucracy slow everything down.</p>
+              <h3 class="text-xl font-semibold text-brand-grey-900 mb-2">Expert Guidance</h3>
+              <p class="text-brand-grey-700">Professional support throughout your finance journey.</p>
             </div>
           </div>
           <p class="text-xl text-brand-grey-700 leading-relaxed">
-            While you're waiting for bank approval, opportunities disappear and competitors get ahead. 
-            Every day without the right equipment costs you money.
+            Finding the right commercial finance solution is crucial for business growth. 
+            Our expert team ensures you get competitive terms tailored to your specific needs.
           </p>
         </div>
       </div>
@@ -189,10 +189,10 @@ const testimonials = [
       <div class="container-default">
         <div class="text-center mb-16">
           <h2 class="text-4xl lg:text-5xl font-bold text-brand-grey-900 mb-6">
-            The Solution: Fast Finance That Actually Works
+            Professional Commercial Finance Solutions That Work"
           </h2>
           <p class="text-xl text-brand-grey-700 max-w-3xl mx-auto">
-            Our proven system gets Australian businesses approved fast. No delays, no hidden fees, no runaround.
+            Our experienced team provides professional commercial finance solutions. Transparent processes, competitive rates, expert guidance.
           </p>
         </div>
         
@@ -212,7 +212,7 @@ const testimonials = [
             Real Results from Real Businesses
           </h2>
           <p class="text-xl text-brand-grey-700">
-            Don't take our word for it. See what business owners say about getting finance the fast way.
+            Don't take our word for it. See what business owners say about our professional service.
           </p>
         </div>
         
@@ -245,8 +245,8 @@ const testimonials = [
                 </svg>
               </div>
               <div>
-                <h3 class="text-xl font-semibold text-brand-grey-900 mb-2">24-Hour Approval System (Worth $5,000)</h3>
-                <p class="text-brand-grey-700">Skip weeks of waiting. Get decisions in 24 hours so you can act on opportunities fast.</p>
+                <h3 class="text-xl font-semibold text-brand-grey-900 mb-2">Professional Assessment Process (Worth $5,000)</h3>
+                <p class="text-brand-grey-700">Expert evaluation and competitive terms ensure you get the right finance solution for your business.</p>
               </div>
             </div>
             
@@ -270,7 +270,7 @@ const testimonials = [
               </div>
               <div>
                 <h3 class="text-xl font-semibold text-brand-grey-900 mb-2">Expert Guidance (Worth $3,000)</h3>
-                <p class="text-brand-grey-700">15+ years experience. We know what works and guide you to the right solution.</p>
+                <p class="text-brand-grey-700">15+ years experience. We understand commercial finance and guide you to the optimal solution.</p>
               </div>
             </div>
             
@@ -281,8 +281,8 @@ const testimonials = [
                 </svg>
               </div>
               <div>
-                <h3 class="text-xl font-semibold text-brand-grey-900 mb-2">98% Approval Rate (Priceless)</h3>
-                <p class="text-brand-grey-700">We get deals done when banks say no. Your success is our reputation.</p>
+                <h3 class="text-xl font-semibold text-brand-grey-900 mb-2">High Success Rate (Priceless)</h3>
+                <p class="text-brand-grey-700">Our expertise and lender relationships help secure competitive finance solutions. Your success is our reputation.</p>
               </div>
             </div>
           </div>
@@ -290,7 +290,7 @@ const testimonials = [
           <div class="text-center mt-12 p-8 bg-brand-accent text-white rounded-xl">
             <h3 class="text-2xl font-bold mb-2">Total Value: $10,500+</h3>
             <p class="text-xl mb-4">Your Cost: $0 Upfront</p>
-            <p class="text-brand-grey-100">We only succeed when you get approved. No approval = no fees.</p>
+            <p class="text-brand-grey-100">We only succeed when you get the right finance solution. No approval = no fees.</p>
           </div>
         </div>
       </div>
@@ -300,11 +300,10 @@ const testimonials = [
     <section class="section-padding bg-brand-primary text-white">
       <div class="container-default text-center">
         <h2 class="text-4xl lg:text-5xl font-bold mb-6">
-          Don't Let Another Opportunity Slip Away
+          Ready to Explore Your Finance Options?"
         </h2>
         <p class="text-xl text-brand-grey-100 max-w-3xl mx-auto mb-8">
-          Every day you wait is money lost. Equipment prices rise. Competitors get ahead. 
-          The best time to secure finance was yesterday. The second best time is right now.
+          Make informed decisions about your business finance needs. Our expert team is ready to discuss competitive solutions tailored to your specific requirements."
         </p>
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-center gap-6">
           <a href="/get-quote" class="btn-accent btn-large inline-flex items-center justify-center group">
@@ -335,14 +334,14 @@ const testimonials = [
         <div class="max-w-4xl mx-auto space-y-6">
           <div class="faq-item">
             <button class="faq-question w-full text-left">
-              <span>How can you approve loans in 24 hours when banks take weeks?</span>
+              <span>What makes your commercial finance process different?</span>
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
             <div class="faq-answer">
-              We work with multiple lenders who specialise in fast business finance. No committees, no delays. 
-              They trust our assessment and move quickly on good applications.
+              We work with multiple specialist lenders and have established relationships that enable efficient processing. 
+              Our expertise in commercial finance helps streamline applications for faster decisions.
             </div>
           </div>
           
@@ -354,7 +353,7 @@ const testimonials = [
               </svg>
             </button>
             <div class="faq-answer">
-              With our 98% approval rate, rejections are rare. If it happens, you pay nothing. 
+              With our high success rate, rejections are rare. If it happens, you pay nothing. 
               We only charge when you get approved and funded.
             </div>
           </div>
