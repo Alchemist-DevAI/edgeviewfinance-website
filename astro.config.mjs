@@ -1,10 +1,11 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import vercelAnalytics from '@vercel/analytics/astro';
+import vercelSpeedInsights from '@vercel/speed-insights/astro';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [vercelAnalytics()],
+  integrations: [vercelAnalytics(), vercelSpeedInsights()],
   site: 'https://edgeviewfinance-website.vercel.app',
   base: '/',
   output: 'static',
