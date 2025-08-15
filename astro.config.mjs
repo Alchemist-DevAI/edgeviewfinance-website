@@ -3,7 +3,8 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://edgeviewfinance.com.au',
+  integrations: [],
+  site: 'https://edgeviewfinance-website.vercel.app',
   base: '/',
   output: 'static',
   build: {
