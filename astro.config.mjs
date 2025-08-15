@@ -1,9 +1,11 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import vercelAnalytics from '@vercel/analytics/astro';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://edgeviewfinance.com.au',
+  integrations: [vercelAnalytics()],
+  site: 'https://edgeviewfinance-website.vercel.app',
   base: '/',
   output: 'static',
   build: {
