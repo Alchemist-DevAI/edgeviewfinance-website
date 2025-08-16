@@ -64,9 +64,9 @@ const navigation = [
   </div>
 
   <!-- Mobile Navigation Menu -->
-  <div id="mobile-menu" class="lg:hidden hidden bg-white border-t border-brand-grey-300">
-    <div class="container-default py-4">
-      <nav class="flex flex-col space-y-4">
+  <div id="mobile-menu" class="lg:hidden hidden bg-white border-t border-brand-grey-300 shadow-lg">
+    <div class="container-default py-6">
+      <nav class="flex flex-col space-y-3">
         {navigation.map((item) => (
           <a 
             href={item.href}
@@ -79,7 +79,7 @@ const navigation = [
             {item.name}
           </a>
         ))}
-        <div class="pt-4 border-t border-brand-grey-300 space-y-3">
+        <div class="pt-6 mt-6 border-t border-brand-grey-300 space-y-4">
           <a href="/calculator" class="block px-4 py-2 text-brand-grey-700 hover:text-brand-accent">
             Calculator
           </a>

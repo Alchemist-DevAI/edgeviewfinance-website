@@ -22,7 +22,7 @@ const { header, experienceYears, customers, projectsCompleted } =
           </div>
           <div class='grid grid-cols-1 gap-y-6 sm:grid-cols-3'>
             <div
-              class='relative px-0 text-center after:absolute after:left-full after:top-1/2 after:hidden after:h-10 after:w-0.5 after:-translate-y-1/2 after:bg-primary-orange first:pl-0 last:pr-0 last:after:hidden sm:px-10 sm:after:block'>
+              class='relative px-0 text-center after:absolute after:left-full after:top-1/2 after:hidden after:h-10 after:w-0.5 after:-translate-y-1/2 after:bg-ColorLime first:pl-0 last:pr-0 last:after:hidden sm:px-10 sm:after:block'>
               <div>
                 <div
                   class='mb-[5px] font-PublicSans text-5xl font-bold leading-[1.14] text-[#FDFBF9] xl:text-[56px]'
@@ -33,7 +33,7 @@ const { header, experienceYears, customers, projectsCompleted } =
               </div>
             </div>
             <div
-              class='relative px-0 text-center after:absolute after:left-full after:top-1/2 after:hidden after:h-10 after:w-0.5 after:-translate-y-1/2 after:bg-primary-orange first:pl-0 last:pr-0 last:after:hidden sm:px-10 sm:after:block'>
+              class='relative px-0 text-center after:absolute after:left-full after:top-1/2 after:hidden after:h-10 after:w-0.5 after:-translate-y-1/2 after:bg-ColorLime first:pl-0 last:pr-0 last:after:hidden sm:px-10 sm:after:block'>
               <div>
                 <div
                   class='mb-[5px] font-PublicSans text-5xl font-bold leading-[1.14] text-[#FDFBF9] xl:text-[56px]'
@@ -44,7 +44,7 @@ const { header, experienceYears, customers, projectsCompleted } =
               </div>
             </div>
             <div
-              class='relative px-0 text-center after:absolute after:left-full after:top-1/2 after:hidden after:h-10 after:w-0.5 after:-translate-y-1/2 after:bg-primary-orange first:pl-0 last:pr-0 last:after:hidden sm:px-10 sm:after:block'>
+              class='relative px-0 text-center after:absolute after:left-full after:top-1/2 after:hidden after:h-10 after:w-0.5 after:-translate-y-1/2 after:bg-ColorLime first:pl-0 last:pr-0 last:after:hidden sm:px-10 sm:after:block'>
               <div>
                 <div
                   class='mb-[5px] font-PublicSans text-5xl font-bold leading-[1.14] text-[#FDFBF9] xl:text-[56px]'

@@ -9,7 +9,7 @@ const { title, description, buttonPrimary, buttonSecondary } =
 <section class='section-cta relative z-30'>
   <div class='-mb-20 lg:-mb-40'>
     <div class='container-default'>
-      <div class='relative z-10 rounded-[5px] bg-primary-orange'>
+      <div class='relative z-10 rounded-[5px] bg-ColorPurple'>
         <div class='py-[60px] lg:py-20 xl:py-[100px]'>
           <div class='mx-auto max-w-full px-8 md:max-w-[80%] lg:max-w-[675px]'>
             <h2

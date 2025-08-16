@@ -33,17 +33,18 @@ const heroData = {
   
   <main>
     <!-- Hero Section with Refined Spacing -->
-    <section class='relative z-10 overflow-hidden'>
-      <div class='section-hero'>
-        <div class='container-default relative z-10'>
+    <section class='section-hero'>
+      <div class='relative z-10 overflow-hidden'>
+        <div class='pt-28 pb-20 sm:pt-32 sm:pb-24 lg:pt-40 lg:pb-32'>
+          <div class='container-default relative z-10'>
             <div class='text-center'>
-              <h1 class='jos heading-primary mx-auto mb-8 font-PublicSans max-w-5xl'>
+              <h1 class='jos mx-auto mb-8 font-PublicSans text-4xl font-bold leading-tight text-secondary-dark sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl max-w-5xl'>
                 {heroData.data.header}
               </h1>
-              <p class='jos body-large mx-auto mb-10 max-w-2xl'>
+              <p class='jos mx-auto mb-10 max-w-2xl text-lg lg:text-xl text-gray-700 leading-relaxed'>
                 {heroData.data.description}
               </p>
-              <div class='jos flex flex-wrap justify-center button-gap'>
+              <div class='jos flex flex-wrap justify-center gap-4'>
                 <a href={heroData.data.buttonPrimary.link} class='btn is-primary is-large btn-animation group rounded bg-primary-orange hover:bg-primary-orange-dark text-white px-8 py-4 font-semibold text-base lg:text-lg transition-all duration-200 shadow-lg hover:shadow-xl'>
                   <span>{heroData.data.buttonPrimary.text}</span>
                 </a>
@@ -78,13 +79,13 @@ const heroData = {
     </section>
 
     <!-- Services Section with Refined Grid and Spacing -->
-    <section class="section-content bg-neutral-light">
+    <section class="py-20 lg:py-28 bg-neutral-light">
       <div class="container-default">
         <div class="text-center mb-16 lg:mb-20">
-          <h2 class="heading-secondary mb-6">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-secondary-dark mb-6 leading-tight">
             Professional Commercial Finance Solutions
           </h2>
-          <p class="body-large max-w-3xl mx-auto">
+          <p class="text-lg lg:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
             Our experienced team provides professional commercial finance solutions. 
             Transparent processes, competitive rates, expert guidance.
           </p>
@@ -92,7 +93,7 @@ const heroData = {
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
           <!-- Equipment Finance Card -->
-          <div class="service-card-consistent border-t-4 border-primary-orange">
+          <div class="bg-white rounded-xl p-8 lg:p-10 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-primary-orange transform hover:-translate-y-1">
             <div class="flex items-center mb-6">
               <div class="w-14 h-14 bg-primary-orange rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                 <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -134,7 +135,7 @@ const heroData = {
           </div>
 
           <!-- Commercial Loans Card -->
-          <div class="service-card-consistent border-t-4 border-secondary-dark">
+          <div class="bg-white rounded-xl p-8 lg:p-10 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-secondary-dark transform hover:-translate-y-1">
             <div class="flex items-center mb-6">
               <div class="w-14 h-14 bg-secondary-dark rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                 <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -176,7 +177,7 @@ const heroData = {
           </div>
 
           <!-- Asset Finance Card -->
-          <div class="service-card-consistent border-t-4 border-primary-orange">
+          <div class="bg-white rounded-xl p-8 lg:p-10 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-primary-orange transform hover:-translate-y-1">
             <div class="flex items-center mb-6">
               <div class="w-14 h-14 bg-gradient-to-r from-primary-orange to-secondary-dark rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                 <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -217,7 +218,7 @@ const heroData = {
           </div>
 
           <!-- Hire Purchase Card -->
-          <div class="service-card-consistent border-t-4 border-secondary-dark">
+          <div class="bg-white rounded-xl p-8 lg:p-10 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-secondary-dark transform hover:-translate-y-1">
             <div class="flex items-center mb-6">
               <div class="w-14 h-14 bg-secondary-dark rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                 <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -261,16 +262,16 @@ const heroData = {
     </section>
 
     <!-- CTA Section with Better Spacing -->
-    <section class="section-cta bg-gradient-to-br from-primary-orange to-secondary-dark">
+    <section class="py-20 lg:py-28 bg-gradient-to-br from-primary-orange to-secondary-dark">
       <div class="container-default text-center">
-        <h2 class="heading-secondary text-white mb-6">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
           Ready to Get Started?
         </h2>
-        <p class="body-large text-white/90 max-w-2xl mx-auto mb-10">
+        <p class="text-lg lg:text-xl text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed">
           Join thousands of Australian businesses that trust us with their commercial finance needs. 
           Fast approvals, competitive rates, zero upfront fees.
         </p>
-        <div class="flex flex-wrap justify-center button-gap">
+        <div class="flex flex-wrap justify-center gap-4">
           <a href="/get-quote" class="bg-white text-secondary-dark hover:bg-neutral-light px-8 py-4 rounded font-semibold text-base lg:text-lg transition-all duration-200 shadow-xl hover:shadow-2xl">
             Get Your Quote
           </a>

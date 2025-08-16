@@ -1,0 +1,53 @@
+---
+import { getEntryBySlug } from "astro:content";
+import { getCollection } from "astro:content";
+var portfolio = await getCollection("portfolio");
+portfolio = portfolio.filter((portfolioSingle) =>
+  portfolioSingle.slug.startsWith("portfolio-")
+);
+import PortfolioCard from "../ui/PortfolioCard.astro";
+import Button from "../ui/Button.astro";
+import { Image } from "astro:assets";
+const {
+  data: { indexHeader, button },
+} = await getEntryBySlug("portfolio", "index");
+---
+
+<section class='section-portfolio'>
+  <div class='relative z-10 overflow-hidden'>
+    <div class='section-space'>
+      <div class='container-default'>
+        <div
+          class='jos mb-[60px] flex flex-wrap items-end justify-between gap-8 xl:mb-20'>
+          <div class='max-w-[550px]'>
+            <h2>{indexHeader}</h2>
+          </div>
+          <Button link={button?.link} text={button?.text} />
+        </div>
+        <div class='grid gap-8 md:grid-cols-2 lg:gap-10 xl:gap-[60px]'>
+          {
+            portfolio.slice(0, 2).map(({ data }) => {
+              const { image, title, type, category } = data;
+              return (
+                <PortfolioCard
+                  image={image}
+                  title={title}
+                  type={type}
+                  category={category}
+                />
+              );
+            })
+          }
+        </div>
+      </div>
+    </div>
+    <div class='absolute right-0 top-0 -z-10'>
+      <Image
+        src='/assets/img/elements/portfolio-1-shape-1.svg'
+        alt='portfolio-1-shape-1'
+        width='467'
+        height='609'
+      />
+    </div>
+  </div>
+</section>

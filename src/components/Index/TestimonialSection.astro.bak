@@ -6,7 +6,7 @@ const { testimonials, Header, description, button } = Testimonial.data;
 ---
 
 <section class='section-testimonial'>
-  <div class='bg-neutral-light'>
+  <div class='bg-ColorOffWhite'>
     <div class='section-space'>
       <div class='container-default'>
         <div

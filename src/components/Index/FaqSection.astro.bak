@@ -15,7 +15,7 @@ const { content, header, button } = QNA.data;
         <Header heading={header} MaxWidth='max-w-[625px]' />
         <div class='jos'>
           <ul
-            class='mx-auto max-w-[1076px] rounded-[10px] border border-secondary-dark'>
+            class='mx-auto max-w-[1076px] rounded-[10px] border border-ColorBlack'>
             {
               content.map(({ Q, A }: any, index: number) => (
                 <FaqCard Q={Q} A={A} index={index} />

@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets";
+import { getEntryBySlug } from "astro:content";
+const ContentArea3 = await getEntryBySlug("IndexPage", "content-3");
+const { header, description, button } = ContentArea3?.data;
+---
+
+<section class='section-content'>
+  <div class='section-space'>
+    <div class='container-default'>
+      <div class='flex flex-col gap-y-20 lg:gap-y-[100px] xl:gap-y-[120px]'>
+        <div
+          class='grid items-center gap-10 md:grid-cols-2 lg:gap-24 xl:gap-60'>
+          <div class='jos' data-jos_animation='fade-right'>
+            <div>
+              <div class='mb-5'>
+                <h2
+                  class='font-PublicSans text-4xl font-bold leading-[1.14] text-[#121212] lg:text-left lg:text-5xl xl:text-[56px]'>
+                  {header}
+                </h2>
+              </div>
+            </div>
+            <p class='mb-5'>
+              {description}
+            </p>
+            <div class='mt-8 lg:mt-[50px]'>
+              <a
+                href={button?.link}
+                class='btn is-lime is-large btn-animation group inline-block rounded-[3px]'
+                ><span>{button?.text}</span></a
+              >
+            </div>
+          </div>
+          <div class='jos' data-jos_animation='fade-left'>
+            <Image
+              src='/assets/img/th-8/content-img-3.png'
+              alt='content-img-3'
+              width='636'
+              height='501'
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div
+  class='absolute -z-10 hidden xl:left-10 xl:top-[52%] xl:inline-block xxl:left-[90px] xxl:top-[45%]'>
+  <Image
+    src='/assets/img/elements/home-8-dot-shape-3.svg'
+    alt='home-8-dot-shape-3'
+    width='209'
+    height='297'
+  />
+</div>

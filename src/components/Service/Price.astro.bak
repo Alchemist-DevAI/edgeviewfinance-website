@@ -51,7 +51,7 @@ const {
           </div>
           <div class='mx-auto max-w-[1076px]'>
             <div
-              class='flex flex-col items-center rounded-[10px] border border-secondary-dark bg-white p-10 md:flex-row md:divide-x md:px-10 md:py-0 lg:px-[73px]'>
+              class='flex flex-col items-center rounded-[10px] border border-ColorBlack bg-white p-10 md:flex-row md:divide-x md:px-10 md:py-0 lg:px-[73px]'>
               <div
                 class='w-full text-center md:w-1/2 md:py-[50px] md:pr-10 md:text-left lg:pr-20'>
                 <div class='text-xl leading-[1.6] tracking-tighter'>
@@ -96,7 +96,7 @@ const {
                 </ul>
                 <a
                   href={button?.link}
-                  class='btn mt-[30px] block rounded-[3px] border-none bg-[#C1FF00] py-[18px] text-secondary-dark hover:bg-[#a6ff00] xl:mt-[50px]'
+                  class='btn mt-[30px] block rounded-[3px] border-none bg-[#C1FF00] py-[18px] text-ColorBlack hover:bg-[#a6ff00] xl:mt-[50px]'
                   >{button?.text}</a
                 >
               </div>

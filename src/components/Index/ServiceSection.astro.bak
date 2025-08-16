@@ -37,7 +37,7 @@ const { indexheader, description } = IndexData.data;
                     data-jos_delay='0'>
                     <a
                       href={`/service/${slug(title)}`}
-                      class='flex items-center justify-between gap-5 font-PublicSans text-[22px] font-semibold leading-[1.23] text-[#FDFBF9] transition-all duration-300 hover:text-primary-orange xl:text-2xl xxl:text-[26px]'>
+                      class='flex items-center justify-between gap-5 font-PublicSans text-[22px] font-semibold leading-[1.23] text-[#FDFBF9] transition-all duration-300 hover:text-ColorLime xl:text-2xl xxl:text-[26px]'>
                       {index + 1}. {title}
                       <span class='inline-block -rotate-[30deg] text-2xl'>
                         <i class='fa fa-arrow-right' />
@@ -57,7 +57,7 @@ const { indexheader, description } = IndexData.data;
                     data-jos_delay='0'>
                     <a
                       href={`/service/${slug(title)}`}
-                      class='flex items-center justify-between gap-5 font-PublicSans text-[22px] font-semibold leading-[1.23] text-[#FDFBF9] transition-all duration-300 hover:text-primary-orange xl:text-2xl xxl:text-[26px]'>
+                      class='flex items-center justify-between gap-5 font-PublicSans text-[22px] font-semibold leading-[1.23] text-[#FDFBF9] transition-all duration-300 hover:text-ColorLime xl:text-2xl xxl:text-[26px]'>
                       {index + Services?.slice(0, Services.length / 2).length}.{" "}
                       {title}
                       <span class='inline-block -rotate-[30deg] text-2xl'>

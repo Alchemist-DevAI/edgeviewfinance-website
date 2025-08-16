@@ -114,6 +114,24 @@
     @apply card-hover p-8;
   }
   
+  /* Enhanced Card Variants */
+  .card-shadow-soft {
+    @apply shadow-sm hover:shadow-lg;
+  }
+  
+  .card-shadow-medium {
+    @apply shadow-lg hover:shadow-xl;
+  }
+  
+  .card-shadow-strong {
+    @apply shadow-xl hover:shadow-2xl;
+  }
+  
+  /* Service Card Consistency */
+  .service-card-consistent {
+    @apply bg-white rounded-xl card-padding-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1;
+  }
+  
   .feature-card {
     @apply bg-neutral-light border border-border-light rounded-lg p-6 text-center;
   }
@@ -141,6 +159,31 @@
     @apply py-16 lg:py-24;
   }
   
+  /* EVFBS Spacing System - 8px base unit */
+  .section-hero {
+    @apply pt-32 pb-24 sm:pt-36 sm:pb-28 lg:pt-44 lg:pb-32;
+  }
+  
+  .section-content {
+    @apply py-20 lg:py-28;
+  }
+  
+  .section-cta {
+    @apply py-24 lg:py-32;
+  }
+  
+  .card-padding-sm {
+    @apply p-6 lg:p-8;
+  }
+  
+  .card-padding-lg {
+    @apply p-8 lg:p-10;
+  }
+  
+  .button-gap {
+    @apply gap-4 lg:gap-6;
+  }
+  
   .container-default {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
@@ -156,6 +199,27 @@
   
   .hero-subtitle {
     @apply text-xl lg:text-2xl font-light mb-8 text-gray-100;
+  }
+  
+  /* Typography Enhancement System */
+  .heading-primary {
+    @apply text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-secondary-dark leading-tight;
+  }
+  
+  .heading-secondary {
+    @apply text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-secondary-dark leading-tight;
+  }
+  
+  .heading-tertiary {
+    @apply text-2xl sm:text-3xl lg:text-4xl font-bold text-secondary-dark leading-tight;
+  }
+  
+  .body-large {
+    @apply text-lg lg:text-xl text-gray-700 leading-relaxed;
+  }
+  
+  .body-medium {
+    @apply text-base lg:text-lg text-gray-700 leading-relaxed;
   }
   
   /* Icon Components */

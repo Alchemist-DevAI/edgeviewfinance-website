@@ -42,7 +42,7 @@ const { header, description } = blogHeader?.data;
                     </a>
                     <a
                       href={`/blog/${slug(title)}`}
-                      class='absolute right-[10px] top-[10px] inline-block rounded-[3px] bg-[#FDFBF9] px-5 py-[10px] text-base font-bold hover:bg-primary-orange'>
+                      class='absolute right-[10px] top-[10px] inline-block rounded-[3px] bg-[#FDFBF9] px-5 py-[10px] text-base font-bold hover:bg-ColorPurple'>
                       {category}
                     </a>
                   </div>
@@ -50,7 +50,7 @@ const { header, description } = blogHeader?.data;
                     <div class='mb-[15px] flex flex-col gap-x-[15px] gap-y-2 text-base font-bold xl:flex-row'>
                       <a
                         href={`/blog/${slug(title)}`}
-                        class='flex gap-[10px] hover:text-primary-orange'>
+                        class='flex gap-[10px] hover:text-ColorPurple'>
                         <span class='text-sm'>
                           <i class='fa fa-circle-user' />
                         </span>
@@ -58,7 +58,7 @@ const { header, description } = blogHeader?.data;
                       </a>
                       <a
                         href={`/blog/${slug(title)}`}
-                        class='flex gap-[10px] hover:text-primary-orange'>
+                        class='flex gap-[10px] hover:text-ColorPurple'>
                         <span class='text-sm'>
                           <i class='fa fa-calendar' />
                         </span>
@@ -67,13 +67,13 @@ const { header, description } = blogHeader?.data;
                     </div>
                     <a
                       href={`/blog/${slug(title)}`}
-                      class='mb-[30px] block font-PublicSans font-bold leading-[1.35] text-[#121212] group-hover:text-primary-orange xl:text-2xl xxl:text-[28px]'>
+                      class='mb-[30px] block font-PublicSans font-bold leading-[1.35] text-[#121212] group-hover:text-ColorPurple xl:text-2xl xxl:text-[28px]'>
                       {title}
                     </a>
 
                     <a
                       href={`/blog/${slug(title)}`}
-                      class='mt-auto inline-flex items-center gap-x-2 text-base font-bold text-[#121212] hover:text-primary-orange'>
+                      class='mt-auto inline-flex items-center gap-x-2 text-base font-bold text-[#121212] hover:text-ColorPurple'>
                       Read more
                       <span class='transition-all duration-300 ease-in-out hover:translate-x-2'>
                         <i class='fa-solid fa-arrow-right' />
