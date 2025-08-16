@@ -22,35 +22,32 @@ export default {
         FontAwesome: ["Font Awesome 6 Pro"],
       },
       colors: {
-        // Agency11 colors with EVFBS brand integration
-        ColorDark: "#191919",
-        ColorBlack: "#0A102F",
-        ColorBlue: "#3147FF", // Keep Agency11 vibrant blue for accent elements
-        ColorOffWhite: "#FAF9F5",
-        ColorPurple: "#A259FF", // Keep Agency11 purple for creative elements
-        ColorBluePurple: "#004499",
-        ColorYellow: "#FFC900",
-        ColorViolet: "#A259FF",
-        ColorAtomicTangerine: "#FF9966",
-        ColorLime: "#C1FF00", // Keep Agency11 lime for CTAs
-        ColorLunarGreen: "#324438",
-        ColorAlmond: "#EBDECE",
-        ColorCorn: "#F4B905",
-        ColorOil: "#221F1A",
-        ColorPaleGold: "#FFD874",
-        ColorEggSour: "#FFF4D9",
-        ColorDenimDarkBlue: "#003366",
-        ColorCaribbeanGreen: "#15CF92",
-        ColorMidnightMoss: "#010D09",
-        ColorHoneySuckle: "#E9FF97",
+        // Figma Design System Colors
+        'primary-orange': '#FF9E10', // Primary Orange - CTAs, highlights, energy
+        'secondary-dark': '#1C2C3B', // Secondary Dark - text, professionalism
+        'neutral-light': '#F7F7F7', // Neutral Light - backgrounds, subtle contrast
+        'pure-white': '#FFFFFF', // Pure White - primary background
         
-        // EVFBS specific colors
-        'brand-primary': '#003366',
-        'brand-primary-light': '#004080',
-        'brand-primary-dark': '#002244',
-        'brand-accent': '#0066CC',
-        'brand-accent-light': '#3399FF',
-        'brand-accent-dark': '#004499',
+        // Extended palette for gradients and states
+        'primary-orange-light': '#FFB541',
+        'primary-orange-dark': '#E68900',
+        'secondary-darker': '#141F2B',
+        'secondary-light': '#2A3D4F',
+        
+        // Semantic colors
+        'text-primary': '#1C2C3B',
+        'text-secondary': '#5A6B7B',
+        'text-light': '#8A9AA8',
+        'border-light': '#E5E7EB',
+        'border-medium': '#D1D5DB',
+        
+        // EVFBS brand colors (legacy support)
+        'brand-primary': '#1C2C3B', // Updated to match Secondary Dark
+        'brand-primary-light': '#2A3D4F',
+        'brand-primary-dark': '#141F2B',
+        'brand-accent': '#FF9E10', // Updated to match Primary Orange
+        'brand-accent-light': '#FFB541',
+        'brand-accent-dark': '#E68900',
         
         // Supporting Greys
         'brand-grey-50': '#F8F9FA',
@@ -63,6 +60,27 @@ export default {
         'brand-grey-700': '#343A40',
         'brand-grey-800': '#212529',
         'brand-grey-900': '#1A1A1A',
+        
+        // Agency11 compatibility (map to Figma colors)
+        'ColorBlack': '#1C2C3B', // Maps to secondary-dark
+        'ColorBlue': '#FF9E10', // Maps to primary-orange
+        'ColorBlue2': '#FFB541', // Maps to primary-orange-light
+        'ColorOffWhite': '#F7F7F7', // Maps to neutral-light
+        'ColorWhite': '#FFFFFF', // Maps to pure-white
+        'ColorGreen': '#FF9E10', // Maps to primary orange for consistency
+        'ColorLime': '#FF9E10', // Maps to primary orange for consistency
+        'ColorYellow': '#FFB541', // Maps to primary-orange-light
+        'ColorDark': '#141F2B', // Maps to secondary-darker
+        'ColorPurple': '#FF9E10', // Maps to primary-orange
+        'ColorViolet': '#FFB541', // Maps to primary-orange-light
+        'ColorAtomicTangerine': '#FF9E10', // Maps to primary-orange
+        'ColorLunarGreen': '#2A3D4F', // Maps to secondary-light
+        'ColorDenimDarkBlue': '#1C2C3B', // Maps to secondary-dark
+        'ColorPaleGold': '#FFB541', // Maps to primary-orange-light
+        'ColorCaribbeanGreen': '#FF9E10', // Maps to primary-orange
+        'ColorHoneySuckle': '#FFB541', // Maps to primary-orange-light
+        'ColorMidnightMoss': '#141F2B', // Maps to secondary-darker
+        'ColorCorn': '#F7F7F7', // Maps to neutral-light
       },
       fontSize: {
         // Custom text sizes for EVFBS

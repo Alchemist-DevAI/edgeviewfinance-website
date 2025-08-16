@@ -5,7 +5,7 @@
 @layer base {
   body,
   .page-wrapper {
-    @apply min-h-screen font-body text-lg leading-[1.66] text-ColorBlack/80;
+    @apply min-h-screen font-body text-lg leading-[1.66] text-secondary-dark/80;
   }
 
   /* Default Heading */
@@ -15,7 +15,7 @@
   h4,
   h5,
   h6 {
-    @apply font-PlusJakartaSans font-extrabold leading-[1.05] -tracking-[2px] text-ColorBlack;
+    @apply font-PlusJakartaSans font-extrabold leading-[1.05] -tracking-[2px] text-secondary-dark;
   }
 
   h1 {

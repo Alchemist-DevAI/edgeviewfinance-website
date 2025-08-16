@@ -38,11 +38,11 @@
   }
   
   body {
-    @apply font-body text-brand-grey-700 leading-relaxed;
+    @apply font-body text-text-primary leading-relaxed bg-pure-white;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-semibold text-brand-grey-900;
+    @apply font-heading font-semibold text-secondary-dark;
   }
   
   h1 {
@@ -74,7 +74,7 @@
   }
   
   a {
-    @apply text-brand-accent hover:text-brand-accent-dark transition-colors duration-200;
+    @apply text-primary-orange hover:text-primary-orange-dark transition-colors duration-200;
   }
 }
 
@@ -86,15 +86,15 @@
   }
   
   .btn-primary {
-    @apply btn bg-brand-primary text-white border-2 border-brand-primary hover:bg-brand-primary-dark hover:border-brand-primary-dark hover:-translate-y-0.5 focus:ring-brand-primary;
+    @apply btn bg-primary-orange text-white border-2 border-primary-orange hover:bg-primary-orange-dark hover:border-primary-orange-dark hover:-translate-y-0.5 focus:ring-primary-orange;
   }
   
   .btn-secondary {
-    @apply btn bg-transparent text-brand-primary border-2 border-brand-primary hover:bg-brand-primary hover:text-white focus:ring-brand-primary;
+    @apply btn bg-transparent text-secondary-dark border-2 border-secondary-dark hover:bg-secondary-dark hover:text-white focus:ring-secondary-dark;
   }
   
   .btn-accent {
-    @apply btn bg-brand-accent text-white border-2 border-brand-accent hover:bg-brand-accent-dark hover:border-brand-accent-dark hover:-translate-y-0.5 focus:ring-brand-accent;
+    @apply btn bg-primary-orange text-white border-2 border-primary-orange hover:bg-primary-orange-dark hover:border-primary-orange-dark hover:-translate-y-0.5 focus:ring-primary-orange;
   }
   
   .btn-large {
@@ -103,11 +103,11 @@
   
   /* Card Components */
   .card {
-    @apply bg-white border border-brand-grey-300 rounded-xl p-6 shadow-soft transition-all duration-200;
+    @apply bg-pure-white border border-border-light rounded-xl p-6 shadow-soft transition-all duration-200;
   }
   
   .card-hover {
-    @apply card hover:border-brand-accent hover:shadow-accent hover:-translate-y-1;
+    @apply card hover:border-primary-orange hover:shadow-accent hover:-translate-y-1;
   }
   
   .service-card {
@@ -115,7 +115,7 @@
   }
   
   .feature-card {
-    @apply bg-brand-grey-50 border border-brand-grey-300 rounded-lg p-6 text-center;
+    @apply bg-neutral-light border border-border-light rounded-lg p-6 text-center;
   }
   
   /* Navigation Components */
@@ -147,7 +147,7 @@
   
   /* Hero Components */
   .hero-section {
-    @apply bg-gradient-to-br from-brand-primary to-brand-primary-dark text-white;
+    @apply bg-gradient-to-br from-secondary-dark to-secondary-darker text-white;
   }
   
   .hero-title {
@@ -155,12 +155,12 @@
   }
   
   .hero-subtitle {
-    @apply text-xl lg:text-2xl font-light mb-8 text-brand-grey-100;
+    @apply text-xl lg:text-2xl font-light mb-8 text-gray-100;
   }
   
   /* Icon Components */
   .icon-wrapper {
-    @apply flex items-center justify-center w-16 h-16 bg-brand-accent text-white rounded-full mx-auto mb-4;
+    @apply flex items-center justify-center w-16 h-16 bg-primary-orange text-white rounded-full mx-auto mb-4;
   }
   
   .icon-large {
