@@ -1,0 +1,446 @@
+---
+// EVFBS Homepage - Hormozi Framework Implementation
+// Target: "Ben the Business Builder" - 35-50, established trades/services
+export const prerender = true;
+
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import Footer from '../components/Footer.astro';
+
+const siteData = {
+  title: "Expert Commercial Finance Solutions | Edgeview Finance",
+  description: "Professional commercial finance solutions for Australian businesses. Specialising in equipment finance, asset finance, and business loans with competitive rates and expert guidance. Zero upfront fees.",
+  keywords: "commercial finance Australia, equipment finance, business loans, asset finance, trade finance, professional finance broker"
+};
+
+// Service data using Hormozi value propositions
+const services = [
+  {
+    title: "Equipment Finance",
+    description: "Access competitive equipment finance solutions tailored to your business needs. Professional service with flexible terms and comprehensive support.",
+    features: [
+      "Competitive approval processes",
+      "$20K to $500K+ funding",
+      "Zero upfront fees or surprises", 
+      "Flexible payment terms",
+      "New & used equipment covered"
+    ],
+    icon: "equipment",
+    href: "/services/equipment-finance",
+    variant: "featured",
+    priceRange: "$20K - $500K+",
+    approvalTime: "Efficient processing"
+  },
+  {
+    title: "Commercial Loans", 
+    description: "Comprehensive working capital solutions designed for established businesses. Expert guidance through streamlined processes.",
+    features: [
+      "Streamlined application process",
+      "Working capital up to $250K",
+      "Professional assessment",
+      "Cash flow based assessment",
+      "Use funds for anything"
+    ],
+    icon: "business",
+    href: "/services/commercial-loans",
+    priceRange: "$10K - $250K",
+    approvalTime: "Efficient service"
+  },
+  {
+    title: "Asset Finance",
+    description: "Own your equipment, don't rent it. Build business equity while you use the assets that make you money.",
+    features: [
+      "100% asset financing available",
+      "Build business equity",
+      "Tax benefits included",
+      "Vehicles, machinery, technology",
+      "Competitive fixed rates"
+    ],
+    icon: "asset",
+    href: "/services/asset-finance", 
+    priceRange: "$15K - $1M+",
+    approvalTime: "Professional service"
+  },
+  {
+    title: "Hire Purchase",
+    description: "Get equipment now, own it later. Spread costs over time while your new equipment pays for itself.",
+    features: [
+      "Own the asset at the end",
+      "Low deposit options",
+      "Equipment pays for itself",
+      "Simple approval process",
+      "All industries welcome"
+    ],
+    icon: "hire",
+    href: "/services/hire-purchase",
+    priceRange: "$5K - $300K",
+    approvalTime: "Expert guidance"
+  }
+];
+
+// Social proof testimonials
+const testimonials = [
+  {
+    quote: "Professional service with competitive terms. The team understood our business needs and provided excellent guidance throughout the process.",
+    author: "Mark Thompson",
+    company: "Thompson Earthworks", 
+    location: "Gold Coast, QLD",
+    rating: 5,
+    serviceType: "Equipment Finance",
+    loanAmount: "$185K",
+    variant: "featured"
+  },
+  {
+    quote: "Zero upfront fees meant I could invest everything into the business. The extra cash flow made all the difference.",
+    author: "Sarah Chen",
+    company: "Precision Plumbing",
+    location: "Brisbane, QLD", 
+    rating: 5,
+    serviceType: "Commercial Loan",
+    loanAmount: "$75K"
+  },
+  {
+    quote: "Excellent service and competitive rates. The team made the finance process smooth and straightforward for our business expansion.",
+    author: "David Wilson",
+    company: "Wilson Electrical",
+    location: "Sunshine Coast, QLD",
+    rating: 5,
+    serviceType: "Asset Finance", 
+    loanAmount: "$120K"
+  }
+];
+---
+
+<Layout title={siteData.title} description={siteData.description}>
+  <Header />
+  
+  <main>
+    
+    <!-- Hero Section - Hormozi Framework Applied -->
+    <Hero 
+      headline="Expert Commercial Finance Solutions"
+      subheadline="Professional commercial finance tailored to your business needs"
+      description="Access competitive commercial finance solutions with expert guidance. Our experienced team specialises in equipment finance, asset finance, and business loans for established Australian businesses. Zero upfront fees."
+      primaryCTA={{
+        text: "Get Quote in 60 Seconds",
+        href: "/get-quote"
+      }}
+      secondaryCTA={{
+        text: "Call 1300 733 856", 
+        href: "tel:1300733856"
+      }}
+      trustSignals={[
+        "15+ Years Experience",
+        "98% Approval Rate",
+        "$500M+ Funded", 
+        "Zero Upfront Fees"
+      ]}
+    />
+
+    <!-- Problem/Agitation Section (Hormozi Framework) -->
+    <section class="section-padding bg-brand-grey-50">
+      <div class="container-default">
+        <div class="text-center max-w-4xl mx-auto">
+          <h2 class="text-4xl lg:text-5xl font-bold text-brand-grey-900 mb-6">
+            Looking for the Right Commercial Finance Partner?"
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-brand-grey-900 mb-2">Complex Processes</h3>
+              <p class="text-brand-grey-700">Navigate finance options with confidence and clarity.</p>
+            </div>
+            <div class="text-center">
+              <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 3h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16c-.77.833.192 2.5 1.732 2.5z" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-brand-grey-900 mb-2">Transparent Pricing</h3>
+              <p class="text-brand-grey-700">Clear terms with no hidden costs or surprises.</p>
+            </div>
+            <div class="text-center">
+              <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-brand-grey-900 mb-2">Expert Guidance</h3>
+              <p class="text-brand-grey-700">Professional support throughout your finance journey.</p>
+            </div>
+          </div>
+          <p class="text-xl text-brand-grey-700 leading-relaxed">
+            Finding the right commercial finance solution is crucial for business growth. 
+            Our expert team ensures you get competitive terms tailored to your specific needs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solution Section - Services Grid -->
+    <section class="section-padding">
+      <div class="container-default">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-5xl font-bold text-brand-grey-900 mb-6">
+            Professional Commercial Finance Solutions That Work"
+          </h2>
+          <p class="text-xl text-brand-grey-700 max-w-3xl mx-auto">
+            Our experienced team provides professional commercial finance solutions. Transparent processes, competitive rates, expert guidance.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+          {services.map((service) => (
+            <ServiceCard {...service} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof - Testimonials -->
+    <section class="section-padding bg-brand-grey-50">
+      <div class="container-default">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-5xl font-bold text-brand-grey-900 mb-6">
+            Real Results from Real Businesses
+          </h2>
+          <p class="text-xl text-brand-grey-700">
+            Don't take our word for it. See what business owners say about our professional service.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {testimonials.map((testimonial) => (
+            <TestimonialCard {...testimonial} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Value Stack Section (Hormozi Framework) -->
+    <section class="section-padding">
+      <div class="container-default">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-5xl font-bold text-brand-grey-900 mb-6">
+            Everything You Get When You Choose Us
+          </h2>
+          <p class="text-xl text-brand-grey-700 max-w-3xl mx-auto">
+            We don't just approve loans. We deliver a complete fast finance system worth thousands.
+          </p>
+        </div>
+        
+        <div class="max-w-4xl mx-auto">
+          <div class="space-y-6">
+            <div class="flex items-start space-x-4 p-6 bg-white border border-brand-grey-300 rounded-xl">
+              <div class="w-8 h-8 bg-brand-accent rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-brand-grey-900 mb-2">Professional Assessment Process (Worth $5,000)</h3>
+                <p class="text-brand-grey-700">Expert evaluation and competitive terms ensure you get the right finance solution for your business.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-4 p-6 bg-white border border-brand-grey-300 rounded-xl">
+              <div class="w-8 h-8 bg-brand-accent rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-brand-grey-900 mb-2">Zero Upfront Fees (Worth $2,500)</h3>
+                <p class="text-brand-grey-700">Keep your cash for the business. No application fees, no setup costs, no surprises.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-4 p-6 bg-white border border-brand-grey-300 rounded-xl">
+              <div class="w-8 h-8 bg-brand-accent rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-brand-grey-900 mb-2">Expert Guidance (Worth $3,000)</h3>
+                <p class="text-brand-grey-700">15+ years experience. We understand commercial finance and guide you to the optimal solution.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-4 p-6 bg-white border border-brand-grey-300 rounded-xl">
+              <div class="w-8 h-8 bg-brand-accent rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-brand-grey-900 mb-2">High Success Rate (Priceless)</h3>
+                <p class="text-brand-grey-700">Our expertise and lender relationships help secure competitive finance solutions. Your success is our reputation.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="text-center mt-12 p-8 bg-brand-accent text-white rounded-xl">
+            <h3 class="text-2xl font-bold mb-2">Total Value: $10,500+</h3>
+            <p class="text-xl mb-4">Your Cost: $0 Upfront</p>
+            <p class="text-brand-grey-100">We only succeed when you get the right finance solution. No approval = no fees.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Urgency/Scarcity Section -->
+    <section class="section-padding bg-brand-primary text-white">
+      <div class="container-default text-center">
+        <h2 class="text-4xl lg:text-5xl font-bold mb-6">
+          Ready to Explore Your Finance Options?"
+        </h2>
+        <p class="text-xl text-brand-grey-100 max-w-3xl mx-auto mb-8">
+          Make informed decisions about your business finance needs. Our expert team is ready to discuss competitive solutions tailored to your specific requirements."
+        </p>
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-center gap-6">
+          <a href="/get-quote" class="btn-accent btn-large inline-flex items-center justify-center group">
+            <span>Get Your Quote Now</span>
+            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+          <a href="tel:1300733856" class="btn-secondary btn-large text-white border-white hover:bg-white hover:text-brand-primary inline-flex items-center justify-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <span>Call 1300 733 856</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding">
+      <div class="container-default">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-5xl font-bold text-brand-grey-900 mb-6">
+            Common Questions (Honest Answers)
+          </h2>
+        </div>
+        
+        <div class="max-w-4xl mx-auto space-y-6">
+          <div class="faq-item">
+            <button class="faq-question w-full text-left">
+              <span>What makes your commercial finance process different?</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              We work with multiple specialist lenders and have established relationships that enable efficient processing. 
+              Our expertise in commercial finance helps streamline applications for faster decisions.
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question w-full text-left">
+              <span>What if my application gets rejected?</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              With our high success rate, rejections are rare. If it happens, you pay nothing. 
+              We only charge when you get approved and funded.
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question w-full text-left">
+              <span>How much do I need to pay upfront?</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Zero. No application fees, no setup costs, no upfront payments. 
+              Our fees are built into the loan and only apply when you're approved.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  /* FAQ Interactive Styles */
+  .faq-item {
+    border-bottom: 1px solid var(--brand-grey-300);
+    padding: 1.5rem 0;
+  }
+  
+  .faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: between;
+    font-weight: 600;
+    color: var(--brand-grey-900);
+    transition: color 0.2s ease;
+  }
+  
+  .faq-question:hover {
+    color: var(--brand-accent);
+  }
+  
+  .faq-question svg {
+    margin-left: auto;
+    transition: transform 0.2s ease;
+  }
+  
+  .faq-answer {
+    margin-top: 1rem;
+    color: var(--brand-grey-700);
+    line-height: 1.6;
+    display: none;
+  }
+  
+  .faq-item.active .faq-answer {
+    display: block;
+  }
+  
+  .faq-item.active .faq-question svg {
+    transform: rotate(180deg);
+  }
+</style>
+
+<script>
+  // FAQ Interactive Functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      
+      question?.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        
+        // Close all other FAQ items
+        faqItems.forEach(otherItem => {
+          otherItem.classList.remove('active');
+        });
+        
+        // Toggle current item
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+  });
+</script>

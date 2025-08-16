@@ -1,0 +1,65 @@
+---
+import { getEntryBySlug } from "astro:content";
+import HeroImage from "../ui/HeroImage.astro";
+import { Image } from "astro:assets";
+
+const HeroData = await getEntryBySlug("aboutPage", "hero");
+const { Content } = await HeroData.render();
+const { header, blockquote, person, videoLink, img } = HeroData?.data;
+---
+
+<section class='section-about-hero'>
+  <div class='relative z-10 overflow-hidden bg-[#FAF9F5]'>
+    <div class='section-space'>
+      <div class='container-custom has-container-custom'>
+        <div
+          class='grid items-center gap-10 lg:grid-cols-2 lg:gap-[60px] xl:gap-[100px] xxl:grid-cols-[1fr_minmax(0,_1.1fr)]'>
+          <div
+            class='jos order-2 lg:order-1'
+            data-jos_animation='fade-left'
+            data-jos_delay='0'>
+            <div
+              class='relative flex items-center justify-center mx-auto lg:mx-0 max-w-full sm:max-w-[80%] md:max-w-[70%] lg:max-w-full'>
+              <HeroImage img={img} videoLink={videoLink} />
+            </div>
+          </div>
+          <div
+            class='jos order-1 lg:order-2'
+            data-jos_animation='fade-right'
+            data-jos_delay='0.3'>
+            <div>
+              <div class='mb-5'>
+                <h2>
+                  {header}
+                </h2>
+              </div>
+              <Content />
+              <div
+                class='my-7 h-px w-full bg-ColorBlack opacity-10 xl:my-10 xxl:my-14'>
+              </div>
+              <div>
+                <blockquote
+                  class='mb-6 font-semibold italic text-ColorBlack/80'>
+                  {blockquote}
+                </blockquote>
+                <div class='flex flex-col items-center gap-4 lg:flex-row'>
+                  <Image
+                    src={person?.image}
+                    alt='about-hero-user-blockquote-img'
+                    width='60'
+                    height='60'
+                    class='mx-auto h-[60px] w-[60px] rounded-[50%] lg:mx-0'
+                  />
+                  <div>
+                    <span class='block font-semibold'>{person?.name}</span>
+                    <span class='text-sm text-opacity-80'>{person?.post}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,39 @@
+---
+import { getEntryBySlug } from "astro:content";
+
+const Header = await getEntryBySlug("site", "header");
+---
+
+<ul class='site-menu-main'>
+  {
+    Header &&
+      Header.data.links.map((navItem: any) => {
+        if (!navItem?.dropdown) {
+          return (
+            <li class='nav-item nav-item-has-children'>
+              <a href={navItem?.link} class='nav-link-item'>
+                {navItem?.text}{" "}
+              </a>
+            </li>
+          );
+        } else {
+          return (
+            <li class='nav-item nav-item-has-children'>
+              <a href='#' class='nav-link-item drop-trigger'>
+                {navItem.text} <i class='fa-solid fa-angle-down' />
+              </a>
+              <ul class='sub-menu' id='submenu-3'>
+                {navItem.sublinks.map((subItem: any) => (
+                  <li class='sub-menu--item'>
+                    <a href={subItem.link} data-menu-get='h3'>
+                      {subItem.text}{" "}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          );
+        }
+      })
+  }
+</ul>

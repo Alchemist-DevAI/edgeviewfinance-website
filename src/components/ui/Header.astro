@@ -1,0 +1,98 @@
+---
+// EVFBS Header Component with Agency11 Theme
+import Logo from "./Logo.astro";
+import Navigation from "./Navigation.astro";
+
+// EVFBS specific header configuration
+const rightButton1 = {
+  text: "1300 EVFBS",
+  link: "tel:1300383267"
+};
+
+const rightButton2 = {
+  text: "Get Started",
+  link: "/contact"
+};
+---
+
+<header
+  class='site-header site-header--absolute is--white py-3 transition-all duration-300'
+  id='sticky-menu'>
+  <div class='container-default'>
+    <div class='flex items-center justify-between gap-x-8'>
+      <!-- EVFBS Logo -->
+      <Logo link='/' />
+      
+      <!-- Navigation Menu -->
+      <div class='menu-block-wrapper'>
+        <div class='menu-overlay'></div>
+        <nav class='menu-block' id='append-menu-header'>
+          <div class='mobile-menu-head'>
+            <div class='go-back'>
+              <i class='fa-solid fa-angle-left'></i>
+            </div>
+            <div class='current-menu-title'></div>
+            <div class='mobile-menu-close'>&times;</div>
+          </div>
+          <Navigation />
+        </nav>
+      </div>
+      
+      <!-- CTA Buttons -->
+      <div class='flex items-center gap-6'>
+        <!-- Phone Number -->
+        <a
+          href={rightButton1?.link}
+          class='btn-text hidden hover:text-brand-accent sm:inline-block font-semibold'
+          aria-label="Call EVFBS">
+          <i class="fa-solid fa-phone mr-2"></i>
+          {rightButton1?.text}
+        </a>
+        
+        <!-- Primary CTA -->
+        <a
+          href={rightButton2?.link}
+          class='btn is-blue is-large hidden btn-animation group sm:inline-block rounded-[3px] bg-brand-accent hover:bg-brand-accent-dark border-brand-accent hover:border-brand-accent-dark'
+          aria-label="Get Started with EVFBS">
+          <span>{rightButton2?.text}</span>
+          <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+        </a>
+        
+        <!-- Mobile Menu Trigger -->
+        <div class='block lg:hidden'>
+          <button
+            id='openBtn'
+            class='hamburger-menu mobile-menu-trigger'
+            aria-label='Open Mobile Menu'>
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  /* EVFBS Header Styles */
+  .site-header {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+  }
+  
+  .site-header.scrolled {
+    box-shadow: 0 2px 20px rgba(0, 51, 102, 0.08);
+  }
+  
+  /* Mobile menu hamburger styling */
+  .hamburger-menu span {
+    background-color: #003366;
+  }
+  
+  @media (max-width: 768px) {
+    .site-header {
+      padding: 0.75rem 0;
+    }
+  }
+</style>

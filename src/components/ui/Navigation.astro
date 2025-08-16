@@ -1,0 +1,120 @@
+---
+// EVFBS Navigation Component with Business-Focused Menu
+
+// Define EVFBS navigation structure
+const navigationItems = [
+  {
+    text: "Finance Solutions",
+    link: "#",
+    dropdown: true,
+    sublinks: [
+      { text: "Equipment Finance", link: "/solutions/equipment-finance" },
+      { text: "Vehicle Finance", link: "/solutions/vehicle-finance" },
+      { text: "Working Capital", link: "/solutions/working-capital" },
+      { text: "Property Finance", link: "/solutions/property-finance" },
+      { text: "Trade Finance", link: "/solutions/trade-finance" },
+      { text: "Invoice Finance", link: "/solutions/invoice-finance" },
+    ]
+  },
+  {
+    text: "Industries",
+    link: "#",
+    dropdown: true,
+    sublinks: [
+      { text: "Construction", link: "/industries/construction" },
+      { text: "Transport & Logistics", link: "/industries/transport" },
+      { text: "Manufacturing", link: "/industries/manufacturing" },
+      { text: "Healthcare", link: "/industries/healthcare" },
+      { text: "Agriculture", link: "/industries/agriculture" },
+      { text: "Mining & Resources", link: "/industries/mining" },
+    ]
+  },
+  {
+    text: "About",
+    link: "#",
+    dropdown: true,
+    sublinks: [
+      { text: "Our Story", link: "/about" },
+      { text: "Our Team", link: "/about/team" },
+      { text: "Why Choose EVFBS", link: "/about/why-evfbs" },
+      { text: "Success Stories", link: "/about/success-stories" },
+      { text: "Partners", link: "/about/partners" },
+    ]
+  },
+  {
+    text: "Resources",
+    link: "#",
+    dropdown: true,
+    sublinks: [
+      { text: "Finance Calculator", link: "/resources/calculator" },
+      { text: "Blog & Insights", link: "/resources/blog" },
+      { text: "FAQs", link: "/resources/faqs" },
+      { text: "Guides & eBooks", link: "/resources/guides" },
+      { text: "Market Updates", link: "/resources/market-updates" },
+    ]
+  },
+  {
+    text: "Contact",
+    link: "/contact",
+    dropdown: false
+  }
+];
+---
+
+<ul class='site-menu-main'>
+  {
+    navigationItems.map((navItem) => {
+      if (!navItem.dropdown) {
+        return (
+          <li class='nav-item'>
+            <a href={navItem.link} class='nav-link-item hover:text-brand-accent transition-colors'>
+              {navItem.text}
+            </a>
+          </li>
+        );
+      } else {
+        return (
+          <li class='nav-item nav-item-has-children'>
+            <a href='#' class='nav-link-item drop-trigger hover:text-brand-accent transition-colors'>
+              {navItem.text} <i class='fa-solid fa-angle-down ml-1 text-xs' />
+            </a>
+            <ul class='sub-menu'>
+              {navItem.sublinks.map((subItem) => (
+                <li class='sub-menu--item'>
+                  <a href={subItem.link} class='hover:text-brand-accent hover:bg-brand-grey-50 transition-all'>
+                    {subItem.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </li>
+        );
+      }
+    })
+  }
+</ul>
+
+<style>
+  /* EVFBS Navigation Styles */
+  .nav-link-item {
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+  
+  .sub-menu {
+    border-top: 3px solid #0066CC;
+    box-shadow: 0 10px 30px rgba(0, 51, 102, 0.1);
+  }
+  
+  .sub-menu--item a {
+    padding: 0.75rem 1.25rem;
+    display: block;
+    font-size: 0.9rem;
+  }
+  
+  .nav-item-has-children:hover .sub-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+</style>

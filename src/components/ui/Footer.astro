@@ -1,0 +1,201 @@
+---
+// EVFBS Footer Component with Agency11 Theme
+import Logo from "./Logo.astro";
+
+// EVFBS Footer Data
+const footerData = {
+  description: "Edgeview Finance Business Solutions - Your trusted partner for commercial finance solutions across Australia. Specializing in equipment finance, working capital, and business growth funding.",
+  phone: "1300 383 267",
+  email: "info@edgeviewfinance.com.au",
+  address: {
+    line1: "Gold Coast Business Hub",
+    line2: "Queensland, Australia",
+  },
+  socialLinks: [
+    { icon: "fa-linkedin", link: "https://linkedin.com/company/edgeviewfinance" },
+    { icon: "fa-facebook", link: "https://facebook.com/edgeviewfinance" },
+    { icon: "fa-twitter", link: "https://twitter.com/edgeviewfinance" },
+    { icon: "fa-instagram", link: "https://instagram.com/edgeviewfinance" },
+  ],
+  quickLinks: [
+    { text: "Home", link: "/" },
+    { text: "About Us", link: "/about" },
+    { text: "Finance Solutions", link: "/solutions" },
+    { text: "Industries", link: "/industries" },
+    { text: "Contact", link: "/contact" },
+  ],
+  financeProducts: [
+    { text: "Equipment Finance", link: "/solutions/equipment-finance" },
+    { text: "Vehicle Finance", link: "/solutions/vehicle-finance" },
+    { text: "Working Capital", link: "/solutions/working-capital" },
+    { text: "Invoice Finance", link: "/solutions/invoice-finance" },
+    { text: "Trade Finance", link: "/solutions/trade-finance" },
+  ],
+  resources: [
+    { text: "Finance Calculator", link: "/resources/calculator" },
+    { text: "Blog & Insights", link: "/resources/blog" },
+    { text: "FAQs", link: "/resources/faqs" },
+    { text: "Privacy Policy", link: "/privacy" },
+    { text: "Terms of Service", link: "/terms" },
+  ],
+  certifications: [
+    "Australian Finance Brokers Association Member",
+    "MFAA Accredited",
+    "FBAA Member",
+  ]
+};
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class='section-footer z-20 bg-brand-grey-900 text-white'>
+  <div class='relative z-10'>
+    <!-- Main Footer Content -->
+    <div class='pt-20 pb-10'>
+      <div class='container-default'>
+        <div class='grid gap-8 md:grid-cols-2 lg:grid-cols-4'>
+          <!-- Company Info -->
+          <div class='lg:col-span-1'>
+            <Logo link='/' css="mb-6" />
+            <p class='text-brand-grey-300 text-sm mb-6 leading-relaxed'>
+              {footerData.description}
+            </p>
+            
+            <!-- Contact Info -->
+            <div class='space-y-3 mb-6'>
+              <a href={`tel:${footerData.phone.replace(/\s/g, '')}`} 
+                 class='flex items-center gap-3 text-brand-grey-300 hover:text-brand-accent transition-colors'>
+                <i class='fa-solid fa-phone text-brand-accent'></i>
+                <span>{footerData.phone}</span>
+              </a>
+              <a href={`mailto:${footerData.email}`}
+                 class='flex items-center gap-3 text-brand-grey-300 hover:text-brand-accent transition-colors'>
+                <i class='fa-solid fa-envelope text-brand-accent'></i>
+                <span>{footerData.email}</span>
+              </a>
+              <div class='flex items-start gap-3 text-brand-grey-300'>
+                <i class='fa-solid fa-location-dot text-brand-accent mt-1'></i>
+                <div>
+                  <p>{footerData.address.line1}</p>
+                  <p>{footerData.address.line2}</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Social Links -->
+            <div class='flex gap-3'>
+              {footerData.socialLinks.map((social) => (
+                <a href={social.link}
+                   target='_blank'
+                   rel='noopener noreferrer'
+                   class='w-10 h-10 bg-brand-grey-800 hover:bg-brand-accent rounded-lg flex items-center justify-center transition-all duration-300'
+                   aria-label={`Follow us on ${social.icon.replace('fa-', '')}`}>
+                  <i class={`fa-brands ${social.icon} text-white`}></i>
+                </a>
+              ))}
+            </div>
+          </div>
+          
+          <!-- Quick Links -->
+          <div>
+            <h3 class='text-lg font-semibold mb-6 text-white'>Quick Links</h3>
+            <ul class='space-y-3'>
+              {footerData.quickLinks.map((link) => (
+                <li>
+                  <a href={link.link} 
+                     class='text-brand-grey-300 hover:text-brand-accent transition-colors flex items-center gap-2'>
+                    <i class='fa-solid fa-chevron-right text-xs text-brand-accent'></i>
+                    {link.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          <!-- Finance Products -->
+          <div>
+            <h3 class='text-lg font-semibold mb-6 text-white'>Finance Solutions</h3>
+            <ul class='space-y-3'>
+              {footerData.financeProducts.map((product) => (
+                <li>
+                  <a href={product.link}
+                     class='text-brand-grey-300 hover:text-brand-accent transition-colors flex items-center gap-2'>
+                    <i class='fa-solid fa-chevron-right text-xs text-brand-accent'></i>
+                    {product.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          <!-- Resources -->
+          <div>
+            <h3 class='text-lg font-semibold mb-6 text-white'>Resources</h3>
+            <ul class='space-y-3'>
+              {footerData.resources.map((resource) => (
+                <li>
+                  <a href={resource.link}
+                     class='text-brand-grey-300 hover:text-brand-accent transition-colors flex items-center gap-2'>
+                    <i class='fa-solid fa-chevron-right text-xs text-brand-accent'></i>
+                    {resource.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Trust Badges -->
+        <div class='mt-12 pt-8 border-t border-brand-grey-800'>
+          <div class='flex flex-wrap gap-6 justify-center text-center mb-8'>
+            {footerData.certifications.map((cert) => (
+              <div class='px-4 py-2 bg-brand-grey-800 rounded-lg'>
+                <p class='text-sm text-brand-grey-300'>{cert}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Copyright Bar -->
+    <div class='bg-brand-grey-950 py-4'>
+      <div class='container-default'>
+        <div class='flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-brand-grey-400'>
+          <p>&copy; {currentYear} Edgeview Finance Business Solutions. All Rights Reserved.</p>
+          <div class='flex gap-6'>
+            <a href='/privacy' class='hover:text-brand-accent transition-colors'>Privacy Policy</a>
+            <a href='/terms' class='hover:text-brand-accent transition-colors'>Terms of Service</a>
+            <a href='/disclaimer' class='hover:text-brand-accent transition-colors'>Disclaimer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* EVFBS Footer Styles */
+  .container-default {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .section-footer {
+    position: relative;
+    background: linear-gradient(180deg, #1A1A1A 0%, #0D0D0D 100%);
+  }
+  
+  .section-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #0066CC, transparent);
+  }
+  
+  .bg-brand-grey-950 {
+    background-color: #0A0A0A;
+  }
+</style>

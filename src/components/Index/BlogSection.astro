@@ -1,0 +1,91 @@
+---
+import { Image } from "astro:assets";
+import { getEntryBySlug } from "astro:content";
+import { getCollection } from "astro:content";
+import { slug } from "github-slugger";
+const blogHeader = await getEntryBySlug("IndexPage", "blogs");
+const blogs = await getCollection("blogs");
+const { header, description } = blogHeader?.data;
+---
+
+<section class='section-blog'>
+  <div class='section-space'>
+    <div class='container-default'>
+      <div class='jos mb-[60px] xl:mb-20'>
+        <div class='mx-auto max-w-[640px]'>
+          <div class='mb-5'>
+            <h2
+              class='mb-5 text-center font-PublicSans text-4xl font-bold leading-[1.14] text-[#1212121] lg:text-5xl xl:text-[56px]'>
+              {header}
+            </h2>
+          </div>
+          <p class='text-center'>
+            {description}
+          </p>
+        </div>
+      </div>
+      <div class='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>
+        {
+          blogs?.map(
+            ({ data: { title, category, image, author, date } }: any) => (
+              <div class='jos' data-jos_animation='flip-left'>
+                <div class='group h-full rounded-[5px] border border-[#121212] p-5'>
+                  <div class='relative overflow-hidden rounded-[5px]'>
+                    <a href={`/blog/${slug(title)}`} class='block'>
+                      <Image
+                        src={image}
+                        alt='blog-img-1'
+                        width='376'
+                        height='280'
+                        class='h-auto w-full transition-all duration-300 group-hover:scale-105'
+                      />
+                    </a>
+                    <a
+                      href={`/blog/${slug(title)}`}
+                      class='absolute right-[10px] top-[10px] inline-block rounded-[3px] bg-[#FDFBF9] px-5 py-[10px] text-base font-bold hover:bg-ColorPurple'>
+                      {category}
+                    </a>
+                  </div>
+                  <div class='mt-6'>
+                    <div class='mb-[15px] flex flex-col gap-x-[15px] gap-y-2 text-base font-bold xl:flex-row'>
+                      <a
+                        href={`/blog/${slug(title)}`}
+                        class='flex gap-[10px] hover:text-ColorPurple'>
+                        <span class='text-sm'>
+                          <i class='fa fa-circle-user' />
+                        </span>
+                        {author?.name}
+                      </a>
+                      <a
+                        href={`/blog/${slug(title)}`}
+                        class='flex gap-[10px] hover:text-ColorPurple'>
+                        <span class='text-sm'>
+                          <i class='fa fa-calendar' />
+                        </span>
+                        {date}
+                      </a>
+                    </div>
+                    <a
+                      href={`/blog/${slug(title)}`}
+                      class='mb-[30px] block font-PublicSans font-bold leading-[1.35] text-[#121212] group-hover:text-ColorPurple xl:text-2xl xxl:text-[28px]'>
+                      {title}
+                    </a>
+
+                    <a
+                      href={`/blog/${slug(title)}`}
+                      class='mt-auto inline-flex items-center gap-x-2 text-base font-bold text-[#121212] hover:text-ColorPurple'>
+                      Read more
+                      <span class='transition-all duration-300 ease-in-out hover:translate-x-2'>
+                        <i class='fa-solid fa-arrow-right' />
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            )
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>

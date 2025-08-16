@@ -1,0 +1,26 @@
+---
+import { Image } from "astro:assets";
+
+const { sliderText } = Astro.props;
+---
+
+<div
+  class='overflow-hidden bg-ColorBlack py-5 text-3xl font-bold uppercase leading-[1.4] tracking-widest text-white'>
+  <div class='horizontal-slide-from-right-to-left flex gap-x-[30px]'>
+    {
+      sliderText.map((text: any) => {
+        return (
+          <>
+            <span class='inline-block min-w-[855px]'>{text}</span>
+            <Image
+              src='/assets/img/icons/fire-icon.png'
+              alt='fire-icon'
+              width='40'
+              height='40'
+            />
+          </>
+        );
+      })
+    }
+  </div>
+</div>

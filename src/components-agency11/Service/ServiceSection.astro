@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import ServiceCard from "../ui/ServiceCard.astro";
+var Services = await getCollection("services");
+Services = Services.filter((Service) => Service.slug.startsWith("service-"));
+---
+
+<div class='section-service'>
+  <div class='relative z-10 overflow-hidden'>
+    <div class='section-space'>
+      <div class='container-default'>
+        <div class='grid gap-6 sm:grid-cols-2'>
+          {
+            Services?.map(({ data }: any) => {
+              const { icon, title, description } = data;
+              return (
+                <ServiceCard
+                  icon={icon}
+                  title={title}
+                  description={description}
+                />
+              );
+            })
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

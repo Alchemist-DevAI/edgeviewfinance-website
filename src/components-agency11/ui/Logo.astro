@@ -1,0 +1,16 @@
+---
+import { Image } from "astro:assets";
+import { getEntryBySlug } from "astro:content";
+
+const { link, css, logo } = Astro.props;
+const MetaData = await getEntryBySlug("site", "meta");
+---
+
+<a href={link} class={css}>
+  <Image
+    src={logo ? logo : MetaData?.data?.logo}
+    alt='Logo'
+    width='120'
+    height='44'
+  />
+</a>

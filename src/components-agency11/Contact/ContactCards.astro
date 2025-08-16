@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+import { getEntryBySlug } from "astro:content";
+
+const ContactDetails = await getEntryBySlug("contact", "index");
+const { cards } = ContactDetails?.data;
+---
+
+<div class='section-contact-info'>
+  <div class='section-space'>
+    <div class='container-default'>
+      <div class='grid gap-6 md:grid-cols-2 lg:grid-cols-3'>
+        {
+          cards.map(({ title, description,icon }: any, index: any) => (
+            <div class='jos' data-jos_delay={`${index * 0.3}`}>
+              <div class='hover-solid-shadow h-full'>
+                <div class='h-full rounded-[10px] border-2 border-ColorBlack bg-white p-[30px]'>
+                  <Image
+                    src={icon}
+                    alt='icon-duotone-chat'
+                    width='64'
+                    height='60'
+                    class='mb-[30px] h-[60px] w-auto'
+                  />
+                  <div>
+                    <div class='mb-4 text-2xl font-semibold -tracking-[0.5]'>
+                      {title}
+                    </div>
+                    <p>{description}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>

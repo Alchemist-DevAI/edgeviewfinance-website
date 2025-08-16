@@ -1,0 +1,42 @@
+---
+import { Image } from "astro:assets";
+import { slug } from "github-slugger";
+
+const { image, title, type, category } = Astro.props;
+---
+
+<div class='jos' data-jos_delay='0'>
+  <div class='group'>
+    <div class='overflow-hidden rounded-[10px]'>
+      <Image
+        src={image}
+        alt='portfolio-img-1'
+        width='617'
+        height='450'
+        class='h-full w-full object-cover transition-all duration-300 ease-in-out group-hover:scale-105'
+      />
+    </div>
+    <div class='mt-6'>
+      <div
+        class='mb-5 flex flex-wrap justify-between gap-5 text-ColorBlack lg:flex-nowrap xl:mb-7'>
+        <a
+          href={`/portfolio/${slug(title)}`}
+          class='text-xl font-semibold leading-[1.33] -tracking-[0.5px] group-hover:text-ColorLime xl:text-2xl'>
+          {type} — {title}
+        </a>
+        <a href={`/portfolio/${slug(title)}`} class='hover:text-ColorLime'>
+          {category}
+        </a>
+      </div>
+      <a
+        href={`/portfolio/${slug(title)}`}
+        class='text-base font-bold capitalize leading-[1.5] group-hover:text-ColorLime'>
+        View work
+        <span
+          class='inline-block transition-all duration-150 group-hover:translate-x-2'>
+          <i class='fa-solid fa-arrow-right'></i>
+        </span>
+      </a>
+    </div>
+  </div>
+</div>

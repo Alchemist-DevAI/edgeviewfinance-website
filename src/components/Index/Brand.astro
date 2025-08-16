@@ -1,0 +1,17 @@
+---
+import { getEntryBySlug } from "astro:content";
+import SwiperComponent from "../functional/Swiper";
+
+const BrandData = await getEntryBySlug("IndexPage", "brand");
+const { images } = BrandData?.data;
+const { marginBottom } = Astro.props;
+---
+
+<div class='jos'>
+  <div
+    class=`${marginBottom ? 'pb-[60px] md:pb-20 lg:pb-[100px]':'py-[60px] md:py-20 lg:py-[100px]'}`>
+    <div class='container-default'>
+      <SwiperComponent client:only='react' data={images} />
+    </div>
+  </div>
+</div>

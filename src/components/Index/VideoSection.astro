@@ -1,0 +1,47 @@
+---
+import { Image } from "astro:assets";
+import { getEntryBySlug } from "astro:content";
+const VideoData = await getEntryBySlug("IndexPage", "videosection");
+const { header, description, image, videoLink } = VideoData?.data;
+---
+
+<section class='section-video'>
+  <div class='section-space-bottom'>
+    <div class='container-default'>
+      <div class='jos mb-[60px] xl:mb-20'>
+        <div
+          class='mx-auto flex max-w-[700px] flex-col items-center justify-center'>
+          <h2
+            class='mb-5 text-center font-PublicSans text-4xl font-bold leading-[1.14] text-[#1212121] lg:text-5xl xl:text-[56px]'>
+            {header}
+          </h2>
+
+          <p class='text-center'>
+            {description}
+          </p>
+        </div>
+      </div>
+      <div class='jos'>
+        <div class='relative flex items-center justify-center'>
+          <Image
+            src={image}
+            alt='video-img'
+            width='1296'
+            height='620'
+            class='h-auto w-full'
+          />
+          <a
+            data-fslightbox='gallery'
+            href={videoLink}
+            class='group group absolute flex h-[100px] w-[100px] items-center justify-center rounded-[50%] bg-ColorLime text-[#121212]'
+            aria-label='video-play'>
+            <span
+              class='text-2xl transition-all duration-300 ease-linear group-hover:scale-110'
+              ><i class='fa-solid fa-play'></i></span
+            >
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

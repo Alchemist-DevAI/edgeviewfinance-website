@@ -1,0 +1,45 @@
+---
+import { getEntryBySlug } from "astro:content";
+const Testimonial = await getEntryBySlug("IndexPage", "testimonial");
+import TestimonialSwiper from "../functional/TestimonialSwiper";
+const { testimonials, Header, description, button } = Testimonial.data;
+---
+
+<section class='section-testimonial'>
+  <div class='bg-ColorOffWhite'>
+    <div class='section-space'>
+      <div class='container-default'>
+        <div
+          class='grid grid-cols-1 gap-10 md:grid-cols-2 lg:gap-20 xl:gap-32 xxl:gap-[244px]'>
+          <div
+            class='jos testimonial-slider-area-1 order-2 md:order-1'
+            data-jos_animation='fade-right'>
+            <TestimonialSwiper client:only='react' data={testimonials} />
+          </div>
+          <div class='jos order-1 md:order-1' data-jos_animation='fade-left'>
+            <div>
+              <span
+                class='text-darkborder-ColorDark mb-[30px] inline-block rounded-[50px] border border-ColorDark bg-[#A2DFF5] px-[18.5px] py-[5.5px] text-base font-semibold'>
+                Clients Reviews</span
+              >
+              <div class='mb-5'>
+                <h2 class='font-Cabin leading-[1.12] xl:text-[56px]'>
+                  {Header}
+                </h2>
+              </div>
+            </div>
+            <p class='mb-8 lg:mb-[50px]'>
+              {description}
+            </p>
+
+            <a
+              href={button?.link}
+              class=`btn is-lime is-large btn-animation group inline-block rounded-[3px]`
+              ><span>{button?.text}</span></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

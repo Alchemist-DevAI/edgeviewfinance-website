@@ -1,0 +1,46 @@
+---
+import { Image } from "astro:assets";
+import { getEntryBySlug } from "astro:content";
+const ContentData = await getEntryBySlug("IndexPage", "content-1");
+const { header, image, button } = ContentData?.data;
+const { Content } = await ContentData.render();
+---
+
+<div class='grid items-center gap-10 md:grid-cols-2 lg:gap-24 xl:gap-60'>
+  <div class='jos order-1 md:order-2' data-jos_animation='fade-right'>
+    <div>
+      <div class='mb-5'>
+        <h2
+          class='font-PublicSans text-4xl font-bold leading-[1.14] text-[#121212] lg:text-left lg:text-5xl xl:text-[56px]'>
+          {header}
+        </h2>
+      </div>
+    </div>
+    <Content />
+    <div class='mt-8 lg:mt-[50px]'>
+      <a
+        href={button?.link}
+        class='btn is-lime is-large btn-animation group inline-block rounded-[3px]'
+        ><span>{button?.text}</span></a
+      >
+    </div>
+  </div>
+  <div class='jos relative order-2 md:order-1' data-jos_animation='fade-left'>
+    <Image
+      src={image}
+      alt='content-img-1'
+      width='523'
+      height='450'
+      class='h-auto w-full rounded-[10px]'
+    />
+    <Image
+      src='/assets/img/th-8/content-card-1.png'
+      alt='content-shape-1'
+      width='304'
+      height='104'
+      class='jos absolute bottom-6 left-full hidden -translate-x-1/2 xl:inline-block'
+      data-jos_animation='fade-up'
+      data-jos_delay='0.3'
+    />
+  </div>
+</div>
