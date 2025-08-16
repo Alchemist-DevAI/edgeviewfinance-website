@@ -1,0 +1,351 @@
+# Page snapshot
+
+```yaml
+- banner:
+  - link "Edgeview Finance":
+    - /url: /
+    - img "Edgeview Finance"
+  - navigation:
+    - link "Home":
+      - /url: /
+    - link "Services":
+      - /url: /services
+    - link "About":
+      - /url: /about
+    - link "Contact":
+      - /url: /contact
+  - link "Calculator":
+    - /url: /calculator
+  - link "Get Quote":
+    - /url: /get-quote
+  - button "Open mobile menu":
+    - img
+  - navigation:
+    - link "Home":
+      - /url: /
+    - link "Services":
+      - /url: /services
+    - link "About":
+      - /url: /about
+    - link "Contact":
+      - /url: /contact
+    - link "Calculator":
+      - /url: /calculator
+    - link "Get Quote":
+      - /url: /get-quote
+- main:
+  - heading "Expert Commercial Finance Solutions" [level=1]
+  - paragraph: Professional commercial finance tailored to your business needs
+  - paragraph: Access competitive commercial finance solutions with expert guidance. Our experienced team specialises in equipment finance, asset finance, and business loans for established Australian businesses. Zero upfront fees.
+  - text: 15+ Years Experience 98% Approval Rate $500M+ Funded Zero Upfront Fees
+  - link "Get Quote in 60 Seconds":
+    - /url: /get-quote
+    - text: Get Quote in 60 Seconds
+    - img
+  - link "Call 1300 733 856":
+    - /url: tel:1300733856
+    - img
+    - text: Call 1300 733 856
+  - img
+  - text: 4.9/5 Google Reviews
+  - img
+  - text: Australian Credit Licence
+  - img
+  - text: Bank-Level Security
+  - img
+  - heading "Expert Assessment" [level=3]
+  - paragraph: Professional evaluation process
+  - img
+  - heading "Zero Upfront Fees" [level=3]
+  - paragraph: No hidden costs or surprises
+  - img
+  - heading "Personal Service" [level=3]
+  - paragraph: Real people, real support
+  - heading "Looking for the Right Commercial Finance Partner?\"" [level=2]
+  - img
+  - heading "Complex Processes" [level=3]
+  - paragraph: Navigate finance options with confidence and clarity.
+  - img
+  - heading "Transparent Pricing" [level=3]
+  - paragraph: Clear terms with no hidden costs or surprises.
+  - img
+  - heading "Expert Guidance" [level=3]
+  - paragraph: Professional support throughout your finance journey.
+  - paragraph: Finding the right commercial finance solution is crucial for business growth. Our expert team ensures you get competitive terms tailored to your specific needs.
+  - heading "Professional Commercial Finance Solutions That Work\"" [level=2]
+  - paragraph: Our experienced team provides professional commercial finance solutions. Transparent processes, competitive rates, expert guidance.
+  - text: Most Popular
+  - img
+  - heading "Equipment Finance" [level=3]
+  - img
+  - text: $20K - $500K+
+  - img
+  - text: Efficient processing
+  - paragraph: Access competitive equipment finance solutions tailored to your business needs. Professional service with flexible terms and comprehensive support.
+  - heading "Key Features:" [level=4]
+  - list:
+    - listitem:
+      - img
+      - text: Competitive approval processes
+    - listitem:
+      - img
+      - text: $20K to $500K+ funding
+    - listitem:
+      - img
+      - text: Zero upfront fees or surprises
+    - listitem:
+      - img
+      - text: Flexible payment terms
+    - listitem: + 1 more features
+  - link "Learn More":
+    - /url: /services/equipment-finance
+    - text: Learn More
+    - img
+  - img
+  - heading "Commercial Loans" [level=3]
+  - img
+  - text: $10K - $250K
+  - img
+  - text: Efficient service
+  - paragraph: Comprehensive working capital solutions designed for established businesses. Expert guidance through streamlined processes.
+  - heading "Key Features:" [level=4]
+  - list:
+    - listitem:
+      - img
+      - text: Streamlined application process
+    - listitem:
+      - img
+      - text: Working capital up to $250K
+    - listitem:
+      - img
+      - text: Professional assessment
+    - listitem:
+      - img
+      - text: Cash flow based assessment
+    - listitem: + 1 more features
+  - link "Learn More":
+    - /url: /services/commercial-loans
+    - text: Learn More
+    - img
+  - img
+  - heading "Asset Finance" [level=3]
+  - img
+  - text: $15K - $1M+
+  - img
+  - text: Professional service
+  - paragraph: Own your equipment, don't rent it. Build business equity while you use the assets that make you money.
+  - heading "Key Features:" [level=4]
+  - list:
+    - listitem:
+      - img
+      - text: 100% asset financing available
+    - listitem:
+      - img
+      - text: Build business equity
+    - listitem:
+      - img
+      - text: Tax benefits included
+    - listitem:
+      - img
+      - text: Vehicles, machinery, technology
+    - listitem: + 1 more features
+  - link "Learn More":
+    - /url: /services/asset-finance
+    - text: Learn More
+    - img
+  - img
+  - heading "Hire Purchase" [level=3]
+  - img
+  - text: $5K - $300K
+  - img
+  - text: Expert guidance
+  - paragraph: Get equipment now, own it later. Spread costs over time while your new equipment pays for itself.
+  - heading "Key Features:" [level=4]
+  - list:
+    - listitem:
+      - img
+      - text: Own the asset at the end
+    - listitem:
+      - img
+      - text: Low deposit options
+    - listitem:
+      - img
+      - text: Equipment pays for itself
+    - listitem:
+      - img
+      - text: Simple approval process
+    - listitem: + 1 more features
+  - link "Learn More":
+    - /url: /services/hire-purchase
+    - text: Learn More
+    - img
+  - heading "Real Results from Real Businesses" [level=2]
+  - paragraph: Don't take our word for it. See what business owners say about our professional service.
+  - text: Featured Review
+  - img
+  - img
+  - img
+  - img
+  - img
+  - text: 5/5
+  - blockquote:
+    - img
+    - paragraph: "\"Professional service with competitive terms. The team understood our business needs and provided excellent guidance throughout the process.\""
+  - text: MT Mark Thompson Thompson Earthworks Gold Coast, QLD
+  - img
+  - text: Equipment Finance
+  - img
+  - text: $185K
+  - img
+  - img
+  - img
+  - img
+  - img
+  - text: 5/5
+  - blockquote:
+    - img
+    - paragraph: "\"Zero upfront fees meant I could invest everything into the business. The extra cash flow made all the difference.\""
+  - text: SC Sarah Chen Precision Plumbing Brisbane, QLD
+  - img
+  - text: Commercial Loan
+  - img
+  - text: $75K
+  - img
+  - img
+  - img
+  - img
+  - img
+  - text: 5/5
+  - blockquote:
+    - img
+    - paragraph: "\"Excellent service and competitive rates. The team made the finance process smooth and straightforward for our business expansion.\""
+  - text: DW David Wilson Wilson Electrical Sunshine Coast, QLD
+  - img
+  - text: Asset Finance
+  - img
+  - text: $120K
+  - heading "Everything You Get When You Choose Us" [level=2]
+  - paragraph: We don't just approve loans. We deliver a complete fast finance system worth thousands.
+  - img
+  - heading "Professional Assessment Process (Worth $5,000)" [level=3]
+  - paragraph: Expert evaluation and competitive terms ensure you get the right finance solution for your business.
+  - img
+  - heading "Zero Upfront Fees (Worth $2,500)" [level=3]
+  - paragraph: Keep your cash for the business. No application fees, no setup costs, no surprises.
+  - img
+  - heading "Expert Guidance (Worth $3,000)" [level=3]
+  - paragraph: 15+ years experience. We understand commercial finance and guide you to the optimal solution.
+  - img
+  - heading "High Success Rate (Priceless)" [level=3]
+  - paragraph: Our expertise and lender relationships help secure competitive finance solutions. Your success is our reputation.
+  - 'heading "Total Value: $10,500+" [level=3]'
+  - paragraph: "Your Cost: $0 Upfront"
+  - paragraph: We only succeed when you get the right finance solution. No approval = no fees.
+  - heading "Ready to Explore Your Finance Options?\"" [level=2]
+  - paragraph: Make informed decisions about your business finance needs. Our expert team is ready to discuss competitive solutions tailored to your specific requirements."
+  - link "Get Your Quote Now":
+    - /url: /get-quote
+    - text: Get Your Quote Now
+    - img
+  - link "Call 1300 733 856":
+    - /url: tel:1300733856
+    - img
+    - text: Call 1300 733 856
+  - heading "Common Questions (Honest Answers)" [level=2]
+  - button "What makes your commercial finance process different?":
+    - text: What makes your commercial finance process different?
+    - img
+  - button "What if my application gets rejected?":
+    - text: What if my application gets rejected?
+    - img
+  - button "How much do I need to pay upfront?":
+    - text: How much do I need to pay upfront?
+    - img
+- contentinfo:
+  - img "Edgeview Finance"
+  - paragraph: Trusted commercial finance specialists helping Australian businesses secure equipment finance, commercial loans, and asset finance solutions for over 15 years.
+  - img
+  - link "1300 733 856":
+    - /url: tel:1300733856
+  - img
+  - link "info@edgeviewfinance.com.au":
+    - /url: mailto:info@edgeviewfinance.com.au
+  - img
+  - text: Gold Coast, Queensland, Australia
+  - link "Follow us on LinkedIn":
+    - /url: https://linkedin.com/company/edgeview-finance
+    - img
+  - link "Follow us on Facebook":
+    - /url: https://facebook.com/edgeviewfinance
+    - img
+  - link "Follow us on Google Business":
+    - /url: https://maps.google.com/edgeviewfinance
+    - img
+  - heading "Services" [level=3]
+  - list:
+    - listitem:
+      - link "Equipment Finance":
+        - /url: /services/equipment-finance
+    - listitem:
+      - link "Commercial Loans":
+        - /url: /services/commercial-loans
+    - listitem:
+      - link "Asset Finance":
+        - /url: /services/asset-finance
+    - listitem:
+      - link "Business Loans":
+        - /url: /services/business-loans
+    - listitem:
+      - link "Hire Purchase":
+        - /url: /services/hire-purchase
+  - heading "Company" [level=3]
+  - list:
+    - listitem:
+      - link "About Us":
+        - /url: /about
+    - listitem:
+      - link "Our Team":
+        - /url: /about/team
+    - listitem:
+      - link "Reviews":
+        - /url: /reviews
+    - listitem:
+      - link "Case Studies":
+        - /url: /case-studies
+    - listitem:
+      - link "Careers":
+        - /url: /careers
+  - heading "Resources" [level=3]
+  - list:
+    - listitem:
+      - link "Finance Calculator":
+        - /url: /calculator
+    - listitem:
+      - link "Industry Insights":
+        - /url: /insights
+    - listitem:
+      - link "FAQs":
+        - /url: /faqs
+    - listitem:
+      - link "Finance Guide":
+        - /url: /guides
+    - listitem:
+      - link "Blog":
+        - /url: /blog
+  - paragraph: © 2025 Edgeview Finance. All rights reserved.
+  - text: "ABN: 12 345 678 901"
+  - link "Privacy Policy":
+    - /url: /privacy
+  - link "Terms of Service":
+    - /url: /terms
+  - link "Credit Guide":
+    - /url: /credit-guide
+  - link "Complaints":
+    - /url: /complaints
+  - paragraph:
+    - strong: "Australian Credit Licence:"
+    - text: Edgeview Finance is a credit representative of ABC Finance Group Pty Ltd (Australian Credit Licence 123456).
+  - paragraph:
+    - strong: "Important:"
+    - text: This website contains general information only and does not constitute financial advice. We recommend seeking professional advice before making any financial decisions. Terms and conditions apply to all finance products.
+```
