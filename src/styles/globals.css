@@ -188,6 +188,40 @@
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
   
+  /* Typography Enhancement System */
+  .heading-primary {
+    @apply text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-secondary-dark leading-tight;
+  }
+  
+  .heading-secondary {
+    @apply text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-secondary-dark leading-tight;
+  }
+  
+  .heading-tertiary {
+    @apply text-2xl sm:text-3xl lg:text-4xl font-bold text-secondary-dark leading-tight;
+  }
+  
+  .body-large {
+    @apply text-lg lg:text-xl text-gray-700 leading-relaxed;
+  }
+  
+  .body-medium {
+    @apply text-base lg:text-lg text-gray-700 leading-relaxed;
+  }
+  
+  /* Micro-Interactions */
+  .btn-lift {
+    @apply hover:-translate-y-0.5 transition-transform duration-200;
+  }
+  
+  .icon-bounce {
+    @apply hover:scale-110 transition-transform duration-200;
+  }
+  
+  .card-glow {
+    @apply hover:shadow-2xl hover:shadow-primary-orange/10 transition-all duration-300;
+  }
+  
   /* Hero Components */
   .hero-section {
     @apply bg-gradient-to-br from-secondary-dark to-secondary-darker text-white;
