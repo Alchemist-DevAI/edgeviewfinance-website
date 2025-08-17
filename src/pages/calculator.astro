@@ -1,6 +1,10 @@
 ---
 // Loan Calculator Page - Professional Financial Calculations for Australian Commercial Finance
 // Multiple calculator types with GST considerations and educational content
+import Agency11Layout from '../layouts/Agency11Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
 export const prerender = true;
 
 const siteData = {
@@ -10,144 +14,105 @@ const siteData = {
 };
 ---
 
-<html lang="en-AU">
-<head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={siteData.description} />
-    <meta name="keywords" content={siteData.keywords} />
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content={siteData.title} />
-    <meta property="og:description" content={siteData.description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://edgeviewfinance.com.au/calculator" />
-    <meta property="og:site_name" content="Edgeview Finance Business Solutions" />
-    <meta property="og:locale" content="en_AU" />
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={siteData.title} />
-    <meta name="twitter:description" content={siteData.description} />
-    
-    <!-- Additional SEO Meta Tags -->
-    <meta name="robots" content="index, follow" />
-    <meta name="author" content="Edgeview Finance Business Solutions" />
-    <link rel="canonical" href="https://edgeviewfinance.com.au/calculator" />
-    
-    <!-- Calculator Tool Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "@id": "https://edgeviewfinance.com.au/calculator",
-      "name": "Commercial Finance Calculator",
-      "description": "Professional loan calculator for Australian commercial finance including equipment finance, commercial property, and working capital solutions",
-      "url": "https://edgeviewfinance.com.au/calculator",
-      "applicationCategory": "FinanceApplication",
-      "operatingSystem": "Web Browser",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "AUD"
-      },
-      "provider": {
-        "@type": "FinancialService",
-        "@id": "https://edgeviewfinance.com.au/#organization",
-        "name": "Edgeview Finance Business Solutions"
-      },
-      "featureList": [
-        "Equipment Finance Calculator",
-        "Commercial Property Calculator", 
-        "Working Capital Calculator",
-        "Invoice Financing Calculator",
-        "Finance Comparison Calculator",
-        "GST Inclusive Calculations",
-        "Australian Tax Considerations"
-      ]
-    }
-    </script>
-    
-    <title>{siteData.title}</title>
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="nav-container">
-                <div class="logo">
-                    <h1>Edgeview Finance</h1>
-                    <span>Business Solutions</span>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/services">Services</a></li>
-                    <li><a href="/equipment-finance">Equipment Finance</a></li>
-                    <li><a href="/working-capital">Working Capital</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/contact" class="cta-button">Expert Consultation</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+<Agency11Layout title={siteData.title} description={siteData.description} keywords={siteData.keywords}>
+  <!-- Calculator Tool Schema -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "@id": "https://edgeviewfinance.com.au/calculator",
+    "name": "Commercial Finance Calculator",
+    "description": "Professional loan calculator for Australian commercial finance including equipment finance, commercial property, and working capital solutions",
+    "url": "https://edgeviewfinance.com.au/calculator",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "AUD"
+    },
+    "provider": {
+      "@type": "FinancialService",
+      "@id": "https://edgeviewfinance.com.au/#organization",
+      "name": "Edgeview Finance Business Solutions"
+    },
+    "featureList": [
+      "Equipment Finance Calculator",
+      "Commercial Property Calculator", 
+      "Working Capital Calculator",
+      "Invoice Financing Calculator",
+      "Finance Comparison Calculator",
+      "GST Inclusive Calculations",
+      "Australian Tax Considerations"
+    ]
+  }
+  </script>
+  
+  <!-- Open Graph for Social Sharing -->
+  <meta property="og:title" content={siteData.title} slot="head" />
+  <meta property="og:description" content={siteData.description} slot="head" />
+  <meta property="og:type" content="website" slot="head" />
+  <meta property="og:url" content="https://edgeviewfinance.com.au/calculator" slot="head" />
+  <meta property="og:locale" content="en_AU" slot="head" />
+
+  <Header />
 
     <main>
         <!-- Hero Section -->
-        <section class="hero service-hero">
-            <div class="hero-content">
-                <div class="breadcrumb">
-                    <a href="/">Home</a> > <span>Calculator</span>
-                </div>
-                <h1>Professional Loan Calculator</h1>
-                <p class="hero-subtitle">
-                    Calculate your commercial finance repayments with our professional calculator suite. Get instant estimates for equipment finance, commercial property, and working capital solutions with Australian tax considerations.
-                </p>
-                <div class="trust-indicators">
-                    <span>✓ Australian Financial Calculations</span>
-                    <span>✓ GST Inclusive Options</span>
-                    <span>✓ Professional Assessment Available</span>
+        <section class="section-hero hero-section">
+            <div class="container-default">
+                <div class="text-center">
+                    <h1 class="heading-primary text-white mb-6">Professional Loan Calculator</h1>
+                    <p class="hero-subtitle text-xl lg:text-2xl font-light mb-8 text-gray-100 max-w-4xl mx-auto">
+                        Calculate your commercial finance repayments with our professional calculator suite. Get instant estimates for equipment finance, commercial property, and working capital solutions with Australian tax considerations.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap text-gray-100 mb-8">
+                        <span class="flex items-center gap-2">✓ Australian Financial Calculations</span>
+                        <span class="flex items-center gap-2">✓ GST Inclusive Options</span>
+                        <span class="flex items-center gap-2">✓ Professional Assessment Available</span>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Calculator Interface -->
-        <section class="calculator-section">
-            <div class="container">
-                <div class="calculator-container">
+        <section class="section-content bg-neutral-light">
+            <div class="container-default">
+                <div class="service-card-consistent">
                     <!-- Calculator Type Selection -->
-                    <div class="calculator-tabs">
-                        <button class="tab-button active" data-calculator="equipment">Equipment Finance</button>
-                        <button class="tab-button" data-calculator="property">Commercial Property</button>
-                        <button class="tab-button" data-calculator="working-capital">Working Capital</button>
-                        <button class="tab-button" data-calculator="invoice">Invoice Financing</button>
-                        <button class="tab-button" data-calculator="comparison">Compare Options</button>
+                    <div class="flex flex-wrap border-b-2 border-neutral-light mb-8 gap-0">
+                        <button class="tab-button flex-1 bg-none border-none card-padding-sm text-base font-semibold text-gray-600 cursor-pointer border-b-3 border-transparent transition-all duration-300 hover:bg-gray-50 active" data-calculator="equipment">Equipment Finance</button>
+                        <button class="tab-button flex-1 bg-none border-none card-padding-sm text-base font-semibold text-gray-600 cursor-pointer border-b-3 border-transparent transition-all duration-300 hover:bg-gray-50" data-calculator="property">Commercial Property</button>
+                        <button class="tab-button flex-1 bg-none border-none card-padding-sm text-base font-semibold text-gray-600 cursor-pointer border-b-3 border-transparent transition-all duration-300 hover:bg-gray-50" data-calculator="working-capital">Working Capital</button>
+                        <button class="tab-button flex-1 bg-none border-none card-padding-sm text-base font-semibold text-gray-600 cursor-pointer border-b-3 border-transparent transition-all duration-300 hover:bg-gray-50" data-calculator="invoice">Invoice Financing</button>
+                        <button class="tab-button flex-1 bg-none border-none card-padding-sm text-base font-semibold text-gray-600 cursor-pointer border-b-3 border-transparent transition-all duration-300 hover:bg-gray-50" data-calculator="comparison">Compare Options</button>
                     </div>
 
                     <!-- Equipment Finance Calculator -->
                     <div id="equipment-calculator" class="calculator-form active">
-                        <h2>Equipment Finance Calculator</h2>
-                        <p class="calculator-description">Calculate repayments for commercial equipment, vehicles, and machinery financing.</p>
+                        <h2 class="heading-tertiary text-secondary-dark mb-4">Equipment Finance Calculator</h2>
+                        <p class="body-medium text-gray-700 mb-8">Calculate repayments for commercial equipment, vehicles, and machinery financing.</p>
                         
-                        <form class="calc-form">
-                            <div class="form-row">
-                                <div class="input-group">
-                                    <label for="eq-amount">Equipment Value (AUD)</label>
-                                    <input type="number" id="eq-amount" min="10000" max="5000000" step="1000" value="100000" required>
-                                    <small>Minimum $10,000 - Maximum $5,000,000</small>
+                        <form class="calc-form mb-8">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div class="flex flex-col">
+                                    <label for="eq-amount" class="form-label">Equipment Value (AUD)</label>
+                                    <input type="number" id="eq-amount" min="10000" max="5000000" step="1000" value="100000" required class="form-input">
+                                    <small class="text-xs text-gray-500 mt-1">Minimum $10,000 - Maximum $5,000,000</small>
                                 </div>
-                                <div class="input-group">
-                                    <label for="eq-gst">Include GST?</label>
-                                    <select id="eq-gst">
+                                <div class="flex flex-col">
+                                    <label for="eq-gst" class="form-label">Include GST?</label>
+                                    <select id="eq-gst" class="form-input">
                                         <option value="true">Yes - GST Inclusive</option>
                                         <option value="false">No - GST Exclusive</option>
                                     </select>
                                 </div>
                             </div>
                             
-                            <div class="form-row">
-                                <div class="input-group">
-                                    <label for="eq-term">Loan Term</label>
-                                    <select id="eq-term">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div class="flex flex-col">
+                                    <label for="eq-term" class="form-label">Loan Term</label>
+                                    <select id="eq-term" class="form-input">
                                         <option value="12">1 Year</option>
                                         <option value="24">2 Years</option>
                                         <option value="36" selected>3 Years</option>
@@ -156,22 +121,22 @@ const siteData = {
                                         <option value="84">7 Years</option>
                                     </select>
                                 </div>
-                                <div class="input-group">
-                                    <label for="eq-rate">Estimated Interest Rate (%)</label>
-                                    <input type="number" id="eq-rate" min="3" max="25" step="0.1" value="8.5" required>
-                                    <small>Indicative rate - actual rates vary by application</small>
+                                <div class="flex flex-col">
+                                    <label for="eq-rate" class="form-label">Estimated Interest Rate (%)</label>
+                                    <input type="number" id="eq-rate" min="3" max="25" step="0.1" value="8.5" required class="form-input">
+                                    <small class="text-xs text-gray-500 mt-1">Indicative rate - actual rates vary by application</small>
                                 </div>
                             </div>
 
-                            <div class="form-row">
-                                <div class="input-group">
-                                    <label for="eq-deposit">Deposit Amount (AUD)</label>
-                                    <input type="number" id="eq-deposit" min="0" step="1000" value="20000">
-                                    <small>Optional - reduces loan amount</small>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                                <div class="flex flex-col">
+                                    <label for="eq-deposit" class="form-label">Deposit Amount (AUD)</label>
+                                    <input type="number" id="eq-deposit" min="0" step="1000" value="20000" class="form-input">
+                                    <small class="text-xs text-gray-500 mt-1">Optional - reduces loan amount</small>
                                 </div>
-                                <div class="input-group">
-                                    <label for="eq-balloon">Balloon Payment (%)</label>
-                                    <select id="eq-balloon">
+                                <div class="flex flex-col">
+                                    <label for="eq-balloon" class="form-label">Balloon Payment (%)</label>
+                                    <select id="eq-balloon" class="form-input">
                                         <option value="0" selected>No Balloon Payment</option>
                                         <option value="10">10% Balloon</option>
                                         <option value="20">20% Balloon</option>
@@ -180,7 +145,7 @@ const siteData = {
                                 </div>
                             </div>
 
-                            <button type="button" class="calculate-btn" onclick="calculateEquipment()">Calculate Repayments</button>
+                            <button type="button" class="btn-primary btn-large w-full" onclick="calculateEquipment()">Calculate Repayments</button>
                         </form>
                     </div>
 
@@ -190,15 +155,15 @@ const siteData = {
                         <p class="calculator-description">Calculate repayments for commercial property purchase or investment financing.</p>
                         
                         <form class="calc-form">
-                            <div class="form-row">
-                                <div class="input-group">
-                                    <label for="prop-value">Property Value (AUD)</label>
-                                    <input type="number" id="prop-value" min="100000" max="20000000" step="10000" value="800000" required>
-                                    <small>Minimum $100,000 - Maximum $20,000,000</small>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="flex flex-col">
+                                    <label for="prop-value" class="form-label">Property Value (AUD)</label>
+                                    <input type="number" id="prop-value" min="100000" max="20000000" step="10000" value="800000" required class="form-input">
+                                    <small class="text-gray-600 text-sm mt-1">Minimum $100,000 - Maximum $20,000,000</small>
                                 </div>
-                                <div class="input-group">
-                                    <label for="prop-lvr">Loan to Value Ratio (%)</label>
-                                    <select id="prop-lvr">
+                                <div class="flex flex-col">
+                                    <label for="prop-lvr" class="form-label">Loan to Value Ratio (%)</label>
+                                    <select id="prop-lvr" class="form-input">
                                         <option value="60">60% LVR</option>
                                         <option value="70" selected>70% LVR</option>
                                         <option value="80">80% LVR</option>
@@ -206,10 +171,10 @@ const siteData = {
                                 </div>
                             </div>
                             
-                            <div class="form-row">
-                                <div class="input-group">
-                                    <label for="prop-term">Loan Term</label>
-                                    <select id="prop-term">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="flex flex-col">
+                                    <label for="prop-term" class="form-label">Loan Term</label>
+                                    <select id="prop-term" class="form-input">
                                         <option value="120">10 Years</option>
                                         <option value="180">15 Years</option>
                                         <option value="240" selected>20 Years</option>
@@ -217,24 +182,24 @@ const siteData = {
                                         <option value="360">30 Years</option>
                                     </select>
                                 </div>
-                                <div class="input-group">
-                                    <label for="prop-rate">Interest Rate (%)</label>
-                                    <input type="number" id="prop-rate" min="3" max="15" step="0.1" value="7.2" required>
-                                    <small>Commercial property rates typically 6-10%</small>
+                                <div class="flex flex-col">
+                                    <label for="prop-rate" class="form-label">Interest Rate (%)</label>
+                                    <input type="number" id="prop-rate" min="3" max="15" step="0.1" value="7.2" required class="form-input">
+                                    <small class="text-gray-600 text-sm mt-1">Commercial property rates typically 6-10%</small>
                                 </div>
                             </div>
 
-                            <div class="form-row">
-                                <div class="input-group">
-                                    <label for="prop-type">Property Type</label>
-                                    <select id="prop-type">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="flex flex-col">
+                                    <label for="prop-type" class="form-label">Property Type</label>
+                                    <select id="prop-type" class="form-input">
                                         <option value="owner-occupied" selected>Owner Occupied</option>
                                         <option value="investment">Investment Property</option>
                                     </select>
                                 </div>
-                                <div class="input-group">
-                                    <label for="prop-io">Interest Only Period</label>
-                                    <select id="prop-io">
+                                <div class="flex flex-col">
+                                    <label for="prop-io" class="form-label">Interest Only Period</label>
+                                    <select id="prop-io" class="form-input">
                                         <option value="0" selected>Principal & Interest</option>
                                         <option value="12">1 Year Interest Only</option>
                                         <option value="24">2 Years Interest Only</option>
@@ -243,25 +208,25 @@ const siteData = {
                                 </div>
                             </div>
 
-                            <button type="button" class="calculate-btn" onclick="calculateProperty()">Calculate Repayments</button>
+                            <button type="button" class="btn-primary btn-large w-full" onclick="calculateProperty()">Calculate Repayments</button>
                         </form>
                     </div>
 
                     <!-- Working Capital Calculator -->
-                    <div id="working-capital-calculator" class="calculator-form">
-                        <h2>Working Capital Calculator</h2>
-                        <p class="calculator-description">Calculate repayments for business line of credit and working capital facilities.</p>
+                    <div id="working-capital-calculator" class="calculator-form hidden">
+                        <h2 class="heading-tertiary text-secondary-dark mb-4">Working Capital Calculator</h2>
+                        <p class="body-medium text-gray-600 mb-6">Calculate repayments for business line of credit and working capital facilities.</p>
                         
-                        <form class="calc-form">
-                            <div class="form-row">
-                                <div class="input-group">
-                                    <label for="wc-amount">Credit Facility Amount (AUD)</label>
-                                    <input type="number" id="wc-amount" min="25000" max="2000000" step="5000" value="150000" required>
-                                    <small>Minimum $25,000 - Maximum $2,000,000</small>
+                        <form class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="flex flex-col">
+                                    <label for="wc-amount" class="form-label">Credit Facility Amount (AUD)</label>
+                                    <input type="number" id="wc-amount" min="25000" max="2000000" step="5000" value="150000" required class="form-input">
+                                    <small class="text-gray-600 text-sm mt-1">Minimum $25,000 - Maximum $2,000,000</small>
                                 </div>
-                                <div class="input-group">
-                                    <label for="wc-utilisation">Expected Utilisation (%)</label>
-                                    <select id="wc-utilisation">
+                                <div class="flex flex-col">
+                                    <label for="wc-utilisation" class="form-label">Expected Utilisation (%)</label>
+                                    <select id="wc-utilisation" class="form-input">
                                         <option value="50">50% Average Use</option>
                                         <option value="70" selected>70% Average Use</option>
                                         <option value="85">85% Average Use</option>
@@ -270,31 +235,31 @@ const siteData = {
                                 </div>
                             </div>
                             
-                            <div class="form-row">
-                                <div class="input-group">
-                                    <label for="wc-rate">Interest Rate (%)</label>
-                                    <input type="number" id="wc-rate" min="6" max="25" step="0.1" value="12.5" required>
-                                    <small>Working capital rates typically 10-18%</small>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="flex flex-col">
+                                    <label for="wc-rate" class="form-label">Interest Rate (%)</label>
+                                    <input type="number" id="wc-rate" min="6" max="25" step="0.1" value="12.5" required class="form-input">
+                                    <small class="text-gray-600 text-sm mt-1">Working capital rates typically 10-18%</small>
                                 </div>
-                                <div class="input-group">
-                                    <label for="wc-fees">Monthly Line Fee (%)</label>
-                                    <input type="number" id="wc-fees" min="0" max="5" step="0.05" value="0.3">
-                                    <small>Monthly fee on total facility limit</small>
+                                <div class="flex flex-col">
+                                    <label for="wc-fees" class="form-label">Monthly Line Fee (%)</label>
+                                    <input type="number" id="wc-fees" min="0" max="5" step="0.05" value="0.3" class="form-input">
+                                    <small class="text-gray-600 text-sm mt-1">Monthly fee on total facility limit</small>
                                 </div>
                             </div>
 
-                            <div class="form-row">
-                                <div class="input-group">
-                                    <label for="wc-type">Facility Type</label>
-                                    <select id="wc-type">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="flex flex-col">
+                                    <label for="wc-type" class="form-label">Facility Type</label>
+                                    <select id="wc-type" class="form-input">
                                         <option value="line-of-credit" selected>Line of Credit</option>
                                         <option value="overdraft">Bank Overdraft</option>
                                         <option value="invoice-finance">Invoice Finance</option>
                                     </select>
                                 </div>
-                                <div class="input-group">
-                                    <label for="wc-security">Security Required</label>
-                                    <select id="wc-security">
+                                <div class="flex flex-col">
+                                    <label for="wc-security" class="form-label">Security Required</label>
+                                    <select id="wc-security" class="form-input">
                                         <option value="business-assets" selected>Business Assets</option>
                                         <option value="property">Property Security</option>
                                         <option value="personal-guarantee">Personal Guarantee</option>
@@ -302,25 +267,25 @@ const siteData = {
                                 </div>
                             </div>
 
-                            <button type="button" class="calculate-btn" onclick="calculateWorkingCapital()">Calculate Costs</button>
+                            <button type="button" class="btn-primary btn-large w-full" onclick="calculateWorkingCapital()">Calculate Costs</button>
                         </form>
                     </div>
 
                     <!-- Invoice Financing Calculator -->
-                    <div id="invoice-calculator" class="calculator-form">
-                        <h2>Invoice Financing Calculator</h2>
-                        <p class="calculator-description">Calculate costs for invoice factoring and debtor financing to improve cash flow.</p>
+                    <div id="invoice-calculator" class="calculator-form hidden">
+                        <h2 class="heading-tertiary text-secondary-dark mb-4">Invoice Financing Calculator</h2>
+                        <p class="body-medium text-gray-600 mb-6">Calculate costs for invoice factoring and debtor financing to improve cash flow.</p>
                         
-                        <form class="calc-form">
-                            <div class="form-row">
-                                <div class="input-group">
-                                    <label for="inv-value">Monthly Invoice Value (AUD)</label>
-                                    <input type="number" id="inv-value" min="50000" max="5000000" step="5000" value="200000" required>
-                                    <small>Minimum $50,000 - Maximum $5,000,000</small>
+                        <form class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="flex flex-col">
+                                    <label for="inv-value" class="form-label">Monthly Invoice Value (AUD)</label>
+                                    <input type="number" id="inv-value" min="50000" max="5000000" step="5000" value="200000" required class="form-input">
+                                    <small class="text-gray-600 text-sm mt-1">Minimum $50,000 - Maximum $5,000,000</small>
                                 </div>
-                                <div class="input-group">
-                                    <label for="inv-advance">Advance Rate (%)</label>
-                                    <select id="inv-advance">
+                                <div class="flex flex-col">
+                                    <label for="inv-advance" class="form-label">Advance Rate (%)</label>
+                                    <select id="inv-advance" class="form-input">
                                         <option value="70">70% Advance</option>
                                         <option value="80" selected>80% Advance</option>
                                         <option value="85">85% Advance</option>
@@ -329,15 +294,15 @@ const siteData = {
                                 </div>
                             </div>
                             
-                            <div class="form-row">
-                                <div class="input-group">
-                                    <label for="inv-factor">Factor Rate (%)</label>
-                                    <input type="number" id="inv-factor" min="1" max="8" step="0.1" value="2.5" required>
-                                    <small>Monthly factor rate typically 1.5-4%</small>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="flex flex-col">
+                                    <label for="inv-factor" class="form-label">Factor Rate (%)</label>
+                                    <input type="number" id="inv-factor" min="1" max="8" step="0.1" value="2.5" required class="form-input">
+                                    <small class="text-gray-600 text-sm mt-1">Monthly factor rate typically 1.5-4%</small>
                                 </div>
-                                <div class="input-group">
-                                    <label for="inv-terms">Average Debtor Days</label>
-                                    <select id="inv-terms">
+                                <div class="flex flex-col">
+                                    <label for="inv-terms" class="form-label">Average Debtor Days</label>
+                                    <select id="inv-terms" class="form-input">
                                         <option value="30" selected>30 Days</option>
                                         <option value="45">45 Days</option>
                                         <option value="60">60 Days</option>
@@ -346,15 +311,15 @@ const siteData = {
                                 </div>
                             </div>
 
-                            <div class="form-row">
-                                <div class="input-group">
-                                    <label for="inv-service">Service Fee (%)</label>
-                                    <input type="number" id="inv-service" min="0" max="2" step="0.1" value="0.5">
-                                    <small>Monthly service fee on turnover</small>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="flex flex-col">
+                                    <label for="inv-service" class="form-label">Service Fee (%)</label>
+                                    <input type="number" id="inv-service" min="0" max="2" step="0.1" value="0.5" class="form-input">
+                                    <small class="text-gray-600 text-sm mt-1">Monthly service fee on turnover</small>
                                 </div>
-                                <div class="input-group">
-                                    <label for="inv-type">Financing Type</label>
-                                    <select id="inv-type">
+                                <div class="flex flex-col">
+                                    <label for="inv-type" class="form-label">Financing Type</label>
+                                    <select id="inv-type" class="form-input">
                                         <option value="factoring" selected>Invoice Factoring</option>
                                         <option value="discounting">Invoice Discounting</option>
                                         <option value="trade-finance">Trade Finance</option>
@@ -362,25 +327,25 @@ const siteData = {
                                 </div>
                             </div>
 
-                            <button type="button" class="calculate-btn" onclick="calculateInvoiceFinancing()">Calculate Financing Costs</button>
+                            <button type="button" class="btn-primary btn-large w-full" onclick="calculateInvoiceFinancing()">Calculate Financing Costs</button>
                         </form>
                     </div>
 
                     <!-- Comparison Calculator -->
-                    <div id="comparison-calculator" class="calculator-form">
-                        <h2>Finance Option Comparison</h2>
-                        <p class="calculator-description">Compare different finance options side by side to find the best solution for your business.</p>
+                    <div id="comparison-calculator" class="calculator-form hidden">
+                        <h2 class="heading-tertiary text-secondary-dark mb-4">Finance Option Comparison</h2>
+                        <p class="body-medium text-gray-600 mb-6">Compare different finance options side by side to find the best solution for your business.</p>
                         
-                        <div class="comparison-setup">
-                            <h3>Finance Requirement</h3>
-                            <div class="form-row">
-                                <div class="input-group">
-                                    <label for="comp-amount">Finance Amount (AUD)</label>
-                                    <input type="number" id="comp-amount" min="50000" max="5000000" step="10000" value="300000" required>
+                        <div class="service-card-consistent mb-8">
+                            <h3 class="heading-tertiary text-secondary-dark mb-6 border-b-2 border-primary-orange pb-3">Finance Requirement</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="flex flex-col">
+                                    <label for="comp-amount" class="form-label">Finance Amount (AUD)</label>
+                                    <input type="number" id="comp-amount" min="50000" max="5000000" step="10000" value="300000" required class="form-input">
                                 </div>
-                                <div class="input-group">
-                                    <label for="comp-purpose">Finance Purpose</label>
-                                    <select id="comp-purpose">
+                                <div class="flex flex-col">
+                                    <label for="comp-purpose" class="form-label">Finance Purpose</label>
+                                    <select id="comp-purpose" class="form-input">
                                         <option value="equipment">Equipment Purchase</option>
                                         <option value="property">Commercial Property</option>
                                         <option value="working-capital" selected>Working Capital</option>
@@ -390,17 +355,17 @@ const siteData = {
                             </div>
                         </div>
 
-                        <div class="comparison-options">
-                            <div class="comparison-option">
-                                <h4>Option 1: Traditional Bank Loan</h4>
-                                <div class="form-row">
-                                    <div class="input-group">
-                                        <label for="comp1-rate">Interest Rate (%)</label>
-                                        <input type="number" id="comp1-rate" min="3" max="20" step="0.1" value="7.5">
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                            <div class="service-card-consistent">
+                                <h4 class="heading-quaternary text-secondary-dark mb-4">Option 1: Traditional Bank Loan</h4>
+                                <div class="space-y-4">
+                                    <div class="flex flex-col">
+                                        <label for="comp1-rate" class="form-label">Interest Rate (%)</label>
+                                        <input type="number" id="comp1-rate" min="3" max="20" step="0.1" value="7.5" class="form-input">
                                     </div>
-                                    <div class="input-group">
-                                        <label for="comp1-term">Loan Term (Months)</label>
-                                        <select id="comp1-term">
+                                    <div class="flex flex-col">
+                                        <label for="comp1-term" class="form-label">Loan Term (Months)</label>
+                                        <select id="comp1-term" class="form-input">
                                             <option value="36">3 Years</option>
                                             <option value="48">4 Years</option>
                                             <option value="60" selected>5 Years</option>
@@ -410,16 +375,16 @@ const siteData = {
                                 </div>
                             </div>
 
-                            <div class="comparison-option">
-                                <h4>Option 2: Alternative Lender</h4>
-                                <div class="form-row">
-                                    <div class="input-group">
-                                        <label for="comp2-rate">Interest Rate (%)</label>
-                                        <input type="number" id="comp2-rate" min="3" max="25" step="0.1" value="12.5">
+                            <div class="service-card-consistent">
+                                <h4 class="heading-quaternary text-secondary-dark mb-4">Option 2: Alternative Lender</h4>
+                                <div class="space-y-4">
+                                    <div class="flex flex-col">
+                                        <label for="comp2-rate" class="form-label">Interest Rate (%)</label>
+                                        <input type="number" id="comp2-rate" min="3" max="25" step="0.1" value="12.5" class="form-input">
                                     </div>
-                                    <div class="input-group">
-                                        <label for="comp2-term">Loan Term (Months)</label>
-                                        <select id="comp2-term">
+                                    <div class="flex flex-col">
+                                        <label for="comp2-term" class="form-label">Loan Term (Months)</label>
+                                        <select id="comp2-term" class="form-input">
                                             <option value="24">2 Years</option>
                                             <option value="36" selected>3 Years</option>
                                             <option value="48">4 Years</option>
@@ -429,16 +394,16 @@ const siteData = {
                                 </div>
                             </div>
 
-                            <div class="comparison-option">
-                                <h4>Option 3: Equipment Finance</h4>
-                                <div class="form-row">
-                                    <div class="input-group">
-                                        <label for="comp3-rate">Interest Rate (%)</label>
-                                        <input type="number" id="comp3-rate" min="3" max="20" step="0.1" value="9.8">
+                            <div class="service-card-consistent">
+                                <h4 class="heading-quaternary text-secondary-dark mb-4">Option 3: Equipment Finance</h4>
+                                <div class="space-y-4">
+                                    <div class="flex flex-col">
+                                        <label for="comp3-rate" class="form-label">Interest Rate (%)</label>
+                                        <input type="number" id="comp3-rate" min="3" max="20" step="0.1" value="9.8" class="form-input">
                                     </div>
-                                    <div class="input-group">
-                                        <label for="comp3-term">Loan Term (Months)</label>
-                                        <select id="comp3-term">
+                                    <div class="flex flex-col">
+                                        <label for="comp3-term" class="form-label">Loan Term (Months)</label>
+                                        <select id="comp3-term" class="form-input">
                                             <option value="36">3 Years</option>
                                             <option value="48" selected>4 Years</option>
                                             <option value="60">5 Years</option>
@@ -449,7 +414,7 @@ const siteData = {
                             </div>
                         </div>
 
-                        <button type="button" class="calculate-btn" onclick="calculateComparison()">Compare Finance Options</button>
+                        <button type="button" class="btn-primary btn-large w-full" onclick="calculateComparison()">Compare Finance Options</button>
 
                         <!-- Comparison Results -->
                         <div id="comparison-results" class="comparison-results" style="display: none;">
@@ -477,863 +442,158 @@ const siteData = {
                     </div>
 
                     <!-- Results Display -->
-                    <div id="results" class="results-section" style="display: none;">
-                        <h3>Calculation Results</h3>
-                        <div class="results-grid">
-                            <div class="result-item">
-                                <span class="result-label">Monthly Repayment</span>
-                                <span class="result-value" id="monthly-payment">$0</span>
+                    <div id="results" class="service-card-consistent" style="display: none;">
+                        <h3 class="heading-tertiary text-secondary-dark mb-6">Calculation Results</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                            <div class="bg-neutral-light card-padding-sm rounded-lg text-center">
+                                <span class="form-label block mb-2">Monthly Repayment</span>
+                                <span class="text-2xl font-bold text-primary-orange" id="monthly-payment">$0</span>
                             </div>
-                            <div class="result-item">
-                                <span class="result-label">Total Interest</span>
-                                <span class="result-value" id="total-interest">$0</span>
+                            <div class="bg-neutral-light card-padding-sm rounded-lg text-center">
+                                <span class="form-label block mb-2">Total Interest</span>
+                                <span class="text-2xl font-bold text-secondary-dark" id="total-interest">$0</span>
                             </div>
-                            <div class="result-item">
-                                <span class="result-label">Total Cost</span>
-                                <span class="result-value" id="total-cost">$0</span>
+                            <div class="bg-neutral-light card-padding-sm rounded-lg text-center">
+                                <span class="form-label block mb-2">Total Cost</span>
+                                <span class="text-2xl font-bold text-secondary-dark" id="total-cost">$0</span>
                             </div>
-                            <div class="result-item full-width" id="additional-costs" style="display: none;">
-                                <span class="result-label">Additional Information</span>
-                                <div class="result-value" id="additional-info"></div>
+                            <div class="md:col-span-3 bg-yellow-50 border border-yellow-200 rounded-lg card-padding-sm" id="additional-costs" style="display: none;">
+                                <span class="form-label block mb-2">Additional Information</span>
+                                <div class="body-medium text-gray-700" id="additional-info"></div>
                             </div>
                         </div>
                         
-                        <div class="results-actions">
-                            <a href="/contact?calculator-results=true" class="primary-button">Get Professional Assessment</a>
-                            <button type="button" class="secondary-button" onclick="printResults()">Print Results</button>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="/contact?calculator-results=true" class="btn-primary btn-large">Get Professional Assessment</a>
+                            <button type="button" class="btn-secondary btn-large" onclick="printResults()">Print Results</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Educational Content -->
-                <div class="educational-content">
-                    <div class="education-section">
-                        <h3>Understanding Your Calculations</h3>
-                        <div class="education-grid">
-                            <div class="education-item">
-                                <h4>Interest Rate Factors</h4>
-                                <p>Commercial finance rates vary based on loan type, security, business strength, and market conditions. The rates shown are indicative only.</p>
-                                <ul>
-                                    <li>Equipment finance: 6-15% typically</li>
-                                    <li>Commercial property: 6-10% typically</li>
-                                    <li>Working capital: 10-18% typically</li>
+                <div class="service-card-consistent mt-12">
+                    <div class="text-center mb-8">
+                        <h3 class="heading-secondary text-secondary-dark mb-6">Understanding Your Calculations</h3>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <div class="feature-card">
+                                <h4 class="heading-tertiary text-secondary-dark mb-4">Interest Rate Factors</h4>
+                                <p class="body-medium mb-4">Commercial finance rates vary based on loan type, security, business strength, and market conditions. The rates shown are indicative only.</p>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start"><span class="text-primary-orange font-bold mr-2">•</span><span class="body-medium">Equipment finance: 6-15% typically</span></li>
+                                    <li class="flex items-start"><span class="text-primary-orange font-bold mr-2">•</span><span class="body-medium">Commercial property: 6-10% typically</span></li>
+                                    <li class="flex items-start"><span class="text-primary-orange font-bold mr-2">•</span><span class="body-medium">Working capital: 10-18% typically</span></li>
                                 </ul>
                             </div>
                             
-                            <div class="education-item">
-                                <h4>GST Considerations</h4>
-                                <p>For equipment purchases, GST may be claimable as an input tax credit if you're GST registered, effectively reducing the net equipment cost.</p>
-                                <ul>
-                                    <li>GST registered businesses can claim GST credits</li>
-                                    <li>Consider net equipment cost for financing</li>
-                                    <li>Consult your accountant for GST implications</li>
+                            <div class="feature-card">
+                                <h4 class="heading-tertiary text-secondary-dark mb-4">GST Considerations</h4>
+                                <p class="body-medium mb-4">For equipment purchases, GST may be claimable as an input tax credit if you're GST registered, effectively reducing the net equipment cost.</p>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start"><span class="text-primary-orange font-bold mr-2">•</span><span class="body-medium">GST registered businesses can claim GST credits</span></li>
+                                    <li class="flex items-start"><span class="text-primary-orange font-bold mr-2">•</span><span class="body-medium">Consider net equipment cost for financing</span></li>
+                                    <li class="flex items-start"><span class="text-primary-orange font-bold mr-2">•</span><span class="body-medium">Consult your accountant for GST implications</span></li>
                                 </ul>
                             </div>
                             
-                            <div class="education-item">
-                                <h4>Additional Costs</h4>
-                                <p>Commercial finance may include additional costs not reflected in basic calculations:</p>
-                                <ul>
-                                    <li>Establishment fees ($500-$2,500)</li>
-                                    <li>Valuation costs ($300-$1,500)</li>
-                                    <li>Legal documentation fees</li>
-                                    <li>Ongoing account keeping fees</li>
+                            <div class="feature-card">
+                                <h4 class="heading-tertiary text-secondary-dark mb-4">Additional Costs</h4>
+                                <p class="body-medium mb-4">Commercial finance may include additional costs not reflected in basic calculations:</p>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start"><span class="text-primary-orange font-bold mr-2">•</span><span class="body-medium">Establishment fees ($500-$2,500)</span></li>
+                                    <li class="flex items-start"><span class="text-primary-orange font-bold mr-2">•</span><span class="body-medium">Valuation costs ($300-$1,500)</span></li>
+                                    <li class="flex items-start"><span class="text-primary-orange font-bold mr-2">•</span><span class="body-medium">Legal documentation fees</span></li>
+                                    <li class="flex items-start"><span class="text-primary-orange font-bold mr-2">•</span><span class="body-medium">Ongoing account keeping fees</span></li>
                                 </ul>
                             </div>
                             
-                            <div class="education-item">
-                                <h4>Invoice Financing Benefits</h4>
-                                <p>Invoice financing can significantly improve cash flow by providing immediate access to working capital:</p>
-                                <ul>
-                                    <li>Immediate access to 70-90% of invoice value</li>
-                                    <li>Improves cash flow for growth opportunities</li>
-                                    <li>No fixed monthly repayments required</li>
-                                    <li>Scales with your business turnover</li>
+                            <div class="feature-card">
+                                <h4 class="heading-tertiary text-secondary-dark mb-4">Invoice Financing Benefits</h4>
+                                <p class="body-medium mb-4">Invoice financing can significantly improve cash flow by providing immediate access to working capital:</p>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start"><span class="text-primary-orange font-bold mr-2">•</span><span class="body-medium">Immediate access to 70-90% of invoice value</span></li>
+                                    <li class="flex items-start"><span class="text-primary-orange font-bold mr-2">•</span><span class="body-medium">Improves cash flow for growth opportunities</span></li>
+                                    <li class="flex items-start"><span class="text-primary-orange font-bold mr-2">•</span><span class="body-medium">No fixed monthly repayments required</span></li>
+                                    <li class="flex items-start"><span class="text-primary-orange font-bold mr-2">•</span><span class="body-medium">Scales with your business turnover</span></li>
                                 </ul>
                             </div>
                             
-                            <div class="education-item">
-                                <h4>Comparing Finance Options</h4>
-                                <p>Different finance types suit different business needs and circumstances:</p>
-                                <ul>
-                                    <li>Bank loans: Lower rates, stricter criteria</li>
-                                    <li>Alternative lenders: Faster approval, higher rates</li>
-                                    <li>Equipment finance: Asset-secured, competitive rates</li>
-                                    <li>Invoice finance: Flexible, turnover-based</li>
+                            <div class="feature-card">
+                                <h4 class="heading-tertiary text-secondary-dark mb-4">Comparing Finance Options</h4>
+                                <p class="body-medium mb-4">Different finance types suit different business needs and circumstances:</p>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start"><span class="text-primary-orange font-bold mr-2">•</span><span class="body-medium">Bank loans: Lower rates, stricter criteria</span></li>
+                                    <li class="flex items-start"><span class="text-primary-orange font-bold mr-2">•</span><span class="body-medium">Alternative lenders: Faster approval, higher rates</span></li>
+                                    <li class="flex items-start"><span class="text-primary-orange font-bold mr-2">•</span><span class="body-medium">Equipment finance: Asset-secured, competitive rates</span></li>
+                                    <li class="flex items-start"><span class="text-primary-orange font-bold mr-2">•</span><span class="body-medium">Invoice finance: Flexible, turnover-based</span></li>
                                 </ul>
                             </div>
                             
-                            <div class="education-item">
-                                <h4>Professional Assessment Benefits</h4>
-                                <p>Our professional assessment provides accurate rates and terms based on your specific situation:</p>
-                                <ul>
-                                    <li>Personalised interest rate assessment</li>
-                                    <li>Optimal loan structure recommendations</li>
-                                    <li>Tax efficiency considerations</li>
-                                    <li>Multiple lender comparison</li>
+                            <div class="feature-card">
+                                <h4 class="heading-tertiary text-secondary-dark mb-4">Professional Assessment Benefits</h4>
+                                <p class="body-medium mb-4">Our professional assessment provides accurate rates and terms based on your specific situation:</p>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start"><span class="text-primary-orange font-bold mr-2">•</span><span class="body-medium">Personalised interest rate assessment</span></li>
+                                    <li class="flex items-start"><span class="text-primary-orange font-bold mr-2">•</span><span class="body-medium">Optimal loan structure recommendations</span></li>
+                                    <li class="flex items-start"><span class="text-primary-orange font-bold mr-2">•</span><span class="body-medium">Tax efficiency considerations</span></li>
+                                    <li class="flex items-start"><span class="text-primary-orange font-bold mr-2">•</span><span class="body-medium">Multiple lender comparison</span></li>
                                 </ul>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Important Disclaimers -->
-        <section class="disclaimer-section">
-            <div class="container">
-                <div class="disclaimer-content">
-                    <h3>Important Information & Disclaimers</h3>
-                    <div class="disclaimer-text">
-                        <p><strong>Calculation Accuracy:</strong> These calculations are estimates only and should not be relied upon for final decision making. Actual loan terms, interest rates, and repayments will vary based on your individual circumstances, credit assessment, and lender requirements.</p>
+        <section class="section-content bg-neutral-light">
+            <div class="container-default">
+                <div class="service-card-consistent">
+                    <h3 class="heading-tertiary text-secondary-dark mb-6 text-center">Important Information & Disclaimers</h3>
+                    <div class="space-y-6">
+                        <div class="bg-yellow-50 border border-yellow-200 rounded-lg card-padding-sm">
+                            <p class="body-medium"><strong class="text-secondary-dark">Calculation Accuracy:</strong> These calculations are estimates only and should not be relied upon for final decision making. Actual loan terms, interest rates, and repayments will vary based on your individual circumstances, credit assessment, and lender requirements.</p>
+                        </div>
                         
-                        <p><strong>Interest Rates:</strong> Interest rates shown are indicative only and based on current market conditions. Actual rates offered will depend on loan type, security, loan amount, term, and borrower profile. Rates are subject to change without notice.</p>
+                        <div class="bg-blue-50 border border-blue-200 rounded-lg card-padding-sm">
+                            <p class="body-medium"><strong class="text-secondary-dark">Interest Rates:</strong> Interest rates shown are indicative only and based on current market conditions. Actual rates offered will depend on loan type, security, loan amount, term, and borrower profile. Rates are subject to change without notice.</p>
+                        </div>
                         
-                        <p><strong>Professional Advice Required:</strong> This calculator does not constitute financial advice. You should seek independent financial, legal, and tax advice before making any borrowing decisions. Consider your objectives, financial situation, and needs before proceeding.</p>
+                        <div class="bg-red-50 border border-red-200 rounded-lg card-padding-sm">
+                            <p class="body-medium"><strong class="text-secondary-dark">Professional Advice Required:</strong> This calculator does not constitute financial advice. You should seek independent financial, legal, and tax advice before making any borrowing decisions. Consider your objectives, financial situation, and needs before proceeding.</p>
+                        </div>
                         
-                        <p><strong>Australian Financial Services:</strong> Edgeview Finance Business Solutions is a licensed finance broker operating under Australian Financial Services License conditions. We are required to act in your best interests when providing credit assistance.</p>
+                        <div class="bg-green-50 border border-green-200 rounded-lg card-padding-sm">
+                            <p class="body-medium"><strong class="text-secondary-dark">Australian Financial Services:</strong> Edgeview Finance Business Solutions is a licensed finance broker operating under Australian Financial Services License conditions. We are required to act in your best interests when providing credit assistance.</p>
+                        </div>
                         
-                        <p><strong>No Guarantee:</strong> Use of this calculator does not constitute a loan pre-approval or guarantee of finance. All finance applications are subject to lender credit assessment and approval processes.</p>
+                        <div class="bg-gray-50 border border-gray-200 rounded-lg card-padding-sm">
+                            <p class="body-medium"><strong class="text-secondary-dark">No Guarantee:</strong> Use of this calculator does not constitute a loan pre-approval or guarantee of finance. All finance applications are subject to lender credit assessment and approval processes.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Call to Action -->
-        <section class="cta-section">
-            <div class="container">
-                <h2>Ready for Professional Finance Assessment?</h2>
-                <p>Get accurate rates and personalised recommendations from our commercial finance specialists. Professional assessment with no obligation.</p>
-                <div class="cta-buttons">
-                    <a href="/contact?source=calculator" class="primary-button large">Request Professional Assessment</a>
-                    <a href="/equipment-finance" class="secondary-button large">Explore Equipment Finance</a>
+        <section class="section-cta hero-section">
+            <div class="container-default">
+                <div class="text-center">
+                    <h2 class="heading-secondary text-white mb-6">Ready for Professional Finance Assessment?</h2>
+                    <p class="text-xl lg:text-2xl text-gray-100 mb-8 max-w-4xl mx-auto">
+                        Get accurate rates and personalised recommendations from our commercial finance specialists. Professional assessment with no obligation.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center button-gap">
+                        <a href="/contact?source=calculator" class="btn-primary btn-large">Request Professional Assessment</a>
+                        <a href="/equipment-finance" class="btn-secondary btn-large text-white border-white hover:bg-white hover:text-secondary-dark">Explore Equipment Finance</a>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Edgeview Finance Business Solutions</h4>
-                    <p>Licensed Australian Finance Broker<br/>
-                    ACL: [License Number]<br/>
-                    ABN: [ABN Number]</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="/equipment-finance">Equipment Finance</a></li>
-                        <li><a href="/commercial-property">Commercial Property</a></li>
-                        <li><a href="/working-capital">Working Capital</a></li>
-                        <li><a href="/invoice-financing">Invoice Financing</a></li>
-                        <li><a href="/personal-lending">Personal Lending</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="/calculator" class="active">Loan Calculator</a></li>
-                        <li><a href="/blog">Finance Guides</a></li>
-                        <li><a href="/case-studies">Success Stories</a></li>
-                        <li><a href="/faqs">FAQs</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Phone: 1300 XXX XXX<br/>
-                    Email: enquiries@edgeviewfinance.com.au<br/>
-                    Hours: Mon-Fri 8AM-6PM AEST</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Edgeview Finance Business Solutions. All rights reserved. | 
-                <a href="/privacy">Privacy Policy</a> | 
-                <a href="/terms">Terms of Service</a> | 
-                <a href="/credit-guide">Credit Guide</a></p>
-            </div>
-        </div>
-    </footer>
+    <Footer />
 
-    <style>
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #fff;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header Styles */
-        header {
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
-        
-        .logo h1 {
-            color: #2c5aa0;
-            font-size: 1.5rem;
-            margin-bottom: -5px;
-        }
-        
-        .logo span {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-        
-        .nav-menu a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-menu a:hover, .nav-menu a.active {
-            color: #2c5aa0;
-        }
-        
-        .cta-button {
-            background: #e67e22 !important;
-            color: white !important;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-        
-        .cta-button:hover {
-            background: #d35400 !important;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #2c5aa0 0%, #3498db 100%);
-            color: white;
-            padding: 80px 20px 60px;
-            text-align: center;
-        }
-        
-        .service-hero {
-            padding: 60px 20px 40px;
-        }
-        
-        .breadcrumb {
-            margin-bottom: 1rem;
-            opacity: 0.9;
-        }
-        
-        .breadcrumb a {
-            color: white;
-            text-decoration: none;
-        }
-        
-        .breadcrumb a:hover {
-            text-decoration: underline;
-        }
-        
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.95;
-        }
-        
-        .trust-indicators {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            opacity: 0.9;
-            font-size: 0.9rem;
-        }
-
-        /* Calculator Section */
-        .calculator-section {
-            padding: 60px 20px;
-            background: #f8f9fa;
-        }
-        
-        .calculator-container {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin-bottom: 3rem;
-        }
-        
-        .calculator-tabs {
-            display: flex;
-            border-bottom: 2px solid #f0f0f0;
-            margin-bottom: 2rem;
-            gap: 0;
-        }
-        
-        .tab-button {
-            background: none;
-            border: none;
-            padding: 1rem 2rem;
-            font-size: 1rem;
-            font-weight: 600;
-            color: #666;
-            cursor: pointer;
-            border-bottom: 3px solid transparent;
-            transition: all 0.3s;
-            flex: 1;
-        }
-        
-        .tab-button.active {
-            color: #2c5aa0;
-            border-bottom-color: #2c5aa0;
-            background: #f8f9ff;
-        }
-        
-        .tab-button:hover {
-            background: #f5f5f5;
-        }
-        
-        .calculator-form {
-            display: none;
-        }
-        
-        .calculator-form.active {
-            display: block;
-        }
-        
-        .calculator-form h2 {
-            color: #2c5aa0;
-            margin-bottom: 0.5rem;
-        }
-        
-        .calculator-description {
-            color: #666;
-            margin-bottom: 2rem;
-        }
-        
-        .calc-form {
-            margin-bottom: 2rem;
-        }
-        
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .input-group {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .input-group label {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-        
-        .input-group input,
-        .input-group select {
-            padding: 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-        
-        .input-group input:focus,
-        .input-group select:focus {
-            outline: none;
-            border-color: #2c5aa0;
-        }
-        
-        .input-group small {
-            color: #666;
-            font-size: 0.85rem;
-            margin-top: 0.25rem;
-        }
-        
-        .calculate-btn {
-            background: #e67e22;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-            width: 100%;
-        }
-        
-        .calculate-btn:hover {
-            background: #d35400;
-        }
-
-        /* Results Section */
-        .results-section {
-            background: #f8fff8;
-            border: 2px solid #27ae60;
-            border-radius: 10px;
-            padding: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .results-section h3 {
-            color: #27ae60;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        .result-item {
-            text-align: center;
-            padding: 1rem;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        
-        .result-item.full-width {
-            grid-column: 1 / -1;
-            text-align: left;
-        }
-        
-        .result-label {
-            display: block;
-            font-weight: 600;
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
-        
-        .result-value {
-            display: block;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #27ae60;
-        }
-        
-        .results-actions {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .primary-button {
-            background: #e67e22;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            display: inline-block;
-        }
-        
-        .primary-button:hover {
-            background: #d35400;
-            transform: translateY(-2px);
-        }
-        
-        .secondary-button {
-            background: transparent;
-            color: #2c5aa0;
-            padding: 15px 30px;
-            border: 2px solid #2c5aa0;
-            border-radius: 5px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .secondary-button:hover {
-            background: #2c5aa0;
-            color: white;
-        }
-
-        /* Educational Content */
-        .educational-content {
-            margin-top: 3rem;
-        }
-        
-        .education-section h3 {
-            color: #2c5aa0;
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: 1.8rem;
-        }
-        
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-        
-        .education-item {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .education-item h4 {
-            color: #e67e22;
-            margin-bottom: 1rem;
-        }
-        
-        .education-item ul {
-            list-style: none;
-            margin-top: 1rem;
-        }
-        
-        .education-item li {
-            padding: 0.3rem 0;
-            padding-left: 1rem;
-            position: relative;
-        }
-        
-        .education-item li:before {
-            content: "✓";
-            color: #27ae60;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        /* Comparison Calculator Styles */
-        .comparison-setup {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-        }
-
-        .comparison-setup h3 {
-            color: #2c5aa0;
-            margin-bottom: 1rem;
-        }
-
-        .comparison-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .comparison-option {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid #e67e22;
-        }
-
-        .comparison-option h4 {
-            color: #2c5aa0;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .comparison-results {
-            background: #f8fff8;
-            border: 2px solid #27ae60;
-            border-radius: 10px;
-            padding: 2rem;
-            margin-top: 2rem;
-        }
-
-        .comparison-results h3 {
-            color: #27ae60;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .comparison-table {
-            overflow-x: auto;
-            margin-bottom: 2rem;
-        }
-
-        .comparison-table table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .comparison-table th,
-        .comparison-table td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .comparison-table th {
-            background: #2c5aa0;
-            color: white;
-            font-weight: 600;
-        }
-
-        .comparison-table tr:nth-child(even) {
-            background: #f8f9fa;
-        }
-
-        .comparison-table tr:hover {
-            background: #e3f2fd;
-        }
-
-        .comparison-table .best-option {
-            background: #e8f5e8 !important;
-            font-weight: 600;
-        }
-
-        .comparison-table .savings-positive {
-            color: #27ae60;
-            font-weight: 600;
-        }
-
-        .comparison-table .savings-negative {
-            color: #e74c3c;
-            font-weight: 600;
-        }
-
-        .comparison-chart {
-            background: white;
-            padding: 1rem;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .comparison-chart canvas {
-            max-width: 100%;
-            height: auto;
-        }
-
-        /* Disclaimer Section */
-        .disclaimer-section {
-            background: #f0f0f0;
-            padding: 40px 20px;
-        }
-        
-        .disclaimer-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            border-left: 5px solid #e67e22;
-        }
-        
-        .disclaimer-content h3 {
-            color: #e67e22;
-            margin-bottom: 1.5rem;
-        }
-        
-        .disclaimer-text p {
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-        
-        .disclaimer-text strong {
-            color: #2c5aa0;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: #2c5aa0;
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-        
-        .cta-section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .large {
-            font-size: 1.2rem;
-            padding: 18px 36px;
-        }
-
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            padding: 40px 20px 20px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-section h4 {
-            color: #e67e22;
-            margin-bottom: 1rem;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-section a:hover, .footer-section a.active {
-            color: white;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid #555;
-            padding-top: 1rem;
-            text-align: center;
-            color: #ccc;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .nav-menu {
-                display: none;
-            }
-            
-            .form-row {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .calculator-tabs {
-                flex-direction: column;
-            }
-            
-            .tab-button {
-                flex: none;
-            }
-            
-            .results-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .education-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .trust-indicators {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .comparison-options {
-                grid-template-columns: 1fr;
-            }
-            
-            .comparison-table {
-                font-size: 0.9rem;
-            }
-            
-            .comparison-table th,
-            .comparison-table td {
-                padding: 0.75rem 0.5rem;
-            }
-        }
-
-        /* Print Styles */
-        @media print {
-            header, footer, .cta-section, .educational-content {
-                display: none;
-            }
-            
-            .calculator-section {
-                background: white;
-                padding: 0;
-            }
-            
-            .calculator-container {
-                box-shadow: none;
-                border: 1px solid #ccc;
-            }
-        }
-    </style>
-
+    <!-- Calculator JavaScript -->
     <script>
         // Calculator functionality
         function switchCalculator(type) {
@@ -1732,5 +992,4 @@ const siteData = {
             return true;
         }
     </script>
-</body>
-</html>
+</Agency11Layout>

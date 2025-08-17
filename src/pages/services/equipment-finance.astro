@@ -3,7 +3,7 @@
 // Tier 1: Human-facing conversion page optimized for persuasion
 export const prerender = true;
 
-import Layout from '../../layouts/Layout.astro';
+import Agency11Layout from '../../layouts/Agency11Layout.astro';
 import Header from '../../components/Header.astro';
 import Hero from '../../components/Hero.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
@@ -105,7 +105,7 @@ const faqs = [
 ];
 ---
 
-<Layout title={pageData.title} description={pageData.description} keywords={pageData.keywords}>
+<Agency11Layout title={pageData.title} description={pageData.description} keywords={pageData.keywords}>
   <Header />
   
   <main>
@@ -460,7 +460,7 @@ const faqs = [
   </main>
   
   <Footer />
-</Layout>
+</Agency11Layout>
 
 <style>
   /* FAQ Interactive Styles */

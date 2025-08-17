@@ -1,6 +1,10 @@
 ---
 // Working Capital Solutions Page - Strategic Business Finance for Commercial Growth
 // Optimized for Ben the Business Builder ICP (excluding residential builders)
+import Agency11Layout from '../layouts/Agency11Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
 export const prerender = true;
 
 const siteData = {
@@ -10,146 +14,188 @@ const siteData = {
 };
 ---
 
-<html lang="en-AU">
-<head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={siteData.description} />
-    <meta name="keywords" content={siteData.keywords} />
-    
-    <!-- Working Capital Service Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "@id": "https://edgeviewfinance.com.au/working-capital",
-      "name": "Working Capital Solutions",
-      "alternateName": "Business Growth Finance",
-      "description": "Strategic working capital and business growth finance for commercial trades, civil contractors, and expanding businesses",
-      "serviceType": "Business Finance",
-      "provider": {
-        "@type": "FinancialService",
-        "@id": "https://edgeviewfinance.com.au/#organization",
-        "name": "Edgeview Finance Business Solutions",
-        "areaServed": {
-          "@type": "Country",
-          "name": "Australia"
-        }
-      },
-      "offers": {
-        "@type": "Offer",
-        "name": "Working Capital Finance",
-        "description": "Flexible business finance from $50K to $2M+ for cash flow management and business growth",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Working Capital Solutions",
-          "category": "Business Finance"
-        }
-      },
-      "audience": {
-        "@type": "BusinessAudience",
-        "businessType": ["Commercial Trades", "Civil Contractors", "Growing Businesses"],
-        "numberOfEmployees": "5-50"
+<Agency11Layout title={siteData.title} description={siteData.description} keywords={siteData.keywords}>
+  <!-- Working Capital Service Schema -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://edgeviewfinance.com.au/working-capital",
+    "name": "Working Capital Solutions",
+    "alternateName": "Business Growth Finance",
+    "description": "Strategic working capital and business growth finance for commercial trades, civil contractors, and expanding businesses",
+    "serviceType": "Business Finance",
+    "provider": {
+      "@type": "FinancialService",
+      "@id": "https://edgeviewfinance.com.au/#organization",
+      "name": "Edgeview Finance Business Solutions",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Australia"
       }
+    },
+    "offers": {
+      "@type": "Offer",
+      "name": "Working Capital Finance",
+      "description": "Flexible business finance from $50K to $2M+ for cash flow management and business growth",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Working Capital Solutions",
+        "category": "Business Finance"
+      }
+    },
+    "audience": {
+      "@type": "BusinessAudience",
+      "businessType": ["Commercial Trades", "Civil Contractors", "Growing Businesses"],
+      "numberOfEmployees": "5-50"
     }
-    </script>
-    
-    <title>{siteData.title}</title>
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="nav-container">
-                <div class="logo">
-                    <h1>Edgeview Finance</h1>
-                    <span>Business Solutions</span>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/services">Services</a></li>
-                    <li><a href="/equipment-finance">Equipment Finance</a></li>
-                    <li><a href="/working-capital" class="active">Working Capital</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/contact" class="cta-button">Expert Consultation</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+  }
+  </script>
 
-    <main>
+  <Header />
+  
+  <main>
         <!-- Hero Section -->
-        <section class="hero service-hero">
-            <div class="hero-content">
-                <div class="breadcrumb">
-                    <a href="/">Home</a> > <a href="/services">Services</a> > Working Capital
-                </div>
-                <h1>Strategic Working Capital for Business Growth & Cash Flow Management</h1>
-                <p class="hero-subtitle">
-                    Professional working capital solutions from $50K to $2M+ for commercial trades, civil contractors, and growing businesses. Optimise cash flow, fund expansion, and maintain operational efficiency with flexible business finance.
-                </p>
-                <div class="hero-cta">
-                    <a href="/get-quote?service=working-capital" class="primary-button">Get Working Capital Quote</a>
-                    <a href="/cash-flow-calculator" class="secondary-button">Cash Flow Calculator</a>
-                </div>
-                <div class="trust-indicators">
-                    <span>✓ Same Day Approvals Available</span>
-                    <span>✓ Competitive Business Rates</span>
-                    <span>✓ $100M+ Business Capital Deployed</span>
+        <section class="section-hero hero-section">
+            <div class="container-default">
+                <div class="text-center">
+                    <nav class="text-sm mb-6 text-gray-300">
+                        <a href="/" class="hover:text-white">Home</a> > 
+                        <a href="/services" class="hover:text-white">Services</a> > 
+                        Working Capital
+                    </nav>
+                    <h1 class="heading-primary text-white mb-6">Strategic Working Capital for Business Growth & Cash Flow Management</h1>
+                    <p class="body-large text-gray-100 max-w-4xl mx-auto mb-8">
+                        Professional working capital solutions from $50K to $2M+ for commercial trades, civil contractors, and growing businesses. Optimise cash flow, fund expansion, and maintain operational efficiency with flexible business finance.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center button-gap mb-8">
+                        <a href="/get-quote?service=working-capital" class="btn-primary btn-large">Get Working Capital Quote</a>
+                        <a href="/cash-flow-calculator" class="btn-secondary btn-large">Cash Flow Calculator</a>
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-6 text-gray-100">
+                        <span class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Same Day Approvals Available
+                        </span>
+                        <span class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Competitive Business Rates
+                        </span>
+                        <span class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            $100M+ Business Capital Deployed
+                        </span>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Working Capital Types Section -->
-        <section class="capital-types">
-            <div class="container">
-                <h2>Working Capital Solutions for Commercial Businesses</h2>
-                <div class="capital-grid">
-                    <div class="capital-category">
-                        <div class="category-icon">💰</div>
-                        <h3>Cash Flow Management</h3>
-                        <p>Bridge timing gaps between project completion and payment receipt</p>
-                        <ul>
-                            <li>Accounts receivable financing</li>
-                            <li>Seasonal cash flow smoothing</li>
-                            <li>Project completion funding</li>
-                            <li>Supplier payment timing optimisation</li>
+        <section class="section-content bg-neutral-light">
+            <div class="container-default">
+                <div class="text-center mb-16">
+                    <h2 class="heading-secondary mb-6">Working Capital Solutions for Commercial Businesses</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="service-card-consistent text-center">
+                        <div class="text-4xl mb-6">💰</div>
+                        <h3 class="heading-tertiary mb-4 text-primary-orange">Cash Flow Management</h3>
+                        <p class="body-medium mb-6">Bridge timing gaps between project completion and payment receipt</p>
+                        <ul class="text-left space-y-2">
+                            <li class="flex items-start">
+                                <span class="text-primary-orange mr-2">→</span>
+                                Accounts receivable financing
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary-orange mr-2">→</span>
+                                Seasonal cash flow smoothing
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary-orange mr-2">→</span>
+                                Project completion funding
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary-orange mr-2">→</span>
+                                Supplier payment timing optimisation
+                            </li>
                         </ul>
                     </div>
                     
-                    <div class="capital-category">
-                        <div class="category-icon">📈</div>
-                        <h3>Business Expansion Capital</h3>
-                        <p>Strategic funding for growth opportunities and market expansion</p>
-                        <ul>
-                            <li>New territory expansion</li>
-                            <li>Additional crew hiring</li>
-                            <li>Service line diversification</li>
-                            <li>Market opportunity capture</li>
+                    <div class="service-card-consistent text-center">
+                        <div class="text-4xl mb-6">📈</div>
+                        <h3 class="heading-tertiary mb-4 text-primary-orange">Business Expansion Capital</h3>
+                        <p class="body-medium mb-6">Strategic funding for growth opportunities and market expansion</p>
+                        <ul class="text-left space-y-2">
+                            <li class="flex items-start">
+                                <span class="text-primary-orange mr-2">→</span>
+                                New territory expansion
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary-orange mr-2">→</span>
+                                Additional crew hiring
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary-orange mr-2">→</span>
+                                Service line diversification
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary-orange mr-2">→</span>
+                                Market opportunity capture
+                            </li>
                         </ul>
                     </div>
                     
-                    <div class="capital-category">
-                        <div class="category-icon">🔧</div>
-                        <h3>Operational Working Capital</h3>
-                        <p>Day-to-day operational funding for established commercial trades</p>
-                        <ul>
-                            <li>Material and supply purchases</li>
-                            <li>Payroll and contractor payments</li>
-                            <li>Overhead and operational expenses</li>
-                            <li>Insurance and compliance costs</li>
+                    <div class="service-card-consistent text-center">
+                        <div class="text-4xl mb-6">🔧</div>
+                        <h3 class="heading-tertiary mb-4 text-primary-orange">Operational Working Capital</h3>
+                        <p class="body-medium mb-6">Day-to-day operational funding for established commercial trades</p>
+                        <ul class="text-left space-y-2">
+                            <li class="flex items-start">
+                                <span class="text-primary-orange mr-2">→</span>
+                                Material and supply purchases
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary-orange mr-2">→</span>
+                                Payroll and contractor payments
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary-orange mr-2">→</span>
+                                Overhead and operational expenses
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary-orange mr-2">→</span>
+                                Insurance and compliance costs
+                            </li>
                         </ul>
                     </div>
                     
-                    <div class="capital-category">
-                        <div class="category-icon">🎯</div>
-                        <h3>Project-Based Funding</h3>
-                        <p>Specialized funding for large commercial and civil projects</p>
-                        <ul>
-                            <li>Contract mobilization funding</li>
-                            <li>Material pre-purchase financing</li>
-                            <li>Performance bond support</li>
-                            <li>Project completion guarantees</li>
+                    <div class="service-card-consistent text-center">
+                        <div class="text-4xl mb-6">🎯</div>
+                        <h3 class="heading-tertiary mb-4 text-primary-orange">Project-Based Funding</h3>
+                        <p class="body-medium mb-6">Specialized funding for large commercial and civil projects</p>
+                        <ul class="text-left space-y-2">
+                            <li class="flex items-start">
+                                <span class="text-primary-orange mr-2">→</span>
+                                Contract mobilization funding
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary-orange mr-2">→</span>
+                                Material pre-purchase financing
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary-orange mr-2">→</span>
+                                Performance bond support
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary-orange mr-2">→</span>
+                                Project completion guarantees
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -157,99 +203,163 @@ const siteData = {
         </section>
 
         <!-- Business Scenarios Section -->
-        <section class="scenarios-section">
-            <div class="container">
-                <h2>Common Working Capital Scenarios We Solve</h2>
-                <div class="scenarios-grid">
-                    <div class="scenario">
-                        <h3>The Growth Opportunity</h3>
-                        <p><strong>Situation:</strong> Large civil contract secured but need upfront capital for mobilization and materials.</p>
-                        <p><strong>Solution:</strong> Project-based working capital line matched to contract milestones and payment schedule.</p>
-                        <div class="outcome">✓ Contract executed successfully with 40% profit margin improvement</div>
+        <section class="section-content">
+            <div class="container-default">
+                <div class="text-center mb-16">
+                    <h2 class="heading-secondary mb-6">Common Working Capital Scenarios We Solve</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="feature-card border-l-4 border-primary-orange">
+                        <h3 class="heading-tertiary mb-4 text-primary-orange">The Growth Opportunity</h3>
+                        <p class="body-medium mb-4">
+                            <strong>Situation:</strong> Large civil contract secured but need upfront capital for mobilization and materials.
+                        </p>
+                        <p class="body-medium mb-6">
+                            <strong>Solution:</strong> Project-based working capital line matched to contract milestones and payment schedule.
+                        </p>
+                        <div class="bg-green-50 border border-green-200 rounded-lg p-4 text-green-800 font-medium">
+                            ✓ Contract executed successfully with 40% profit margin improvement
+                        </div>
                     </div>
                     
-                    <div class="scenario">
-                        <h3>The Cash Flow Gap</h3>
-                        <p><strong>Situation:</strong> Commercial electrical contractor with 60-day payment terms causing cash flow stress.</p>
-                        <p><strong>Solution:</strong> Invoice financing and working capital facility to bridge payment gaps.</p>
-                        <div class="outcome">✓ Smooth operations maintained with 25% business growth achieved</div>
+                    <div class="feature-card border-l-4 border-primary-orange">
+                        <h3 class="heading-tertiary mb-4 text-primary-orange">The Cash Flow Gap</h3>
+                        <p class="body-medium mb-4">
+                            <strong>Situation:</strong> Commercial electrical contractor with 60-day payment terms causing cash flow stress.
+                        </p>
+                        <p class="body-medium mb-6">
+                            <strong>Solution:</strong> Invoice financing and working capital facility to bridge payment gaps.
+                        </p>
+                        <div class="bg-green-50 border border-green-200 rounded-lg p-4 text-green-800 font-medium">
+                            ✓ Smooth operations maintained with 25% business growth achieved
+                        </div>
                     </div>
                     
-                    <div class="scenario">
-                        <h3>The Equipment Upgrade</h3>
-                        <p><strong>Situation:</strong> HVAC contractor needs to upgrade fleet but wants to preserve cash for operations.</p>
-                        <p><strong>Solution:</strong> Combined equipment finance and working capital package for optimal cash management.</p>
-                        <div class="outcome">✓ Fleet upgraded while maintaining strong working capital position</div>
+                    <div class="feature-card border-l-4 border-primary-orange">
+                        <h3 class="heading-tertiary mb-4 text-primary-orange">The Equipment Upgrade</h3>
+                        <p class="body-medium mb-4">
+                            <strong>Situation:</strong> HVAC contractor needs to upgrade fleet but wants to preserve cash for operations.
+                        </p>
+                        <p class="body-medium mb-6">
+                            <strong>Solution:</strong> Combined equipment finance and working capital package for optimal cash management.
+                        </p>
+                        <div class="bg-green-50 border border-green-200 rounded-lg p-4 text-green-800 font-medium">
+                            ✓ Fleet upgraded while maintaining strong working capital position
+                        </div>
                     </div>
                     
-                    <div class="scenario">
-                        <h3>The Seasonal Smoothing</h3>
-                        <p><strong>Situation:</strong> Civil earthmoving contractor with seasonal revenue fluctuations affecting year-round operations.</p>
-                        <p><strong>Solution:</strong> Flexible credit line with seasonal draw and repayment patterns.</p>
-                        <div class="outcome">✓ Year-round team retained, 30% revenue increase achieved</div>
+                    <div class="feature-card border-l-4 border-primary-orange">
+                        <h3 class="heading-tertiary mb-4 text-primary-orange">The Seasonal Smoothing</h3>
+                        <p class="body-medium mb-4">
+                            <strong>Situation:</strong> Civil earthmoving contractor with seasonal revenue fluctuations affecting year-round operations.
+                        </p>
+                        <p class="body-medium mb-6">
+                            <strong>Solution:</strong> Flexible credit line with seasonal draw and repayment patterns.
+                        </p>
+                        <div class="bg-green-50 border border-green-200 rounded-lg p-4 text-green-800 font-medium">
+                            ✓ Year-round team retained, 30% revenue increase achieved
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Finance Products Section -->
-        <section class="products-section">
-            <div class="container">
-                <h2>Working Capital Finance Products</h2>
-                <div class="products-grid">
-                    <div class="product-card">
-                        <h3>Business Credit Line</h3>
-                        <div class="product-details">
-                            <p><strong>Amount:</strong> $50K - $500K</p>
-                            <p><strong>Access:</strong> Draw down as needed</p>
-                            <p><strong>Interest:</strong> Only pay on funds used</p>
-                            <p><strong>Terms:</strong> 12-24 month facilities</p>
+        <section class="section-content bg-neutral-light">
+            <div class="container-default">
+                <div class="text-center mb-16">
+                    <h2 class="heading-secondary mb-6">Working Capital Finance Products</h2>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="service-card-consistent">
+                        <h3 class="heading-tertiary mb-6 text-center text-primary-orange">Business Credit Line</h3>
+                        <div class="bg-neutral-light rounded-lg card-padding-sm mb-6">
+                            <p class="body-medium mb-2"><strong>Amount:</strong> $50K - $500K</p>
+                            <p class="body-medium mb-2"><strong>Access:</strong> Draw down as needed</p>
+                            <p class="body-medium mb-2"><strong>Interest:</strong> Only pay on funds used</p>
+                            <p class="body-medium"><strong>Terms:</strong> 12-24 month facilities</p>
                         </div>
-                        <div class="product-features">
-                            <h4>Best For:</h4>
-                            <ul>
-                                <li>Established businesses with predictable cycles</li>
-                                <li>Managing supplier payment timing</li>
-                                <li>Seasonal cash flow fluctuations</li>
-                                <li>Opportunity capture funding</li>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-4 text-primary-orange">Best For:</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2 mt-1">✓</span>
+                                    Established businesses with predictable cycles
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2 mt-1">✓</span>
+                                    Managing supplier payment timing
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2 mt-1">✓</span>
+                                    Seasonal cash flow fluctuations
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2 mt-1">✓</span>
+                                    Opportunity capture funding
+                                </li>
                             </ul>
                         </div>
                     </div>
                     
-                    <div class="product-card">
-                        <h3>Term Business Loan</h3>
-                        <div class="product-details">
-                            <p><strong>Amount:</strong> $100K - $2M+</p>
-                            <p><strong>Access:</strong> Lump sum advance</p>
-                            <p><strong>Repayment:</strong> Fixed monthly payments</p>
-                            <p><strong>Terms:</strong> 12-60 months</p>
+                    <div class="service-card-consistent">
+                        <h3 class="heading-tertiary mb-6 text-center text-primary-orange">Term Business Loan</h3>
+                        <div class="bg-neutral-light rounded-lg card-padding-sm mb-6">
+                            <p class="body-medium mb-2"><strong>Amount:</strong> $100K - $2M+</p>
+                            <p class="body-medium mb-2"><strong>Access:</strong> Lump sum advance</p>
+                            <p class="body-medium mb-2"><strong>Repayment:</strong> Fixed monthly payments</p>
+                            <p class="body-medium"><strong>Terms:</strong> 12-60 months</p>
                         </div>
-                        <div class="product-features">
-                            <h4>Best For:</h4>
-                            <ul>
-                                <li>Major business expansion projects</li>
-                                <li>Large equipment and infrastructure</li>
-                                <li>Business acquisition opportunities</li>
-                                <li>Significant working capital injection</li>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-4 text-primary-orange">Best For:</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2 mt-1">✓</span>
+                                    Major business expansion projects
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2 mt-1">✓</span>
+                                    Large equipment and infrastructure
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2 mt-1">✓</span>
+                                    Business acquisition opportunities
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2 mt-1">✓</span>
+                                    Significant working capital injection
+                                </li>
                             </ul>
                         </div>
                     </div>
                     
-                    <div class="product-card">
-                        <h3>Project Finance Facility</h3>
-                        <div class="product-details">
-                            <p><strong>Amount:</strong> $200K - $5M+</p>
-                            <p><strong>Access:</strong> Milestone-based draws</p>
-                            <p><strong>Security:</strong> Project contracts/assets</p>
-                            <p><strong>Terms:</strong> Project duration + 6-12 months</p>
+                    <div class="service-card-consistent">
+                        <h3 class="heading-tertiary mb-6 text-center text-primary-orange">Project Finance Facility</h3>
+                        <div class="bg-neutral-light rounded-lg card-padding-sm mb-6">
+                            <p class="body-medium mb-2"><strong>Amount:</strong> $200K - $5M+</p>
+                            <p class="body-medium mb-2"><strong>Access:</strong> Milestone-based draws</p>
+                            <p class="body-medium mb-2"><strong>Security:</strong> Project contracts/assets</p>
+                            <p class="body-medium"><strong>Terms:</strong> Project duration + 6-12 months</p>
                         </div>
-                        <div class="product-features">
-                            <h4>Best For:</h4>
-                            <ul>
-                                <li>Large civil and commercial projects</li>
-                                <li>Infrastructure development contracts</li>
-                                <li>Multi-stage project delivery</li>
-                                <li>Performance bond requirements</li>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-4 text-primary-orange">Best For:</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2 mt-1">✓</span>
+                                    Large civil and commercial projects
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2 mt-1">✓</span>
+                                    Infrastructure development contracts
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2 mt-1">✓</span>
+                                    Multi-stage project delivery
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2 mt-1">✓</span>
+                                    Performance bond requirements
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -258,164 +368,130 @@ const siteData = {
         </section>
 
         <!-- Process Section -->
-        <section class="process-section">
-            <div class="container">
-                <h2>Our Working Capital Assessment Process</h2>
-                <div class="process-steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <h3>Business Analysis</h3>
-                        <p>Comprehensive review of your business model, cash flow patterns, growth trajectory, and working capital requirements.</p>
+        <section class="section-content">
+            <div class="container-default">
+                <div class="text-center mb-16">
+                    <h2 class="heading-secondary mb-6">Our Working Capital Assessment Process</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="process-step text-center">
+                        <div class="process-number">1</div>
+                        <h3 class="heading-tertiary mb-4 text-primary-orange">Business Analysis</h3>
+                        <p class="body-medium">Comprehensive review of your business model, cash flow patterns, growth trajectory, and working capital requirements.</p>
                     </div>
                     
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <h3>Solution Design</h3>
-                        <p>Strategic structuring of working capital facilities to optimise cash flow timing, minimise interest costs, and support growth objectives.</p>
+                    <div class="process-step text-center">
+                        <div class="process-number">2</div>
+                        <h3 class="heading-tertiary mb-4 text-primary-orange">Solution Design</h3>
+                        <p class="body-medium">Strategic structuring of working capital facilities to optimise cash flow timing, minimise interest costs, and support growth objectives.</p>
                     </div>
                     
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <h3>Lender Matching</h3>
-                        <p>Access to specialized commercial lenders with deep understanding of your industry and business model requirements.</p>
+                    <div class="process-step text-center">
+                        <div class="process-number">3</div>
+                        <h3 class="heading-tertiary mb-4 text-primary-orange">Lender Matching</h3>
+                        <p class="body-medium">Access to specialized commercial lenders with deep understanding of your industry and business model requirements.</p>
                     </div>
                     
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <h3>Facility Establishment</h3>
-                        <p>Professional management of documentation, settlement, and ongoing facility management to ensure optimal utilisation.</p>
+                    <div class="process-step text-center">
+                        <div class="process-number">4</div>
+                        <h3 class="heading-tertiary mb-4 text-primary-orange">Facility Establishment</h3>
+                        <p class="body-medium">Professional management of documentation, settlement, and ongoing facility management to ensure optimal utilisation.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Benefits Section -->
-        <section class="benefits-section">
-            <div class="container">
-                <h2>Strategic Advantages of Professional Working Capital</h2>
-                <div class="benefits-grid">
-                    <div class="benefit">
-                        <h3>Cash Flow Optimization</h3>
-                        <p>Maintain smooth operations regardless of customer payment timing. Bridge the gap between completing work and receiving payment to keep business flowing.</p>
+        <section class="section-content bg-neutral-light">
+            <div class="container-default">
+                <div class="text-center mb-16">
+                    <h2 class="heading-secondary mb-6">Strategic Advantages of Professional Working Capital</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="service-card-consistent">
+                        <h3 class="heading-tertiary mb-4 text-primary-orange">Cash Flow Optimization</h3>
+                        <p class="body-medium">Maintain smooth operations regardless of customer payment timing. Bridge the gap between completing work and receiving payment to keep business flowing.</p>
                     </div>
                     
-                    <div class="benefit">
-                        <h3>Growth Enablement</h3>
-                        <p>Seize large contracts and expansion opportunities without cash flow constraints. Scale operations strategically with adequate working capital backing.</p>
+                    <div class="service-card-consistent">
+                        <h3 class="heading-tertiary mb-4 text-primary-orange">Growth Enablement</h3>
+                        <p class="body-medium">Seize large contracts and expansion opportunities without cash flow constraints. Scale operations strategically with adequate working capital backing.</p>
                     </div>
                     
-                    <div class="benefit">
-                        <h3>Supplier Relationships</h3>
-                        <p>Negotiate better terms with suppliers through prompt payment capabilities. Access volume discounts and preferred supplier status.</p>
+                    <div class="service-card-consistent">
+                        <h3 class="heading-tertiary mb-4 text-primary-orange">Supplier Relationships</h3>
+                        <p class="body-medium">Negotiate better terms with suppliers through prompt payment capabilities. Access volume discounts and preferred supplier status.</p>
                     </div>
                     
-                    <div class="benefit">
-                        <h3>Operational Stability</h3>
-                        <p>Maintain consistent workforce and operations during seasonal fluctuations or economic uncertainty. Build resilient business operations.</p>
+                    <div class="service-card-consistent">
+                        <h3 class="heading-tertiary mb-4 text-primary-orange">Operational Stability</h3>
+                        <p class="body-medium">Maintain consistent workforce and operations during seasonal fluctuations or economic uncertainty. Build resilient business operations.</p>
                     </div>
                     
-                    <div class="benefit">
-                        <h3>Strategic Flexibility</h3>
-                        <p>Respond quickly to market opportunities, emergency repairs, or competitive challenges without liquidity constraints limiting your options.</p>
+                    <div class="service-card-consistent">
+                        <h3 class="heading-tertiary mb-4 text-primary-orange">Strategic Flexibility</h3>
+                        <p class="body-medium">Respond quickly to market opportunities, emergency repairs, or competitive challenges without liquidity constraints limiting your options.</p>
                     </div>
                     
-                    <div class="benefit">
-                        <h3>Professional Management</h3>
-                        <p>Expert guidance on optimal facility utilization, cash flow forecasting, and strategic business finance planning throughout the relationship.</p>
+                    <div class="service-card-consistent">
+                        <h3 class="heading-tertiary mb-4 text-primary-orange">Professional Management</h3>
+                        <p class="body-medium">Expert guidance on optimal facility utilization, cash flow forecasting, and strategic business finance planning throughout the relationship.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Industry Focus -->
-        <section class="industry-focus">
-            <div class="container">
-                <h2>Industries We Specialize In</h2>
-                <div class="industries-grid">
-                    <div class="industry">
-                        <h3>Civil Contractors</h3>
-                        <p>Earthmoving, road construction, infrastructure development, and large-scale civil projects with complex payment cycles.</p>
+        <section class="section-content">
+            <div class="container-default">
+                <div class="text-center mb-16">
+                    <h2 class="heading-secondary mb-6">Industries We Specialize In</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="feature-card text-center">
+                        <h3 class="heading-tertiary mb-4 text-primary-orange">Civil Contractors</h3>
+                        <p class="body-medium">Earthmoving, road construction, infrastructure development, and large-scale civil projects with complex payment cycles.</p>
                     </div>
                     
-                    <div class="industry">
-                        <h3>Commercial Trades</h3>
-                        <p>Electrical, plumbing, HVAC, and specialized commercial trade contractors serving business and industrial clients.</p>
+                    <div class="feature-card text-center">
+                        <h3 class="heading-tertiary mb-4 text-primary-orange">Commercial Trades</h3>
+                        <p class="body-medium">Electrical, plumbing, HVAC, and specialized commercial trade contractors serving business and industrial clients.</p>
                     </div>
                     
-                    <div class="industry">
-                        <h3>Industrial Services</h3>
-                        <p>Mining support services, industrial maintenance, manufacturing support, and specialized industrial contractors.</p>
+                    <div class="feature-card text-center">
+                        <h3 class="heading-tertiary mb-4 text-primary-orange">Industrial Services</h3>
+                        <p class="body-medium">Mining support services, industrial maintenance, manufacturing support, and specialized industrial contractors.</p>
                     </div>
                     
-                    <div class="industry">
-                        <h3>Professional Services</h3>
-                        <p>Engineering consultancies, project management firms, and professional service businesses with project-based revenue.</p>
+                    <div class="feature-card text-center">
+                        <h3 class="heading-tertiary mb-4 text-primary-orange">Professional Services</h3>
+                        <p class="body-medium">Engineering consultancies, project management firms, and professional service businesses with project-based revenue.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Call to Action -->
-        <section class="cta-section">
-            <div class="container">
-                <h2>Ready to Optimize Your Business Cash Flow?</h2>
-                <p>Join successful commercial trades and civil contractors who've secured strategic working capital to fuel sustainable growth and operational excellence.</p>
-                <div class="cta-buttons">
-                    <a href="/get-quote?service=working-capital" class="primary-button large">Get Working Capital Quote</a>
-                    <a href="/contact" class="secondary-button large">Speak with Business Finance Specialist</a>
-                </div>
-                <div class="contact-info">
-                    <p>Same-day consultation available: <strong>1300 XXX XXX</strong> | Monday-Friday 7AM-7PM AEST</p>
+        <section class="section-cta hero-section">
+            <div class="container-default">
+                <div class="text-center">
+                    <h2 class="heading-secondary text-white mb-6">Ready to Optimize Your Business Cash Flow?</h2>
+                    <p class="body-large text-gray-100 max-w-4xl mx-auto mb-8">
+                        Join successful commercial trades and civil contractors who've secured strategic working capital to fuel sustainable growth and operational excellence.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center button-gap mb-8">
+                        <a href="/get-quote?service=working-capital" class="btn-primary btn-large">Get Working Capital Quote</a>
+                        <a href="/contact" class="btn-secondary btn-large">Speak with Business Finance Specialist</a>
+                    </div>
+                    <div class="text-gray-100">
+                        <p>Same-day consultation available: <strong>1300 XXX XXX</strong> | Monday-Friday 7AM-7PM AEST</p>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Working Capital</h4>
-                    <ul>
-                        <li><a href="/business-credit-line">Business Credit Line</a></li>
-                        <li><a href="/term-business-loan">Term Business Loans</a></li>
-                        <li><a href="/project-finance">Project Finance</a></li>
-                        <li><a href="/cash-flow-solutions">Cash Flow Solutions</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Other Services</h4>
-                    <ul>
-                        <li><a href="/equipment-finance">Equipment Finance</a></li>
-                        <li><a href="/commercial-property">Commercial Property</a></li>
-                        <li><a href="/invoice-financing">Invoice Financing</a></li>
-                        <li><a href="/personal-lending">Personal Lending</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="/cash-flow-calculator">Cash Flow Calculator</a></li>
-                        <li><a href="/blog/working-capital-guide">Working Capital Guide</a></li>
-                        <li><a href="/case-studies/business-growth">Growth Success Stories</a></li>
-                        <li><a href="/faqs/working-capital">Working Capital FAQs</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Phone: 1300 XXX XXX<br/>
-                    Email: capital@edgeviewfinance.com.au<br/>
-                    Hours: Mon-Fri 7AM-7PM AEST</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Edgeview Finance Business Solutions. All rights reserved. | 
-                <a href="/privacy">Privacy Policy</a> | 
-                <a href="/terms">Terms of Service</a> | 
-                <a href="/credit-guide">Credit Guide</a></p>
-            </div>
-        </div>
-    </footer>
+    <Footer />
 
     <style>
         /* Import base styles from equipment-finance.astro */

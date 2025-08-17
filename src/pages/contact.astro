@@ -1,6 +1,10 @@
 ---
 // EVFBS Contact Page - Professional Commercial Finance Consultation
 // Optimized for "Ben the Business Builder" ICP with assessment focus
+import Agency11Layout from '../layouts/Agency11Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
 export const prerender = true;
 
 const siteData = {
@@ -10,16 +14,10 @@ const siteData = {
 };
 ---
 
-<html lang="en-AU">
-<head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={siteData.description} />
-    <meta name="keywords" content={siteData.keywords} />
+<Agency11Layout title={siteData.title} description={siteData.description} keywords={siteData.keywords}>
     
-    <!-- Contact Page Schema -->
-    <script type="application/ld+json">
+  <!-- Contact Page Schema -->
+  <script type="application/ld+json" slot="head">
     {
       "@context": "https://schema.org",
       "@type": "ContactPage",
@@ -87,140 +85,142 @@ const siteData = {
         }
       }
     }
-    </script>
-    
-    <!-- Open Graph for Social Sharing -->
-    <meta property="og:title" content={siteData.title} />
-    <meta property="og:description" content={siteData.description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://edgeviewfinance.com.au/contact" />
-    <meta property="og:locale" content="en_AU" />
-    
-    <title>{siteData.title}</title>
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="nav-container">
-                <div class="logo">
-                    <h1>Edgeview Finance</h1>
-                    <span>Business Solutions</span>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/services">Services</a></li>
-                    <li><a href="/equipment-finance">Equipment Finance</a></li>
-                    <li><a href="/working-capital">Working Capital</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/contact" class="cta-button active">Expert Consultation</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+  </script>
+  
+  <!-- Open Graph for Social Sharing -->
+  <meta property="og:title" content={siteData.title} slot="head" />
+  <meta property="og:description" content={siteData.description} slot="head" />
+  <meta property="og:type" content="website" slot="head" />
+  <meta property="og:url" content="https://edgeviewfinance.com.au/contact" slot="head" />
+  <meta property="og:locale" content="en_AU" slot="head" />
+
+  <Header />
 
     <main>
         <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Professional Commercial Finance Consultation</h1>
-                <p class="hero-subtitle">
-                    Ready to discuss your business finance requirements? Speak with licensed Australian finance brokers who understand 
-                    commercial trades, civil contractors, and industrial businesses. Get strategic guidance tailored to your growth objectives.
-                </p>
-                <div class="trust-indicators">
-                    <span>✓ Licensed Australian Finance Broker</span>
-                    <span>✓ ASIC Compliant Service</span>
-                    <span>✓ 500+ Strategic Finance Solutions</span>
+        <section class="section-hero hero-section">
+            <div class="container-default">
+                <div class="text-center">
+                    <h1 class="heading-primary text-white mb-6">Professional Commercial Finance Consultation</h1>
+                    <p class="hero-subtitle text-xl lg:text-2xl font-light mb-8 text-gray-100 max-w-4xl mx-auto">
+                        Ready to discuss your business finance requirements? Speak with licensed Australian finance brokers who understand 
+                        commercial trades, civil contractors, and industrial businesses. Get strategic guidance tailored to your growth objectives.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap text-gray-100 mb-8">
+                        <span class="flex items-center gap-2">✓ Licensed Australian Finance Broker</span>
+                        <span class="flex items-center gap-2">✓ ASIC Compliant Service</span>
+                        <span class="flex items-center gap-2">✓ 500+ Strategic Finance Solutions</span>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Methods -->
-        <section class="contact-methods">
-            <div class="container">
-                <h2>Multiple Ways to Connect</h2>
-                <div class="contact-grid">
-                    <div class="contact-card primary">
-                        <div class="contact-icon">📞</div>
-                        <h3>Phone Consultation</h3>
-                        <p class="contact-value">1300 XXX XXX</p>
-                        <p>Speak directly with a licensed finance broker for immediate strategic guidance and assessment.</p>
-                        <div class="contact-hours">
-                            <strong>Business Hours:</strong><br/>
-                            Monday - Friday: 8:00 AM - 6:00 PM AEST<br/>
-                            Saturday: 9:00 AM - 1:00 PM AEST<br/>
-                            Sunday: Emergency consultations only
+        <section class="section-content bg-neutral-light">
+            <div class="container-default">
+                <h2 class="heading-secondary text-center mb-16">Multiple Ways to Connect</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="service-card-consistent border-2 border-primary-orange">
+                        <div class="text-center">
+                            <div class="text-4xl mb-6">📞</div>
+                            <h3 class="heading-tertiary text-secondary-dark mb-4">Phone Consultation</h3>
+                            <p class="text-xl font-semibold text-primary-orange mb-4">1300 XXX XXX</p>
+                            <p class="body-medium mb-6">Speak directly with a licensed finance broker for immediate strategic guidance and assessment.</p>
+                            <div class="bg-neutral-light card-padding-sm rounded-lg">
+                                <p class="body-medium mb-2"><strong class="text-secondary-dark">Business Hours:</strong></p>
+                                <p class="text-sm text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM AEST<br/>
+                                Saturday: 9:00 AM - 1:00 PM AEST<br/>
+                                Sunday: Emergency consultations only</p>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="contact-card">
-                        <div class="contact-icon">✉️</div>
-                        <h3>Email Assessment</h3>
-                        <p class="contact-value">enquiries@edgeviewfinance.com.au</p>
-                        <p>Send your finance requirements for detailed written assessment and strategic recommendations.</p>
-                        <div class="department-emails">
-                            <div class="dept-item">
-                                <strong>New Applications:</strong> applications@edgeviewfinance.com.au
+                    <div class="service-card-consistent">
+                        <div class="text-center">
+                            <div class="text-4xl mb-6">✉️</div>
+                            <h3 class="heading-tertiary text-secondary-dark mb-4">Email Assessment</h3>
+                            <p class="text-lg font-semibold text-primary-orange mb-4">enquiries@edgeviewfinance.com.au</p>
+                            <p class="body-medium mb-6">Send your finance requirements for detailed written assessment and strategic recommendations.</p>
+                            <div class="bg-neutral-light card-padding-sm rounded-lg border-l-4 border-secondary-dark mb-6">
+                                <div class="space-y-2">
+                                    <div class="text-sm">
+                                        <span class="font-semibold text-secondary-dark">New Applications:</span> applications@edgeviewfinance.com.au
+                                    </div>
+                                    <div class="text-sm">
+                                        <span class="font-semibold text-secondary-dark">Existing Clients:</span> support@edgeviewfinance.com.au
+                                    </div>
+                                    <div class="text-sm">
+                                        <span class="font-semibold text-secondary-dark">Urgent Enquiries:</span> urgent@edgeviewfinance.com.au
+                                    </div>
+                                </div>
                             </div>
-                            <div class="dept-item">
-                                <strong>Existing Clients:</strong> support@edgeviewfinance.com.au
+                            <div class="bg-green-50 border border-green-200 rounded-lg card-padding-sm">
+                                <p class="text-sm text-green-700"><strong>Response Time:</strong> Within 4 business hours</p>
                             </div>
-                            <div class="dept-item">
-                                <strong>Urgent Enquiries:</strong> urgent@edgeviewfinance.com.au
-                            </div>
-                        </div>
-                        <div class="response-time">
-                            <strong>Response Time:</strong> Within 4 business hours
                         </div>
                     </div>
                     
-                    <div class="contact-card">
-                        <div class="contact-icon">📝</div>
-                        <h3>Online Assessment Form</h3>
-                        <p>Complete our professional assessment form below for comprehensive analysis and strategic recommendations.</p>
-                        <div class="form-benefits">
-                            <span>✓ Confidential assessment</span>
-                            <span>✓ Strategic recommendations</span>
-                            <span>✓ Priority response</span>
+                    <div class="service-card-consistent">
+                        <div class="text-center">
+                            <div class="text-4xl mb-6">📝</div>
+                            <h3 class="heading-tertiary text-secondary-dark mb-4">Online Assessment Form</h3>
+                            <p class="body-medium mb-6">Complete our professional assessment form below for comprehensive analysis and strategic recommendations.</p>
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-center text-green-600 text-sm">
+                                    <span class="mr-2">✓</span> Confidential assessment
+                                </div>
+                                <div class="flex items-center justify-center text-green-600 text-sm">
+                                    <span class="mr-2">✓</span> Strategic recommendations
+                                </div>
+                                <div class="flex items-center justify-center text-green-600 text-sm">
+                                    <span class="mr-2">✓</span> Priority response
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="contact-card emergency">
-                        <div class="contact-icon">🚨</div>
-                        <h3>Emergency Finance Support</h3>
-                        <p class="contact-value">1300 XXX XXX (24/7)</p>
-                        <p>For urgent finance requirements affecting business operations or time-critical opportunities.</p>
-                        <div class="emergency-criteria">
-                            <div class="criteria-item">• Equipment breakdown affecting operations</div>
-                            <div class="criteria-item">• Time-sensitive contract opportunities</div>
-                            <div class="criteria-item">• Cash flow emergencies</div>
-                            <div class="criteria-item">• Settlement deadlines</div>
-                        </div>
-                        <div class="emergency-note">
-                            <strong>Emergency Service Fee:</strong> $150 after-hours consultation fee applies for non-urgent matters
+                    <div class="service-card-consistent border-2 border-red-400 bg-gradient-to-br from-white to-red-50">
+                        <div class="text-center">
+                            <div class="text-4xl mb-6">🚨</div>
+                            <h3 class="heading-tertiary text-secondary-dark mb-4">Emergency Finance Support</h3>
+                            <p class="text-xl font-semibold text-red-600 mb-4">1300 XXX XXX (24/7)</p>
+                            <p class="body-medium mb-6">For urgent finance requirements affecting business operations or time-critical opportunities.</p>
+                            <div class="bg-white border border-red-200 rounded-lg card-padding-sm mb-6">
+                                <div class="space-y-2 text-left">
+                                    <div class="text-sm text-red-700">• Equipment breakdown affecting operations</div>
+                                    <div class="text-sm text-red-700">• Time-sensitive contract opportunities</div>
+                                    <div class="text-sm text-red-700">• Cash flow emergencies</div>
+                                    <div class="text-sm text-red-700">• Settlement deadlines</div>
+                                </div>
+                            </div>
+                            <div class="bg-yellow-100 border border-yellow-300 rounded-lg card-padding-sm">
+                                <p class="text-xs text-yellow-800"><strong>Emergency Service Fee:</strong> $150 after-hours consultation fee applies for non-urgent matters</p>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="contact-card booking">
-                        <div class="contact-icon">📅</div>
-                        <h3>Online Consultation Booking</h3>
-                        <p>Schedule a professional consultation at your convenience with our licensed finance brokers.</p>
-                        <div class="booking-options">
-                            <div class="booking-type">
-                                <strong>Video Consultation:</strong> 30-60 minutes via Zoom or Teams
+                    <div class="service-card-consistent border-2 border-green-400 bg-gradient-to-br from-white to-green-50">
+                        <div class="text-center">
+                            <div class="text-4xl mb-6">📅</div>
+                            <h3 class="heading-tertiary text-secondary-dark mb-4">Online Consultation Booking</h3>
+                            <p class="body-medium mb-6">Schedule a professional consultation at your convenience with our licensed finance brokers.</p>
+                            <div class="space-y-4 mb-6">
+                                <div class="bg-white border-l-4 border-green-500 card-padding-sm rounded text-left">
+                                    <p class="text-sm"><strong class="text-secondary-dark">Video Consultation:</strong> 30-60 minutes via Zoom or Teams</p>
+                                </div>
+                                <div class="bg-white border-l-4 border-green-500 card-padding-sm rounded text-left">
+                                    <p class="text-sm"><strong class="text-secondary-dark">Phone Consultation:</strong> 30-45 minutes structured discussion</p>
+                                </div>
+                                <div class="bg-white border-l-4 border-green-500 card-padding-sm rounded text-left">
+                                    <p class="text-sm"><strong class="text-secondary-dark">On-site Visit:</strong> Brisbane, Gold Coast, and Sunshine Coast areas</p>
+                                </div>
                             </div>
-                            <div class="booking-type">
-                                <strong>Phone Consultation:</strong> 30-45 minutes structured discussion
+                            <div class="text-center">
+                                <button type="button" class="btn-primary btn-large mb-4" onclick="alert('Booking system integration coming soon. Please call 1300 XXX XXX to schedule.')">
+                                    Book Consultation Online
+                                </button>
+                                <p class="text-xs text-gray-600 italic">Online booking system launching soon. Call us directly for immediate scheduling.</p>
                             </div>
-                            <div class="booking-type">
-                                <strong>On-site Visit:</strong> Brisbane, Gold Coast, and Sunshine Coast areas
-                            </div>
-                        </div>
-                        <div class="booking-placeholder">
-                            <button type="button" class="booking-button" onclick="alert('Booking system integration coming soon. Please call 1300 XXX XXX to schedule.')">
-                                Book Consultation Online
-                            </button>
-                            <p class="booking-note">Online booking system launching soon. Call us directly for immediate scheduling.</p>
                         </div>
                     </div>
                 </div>
@@ -228,29 +228,29 @@ const siteData = {
         </section>
 
         <!-- Professional Assessment Form -->
-        <section class="assessment-form">
-            <div class="container">
-                <div class="form-header">
-                    <h2>Professional Finance Assessment Form</h2>
-                    <p>Provide your business details for comprehensive analysis and strategic finance recommendations. All information is treated confidentially and assessed by licensed finance professionals.</p>
+        <section class="section-content">
+            <div class="container-default">
+                <div class="text-center mb-16">
+                    <h2 class="heading-secondary mb-6">Professional Finance Assessment Form</h2>
+                    <p class="body-large max-w-4xl mx-auto">Provide your business details for comprehensive analysis and strategic finance recommendations. All information is treated confidentially and assessed by licensed finance professionals.</p>
                 </div>
                 
-                <form class="contact-form" action="/submit-assessment" method="POST" aria-label="Commercial Finance Assessment Form">
-                    <div class="form-section">
-                        <h3>Business Information</h3>
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="business-name">Business Name *</label>
-                                <input type="text" id="business-name" name="businessName" required aria-describedby="business-name-help">
+                <form class="max-w-6xl mx-auto" action="/submit-assessment" method="POST" aria-label="Commercial Finance Assessment Form">
+                    <div class="service-card-consistent mb-8">
+                        <h3 class="heading-tertiary text-secondary-dark mb-6 border-b-2 border-primary-orange pb-3">Business Information</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="flex flex-col">
+                                <label for="business-name" class="form-label">Business Name *</label>
+                                <input type="text" id="business-name" name="businessName" required aria-describedby="business-name-help" class="form-input">
                                 <div id="business-name-help" class="sr-only">Enter your registered business name or trading name</div>
                             </div>
-                            <div class="form-group">
-                                <label for="abn">ABN</label>
-                                <input type="text" id="abn" name="abn" placeholder="XX XXX XXX XXX">
+                            <div class="flex flex-col">
+                                <label for="abn" class="form-label">ABN</label>
+                                <input type="text" id="abn" name="abn" placeholder="XX XXX XXX XXX" class="form-input">
                             </div>
-                            <div class="form-group">
-                                <label for="industry">Industry Sector *</label>
-                                <select id="industry" name="industry" required>
+                            <div class="flex flex-col">
+                                <label for="industry" class="form-label">Industry Sector *</label>
+                                <select id="industry" name="industry" required class="form-input">
                                     <option value="">Select your industry</option>
                                     <option value="commercial-trades">Commercial Trades (Electrical, Plumbing, HVAC)</option>
                                     <option value="civil-contractors">Civil Contractors (Earthmoving, Infrastructure)</option>
@@ -261,9 +261,9 @@ const siteData = {
                                     <option value="other">Other Commercial Service</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="years-operation">Years in Operation *</label>
-                                <select id="years-operation" name="yearsOperation" required>
+                            <div class="flex flex-col">
+                                <label for="years-operation" class="form-label">Years in Operation *</label>
+                                <select id="years-operation" name="yearsOperation" required class="form-input">
                                     <option value="">Select years</option>
                                     <option value="startup">Startup (Less than 1 year)</option>
                                     <option value="1-2">1-2 years</option>
@@ -273,36 +273,38 @@ const siteData = {
                                 </select>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="form-section">
-                        <h3>Contact Details</h3>
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="contact-name">Your Name *</label>
-                                <input type="text" id="contact-name" name="contactName" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="position">Position/Role *</label>
-                                <input type="text" id="position" name="position" placeholder="e.g., Owner, Director, Financial Manager" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone Number *</label>
-                                <input type="tel" id="phone" name="phone" placeholder="04XX XXX XXX" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email Address *</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
                         </div>
                     </div>
 
-                    <div class="form-section">
-                        <h3>Finance Requirements</h3>
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="finance-type">Finance Type Required *</label>
-                                <select id="finance-type" name="financeType" required>
+                    <div class="service-card-consistent mb-8">
+                        <h3 class="heading-tertiary text-secondary-dark mb-6 border-b-2 border-primary-orange pb-3">Contact Details</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="flex flex-col">
+                                <label for="contact-name" class="form-label">Your Name *</label>
+                                <input type="text" id="contact-name" name="contactName" required class="form-input">
+                            </div>
+                            <div class="flex flex-col">
+                                <label for="position" class="form-label">Position/Role *</label>
+                                <input type="text" id="position" name="position" placeholder="e.g., Owner, Director, Financial Manager" required class="form-input">
+                            </div>
+                            <div class="flex flex-col">
+                                <label for="phone" class="form-label">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" placeholder="04XX XXX XXX" required class="form-input">
+                            </div>
+                            <div class="flex flex-col">
+                                <label for="email" class="form-label">Email Address *</label>
+                                <input type="email" id="email" name="email" required class="form-input">
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card-consistent mb-8">
+                        <h3 class="heading-tertiary text-secondary-dark mb-6 border-b-2 border-primary-orange pb-3">Finance Requirements</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="flex flex-col">
+                                <label for="finance-type" class="form-label">Finance Type Required *</label>
+                                <select id="finance-type" name="financeType" required class="form-input">
                                     <option value="">Select finance type</option>
                                     <option value="equipment-finance">Equipment Finance</option>
                                     <option value="commercial-property">Commercial Property Finance</option>
@@ -313,9 +315,9 @@ const siteData = {
                                     <option value="unsure">Unsure - Need Guidance</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="loan-amount">Approximate Amount Required *</label>
-                                <select id="loan-amount" name="loanAmount" required>
+                            <div class="flex flex-col">
+                                <label for="loan-amount" class="form-label">Approximate Amount Required *</label>
+                                <select id="loan-amount" name="loanAmount" required class="form-input">
                                     <option value="">Select amount range</option>
                                     <option value="20k-50k">$20,000 - $50,000</option>
                                     <option value="50k-100k">$50,000 - $100,000</option>
@@ -325,9 +327,9 @@ const siteData = {
                                     <option value="1m+">$1,000,000+</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="timeframe">Required Timeframe *</label>
-                                <select id="timeframe" name="timeframe" required>
+                            <div class="flex flex-col">
+                                <label for="timeframe" class="form-label">Required Timeframe *</label>
+                                <select id="timeframe" name="timeframe" required class="form-input">
                                     <option value="">Select timeframe</option>
                                     <option value="immediate">Immediate (Within 2 weeks)</option>
                                     <option value="1-month">Within 1 month</option>
@@ -336,19 +338,19 @@ const siteData = {
                                     <option value="planning">Strategic planning phase</option>
                                 </select>
                             </div>
-                            <div class="form-group full-width">
-                                <label for="purpose">Purpose of Finance *</label>
-                                <textarea id="purpose" name="purpose" rows="3" placeholder="Describe what the finance will be used for (e.g., purchase excavator for expansion, commercial property acquisition, cash flow for large contract)" required></textarea>
+                            <div class="flex flex-col md:col-span-2">
+                                <label for="purpose" class="form-label">Purpose of Finance *</label>
+                                <textarea id="purpose" name="purpose" rows="3" placeholder="Describe what the finance will be used for (e.g., purchase excavator for expansion, commercial property acquisition, cash flow for large contract)" required class="form-input"></textarea>
                             </div>
                         </div>
                     </div>
 
-                    <div class="form-section">
-                        <h3>Business Financial Position</h3>
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="annual-revenue">Annual Revenue (Approximate) *</label>
-                                <select id="annual-revenue" name="annualRevenue" required>
+                    <div class="service-card-consistent mb-8">
+                        <h3 class="heading-tertiary text-secondary-dark mb-6 border-b-2 border-primary-orange pb-3">Business Financial Position</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="flex flex-col">
+                                <label for="annual-revenue" class="form-label">Annual Revenue (Approximate) *</label>
+                                <select id="annual-revenue" name="annualRevenue" required class="form-input">
                                     <option value="">Select revenue range</option>
                                     <option value="under-500k">Under $500,000</option>
                                     <option value="500k-1m">$500,000 - $1,000,000</option>
@@ -357,9 +359,9 @@ const siteData = {
                                     <option value="5m+">$5,000,000+</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="current-debts">Existing Business Debts</label>
-                                <select id="current-debts" name="currentDebts">
+                            <div class="flex flex-col">
+                                <label for="current-debts" class="form-label">Existing Business Debts</label>
+                                <select id="current-debts" name="currentDebts" class="form-input">
                                     <option value="">Select debt level</option>
                                     <option value="none">No existing business debts</option>
                                     <option value="minimal">Minimal debts (Under $50K)</option>
@@ -368,9 +370,9 @@ const siteData = {
                                     <option value="refinancing">Looking to refinance existing debts</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="property-assets">Property/Asset Security Available</label>
-                                <select id="property-assets" name="propertyAssets">
+                            <div class="flex flex-col">
+                                <label for="property-assets" class="form-label">Property/Asset Security Available</label>
+                                <select id="property-assets" name="propertyAssets" class="form-input">
                                     <option value="">Select security available</option>
                                     <option value="residential-property">Residential property available</option>
                                     <option value="commercial-property">Commercial property available</option>
@@ -380,33 +382,33 @@ const siteData = {
                                     <option value="unsure">Unsure what's available</option>
                                 </select>
                             </div>
-                            <div class="form-group full-width">
-                                <label for="additional-info">Additional Information</label>
-                                <textarea id="additional-info" name="additionalInfo" rows="4" placeholder="Any additional information about your business, finance requirements, or specific challenges you're facing..."></textarea>
+                            <div class="flex flex-col md:col-span-2">
+                                <label for="additional-info" class="form-label">Additional Information</label>
+                                <textarea id="additional-info" name="additionalInfo" rows="4" placeholder="Any additional information about your business, finance requirements, or specific challenges you're facing..." class="form-input"></textarea>
                             </div>
                         </div>
                     </div>
 
-                    <div class="form-section">
-                        <h3>Preferred Contact Method</h3>
-                        <div class="contact-preferences">
-                            <label class="radio-group">
-                                <input type="radio" name="contactPreference" value="phone" checked>
-                                <span>Phone call (fastest response)</span>
+                    <div class="service-card-consistent mb-8">
+                        <h3 class="heading-tertiary text-secondary-dark mb-6 border-b-2 border-primary-orange pb-3">Preferred Contact Method</h3>
+                        <div class="space-y-4 mb-6">
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="contactPreference" value="phone" checked class="w-4 h-4 text-primary-orange border-gray-300 focus:ring-primary-orange focus:ring-2">
+                                <span class="body-medium text-gray-700">Phone call (fastest response)</span>
                             </label>
-                            <label class="radio-group">
-                                <input type="radio" name="contactPreference" value="email">
-                                <span>Email with detailed assessment</span>
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="contactPreference" value="email" class="w-4 h-4 text-primary-orange border-gray-300 focus:ring-primary-orange focus:ring-2">
+                                <span class="body-medium text-gray-700">Email with detailed assessment</span>
                             </label>
-                            <label class="radio-group">
-                                <input type="radio" name="contactPreference" value="both">
-                                <span>Both phone and email</span>
+                            <label class="flex items-center space-x-3 cursor-pointer">
+                                <input type="radio" name="contactPreference" value="both" class="w-4 h-4 text-primary-orange border-gray-300 focus:ring-primary-orange focus:ring-2">
+                                <span class="body-medium text-gray-700">Both phone and email</span>
                             </label>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="best-time">Best Time to Contact</label>
-                            <select id="best-time" name="bestTime">
+                        <div class="flex flex-col">
+                            <label for="best-time" class="form-label">Best Time to Contact</label>
+                            <select id="best-time" name="bestTime" class="form-input">
                                 <option value="">Select preferred time</option>
                                 <option value="morning">Morning (8AM-12PM)</option>
                                 <option value="afternoon">Afternoon (12PM-5PM)</option>
@@ -416,21 +418,21 @@ const siteData = {
                         </div>
                     </div>
 
-                    <div class="form-footer">
-                        <div class="privacy-notice">
-                            <label class="checkbox-group">
-                                <input type="checkbox" name="privacyConsent" required>
-                                <span>I consent to EVFBS collecting and using my information for assessment purposes and understand this information will be treated confidentially in accordance with the <a href="/privacy">Privacy Policy</a> *</span>
+                    <div class="mt-8">
+                        <div class="space-y-4 mb-8">
+                            <label class="flex items-start space-x-3 cursor-pointer">
+                                <input type="checkbox" name="privacyConsent" required class="mt-1 w-4 h-4 text-primary-orange border-gray-300 rounded focus:ring-primary-orange focus:ring-2">
+                                <span class="text-sm text-gray-700">I consent to EVFBS collecting and using my information for assessment purposes and understand this information will be treated confidentially in accordance with the <a href="/privacy" class="text-primary-orange hover:underline">Privacy Policy</a> *</span>
                             </label>
-                            <label class="checkbox-group">
-                                <input type="checkbox" name="marketingConsent">
-                                <span>I would like to receive strategic finance insights and business growth tips via email (optional)</span>
+                            <label class="flex items-start space-x-3 cursor-pointer">
+                                <input type="checkbox" name="marketingConsent" class="mt-1 w-4 h-4 text-primary-orange border-gray-300 rounded focus:ring-primary-orange focus:ring-2">
+                                <span class="text-sm text-gray-700">I would like to receive strategic finance insights and business growth tips via email (optional)</span>
                             </label>
                         </div>
                         
-                        <div class="submit-section">
-                            <button type="submit" class="primary-button large">Request Professional Assessment</button>
-                            <p class="response-guarantee">Guaranteed response within 4 business hours from a licensed finance professional</p>
+                        <div class="text-center">
+                            <button type="submit" class="btn-primary btn-large">Request Professional Assessment</button>
+                            <p class="mt-4 text-sm text-gray-600 font-medium">Guaranteed response within 4 business hours from a licensed finance professional</p>
                         </div>
                     </div>
                 </form>
@@ -438,46 +440,60 @@ const siteData = {
         </section>
 
         <!-- Business Location & Map -->
-        <section class="location-map">
-            <div class="container">
-                <h2>Visit Our Office</h2>
-                <div class="location-grid">
-                    <div class="location-info">
-                        <h3>Brisbane Head Office</h3>
-                        <div class="address-card">
-                            <div class="address-icon">📍</div>
-                            <div class="address-details">
-                                <p><strong>Edgeview Finance Business Solutions</strong></p>
-                                <p>Level 12, 123 Queen Street<br/>
-                                Brisbane QLD 4000<br/>
-                                Australia</p>
+        <section class="section-content bg-neutral-light">
+            <div class="container-default">
+                <h2 class="heading-secondary text-center mb-16">Visit Our Office</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div class="space-y-8">
+                        <div class="service-card-consistent">
+                            <h3 class="heading-tertiary text-secondary-dark mb-6">Brisbane Head Office</h3>
+                            <div class="flex items-start space-x-4 mb-6">
+                                <div class="text-2xl">📍</div>
+                                <div>
+                                    <p class="font-semibold text-secondary-dark mb-2">Edgeview Finance Business Solutions</p>
+                                    <p class="body-medium text-gray-700">Level 12, 123 Queen Street<br/>
+                                    Brisbane QLD 4000<br/>
+                                    Australia</p>
+                                </div>
+                            </div>
+                            <div class="space-y-3 mb-6">
+                                <div class="flex items-center space-x-3">
+                                    <span class="text-lg">🚗</span>
+                                    <span class="body-medium text-gray-700">Secure visitor parking available</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <span class="text-lg">🚇</span>
+                                    <span class="body-medium text-gray-700">Central Station 5-minute walk</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <span class="text-lg">☕</span>
+                                    <span class="body-medium text-gray-700">Professional meeting rooms</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <span class="text-lg">♿</span>
+                                    <span class="body-medium text-gray-700">Wheelchair accessible</span>
+                                </div>
+                            </div>
+                            <div class="bg-neutral-light card-padding-sm rounded-lg border-l-4 border-primary-orange">
+                                <p class="font-semibold text-secondary-dark mb-2">Office Hours:</p>
+                                <p class="body-medium text-gray-700">Mon-Fri: 8:00 AM - 6:00 PM<br/>
+                                Sat: 9:00 AM - 1:00 PM<br/>
+                                <em>Appointments preferred</em></p>
                             </div>
                         </div>
-                        <div class="location-features">
-                            <div class="feature-item">🚗 Secure visitor parking available</div>
-                            <div class="feature-item">🚇 Central Station 5-minute walk</div>
-                            <div class="feature-item">☕ Professional meeting rooms</div>
-                            <div class="feature-item">♿ Wheelchair accessible</div>
-                        </div>
-                        <div class="office-hours-compact">
-                            <strong>Office Hours:</strong><br/>
-                            Mon-Fri: 8:00 AM - 6:00 PM<br/>
-                            Sat: 9:00 AM - 1:00 PM<br/>
-                            <em>Appointments preferred</em>
-                        </div>
                     </div>
-                    <div class="map-container">
-                        <div class="map-placeholder">
-                            <div class="map-overlay">
-                                <h4>Interactive Map Coming Soon</h4>
-                                <p>Professional mapping integration with:</p>
-                                <ul>
-                                    <li>Turn-by-turn directions</li>
-                                    <li>Parking locations</li>
-                                    <li>Public transport options</li>
-                                    <li>Nearby amenities</li>
+                    <div class="service-card-consistent">
+                        <div class="bg-gray-100 rounded-lg h-96 flex items-center justify-center">
+                            <div class="text-center p-8">
+                                <h4 class="heading-tertiary text-secondary-dark mb-4">Interactive Map Coming Soon</h4>
+                                <p class="body-medium text-gray-700 mb-4">Professional mapping integration with:</p>
+                                <ul class="space-y-2 mb-6 text-left">
+                                    <li class="body-medium text-gray-700">• Turn-by-turn directions</li>
+                                    <li class="body-medium text-gray-700">• Parking locations</li>
+                                    <li class="body-medium text-gray-700">• Public transport options</li>
+                                    <li class="body-medium text-gray-700">• Nearby amenities</li>
                                 </ul>
-                                <button type="button" class="map-button" onclick="window.open('https://maps.google.com/maps?q=Queen+Street+Brisbane+QLD+4000', '_blank')">
+                                <button type="button" class="btn-primary" onclick="window.open('https://maps.google.com/maps?q=Queen+Street+Brisbane+QLD+4000', '_blank')">
                                     View in Google Maps
                                 </button>
                             </div>
@@ -488,977 +504,83 @@ const siteData = {
         </section>
 
         <!-- Service Areas & Business Hours -->
-        <section class="service-info">
-            <div class="container">
-                <div class="info-grid">
-                    <div class="info-card">
-                        <h3>Service Areas</h3>
-                        <p>Edgeview Finance Business Solutions provides commercial finance services across Australia:</p>
-                        <ul>
-                            <li>New South Wales</li>
-                            <li>Victoria</li>
-                            <li>Queensland</li>
-                            <li>Western Australia</li>
-                            <li>South Australia</li>
-                            <li>Tasmania</li>
-                            <li>Northern Territory</li>
-                            <li>Australian Capital Territory</li>
+        <section class="section-content">
+            <div class="container-default">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="service-card-consistent">
+                        <h3 class="heading-tertiary text-secondary-dark mb-6">Service Areas</h3>
+                        <p class="body-medium text-gray-700 mb-6">Edgeview Finance Business Solutions provides commercial finance services across Australia:</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="body-medium text-gray-700">• New South Wales</li>
+                            <li class="body-medium text-gray-700">• Victoria</li>
+                            <li class="body-medium text-gray-700">• Queensland</li>
+                            <li class="body-medium text-gray-700">• Western Australia</li>
+                            <li class="body-medium text-gray-700">• South Australia</li>
+                            <li class="body-medium text-gray-700">• Tasmania</li>
+                            <li class="body-medium text-gray-700">• Northern Territory</li>
+                            <li class="body-medium text-gray-700">• Australian Capital Territory</li>
                         </ul>
-                        <p><strong>Specializing in regional and metropolitan commercial businesses</strong></p>
+                        <p class="font-semibold text-secondary-dark">Specializing in regional and metropolitan commercial businesses</p>
                     </div>
                     
-                    <div class="info-card">
-                        <h3>Business Hours</h3>
-                        <div class="hours-grid">
-                            <div class="hours-day">
-                                <span class="day">Monday - Friday</span>
-                                <span class="time">8:00 AM - 6:00 PM AEST</span>
+                    <div class="service-card-consistent">
+                        <h3 class="heading-tertiary text-secondary-dark mb-6">Business Hours</h3>
+                        <div class="space-y-4 mb-6">
+                            <div class="flex justify-between items-center">
+                                <span class="body-medium font-semibold text-secondary-dark">Monday - Friday</span>
+                                <span class="body-medium text-gray-700">8:00 AM - 6:00 PM AEST</span>
                             </div>
-                            <div class="hours-day">
-                                <span class="day">Saturday</span>
-                                <span class="time">9:00 AM - 1:00 PM AEST</span>
+                            <div class="flex justify-between items-center">
+                                <span class="body-medium font-semibold text-secondary-dark">Saturday</span>
+                                <span class="body-medium text-gray-700">9:00 AM - 1:00 PM AEST</span>
                             </div>
-                            <div class="hours-day">
-                                <span class="day">Sunday</span>
-                                <span class="time">Emergency consultations only</span>
+                            <div class="flex justify-between items-center">
+                                <span class="body-medium font-semibold text-secondary-dark">Sunday</span>
+                                <span class="body-medium text-gray-700">Emergency consultations only</span>
                             </div>
                         </div>
-                        <p class="hours-note">After-hours emergency consultations available for urgent finance requirements.</p>
+                        <p class="text-sm text-gray-600 italic">After-hours emergency consultations available for urgent finance requirements.</p>
                     </div>
                     
-                    <div class="info-card">
-                        <h3>Professional Licensing</h3>
-                        <div class="licensing-info">
-                            <div class="license-item">
-                                <strong>Australian Credit Licence:</strong><br/>
-                                ACL: [License Number]
+                    <div class="service-card-consistent">
+                        <h3 class="heading-tertiary text-secondary-dark mb-6">Professional Licensing</h3>
+                        <div class="space-y-4 mb-6">
+                            <div>
+                                <p class="font-semibold text-secondary-dark">Australian Credit Licence:</p>
+                                <p class="body-medium text-gray-700">ACL: [License Number]</p>
                             </div>
-                            <div class="license-item">
-                                <strong>Australian Business Number:</strong><br/>
-                                ABN: [ABN Number]
+                            <div>
+                                <p class="font-semibold text-secondary-dark">Australian Business Number:</p>
+                                <p class="body-medium text-gray-700">ABN: [ABN Number]</p>
                             </div>
-                            <div class="license-item">
-                                <strong>Regulatory Body:</strong><br/>
-                                Australian Securities and Investments Commission (ASIC)
+                            <div>
+                                <p class="font-semibold text-secondary-dark">Regulatory Body:</p>
+                                <p class="body-medium text-gray-700">Australian Securities and Investments Commission (ASIC)</p>
                             </div>
                         </div>
-                        <p>All services provided under full ASIC compliance and regulation.</p>
+                        <p class="text-sm text-gray-600">All services provided under full ASIC compliance and regulation.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Call to Action -->
-        <section class="cta-section">
-            <div class="container">
-                <h2>Ready to Partner for Strategic Business Growth?</h2>
-                <p>Join hundreds of Australian business builders who've secured strategic finance solutions through our professional partnership approach.</p>
-                <div class="cta-buttons">
-                    <a href="tel:1300XXXXXX" class="primary-button large">Call Now: 1300 XXX XXX</a>
-                    <a href="/calculator" class="secondary-button large">Calculate Repayments</a>
+        <section class="section-cta hero-section">
+            <div class="container-default">
+                <div class="text-center">
+                    <h2 class="heading-secondary text-white mb-6">Ready to Partner for Strategic Business Growth?</h2>
+                    <p class="text-xl lg:text-2xl text-gray-100 mb-8 max-w-4xl mx-auto">
+                        Join hundreds of Australian business builders who've secured strategic finance solutions through our professional partnership approach.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center button-gap">
+                        <a href="tel:1300XXXXXX" class="btn-primary btn-large">Call Now: 1300 XXX XXX</a>
+                        <a href="/calculator" class="btn-secondary btn-large text-white border-white hover:bg-white hover:text-secondary-dark">Calculate Repayments</a>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Edgeview Finance Business Solutions</h4>
-                    <p>Licensed Australian Finance Broker<br/>
-                    ACL: [License Number]<br/>
-                    ABN: [ABN Number]</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="/equipment-finance">Equipment Finance</a></li>
-                        <li><a href="/commercial-property">Commercial Property</a></li>
-                        <li><a href="/working-capital">Working Capital</a></li>
-                        <li><a href="/invoice-financing">Invoice Financing</a></li>
-                        <li><a href="/personal-lending">Personal Lending</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="/calculator">Loan Calculator</a></li>
-                        <li><a href="/blog">Finance Guides</a></li>
-                        <li><a href="/case-studies">Success Stories</a></li>
-                        <li><a href="/faqs">FAQs</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Phone: 1300 XXX XXX<br/>
-                    Email: enquiries@edgeviewfinance.com.au<br/>
-                    Hours: Mon-Fri 8AM-6PM AEST</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Edgeview Finance Business Solutions. All rights reserved. | 
-                <a href="/privacy">Privacy Policy</a> | 
-                <a href="/terms">Terms of Service</a> | 
-                <a href="/credit-guide">Credit Guide</a></p>
-            </div>
-        </div>
-    </footer>
+    <Footer />
 
-    <style>
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        /* Screen Reader Only Content */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #fff;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header Styles */
-        header {
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
-        
-        .logo h1 {
-            color: #2c5aa0;
-            font-size: 1.5rem;
-            margin-bottom: -5px;
-        }
-        
-        .logo span {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-        
-        .nav-menu a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-menu a:hover,
-        .nav-menu a.active {
-            color: #2c5aa0;
-        }
-        
-        .cta-button {
-            background: #e67e22 !important;
-            color: white !important;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-        
-        .cta-button:hover {
-            background: #d35400 !important;
-        }
-        
-        .cta-button.active {
-            background: #d35400 !important;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #2c5aa0 0%, #3498db 100%);
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.95;
-        }
-        
-        .trust-indicators {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            opacity: 0.9;
-        }
-        
-        /* Contact Methods Section */
-        .contact-methods {
-            padding: 80px 20px;
-            background: #f8f9fa;
-        }
-        
-        .contact-methods h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2c5aa0;
-        }
-        
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .contact-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        
-        .contact-card.primary {
-            border: 2px solid #e67e22;
-        }
-        
-        .contact-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .contact-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .contact-card h3 {
-            color: #2c5aa0;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .contact-value {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #e67e22;
-            margin-bottom: 1rem;
-        }
-        
-        .contact-hours,
-        .response-time {
-            background: #f8f9fa;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-top: 1rem;
-            font-size: 0.9rem;
-        }
-        
-        .form-benefits {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-        
-        .form-benefits span {
-            color: #27ae60;
-            font-size: 0.9rem;
-        }
-        
-        /* Department Emails */
-        .department-emails {
-            margin-top: 1rem;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 8px;
-            border-left: 4px solid #2c5aa0;
-        }
-        
-        .dept-item {
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-        
-        .dept-item:last-child {
-            margin-bottom: 0;
-        }
-        
-        /* Emergency Contact Card */
-        .contact-card.emergency {
-            border: 2px solid #e74c3c;
-            background: linear-gradient(135deg, #fff 0%, #fdf2f2 100%);
-        }
-        
-        .emergency-criteria {
-            margin-top: 1rem;
-            padding: 1rem;
-            background: white;
-            border-radius: 8px;
-            border: 1px solid #e74c3c;
-        }
-        
-        .criteria-item {
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-            color: #c0392b;
-        }
-        
-        .criteria-item:last-child {
-            margin-bottom: 0;
-        }
-        
-        .emergency-note {
-            margin-top: 1rem;
-            padding: 0.8rem;
-            background: #ffeaa7;
-            border-radius: 5px;
-            font-size: 0.85rem;
-            border: 1px solid #fdcb6e;
-        }
-        
-        /* Booking Contact Card */
-        .contact-card.booking {
-            border: 2px solid #27ae60;
-            background: linear-gradient(135deg, #fff 0%, #f1f8f4 100%);
-        }
-        
-        .booking-options {
-            margin-top: 1rem;
-        }
-        
-        .booking-type {
-            margin-bottom: 1rem;
-            padding: 0.8rem;
-            background: white;
-            border-radius: 5px;
-            border-left: 4px solid #27ae60;
-            font-size: 0.9rem;
-        }
-        
-        .booking-type:last-child {
-            margin-bottom: 0;
-        }
-        
-        .booking-placeholder {
-            margin-top: 1.5rem;
-            text-align: center;
-        }
-        
-        .booking-button {
-            background: #27ae60;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 1rem;
-        }
-        
-        .booking-button:hover {
-            background: #229954;
-            transform: translateY(-2px);
-        }
-        
-        .booking-note {
-            margin-top: 0.8rem;
-            font-size: 0.8rem;
-            color: #666;
-            font-style: italic;
-        }
-        
-        /* Assessment Form Section */
-        .assessment-form {
-            padding: 80px 20px;
-        }
-        
-        .form-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .form-header h2 {
-            font-size: 2.5rem;
-            color: #2c5aa0;
-            margin-bottom: 1rem;
-        }
-        
-        .form-header p {
-            font-size: 1.1rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .contact-form {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .form-section {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 10px;
-            margin-bottom: 2rem;
-        }
-        
-        .form-section h3 {
-            color: #2c5aa0;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid #e67e22;
-            padding-bottom: 0.5rem;
-        }
-        
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .form-group.full-width {
-            grid-column: 1 / -1;
-        }
-        
-        .form-group label {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-        
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-        
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #2c5aa0;
-        }
-        
-        .contact-preferences {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .radio-group,
-        .checkbox-group {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.5rem;
-            cursor: pointer;
-        }
-        
-        .radio-group input,
-        .checkbox-group input {
-            margin-top: 0.2rem;
-        }
-        
-        .checkbox-group a {
-            color: #2c5aa0;
-            text-decoration: none;
-        }
-        
-        .checkbox-group a:hover {
-            text-decoration: underline;
-        }
-        
-        .form-footer {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            border: 2px solid #e67e22;
-        }
-        
-        .privacy-notice {
-            margin-bottom: 2rem;
-        }
-        
-        .privacy-notice .checkbox-group {
-            margin-bottom: 1rem;
-        }
-        
-        .submit-section {
-            text-align: center;
-        }
-        
-        .primary-button {
-            background: #e67e22;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border: none;
-            border-radius: 5px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: inline-block;
-        }
-        
-        .primary-button:hover {
-            background: #d35400;
-            transform: translateY(-2px);
-        }
-        
-        .large {
-            font-size: 1.2rem;
-            padding: 18px 36px;
-        }
-        
-        .response-guarantee {
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            color: #666;
-            font-style: italic;
-        }
-        
-        /* Location & Map Section */
-        .location-map {
-            padding: 80px 20px;
-            background: white;
-        }
-        
-        .location-map h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2c5aa0;
-        }
-        
-        .location-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .location-info h3 {
-            color: #2c5aa0;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .address-card {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            padding: 1.5rem;
-            background: #f8f9fa;
-            border-radius: 10px;
-            border: 2px solid #e67e22;
-            margin-bottom: 1.5rem;
-        }
-        
-        .address-icon {
-            font-size: 2rem;
-            margin-top: 0.2rem;
-        }
-        
-        .address-details p {
-            margin-bottom: 0.5rem;
-            line-height: 1.4;
-        }
-        
-        .address-details p:last-child {
-            margin-bottom: 0;
-        }
-        
-        .location-features {
-            margin-bottom: 1.5rem;
-        }
-        
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.8rem;
-            font-size: 0.95rem;
-        }
-        
-        .feature-item:last-child {
-            margin-bottom: 0;
-        }
-        
-        .office-hours-compact {
-            padding: 1rem;
-            background: #e8f4f8;
-            border-radius: 8px;
-            border-left: 4px solid #2c5aa0;
-            font-size: 0.9rem;
-        }
-        
-        .map-container {
-            position: relative;
-        }
-        
-        .map-placeholder {
-            height: 400px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 10px;
-            border: 2px solid #dee2e6;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .map-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            max-width: 300px;
-        }
-        
-        .map-overlay h4 {
-            color: #2c5aa0;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-        
-        .map-overlay p {
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-        
-        .map-overlay ul {
-            list-style: none;
-            margin-bottom: 1.5rem;
-            text-align: left;
-        }
-        
-        .map-overlay li {
-            margin-bottom: 0.3rem;
-            font-size: 0.85rem;
-            padding-left: 1rem;
-            position: relative;
-        }
-        
-        .map-overlay li:before {
-            content: "•";
-            color: #2c5aa0;
-            position: absolute;
-            left: 0;
-        }
-        
-        .map-button {
-            background: #e67e22;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 0.9rem;
-        }
-        
-        .map-button:hover {
-            background: #d35400;
-            transform: translateY(-2px);
-        }
-        
-        /* Service Info Section */
-        .service-info {
-            padding: 80px 20px;
-            background: #f8f9fa;
-        }
-        
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .info-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .info-card h3 {
-            color: #2c5aa0;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .info-card ul {
-            list-style: none;
-            margin: 1rem 0;
-        }
-        
-        .info-card li {
-            padding: 0.3rem 0;
-            padding-left: 1rem;
-            position: relative;
-        }
-        
-        .info-card li:before {
-            content: "✓";
-            color: #27ae60;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-        
-        .hours-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            margin: 1rem 0;
-        }
-        
-        .hours-day {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .day {
-            font-weight: 600;
-        }
-        
-        .time {
-            color: #666;
-        }
-        
-        .hours-note {
-            font-size: 0.9rem;
-            color: #666;
-            font-style: italic;
-            margin-top: 1rem;
-        }
-        
-        .licensing-info {
-            margin: 1rem 0;
-        }
-        
-        .license-item {
-            margin-bottom: 1rem;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 5px;
-        }
-        
-        /* CTA Section */
-        .cta-section {
-            background: #2c5aa0;
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-        }
-        
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .secondary-button {
-            background: transparent;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border: 2px solid white;
-            border-radius: 5px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            display: inline-block;
-        }
-        
-        .secondary-button:hover {
-            background: white;
-            color: #2c5aa0;
-        }
-        
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            padding: 40px 20px 20px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-section h4 {
-            color: #e67e22;
-            margin-bottom: 1rem;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-section a:hover {
-            color: white;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid #555;
-            padding-top: 1rem;
-            text-align: center;
-            color: #ccc;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .nav-menu {
-                display: none;
-            }
-            
-            .contact-grid,
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .location-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .trust-indicators {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .contact-preferences {
-                margin-bottom: 1rem;
-            }
-            
-            .hours-day {
-                flex-direction: column;
-                gap: 0.2rem;
-            }
-            
-            .map-placeholder {
-                height: 300px;
-            }
-            
-            .map-overlay {
-                max-width: 250px;
-                padding: 1.5rem;
-            }
-            
-            .address-card {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .emergency-criteria,
-            .department-emails {
-                padding: 0.8rem;
-            }
-            
-            .booking-type {
-                padding: 0.6rem;
-            }
-        }
-    </style>
-</body>
-</html>
+</Agency11Layout>

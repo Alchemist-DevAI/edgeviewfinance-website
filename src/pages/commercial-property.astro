@@ -1,6 +1,10 @@
 ---
 // Commercial Property Finance Page - Strategic Property Investment & Business Premises
 // Optimized for Ben the Business Builder ICP (excluding residential builders)
+import Agency11Layout from '../layouts/Agency11Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
 export const prerender = true;
 
 const siteData = {
@@ -10,149 +14,187 @@ const siteData = {
 };
 ---
 
-<html lang="en-AU">
-<head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={siteData.description} />
-    <meta name="keywords" content={siteData.keywords} />
-    
-    <!-- Commercial Property Service Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "@id": "https://edgeviewfinance.com.au/commercial-property",
-      "name": "Commercial Property Finance",
-      "alternateName": "Business Property Investment Finance",
-      "description": "Strategic commercial property finance for business premises and investment properties, with competitive rates and flexible terms",
-      "serviceType": "Commercial Property Finance",
-      "provider": {
-        "@type": "FinancialService",
-        "@id": "https://edgeviewfinance.com.au/#organization",
-        "name": "Edgeview Finance Business Solutions",
-        "areaServed": {
-          "@type": "Country",
-          "name": "Australia"
-        }
-      },
-      "offers": {
-        "@type": "Offer",
-        "name": "Commercial Property Finance Solutions",
-        "description": "Flexible commercial property financing from $300K to $10M+ for business premises and investment properties",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Commercial Property Finance",
-          "category": "Commercial Finance"
-        }
-      },
-      "audience": {
-        "@type": "BusinessAudience",
-        "businessType": ["Commercial Trades", "Civil Contractors", "Property Investors"],
-        "numberOfEmployees": "10-100"
+<Agency11Layout title={siteData.title} description={siteData.description} keywords={siteData.keywords}>
+  <!-- Commercial Property Service Schema -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://edgeviewfinance.com.au/commercial-property",
+    "name": "Commercial Property Finance",
+    "alternateName": "Business Property Investment Finance",
+    "description": "Strategic commercial property finance for business premises and investment properties, with competitive rates and flexible terms",
+    "serviceType": "Commercial Property Finance",
+    "provider": {
+      "@type": "FinancialService",
+      "@id": "https://edgeviewfinance.com.au/#organization",
+      "name": "Edgeview Finance Business Solutions",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Australia"
       }
+    },
+    "offers": {
+      "@type": "Offer",
+      "name": "Commercial Property Finance Solutions",
+      "description": "Flexible commercial property financing from $300K to $10M+ for business premises and investment properties",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Commercial Property Finance",
+        "category": "Commercial Finance"
+      }
+    },
+    "audience": {
+      "@type": "BusinessAudience",
+      "businessType": ["Commercial Trades", "Civil Contractors", "Property Investors"],
+      "numberOfEmployees": "10-100"
     }
-    </script>
-    
-    <title>{siteData.title}</title>
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="nav-container">
-                <div class="logo">
-                    <h1>Edgeview Finance</h1>
-                    <span>Business Solutions</span>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/services">Services</a></li>
-                    <li><a href="/equipment-finance">Equipment Finance</a></li>
-                    <li><a href="/commercial-property" class="active">Commercial Property</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/contact" class="cta-button">Expert Consultation</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+  }
+  </script>
+  
+  <!-- Open Graph for Social Sharing -->
+  <meta property="og:title" content={siteData.title} slot="head" />
+  <meta property="og:description" content={siteData.description} slot="head" />
+  <meta property="og:type" content="website" slot="head" />
+  <meta property="og:url" content="https://edgeviewfinance.com.au/commercial-property" slot="head" />
+  <meta property="og:locale" content="en_AU" slot="head" />
 
-    <main>
+  <Header />
+  <main>
         <!-- Hero Section -->
-        <section class="hero service-hero">
-            <div class="hero-content">
-                <div class="breadcrumb">
-                    <a href="/">Home</a> > <a href="/services">Services</a> > Commercial Property
-                </div>
-                <h1>Strategic Commercial Property Finance for Business Growth & Investment</h1>
-                <p class="hero-subtitle">
-                    Professional commercial property financing from $300K to $10M+ for business premises and investment properties. Specialised solutions for commercial trades, civil contractors, and property investors.
-                </p>
-                <div class="hero-cta">
-                    <a href="/get-quote?service=commercial-property" class="primary-button">Get Property Finance Quote</a>
-                    <a href="/property-calculator" class="secondary-button">Property Calculator</a>
-                </div>
-                <div class="trust-indicators">
-                    <span>✓ 48-72 Hour Approvals</span>
-                    <span>✓ Competitive Commercial Rates</span>
-                    <span>✓ $250M+ Property Financed</span>
+        <section class="section-hero hero-section">
+            <div class="container-default">
+                <div class="text-center">
+                    <div class="breadcrumb text-white/80 mb-4">
+                        <a href="/" class="text-white hover:text-white">Home</a> > <a href="/services" class="text-white hover:text-white">Services</a> > Commercial Property
+                    </div>
+                    <h1 class="heading-primary text-white mb-6">Strategic Commercial Property Finance for Business Growth & Investment</h1>
+                    <p class="hero-subtitle text-xl lg:text-2xl font-light mb-8 text-gray-100 max-w-4xl mx-auto">
+                        Professional commercial property financing from $300K to $10M+ for business premises and investment properties. Specialised solutions for commercial trades, civil contractors, and property investors.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center button-gap mb-8">
+                        <a href="/get-quote?service=commercial-property" class="btn-primary btn-large">Get Property Finance Quote</a>
+                        <a href="/calculator" class="btn-secondary btn-large text-white border-white hover:bg-white hover:text-secondary-dark">Property Calculator</a>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap text-gray-100">
+                        <span class="flex items-center gap-2">✓ 48-72 Hour Approvals</span>
+                        <span class="flex items-center gap-2">✓ Competitive Commercial Rates</span>
+                        <span class="flex items-center gap-2">✓ $250M+ Property Financed</span>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Property Types Section -->
-        <section class="property-types">
-            <div class="container">
-                <h2>Commercial Property Finance Solutions</h2>
-                <div class="property-grid">
-                    <div class="property-category">
-                        <div class="category-icon">🏢</div>
-                        <h3>Business Premises Finance</h3>
-                        <p>Strategic financing for your business operations headquarters</p>
-                        <ul>
-                            <li>Workshop and warehouse facilities</li>
-                            <li>Office and administration buildings</li>
-                            <li>Showroom and retail premises</li>
-                            <li>Mixed-use commercial properties</li>
-                            <li>Industrial and manufacturing sites</li>
+        <section class="section-content bg-neutral-light">
+            <div class="container-default">
+                <h2 class="heading-secondary text-center mb-16">Commercial Property Finance Solutions</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="service-card-consistent">
+                        <div class="icon-wrapper text-4xl mb-6">🏢</div>
+                        <h3 class="heading-tertiary text-secondary-dark mb-4">Business Premises Finance</h3>
+                        <p class="body-medium mb-6">Strategic financing for your business operations headquarters</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <span class="text-primary-orange font-bold mr-3">✓</span>
+                                <span class="body-medium">Workshop and warehouse facilities</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary-orange font-bold mr-3">✓</span>
+                                <span class="body-medium">Office and administration buildings</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary-orange font-bold mr-3">✓</span>
+                                <span class="body-medium">Showroom and retail premises</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary-orange font-bold mr-3">✓</span>
+                                <span class="body-medium">Mixed-use commercial properties</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary-orange font-bold mr-3">✓</span>
+                                <span class="body-medium">Industrial and manufacturing sites</span>
+                            </li>
                         </ul>
                     </div>
                     
-                    <div class="property-category">
-                        <div class="category-icon">💼</div>
-                        <h3>Investment Property Finance</h3>
-                        <p>Build wealth through strategic commercial property investment</p>
-                        <ul>
-                            <li>Office building investments</li>
-                            <li>Industrial property portfolios</li>
-                            <li>Retail and hospitality properties</li>
-                            <li>Healthcare and professional suites</li>
+                    <div class="service-card-consistent">
+                        <div class="icon-wrapper text-4xl mb-6">💼</div>
+                        <h3 class="heading-tertiary text-secondary-dark mb-4">Investment Property Finance</h3>
+                        <p class="body-medium mb-6">Build wealth through strategic commercial property investment</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <span class="text-primary-orange font-bold mr-3">✓</span>
+                                <span class="body-medium">Office building investments</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary-orange font-bold mr-3">✓</span>
+                                <span class="body-medium">Industrial property portfolios</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary-orange font-bold mr-3">✓</span>
+                                <span class="body-medium">Retail and hospitality properties</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary-orange font-bold mr-3">✓</span>
+                                <span class="body-medium">Healthcare and professional suites</span>
+                            </li>
                         </ul>
                     </div>
                     
-                    <div class="property-category">
-                        <div class="category-icon">💼</div>
-                        <h3>Property Investment Finance</h3>
-                        <p>Strategic finance for commercial property investment and portfolio growth</p>
-                        <ul>
-                            <li>Multi-property portfolio financing</li>
-                            <li>Property refinancing and restructuring</li>
-                            <li>Equity release for further investment</li>
-                            <li>Commercial property upgrades</li>
-                            <li>Strategic property acquisition</li>
+                    <div class="service-card-consistent">
+                        <div class="icon-wrapper text-4xl mb-6">📈</div>
+                        <h3 class="heading-tertiary text-secondary-dark mb-4">Portfolio Expansion Finance</h3>
+                        <p class="body-medium mb-6">Strategic finance for commercial property investment and portfolio growth</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <span class="text-primary-orange font-bold mr-3">✓</span>
+                                <span class="body-medium">Multi-property portfolio financing</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary-orange font-bold mr-3">✓</span>
+                                <span class="body-medium">Property refinancing and restructuring</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary-orange font-bold mr-3">✓</span>
+                                <span class="body-medium">Equity release for further investment</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary-orange font-bold mr-3">✓</span>
+                                <span class="body-medium">Commercial property upgrades</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary-orange font-bold mr-3">✓</span>
+                                <span class="body-medium">Strategic property acquisition</span>
+                            </li>
                         </ul>
                     </div>
                     
-                    <div class="property-category">
-                        <div class="category-icon">🔄</div>
-                        <h3>Refinancing Solutions</h3>
-                        <p>Optimize existing commercial property debt and unlock equity</p>
-                        <ul>
-                            <li>Rate and term improvements</li>
-                            <li>Cash-out refinancing</li>
-                            <li>Debt consolidation strategies</li>
-                            <li>Portfolio restructuring</li>
-                            <li>Switch from bank alternatives</li>
+                    <div class="service-card-consistent">
+                        <div class="icon-wrapper text-4xl mb-6">🔄</div>
+                        <h3 class="heading-tertiary text-secondary-dark mb-4">Refinancing Solutions</h3>
+                        <p class="body-medium mb-6">Optimize existing commercial property debt and unlock equity</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <span class="text-primary-orange font-bold mr-3">✓</span>
+                                <span class="body-medium">Rate and term improvements</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary-orange font-bold mr-3">✓</span>
+                                <span class="body-medium">Cash-out refinancing</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary-orange font-bold mr-3">✓</span>
+                                <span class="body-medium">Debt consolidation strategies</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary-orange font-bold mr-3">✓</span>
+                                <span class="body-medium">Portfolio restructuring</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary-orange font-bold mr-3">✓</span>
+                                <span class="body-medium">Switch from bank alternatives</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -160,102 +202,159 @@ const siteData = {
         </section>
 
         <!-- Success Stories Section -->
-        <section class="success-stories">
-            <div class="container">
-                <h2>Commercial Property Finance Success Stories</h2>
-                <div class="stories-grid">
-                    <div class="story">
-                        <h3>The Expanding Civil Contractor</h3>
-                        <p><strong>Challenge:</strong> Growing earthmoving business needed larger premises for equipment storage and maintenance facilities.</p>
-                        <p><strong>Solution:</strong> $1.2M commercial property loan for 2-hectare industrial site with workshop and office facilities.</p>
-                        <div class="outcome">✓ 60% increase in operational efficiency and 40% business growth in first year</div>
+        <section class="section-content">
+            <div class="container-default">
+                <h2 class="heading-secondary text-center mb-16">Commercial Property Finance Success Stories</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="service-card-consistent border-l-4 border-primary-orange">
+                        <div class="bg-secondary-dark text-white px-3 py-1 rounded-full text-sm font-semibold mb-4 inline-block">Civil Contracting</div>
+                        <h3 class="heading-tertiary text-secondary-dark mb-4">The Expanding Civil Contractor</h3>
+                        <div class="mb-4">
+                            <p class="body-medium mb-2"><strong class="text-primary-orange">Challenge:</strong> Growing earthmoving business needed larger premises for equipment storage and maintenance facilities.</p>
+                            <p class="body-medium mb-4"><strong class="text-primary-orange">Solution:</strong> $1.2M commercial property loan for 2-hectare industrial site with workshop and office facilities.</p>
+                        </div>
+                        <div class="bg-neutral-light card-padding-sm rounded-lg border-l-4 border-primary-orange">
+                            <p class="body-medium text-secondary-dark font-semibold">✓ 60% increase in operational efficiency and 40% business growth in first year</p>
+                        </div>
                     </div>
                     
-                    <div class="story">
-                        <h3>The Strategic Property Investor</h3>
-                        <p><strong>Challenge:</strong> Commercial electrical contractor wanted to diversify income through property investment.</p>
-                        <p><strong>Solution:</strong> Investment property portfolio financing for three industrial properties leased to similar trades.</p>
-                        <div class="outcome">✓ $180K annual passive income stream established with strong capital growth</div>
+                    <div class="service-card-consistent border-l-4 border-primary-orange">
+                        <div class="bg-secondary-dark text-white px-3 py-1 rounded-full text-sm font-semibold mb-4 inline-block">Commercial Electrical</div>
+                        <h3 class="heading-tertiary text-secondary-dark mb-4">The Strategic Property Investor</h3>
+                        <div class="mb-4">
+                            <p class="body-medium mb-2"><strong class="text-primary-orange">Challenge:</strong> Commercial electrical contractor wanted to diversify income through property investment.</p>
+                            <p class="body-medium mb-4"><strong class="text-primary-orange">Solution:</strong> Investment property portfolio financing for three industrial properties leased to similar trades.</p>
+                        </div>
+                        <div class="bg-neutral-light card-padding-sm rounded-lg border-l-4 border-primary-orange">
+                            <p class="body-medium text-secondary-dark font-semibold">✓ $180K annual passive income stream established with strong capital growth</p>
+                        </div>
                     </div>
                     
-                    <div class="story">
-                        <h3>The Portfolio Expansion</h3>
-                        <p><strong>Challenge:</strong> HVAC contractor wanted to expand their commercial property portfolio for long-term wealth creation.</p>
-                        <p><strong>Solution:</strong> Strategic refinancing of existing properties to acquire additional commercial investments.</p>
-                        <div class="outcome">✓ Portfolio value increased to $3.2M with strong rental yields and capital growth</div>
+                    <div class="service-card-consistent border-l-4 border-primary-orange">
+                        <div class="bg-secondary-dark text-white px-3 py-1 rounded-full text-sm font-semibold mb-4 inline-block">HVAC Services</div>
+                        <h3 class="heading-tertiary text-secondary-dark mb-4">The Portfolio Expansion</h3>
+                        <div class="mb-4">
+                            <p class="body-medium mb-2"><strong class="text-primary-orange">Challenge:</strong> HVAC contractor wanted to expand their commercial property portfolio for long-term wealth creation.</p>
+                            <p class="body-medium mb-4"><strong class="text-primary-orange">Solution:</strong> Strategic refinancing of existing properties to acquire additional commercial investments.</p>
+                        </div>
+                        <div class="bg-neutral-light card-padding-sm rounded-lg border-l-4 border-primary-orange">
+                            <p class="body-medium text-secondary-dark font-semibold">✓ Portfolio value increased to $3.2M with strong rental yields and capital growth</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Finance Options Section -->
-        <section class="finance-options">
-            <div class="container">
-                <h2>Commercial Property Finance Products</h2>
-                <div class="options-grid">
-                    <div class="option-card">
-                        <h3>Standard Commercial Loan</h3>
-                        <div class="option-details">
-                            <p><strong>LVR:</strong> Up to 80%</p>
-                            <p><strong>Terms:</strong> 5-30 years</p>
-                            <p><strong>Rates:</strong> From 4.5% p.a.</p>
-                            <p><strong>Amount:</strong> $300K - $10M+</p>
+        <section class="section-content bg-neutral-light">
+            <div class="container-default">
+                <h2 class="heading-secondary text-center mb-16">Commercial Property Finance Products</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="service-card-consistent border-l-4 border-primary-orange">
+                        <h3 class="heading-tertiary text-secondary-dark mb-4 text-center">Standard Commercial Loan</h3>
+                        <div class="bg-neutral-light card-padding-sm rounded-lg mb-6">
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div><strong>LVR:</strong> Up to 80%</div>
+                                <div><strong>Terms:</strong> 5-30 years</div>
+                                <div><strong>Rates:</strong> From 4.5% p.a.</div>
+                                <div><strong>Amount:</strong> $300K - $10M+</div>
+                            </div>
                         </div>
-                        <div class="option-features">
-                            <h4>Key Features:</h4>
-                            <ul>
-                                <li>Principal & Interest or Interest Only</li>
-                                <li>Fixed or variable rate options</li>
-                                <li>Minimal ongoing fees</li>
-                                <li>Early repayment flexibility</li>
+                        <div class="mb-6">
+                            <h4 class="text-primary-orange font-semibold mb-3">Key Features:</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <span class="text-primary-orange font-bold mr-3">✓</span>
+                                    <span class="body-medium">Principal & Interest or Interest Only</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-primary-orange font-bold mr-3">✓</span>
+                                    <span class="body-medium">Fixed or variable rate options</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-primary-orange font-bold mr-3">✓</span>
+                                    <span class="body-medium">Minimal ongoing fees</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-primary-orange font-bold mr-3">✓</span>
+                                    <span class="body-medium">Early repayment flexibility</span>
+                                </li>
                             </ul>
                         </div>
-                        <div class="best-for">
-                            <strong>Best For:</strong> Established businesses purchasing owner-occupied or investment properties
+                        <div class="bg-secondary-dark text-white card-padding-sm rounded-lg">
+                            <p class="body-medium"><strong>Best For:</strong> Established businesses purchasing owner-occupied or investment properties</p>
                         </div>
                     </div>
                     
-                    <div class="option-card">
-                        <h3>Low Doc Commercial Loan</h3>
-                        <div class="option-details">
-                            <p><strong>LVR:</strong> Up to 70%</p>
-                            <p><strong>Terms:</strong> 5-25 years</p>
-                            <p><strong>Rates:</strong> From 5.2% p.a.</p>
-                            <p><strong>Amount:</strong> $250K - $5M</p>
+                    <div class="service-card-consistent border-l-4 border-secondary-dark">
+                        <h3 class="heading-tertiary text-secondary-dark mb-4 text-center">Low Doc Commercial Loan</h3>
+                        <div class="bg-neutral-light card-padding-sm rounded-lg mb-6">
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div><strong>LVR:</strong> Up to 70%</div>
+                                <div><strong>Terms:</strong> 5-25 years</div>
+                                <div><strong>Rates:</strong> From 5.2% p.a.</div>
+                                <div><strong>Amount:</strong> $250K - $5M</div>
+                            </div>
                         </div>
-                        <div class="option-features">
-                            <h4>Key Features:</h4>
-                            <ul>
-                                <li>Simplified documentation requirements</li>
-                                <li>Self-employed income verification</li>
-                                <li>Fast approval process</li>
-                                <li>Asset-based lending focus</li>
+                        <div class="mb-6">
+                            <h4 class="text-primary-orange font-semibold mb-3">Key Features:</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <span class="text-primary-orange font-bold mr-3">✓</span>
+                                    <span class="body-medium">Simplified documentation requirements</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-primary-orange font-bold mr-3">✓</span>
+                                    <span class="body-medium">Self-employed income verification</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-primary-orange font-bold mr-3">✓</span>
+                                    <span class="body-medium">Fast approval process</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-primary-orange font-bold mr-3">✓</span>
+                                    <span class="body-medium">Asset-based lending focus</span>
+                                </li>
                             </ul>
                         </div>
-                        <div class="best-for">
-                            <strong>Best For:</strong> Self-employed trades and contractors with strong asset position
+                        <div class="bg-secondary-dark text-white card-padding-sm rounded-lg">
+                            <p class="body-medium"><strong>Best For:</strong> Self-employed trades and contractors with strong asset position</p>
                         </div>
                     </div>
                     
-                    <div class="option-card">
-                        <h3>Investment Property Finance</h3>
-                        <div class="option-details">
-                            <p><strong>LVR:</strong> Up to 80%</p>
-                            <p><strong>Terms:</strong> 15-30 years</p>
-                            <p><strong>Rates:</strong> From 5.8% p.a.</p>
-                            <p><strong>Amount:</strong> $400K - $15M+</p>
+                    <div class="service-card-consistent border-l-4 border-primary-orange">
+                        <h3 class="heading-tertiary text-secondary-dark mb-4 text-center">Investment Property Finance</h3>
+                        <div class="bg-neutral-light card-padding-sm rounded-lg mb-6">
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div><strong>LVR:</strong> Up to 80%</div>
+                                <div><strong>Terms:</strong> 15-30 years</div>
+                                <div><strong>Rates:</strong> From 5.8% p.a.</div>
+                                <div><strong>Amount:</strong> $400K - $15M+</div>
+                            </div>
                         </div>
-                        <div class="option-features">
-                            <h4>Key Features:</h4>
-                            <ul>
-                                <li>Portfolio financing options</li>
-                                <li>Cross-collateralisation strategies</li>
-                                <li>Tax optimisation structuring</li>
-                                <li>Equity release capabilities</li>
+                        <div class="mb-6">
+                            <h4 class="text-primary-orange font-semibold mb-3">Key Features:</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <span class="text-primary-orange font-bold mr-3">✓</span>
+                                    <span class="body-medium">Portfolio financing options</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-primary-orange font-bold mr-3">✓</span>
+                                    <span class="body-medium">Cross-collateralisation strategies</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-primary-orange font-bold mr-3">✓</span>
+                                    <span class="body-medium">Tax optimisation structuring</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-primary-orange font-bold mr-3">✓</span>
+                                    <span class="body-medium">Equity release capabilities</span>
+                                </li>
                             </ul>
                         </div>
-                        <div class="best-for">
-                            <strong>Best For:</strong> Commercial property investment and wealth building
+                        <div class="bg-secondary-dark text-white card-padding-sm rounded-lg">
+                            <p class="body-medium"><strong>Best For:</strong> Commercial property investment and wealth building</p>
                         </div>
                     </div>
                 </div>
@@ -263,732 +362,142 @@ const siteData = {
         </section>
 
         <!-- Process Section -->
-        <section class="process-section">
-            <div class="container">
-                <h2>Professional Property Finance Process</h2>
-                <div class="process-steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <h3>Property Strategy Assessment</h3>
-                        <p>Comprehensive review of your property objectives, business needs, cash flow capacity, and investment strategy alignment.</p>
+        <section class="section-content">
+            <div class="container-default">
+                <h2 class="heading-secondary text-center mb-16">Professional Property Finance Process</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="process-step text-center card-padding-lg">
+                        <div class="process-number mb-6">1</div>
+                        <h3 class="heading-tertiary text-secondary-dark mb-4">Property Strategy Assessment</h3>
+                        <p class="body-medium">Comprehensive review of your property objectives, business needs, cash flow capacity, and investment strategy alignment.</p>
                     </div>
                     
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <h3>Property & Market Analysis</h3>
-                        <p>Professional property valuation, market analysis, rental yield assessment, and due diligence coordination.</p>
+                    <div class="process-step text-center card-padding-lg">
+                        <div class="process-number mb-6">2</div>
+                        <h3 class="heading-tertiary text-secondary-dark mb-4">Property & Market Analysis</h3>
+                        <p class="body-medium">Professional property valuation, market analysis, rental yield assessment, and due diligence coordination.</p>
                     </div>
                     
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <h3>Finance Structuring</h3>
-                        <p>Strategic loan structuring to optimize tax benefits, cash flow, and long-term investment returns while minimizing risk.</p>
+                    <div class="process-step text-center card-padding-lg">
+                        <div class="process-number mb-6">3</div>
+                        <h3 class="heading-tertiary text-secondary-dark mb-4">Finance Structuring</h3>
+                        <p class="body-medium">Strategic loan structuring to optimize tax benefits, cash flow, and long-term investment returns while minimizing risk.</p>
                     </div>
                     
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <h3>Lender Negotiation & Settlement</h3>
-                        <p>Professional negotiation with commercial property lenders, management of all documentation, and seamless settlement process.</p>
+                    <div class="process-step text-center card-padding-lg">
+                        <div class="process-number mb-6">4</div>
+                        <h3 class="heading-tertiary text-secondary-dark mb-4">Lender Negotiation & Settlement</h3>
+                        <p class="body-medium">Professional negotiation with commercial property lenders, management of all documentation, and seamless settlement process.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Benefits Section -->
-        <section class="benefits-section">
-            <div class="container">
-                <h2>Why Choose EVFBS for Commercial Property Finance</h2>
-                <div class="benefits-grid">
-                    <div class="benefit">
-                        <h3>Property Investment Expertise</h3>
-                        <p>Deep understanding of commercial property markets, investment strategies, and the specific needs of trades and contractors in property investment.</p>
+        <section class="section-content bg-neutral-light">
+            <div class="container-default">
+                <h2 class="heading-secondary text-center mb-16">Why Choose EVFBS for Commercial Property Finance</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="feature-card">
+                        <div class="icon-wrapper text-4xl mb-6">🏆</div>
+                        <h3 class="heading-tertiary text-secondary-dark mb-4">Property Investment Expertise</h3>
+                        <p class="body-medium">Deep understanding of commercial property markets, investment strategies, and the specific needs of trades and contractors in property investment.</p>
                     </div>
                     
-                    <div class="benefit">
-                        <h3>Industry-Specific Knowledge</h3>
-                        <p>Specialized knowledge of industrial, workshop, and trade-specific property requirements including zoning, access, and operational considerations.</p>
+                    <div class="feature-card">
+                        <div class="icon-wrapper text-4xl mb-6">🏗️</div>
+                        <h3 class="heading-tertiary text-secondary-dark mb-4">Industry-Specific Knowledge</h3>
+                        <p class="body-medium">Specialized knowledge of industrial, workshop, and trade-specific property requirements including zoning, access, and operational considerations.</p>
                     </div>
                     
-                    <div class="benefit">
-                        <h3>Competitive Rates & Terms</h3>
-                        <p>Access to wholesale commercial property rates and flexible terms through our established relationships with specialised commercial lenders.</p>
+                    <div class="feature-card">
+                        <div class="icon-wrapper text-4xl mb-6">💰</div>
+                        <h3 class="heading-tertiary text-secondary-dark mb-4">Competitive Rates & Terms</h3>
+                        <p class="body-medium">Access to wholesale commercial property rates and flexible terms through our established relationships with specialised commercial lenders.</p>
                     </div>
                     
-                    <div class="benefit">
-                        <h3>Tax Optimization Strategies</h3>
-                        <p>Strategic structuring to maximize depreciation benefits, negative gearing advantages, and capital gains tax optimisation opportunities.</p>
+                    <div class="feature-card">
+                        <div class="icon-wrapper text-4xl mb-6">📊</div>
+                        <h3 class="heading-tertiary text-secondary-dark mb-4">Tax Optimization Strategies</h3>
+                        <p class="body-medium">Strategic structuring to maximize depreciation benefits, negative gearing advantages, and capital gains tax optimisation opportunities.</p>
                     </div>
                     
-                    <div class="benefit">
-                        <h3>Portfolio Growth Planning</h3>
-                        <p>Long-term strategic planning for property portfolio growth, including equity utilisation and systematic expansion strategies.</p>
+                    <div class="feature-card">
+                        <div class="icon-wrapper text-4xl mb-6">📈</div>
+                        <h3 class="heading-tertiary text-secondary-dark mb-4">Portfolio Growth Planning</h3>
+                        <p class="body-medium">Long-term strategic planning for property portfolio growth, including equity utilisation and systematic expansion strategies.</p>
                     </div>
                     
-                    <div class="benefit">
-                        <h3>Professional Project Management</h3>
-                        <p>Comprehensive management of the entire finance process from application through settlement, ensuring smooth and timely completion.</p>
+                    <div class="feature-card">
+                        <div class="icon-wrapper text-4xl mb-6">⚡</div>
+                        <h3 class="heading-tertiary text-secondary-dark mb-4">Professional Project Management</h3>
+                        <p class="body-medium">Comprehensive management of the entire finance process from application through settlement, ensuring smooth and timely completion.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Property Types Focus -->
-        <section class="property-focus">
-            <div class="container">
-                <h2>Specialized Property Types We Finance</h2>
-                <div class="focus-grid">
-                    <div class="focus-item">
-                        <h3>Industrial & Warehouse</h3>
-                        <p>Purpose-built facilities for manufacturing, distribution, and heavy trade operations with specialised infrastructure requirements.</p>
+        <section class="section-content">
+            <div class="container-default">
+                <h2 class="heading-secondary text-center mb-16">Specialized Property Types We Finance</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="feature-card text-center">
+                        <div class="icon-wrapper text-4xl mb-6">🏭</div>
+                        <h3 class="heading-tertiary text-secondary-dark mb-4">Industrial & Warehouse</h3>
+                        <p class="body-medium">Purpose-built facilities for manufacturing, distribution, and heavy trade operations with specialised infrastructure requirements.</p>
                     </div>
                     
-                    <div class="focus-item">
-                        <h3>Workshop & Trade Facilities</h3>
-                        <p>Specialized workshop spaces for electrical, plumbing, HVAC, and mechanical trade businesses with equipment and vehicle storage.</p>
+                    <div class="feature-card text-center">
+                        <div class="icon-wrapper text-4xl mb-6">🔧</div>
+                        <h3 class="heading-tertiary text-secondary-dark mb-4">Workshop & Trade Facilities</h3>
+                        <p class="body-medium">Specialized workshop spaces for electrical, plumbing, HVAC, and mechanical trade businesses with equipment and vehicle storage.</p>
                     </div>
                     
-                    <div class="focus-item">
-                        <h3>Office & Commercial</h3>
-                        <p>Professional office buildings, commercial complexes, and mixed-use properties generating stable rental income streams.</p>
+                    <div class="feature-card text-center">
+                        <div class="icon-wrapper text-4xl mb-6">🏢</div>
+                        <h3 class="heading-tertiary text-secondary-dark mb-4">Office & Commercial</h3>
+                        <p class="body-medium">Professional office buildings, commercial complexes, and mixed-use properties generating stable rental income streams.</p>
                     </div>
                     
-                    <div class="focus-item">
-                        <h3>Mixed-Use Properties</h3>
-                        <p>Commercial properties with multiple income streams including retail, office, and industrial components for diversified returns.</p>
+                    <div class="feature-card text-center">
+                        <div class="icon-wrapper text-4xl mb-6">🏗️</div>
+                        <h3 class="heading-tertiary text-secondary-dark mb-4">Mixed-Use Properties</h3>
+                        <p class="body-medium">Commercial properties with multiple income streams including retail, office, and industrial components for diversified returns.</p>
                     </div>
                     
-                    <div class="focus-item">
-                        <h3>Retail & Hospitality</h3>
-                        <p>Retail premises, restaurants, hotels, and hospitality properties with strong tenant covenants and cash flow generation.</p>
+                    <div class="feature-card text-center">
+                        <div class="icon-wrapper text-4xl mb-6">🏪</div>
+                        <h3 class="heading-tertiary text-secondary-dark mb-4">Retail & Hospitality</h3>
+                        <p class="body-medium">Retail premises, restaurants, hotels, and hospitality properties with strong tenant covenants and cash flow generation.</p>
                     </div>
                     
-                    <div class="focus-item">
-                        <h3>Specialized Commercial</h3>
-                        <p>Healthcare facilities, educational properties, and specialized commercial buildings with unique operational requirements.</p>
+                    <div class="feature-card text-center">
+                        <div class="icon-wrapper text-4xl mb-6">🏥</div>
+                        <h3 class="heading-tertiary text-secondary-dark mb-4">Specialized Commercial</h3>
+                        <p class="body-medium">Healthcare facilities, educational properties, and specialized commercial buildings with unique operational requirements.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Call to Action -->
-        <section class="cta-section">
-            <div class="container">
-                <h2>Ready to Secure Your Commercial Property Investment?</h2>
-                <p>Join successful commercial trades and property investors who've built substantial wealth through strategic commercial property finance with our professional guidance.</p>
-                <div class="cta-buttons">
-                    <a href="/get-quote?service=commercial-property" class="primary-button large">Get Property Finance Quote</a>
-                    <a href="/contact" class="secondary-button large">Speak with Property Finance Specialist</a>
-                </div>
-                <div class="contact-info">
-                    <p>Property consultation available: <strong>1300 XXX XXX</strong> | Monday-Friday 8AM-6PM AEST</p>
+        <section class="section-cta hero-section">
+            <div class="container-default">
+                <div class="text-center">
+                    <h2 class="heading-secondary text-white mb-6">Ready to Secure Your Commercial Property Investment?</h2>
+                    <p class="text-xl lg:text-2xl text-gray-100 mb-8 max-w-4xl mx-auto">Join successful commercial trades and property investors who've built substantial wealth through strategic commercial property finance with our professional guidance.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center button-gap mb-8">
+                        <a href="/get-quote?service=commercial-property" class="btn-primary btn-large">Get Property Finance Quote</a>
+                        <a href="/contact" class="btn-secondary btn-large text-white border-white hover:bg-white hover:text-secondary-dark">Speak with Property Finance Specialist</a>
+                    </div>
+                    <div class="text-gray-100">
+                        <p>Property consultation available: <strong>1300 XXX XXX</strong> | Monday-Friday 8AM-6PM AEST</p>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Commercial Property</h4>
-                    <ul>
-                        <li><a href="/business-premises-finance">Business Premises</a></li>
-                        <li><a href="/investment-property-finance">Investment Property</a></li>
-                        <li><a href="/investment-property-finance">Investment Property Finance</a></li>
-                        <li><a href="/property-refinancing">Property Refinancing</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Other Services</h4>
-                    <ul>
-                        <li><a href="/equipment-finance">Equipment Finance</a></li>
-                        <li><a href="/working-capital">Working Capital</a></li>
-                        <li><a href="/invoice-financing">Invoice Financing</a></li>
-                        <li><a href="/personal-lending">Personal Lending</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="/property-calculator">Property Calculator</a></li>
-                        <li><a href="/blog/commercial-property-guide">Property Investment Guide</a></li>
-                        <li><a href="/case-studies/property-finance">Property Success Stories</a></li>
-                        <li><a href="/faqs/commercial-property">Commercial Property FAQs</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Phone: 1300 XXX XXX<br/>
-                    Email: property@edgeviewfinance.com.au<br/>
-                    Hours: Mon-Fri 8AM-6PM AEST</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Edgeview Finance Business Solutions. All rights reserved. | 
-                <a href="/privacy">Privacy Policy</a> | 
-                <a href="/terms">Terms of Service</a> | 
-                <a href="/credit-guide">Credit Guide</a></p>
-            </div>
-        </div>
-    </footer>
-
-    <style>
-        /* Base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #fff;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header Styles */
-        header {
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
-        
-        .logo h1 {
-            color: #2c5aa0;
-            font-size: 1.5rem;
-            margin-bottom: -5px;
-        }
-        
-        .logo span {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-        
-        .nav-menu a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-menu a:hover,
-        .nav-menu a.active {
-            color: #2c5aa0;
-        }
-        
-        .cta-button {
-            background: #e67e22 !important;
-            color: white !important;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-        
-        .cta-button:hover {
-            background: #d35400 !important;
-        }
-        
-        /* Service Hero Section */
-        .service-hero {
-            background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
-            color: white;
-            padding: 60px 20px 80px;
-            text-align: center;
-        }
-        
-        .breadcrumb {
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            opacity: 0.8;
-        }
-        
-        .breadcrumb a {
-            color: white;
-            text-decoration: none;
-        }
-        
-        .service-hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.95;
-        }
-        
-        .hero-cta {
-            margin-bottom: 2rem;
-            gap: 1rem;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .primary-button {
-            background: #e67e22;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-        }
-        
-        .primary-button:hover {
-            background: #d35400;
-            transform: translateY(-2px);
-        }
-        
-        .secondary-button {
-            background: transparent;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border: 2px solid white;
-            border-radius: 5px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-        }
-        
-        .secondary-button:hover {
-            background: white;
-            color: #8e44ad;
-        }
-        
-        .trust-indicators {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            opacity: 0.9;
-        }
-        
-        /* Property Types Section */
-        .property-types {
-            padding: 80px 20px;
-            background: #f8f9fa;
-        }
-        
-        .property-types h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #8e44ad;
-        }
-        
-        .property-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-        
-        .property-category {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        
-        .category-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .property-category h3 {
-            color: #8e44ad;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .property-category p {
-            margin-bottom: 1rem;
-            color: #666;
-        }
-        
-        .property-category ul {
-            list-style: none;
-            text-align: left;
-        }
-        
-        .property-category li {
-            padding: 0.4rem 0;
-            padding-left: 1rem;
-            position: relative;
-        }
-        
-        .property-category li:before {
-            content: "→";
-            color: #e67e22;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-        
-        /* Success Stories Section */
-        .success-stories {
-            padding: 80px 20px;
-        }
-        
-        .success-stories h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #8e44ad;
-        }
-        
-        .stories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-        
-        .story {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 10px;
-            border-left: 4px solid #8e44ad;
-        }
-        
-        .story h3 {
-            color: #8e44ad;
-            margin-bottom: 1rem;
-        }
-        
-        .story p {
-            margin-bottom: 1rem;
-        }
-        
-        .outcome {
-            background: #e8d5f2;
-            padding: 1rem;
-            border-radius: 5px;
-            color: #8e44ad;
-            font-weight: 600;
-            margin-top: 1rem;
-        }
-        
-        /* Finance Options Section */
-        .finance-options {
-            padding: 80px 20px;
-            background: #f8f9fa;
-        }
-        
-        .finance-options h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #8e44ad;
-        }
-        
-        .options-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-        
-        .option-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .option-card h3 {
-            color: #8e44ad;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-        
-        .option-details {
-            background: #f8f9fa;
-            padding: 1rem;
-            border-radius: 5px;
-            margin-bottom: 1rem;
-        }
-        
-        .option-details p {
-            margin-bottom: 0.5rem;
-        }
-        
-        .option-features h4 {
-            color: #e67e22;
-            margin-bottom: 0.5rem;
-        }
-        
-        .option-features ul {
-            list-style: none;
-            margin-bottom: 1rem;
-        }
-        
-        .option-features li {
-            padding: 0.3rem 0;
-            padding-left: 1rem;
-            position: relative;
-        }
-        
-        .option-features li:before {
-            content: "✓";
-            color: #27ae60;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-        
-        .best-for {
-            background: #e8d5f2;
-            padding: 1rem;
-            border-radius: 5px;
-            color: #8e44ad;
-        }
-        
-        /* Process Section */
-        .process-section {
-            padding: 80px 20px;
-        }
-        
-        .process-section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #8e44ad;
-        }
-        
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .step {
-            text-align: center;
-            padding: 2rem;
-        }
-        
-        .step-number {
-            background: #e67e22;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin: 0 auto 1rem;
-        }
-        
-        .step h3 {
-            color: #8e44ad;
-            margin-bottom: 1rem;
-        }
-        
-        /* Benefits Section */
-        .benefits-section {
-            padding: 80px 20px;
-            background: #f8f9fa;
-        }
-        
-        .benefits-section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #8e44ad;
-        }
-        
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .benefit {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .benefit h3 {
-            color: #e67e22;
-            margin-bottom: 1rem;
-        }
-        
-        /* Property Focus */
-        .property-focus {
-            padding: 80px 20px;
-        }
-        
-        .property-focus h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #8e44ad;
-        }
-        
-        .focus-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .focus-item {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-        }
-        
-        .focus-item h3 {
-            color: #8e44ad;
-            margin-bottom: 1rem;
-        }
-        
-        /* CTA Section */
-        .cta-section {
-            background: #8e44ad;
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-        }
-        
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-        
-        .large {
-            font-size: 1.2rem;
-            padding: 18px 36px;
-        }
-        
-        .contact-info {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-        
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            padding: 40px 20px 20px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-section h4 {
-            color: #e67e22;
-            margin-bottom: 1rem;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-section a:hover {
-            color: white;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid #555;
-            padding-top: 1rem;
-            text-align: center;
-            color: #ccc;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .service-hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .nav-menu {
-                display: none;
-            }
-            
-            .property-grid,
-            .stories-grid,
-            .options-grid,
-            .process-steps,
-            .benefits-grid,
-            .focus-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .trust-indicators {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
-</body>
-</html>
+    <Footer />
+</Agency11Layout>

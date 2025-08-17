@@ -1,6 +1,10 @@
 ---
 // EVFBS Case Studies Page - Commercial Finance Success Stories
 // Optimized for "Ben the Business Builder" ICP
+import Agency11Layout from '../layouts/Agency11Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
 export const prerender = true;
 
 const siteData = {
@@ -10,15 +14,9 @@ const siteData = {
 };
 ---
 
-<html lang="en-AU">
-<head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={siteData.description} />
-    <meta name="keywords" content={siteData.keywords} />
-    
-    <!-- Case Studies Schema Markup -->
+<Agency11Layout title={siteData.title} description={siteData.description} keywords={siteData.keywords}>
+  
+  <!-- Case Studies Schema Markup -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -90,1275 +88,669 @@ const siteData = {
       }
     }
     </script>
-    
-    <!-- Open Graph for Social Sharing -->
-    <meta property="og:title" content={siteData.title} />
-    <meta property="og:description" content={siteData.description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://edgeviewfinance.com.au/case-studies" />
-    <meta property="og:locale" content="en_AU" />
-    
-    <title>{siteData.title}</title>
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="nav-container">
-                <div class="logo">
-                    <h1>Edgeview Finance</h1>
-                    <span>Business Solutions</span>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/services">Services</a></li>
-                    <li><a href="/equipment-finance">Equipment Finance</a></li>
-                    <li><a href="/working-capital">Working Capital</a></li>
-                    <li><a href="/case-studies" class="active">Case Studies</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/contact" class="cta-button">Expert Consultation</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+  
+  <!-- Open Graph for Social Sharing -->
+  <meta property="og:title" content={siteData.title} slot="head" />
+  <meta property="og:description" content={siteData.description} slot="head" />
+  <meta property="og:type" content="website" slot="head" />
+  <meta property="og:url" content="https://edgeviewfinance.com.au/case-studies" slot="head" />
+  <meta property="og:locale" content="en_AU" slot="head" />
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Commercial Finance Success Stories</h1>
-                <p class="hero-subtitle">
-                    Real results from Australian business builders who've transformed their operations through strategic commercial finance solutions. 
-                    Discover how equipment finance, commercial property, working capital, and invoice financing have driven measurable business growth.
-                </p>
-                <div class="hero-cta">
-                    <a href="/get-quote" class="primary-button">Start Your Success Story</a>
-                    <a href="/contact" class="secondary-button">Discuss Your Requirements</a>
-                </div>
-                <div class="trust-indicators">
-                    <span>✓ Real Client Outcomes</span>
-                    <span>✓ Confidential Case Studies</span>
-                    <span>✓ Proven Results</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Overview Stats -->
-        <section class="overview-stats">
-            <div class="container">
-                <h2>Strategic Finance Impact Across Australian Businesses</h2>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number">$85M+</div>
-                        <div class="stat-label">Total Funding Facilitated</div>
-                        <div class="stat-description">Across equipment, property, and working capital solutions</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">340+</div>
-                        <div class="stat-label">Successful Approvals</div>
-                        <div class="stat-description">Commercial trades and industrial businesses</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">97%</div>
-                        <div class="stat-label">Client Satisfaction</div>
-                        <div class="stat-description">Professional service delivery rating</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">35%</div>
-                        <div class="stat-label">Average Growth</div>
-                        <div class="stat-description">Business capacity increase post-funding</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Equipment Finance Case Studies -->
-        <section class="case-studies-section">
-            <div class="container">
-                <h2>Equipment Finance Success Stories</h2>
-                <div class="case-studies-grid">
-                    <!-- Case Study 1: Excavation Contractor -->
-                    <div class="case-study-card featured">
-                        <div class="case-category">Equipment Finance</div>
-                        <h3>Commercial Excavation Contractor</h3>
-                        <div class="case-summary">
-                            <div class="funding-amount">$320,000</div>
-                            <div class="funding-type">Equipment Finance Package</div>
-                        </div>
-                        
-                        <div class="case-details">
-                            <div class="case-section">
-                                <h4>Business Background</h4>
-                                <p>Established excavation and earthmoving contractor serving commercial construction projects across South East Queensland. 8-year track record with consistent revenue growth and strong client relationships with major construction companies.</p>
-                            </div>
-                            
-                            <div class="case-section">
-                                <h4>Challenge</h4>
-                                <p>Contractor identified significant opportunity to expand operations with larger commercial projects requiring additional heavy machinery. Traditional bank financing proved inadequate for specialised equipment requirements.</p>
-                            </div>
-                            
-                            <div class="case-section">
-                                <h4>Solution</h4>
-                                <p>EVFBS structured a comprehensive equipment finance package covering:</p>
-                                <ul>
-                                    <li>New 30-tonne excavator: $185,000</li>
-                                    <li>Articulated dump truck: $95,000</li>
-                                    <li>Compaction equipment: $40,000</li>
-                                </ul>
-                                <p>5-year terms with competitive rates and seasonal payment flexibility aligned to project cash flow.</p>
-                            </div>
-                            
-                            <div class="case-section">
-                                <h4>Outcome</h4>
-                                <div class="outcome-metrics">
-                                    <div class="metric">
-                                        <span class="metric-value">40%</span>
-                                        <span class="metric-label">Increase in project capacity</span>
-                                    </div>
-                                    <div class="metric">
-                                        <span class="metric-value">$180K</span>
-                                        <span class="metric-label">Additional annual revenue</span>
-                                    </div>
-                                    <div class="metric">
-                                        <span class="metric-value">6 months</span>
-                                        <span class="metric-label">ROI achievement timeline</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="testimonial">
-                                <blockquote>
-                                    "The strategic approach from EVFBS transformed our capability to take on larger commercial projects. The equipment finance structure aligned perfectly with our cash flow, and we've already secured three major contracts that wouldn't have been possible before."
-                                </blockquote>
-                                <cite>— Commercial Excavation Director, South East Queensland</cite>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Case Study 2: Industrial Machinery -->
-                    <div class="case-study-card">
-                        <div class="case-category">Equipment Finance</div>
-                        <h3>Steel Fabrication Business</h3>
-                        <div class="case-summary">
-                            <div class="funding-amount">$450,000</div>
-                            <div class="funding-type">Industrial Equipment Finance</div>
-                        </div>
-                        
-                        <div class="case-details">
-                            <div class="case-section">
-                                <h4>Business Background</h4>
-                                <p>Specialised steel fabrication company serving mining and industrial sectors. 12-year operational history with focus on custom fabrication and maintenance services for heavy industry.</p>
-                            </div>
-                            
-                            <div class="case-section">
-                                <h4>Challenge</h4>
-                                <p>Growing demand for precision manufacturing required investment in CNC machinery and automated welding systems. Existing equipment limiting capacity to meet client requirements and quality standards.</p>
-                            </div>
-                            
-                            <div class="case-section">
-                                <h4>Solution</h4>
-                                <p>Strategic equipment finance for advanced manufacturing capability including CNC plasma cutting system, automated welding cells, and precision measurement equipment with technology refresh provisions.</p>
-                            </div>
-                            
-                            <div class="case-section">
-                                <h4>Outcome</h4>
-                                <div class="outcome-metrics">
-                                    <div class="metric">
-                                        <span class="metric-value">65%</span>
-                                        <span class="metric-label">Production efficiency gain</span>
-                                    </div>
-                                    <div class="metric">
-                                        <span class="metric-value">$320K</span>
-                                        <span class="metric-label">Annual revenue increase</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="testimonial">
-                                <blockquote>
-                                    "The precision equipment has revolutionised our manufacturing capability. We're now the preferred supplier for several major mining companies, and our quality certification opened doors we couldn't access before."
-                                </blockquote>
-                                <cite>— Manufacturing Director, Industrial Fabrication Company</cite>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Commercial Property Case Studies -->
-        <section class="case-studies-section alt-bg">
-            <div class="container">
-                <h2>Commercial Property Finance Success Stories</h2>
-                <div class="case-studies-grid">
-                    <!-- Case Study 3: Workshop Purchase -->
-                    <div class="case-study-card featured">
-                        <div class="case-category">Commercial Property</div>
-                        <h3>Plumbing Contractor Workshop</h3>
-                        <div class="case-summary">
-                            <div class="funding-amount">$850,000</div>
-                            <div class="funding-type">Commercial Property Finance</div>
-                        </div>
-                        
-                        <div class="case-details">
-                            <div class="case-section">
-                                <h4>Business Background</h4>
-                                <p>Established commercial plumbing contractor specialising in multi-story buildings and industrial installations. Strong financial position with consistent growth over 15 years, transitioning from rental premises to property ownership.</p>
-                            </div>
-                            
-                            <div class="case-section">
-                                <h4>Challenge</h4>
-                                <p>Rising commercial rental costs and limited workshop space constraining business growth. Identified strategic property acquisition opportunity requiring commercial finance structure beyond traditional residential lending.</p>
-                            </div>
-                            
-                            <div class="case-section">
-                                <h4>Solution</h4>
-                                <p>EVFBS structured commercial property finance for purpose-built workshop facility including:</p>
-                                <ul>
-                                    <li>2,400sqm workshop with overhead crane capability</li>
-                                    <li>Office complex and staff facilities</li>
-                                    <li>Specialised storage for materials and equipment</li>
-                                    <li>Future expansion provisions within property</li>
-                                </ul>
-                                <p>20-year term with competitive commercial property rates and tax-effective structure.</p>
-                            </div>
-                            
-                            <div class="case-section">
-                                <h4>Outcome</h4>
-                                <div class="outcome-metrics">
-                                    <div class="metric">
-                                        <span class="metric-value">$4,200</span>
-                                        <span class="metric-label">Monthly rental savings</span>
-                                    </div>
-                                    <div class="metric">
-                                        <span class="metric-value">50%</span>
-                                        <span class="metric-label">Operational space increase</span>
-                                    </div>
-                                    <div class="metric">
-                                        <span class="metric-value">$280K</span>
-                                        <span class="metric-label">Property appreciation (18 months)</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="testimonial">
-                                <blockquote>
-                                    "Owning our workshop has been transformational. The operational efficiency gains and rental savings have already improved our profit margins, whilst building significant equity for future growth initiatives."
-                                </blockquote>
-                                <cite>— Managing Director, Commercial Plumbing Services</cite>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Case Study 4: Warehouse Acquisition -->
-                    <div class="case-study-card">
-                        <div class="case-category">Commercial Property</div>
-                        <h3>Logistics Warehouse Investment</h3>
-                        <div class="case-summary">
-                            <div class="funding-amount">$1.2M</div>
-                            <div class="funding-type">Investment Property Finance</div>
-                        </div>
-                        
-                        <div class="case-details">
-                            <div class="case-section">
-                                <h4>Business Background</h4>
-                                <p>Transport and logistics company with interstate operations. Seeking commercial property investment to diversify business interests whilst securing long-term operational base.</p>
-                            </div>
-                            
-                            <div class="case-section">
-                                <h4>Challenge</h4>
-                                <p>Required strategic property acquisition for operational use with investment returns. Complex financing needs involving commercial property purchase with development potential for future expansion.</p>
-                            </div>
-                            
-                            <div class="case-section">
-                                <h4>Solution</h4>
-                                <p>Structured commercial investment property finance for strategically located warehouse facility with dual-purpose capability as operational base and investment asset with tenant potential.</p>
-                            </div>
-                            
-                            <div class="case-section">
-                                <h4>Outcome</h4>
-                                <div class="outcome-metrics">
-                                    <div class="metric">
-                                        <span class="metric-value">8.2%</span>
-                                        <span class="metric-label">Annual investment yield</span>
-                                    </div>
-                                    <div class="metric">
-                                        <span class="metric-value">$95K</span>
-                                        <span class="metric-label">Annual operational savings</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="testimonial">
-                                <blockquote>
-                                    "The commercial property investment strategy has delivered both operational benefits and strong investment returns. It's providing a solid foundation for our business expansion plans."
-                                </blockquote>
-                                <cite>— Operations Director, Logistics Company</cite>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Working Capital Case Studies -->
-        <section class="case-studies-section">
-            <div class="container">
-                <h2>Working Capital & Cash Flow Success Stories</h2>
-                <div class="case-studies-grid">
-                    <!-- Case Study 5: Civil Infrastructure -->
-                    <div class="case-study-card featured">
-                        <div class="case-category">Working Capital</div>
-                        <h3>Civil Infrastructure Contractor</h3>
-                        <div class="case-summary">
-                            <div class="funding-amount">$500,000</div>
-                            <div class="funding-type">Working Capital Facility</div>
-                        </div>
-                        
-                        <div class="case-details">
-                            <div class="case-section">
-                                <h4>Business Background</h4>
-                                <p>Established civil contracting company specialising in infrastructure projects including road construction, utility installation, and site development for government and commercial clients.</p>
-                            </div>
-                            
-                            <div class="case-section">
-                                <h4>Challenge</h4>
-                                <p>Secured $2.1M government infrastructure project with extended payment terms creating significant cash flow gap. Required working capital to cover labour, materials, and equipment costs during project execution phase.</p>
-                            </div>
-                            
-                            <div class="case-section">
-                                <h4>Solution</h4>
-                                <p>EVFBS structured flexible working capital facility including:</p>
-                                <ul>
-                                    <li>Revolving credit line for operational expenses</li>
-                                    <li>Progress payment financing against certified work</li>
-                                    <li>Equipment rental and subcontractor payment support</li>
-                                    <li>Retention release provisions aligned to project milestones</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="case-section">
-                                <h4>Outcome</h4>
-                                <div class="outcome-metrics">
-                                    <div class="metric">
-                                        <span class="metric-value">18%</span>
-                                        <span class="metric-label">Project margin achievement</span>
-                                    </div>
-                                    <div class="metric">
-                                        <span class="metric-value">$380K</span>
-                                        <span class="metric-label">Project profit realised</span>
-                                    </div>
-                                    <div class="metric">
-                                        <span class="metric-value">3 months</span>
-                                        <span class="metric-label">Early project completion</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="testimonial">
-                                <blockquote>
-                                    "The working capital facility enabled us to execute the project without cash flow stress. We delivered ahead of schedule and have since secured two additional major contracts based on our performance."
-                                </blockquote>
-                                <cite>— Project Director, Civil Infrastructure Company</cite>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Case Study 6: Seasonal Trade Business -->
-                    <div class="case-study-card">
-                        <div class="case-category">Working Capital</div>
-                        <h3>Landscaping & Irrigation Contractor</h3>
-                        <div class="case-summary">
-                            <div class="funding-amount">$180,000</div>
-                            <div class="funding-type">Seasonal Working Capital</div>
-                        </div>
-                        
-                        <div class="case-details">
-                            <div class="case-section">
-                                <h4>Business Background</h4>
-                                <p>Commercial landscaping and irrigation specialist serving golf courses, sporting facilities, and commercial developments. Seasonal revenue patterns with peak activity during spring and autumn months.</p>
-                            </div>
-                            
-                            <div class="case-section">
-                                <h4>Challenge</h4>
-                                <p>Significant seasonal variations in cash flow with major project commencements requiring upfront material purchases and labour scheduling before payment milestones.</p>
-                            </div>
-                            
-                            <div class="case-section">
-                                <h4>Solution</h4>
-                                <p>Designed seasonal working capital facility with flexible drawdown and repayment structure aligned to business cash flow patterns, including provisions for equipment rental and material purchases.</p>
-                            </div>
-                            
-                            <div class="case-section">
-                                <h4>Outcome</h4>
-                                <div class="outcome-metrics">
-                                    <div class="metric">
-                                        <span class="metric-value">45%</span>
-                                        <span class="metric-label">Revenue growth achieved</span>
-                                    </div>
-                                    <div class="metric">
-                                        <span class="metric-value">$85K</span>
-                                        <span class="metric-label">Additional annual profit</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="testimonial">
-                                <blockquote>
-                                    "The seasonal facility perfectly matches our business cycle. We can now take on larger projects knowing we have the working capital support to deliver without cash flow constraints."
-                                </blockquote>
-                                <cite>— Business Owner, Commercial Landscaping Services</cite>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Invoice Financing Case Studies -->
-        <section class="case-studies-section alt-bg">
-            <div class="container">
-                <h2>Invoice Financing Success Stories</h2>
-                <div class="case-studies-grid">
-                    <!-- Case Study 7: Electrical Contractor -->
-                    <div class="case-study-card featured">
-                        <div class="case-category">Invoice Financing</div>
-                        <h3>Commercial Electrical Contractor</h3>
-                        <div class="case-summary">
-                            <div class="funding-amount">$250,000</div>
-                            <div class="funding-type">Invoice Financing Facility</div>
-                        </div>
-                        
-                        <div class="case-details">
-                            <div class="case-section">
-                                <h4>Business Background</h4>
-                                <p>Established electrical contracting company specialising in commercial fit-outs and industrial installations. Consistent revenue growth with strong client base including major construction companies and property developers.</p>
-                            </div>
-                            
-                            <div class="case-section">
-                                <h4>Challenge</h4>
-                                <p>Rapid business growth creating cash flow timing issues with 60-90 day payment terms from major clients. Required immediate access to invoice values to fund ongoing operations and new project materials.</p>
-                            </div>
-                            
-                            <div class="case-section">
-                                <h4>Solution</h4>
-                                <p>EVFBS implemented selective invoice financing facility providing:</p>
-                                <ul>
-                                    <li>85% advance on approved invoices within 24 hours</li>
-                                    <li>Flexible facility allowing selective invoice financing</li>
-                                    <li>Direct client payment collection management</li>
-                                    <li>Credit protection on major client accounts</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="case-section">
-                                <h4>Outcome</h4>
-                                <div class="outcome-metrics">
-                                    <div class="metric">
-                                        <span class="metric-value">75%</span>
-                                        <span class="metric-label">Cash flow improvement</span>
-                                    </div>
-                                    <div class="metric">
-                                        <span class="metric-value">$420K</span>
-                                        <span class="metric-label">Additional project capacity</span>
-                                    </div>
-                                    <div class="metric">
-                                        <span class="metric-value">24 hours</span>
-                                        <span class="metric-label">Average funding timeframe</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="testimonial">
-                                <blockquote>
-                                    "Invoice financing transformed our cash flow management. We can now take on multiple projects simultaneously without waiting for payments, and our growth has accelerated significantly."
-                                </blockquote>
-                                <cite>— Managing Director, Commercial Electrical Services</cite>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Case Study 8: HVAC Services -->
-                    <div class="case-study-card">
-                        <div class="case-category">Invoice Financing</div>
-                        <h3>Commercial HVAC Services</h3>
-                        <div class="case-summary">
-                            <div class="funding-amount">$320,000</div>
-                            <div class="funding-type">Trade Finance Facility</div>
-                        </div>
-                        
-                        <div class="case-details">
-                            <div class="case-section">
-                                <h4>Business Background</h4>
-                                <p>Specialised HVAC contractor serving commercial buildings, industrial facilities, and healthcare institutions. Focus on maintenance contracts and system installations with blue-chip client base.</p>
-                            </div>
-                            
-                            <div class="case-section">
-                                <h4>Challenge</h4>
-                                <p>Large maintenance contracts requiring significant parts inventory and specialist labour scheduling. Extended payment terms creating working capital pressure during peak service periods.</p>
-                            </div>
-                            
-                            <div class="case-section">
-                                <h4>Solution</h4>
-                                <p>Comprehensive trade finance solution combining invoice financing with inventory funding and equipment lease arrangements to support complete business operation requirements.</p>
-                            </div>
-                            
-                            <div class="case-section">
-                                <h4>Outcome</h4>
-                                <div class="outcome-metrics">
-                                    <div class="metric">
-                                        <span class="metric-value">55%</span>
-                                        <span class="metric-label">Service capacity increase</span>
-                                    </div>
-                                    <div class="metric">
-                                        <span class="metric-value">$280K</span>
-                                        <span class="metric-label">Annual revenue growth</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="testimonial">
-                                <blockquote>
-                                    "The integrated finance solution supports every aspect of our operation. We've secured three major maintenance contracts that we couldn't have serviced without this financial backing."
-                                </blockquote>
-                                <cite>— Operations Manager, Commercial HVAC Services</cite>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Industry Impact Section -->
-        <section class="industry-impact">
-            <div class="container">
-                <h2>Strategic Impact Across Commercial Sectors</h2>
-                <div class="impact-grid">
-                    <div class="impact-card">
-                        <h3>Civil Contractors</h3>
-                        <div class="impact-stats">
-                            <div class="impact-stat">
-                                <span class="stat-value">$18M</span>
-                                <span class="stat-label">Funding Facilitated</span>
-                            </div>
-                            <div class="impact-stat">
-                                <span class="stat-value">85</span>
-                                <span class="stat-label">Projects Supported</span>
-                            </div>
-                        </div>
-                        <p>Infrastructure projects, earthmoving operations, and civil construction requiring equipment finance, working capital, and project funding solutions.</p>
-                    </div>
-                    
-                    <div class="impact-card">
-                        <h3>Commercial Trades</h3>
-                        <div class="impact-stats">
-                            <div class="impact-stat">
-                                <span class="stat-value">$24M</span>
-                                <span class="stat-label">Funding Facilitated</span>
-                            </div>
-                            <div class="impact-stat">
-                                <span class="stat-value">140</span>
-                                <span class="stat-label">Businesses Supported</span>
-                            </div>
-                        </div>
-                        <p>Electrical, plumbing, HVAC, and specialty trade businesses securing equipment, vehicle, and working capital finance for business growth.</p>
-                    </div>
-                    
-                    <div class="impact-card">
-                        <h3>Industrial Services</h3>
-                        <div class="impact-stats">
-                            <div class="impact-stat">
-                                <span class="stat-value">$22M</span>
-                                <span class="stat-label">Funding Facilitated</span>
-                            </div>
-                            <div class="impact-stat">
-                                <span class="stat-value">65</span>
-                                <span class="stat-label">Operations Enhanced</span>
-                            </div>
-                        </div>
-                        <p>Manufacturing, fabrication, and industrial service companies investing in machinery, facility upgrades, and operational expansion.</p>
-                    </div>
-                    
-                    <div class="impact-card">
-                        <h3>Commercial Property</h3>
-                        <div class="impact-stats">
-                            <div class="impact-stat">
-                                <span class="stat-value">$21M</span>
-                                <span class="stat-label">Property Acquisitions</span>
-                            </div>
-                            <div class="impact-stat">
-                                <span class="stat-value">45</span>
-                                <span class="stat-label">Strategic Purchases</span>
-                            </div>
-                        </div>
-                        <p>Workshop acquisitions, warehouse purchases, and commercial property investments enabling business ownership and operational expansion.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Call to Action -->
-        <section class="cta-section">
-            <div class="container">
-                <h2>Ready to Write Your Success Story?</h2>
-                <p>Join the growing number of Australian business builders who've accelerated their growth through strategic commercial finance partnerships with EVFBS.</p>
-                <div class="cta-buttons">
-                    <a href="/get-quote" class="primary-button large">Start Your Strategic Assessment</a>
-                    <a href="/contact" class="secondary-button large">Discuss Your Requirements</a>
-                </div>
-                <div class="cta-features">
-                    <div class="feature">
-                        <strong>Confidential Assessment</strong>
-                        <span>Professional evaluation of your financing requirements</span>
-                    </div>
-                    <div class="feature">
-                        <strong>Strategic Structuring</strong>
-                        <span>Customised solutions aligned to your business goals</span>
-                    </div>
-                    <div class="feature">
-                        <strong>Expert Partnership</strong>
-                        <span>Ongoing support throughout your growth journey</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Edgeview Finance Business Solutions</h4>
-                    <p>Licensed Australian Finance Broker<br/>
-                    ACL: [License Number]<br/>
-                    ABN: [ABN Number]</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="/equipment-finance">Equipment Finance</a></li>
-                        <li><a href="/commercial-property">Commercial Property</a></li>
-                        <li><a href="/working-capital">Working Capital</a></li>
-                        <li><a href="/invoice-financing">Invoice Financing</a></li>
-                        <li><a href="/personal-lending">Personal Lending</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="/calculator">Loan Calculator</a></li>
-                        <li><a href="/blog">Finance Guides</a></li>
-                        <li><a href="/case-studies">Success Stories</a></li>
-                        <li><a href="/faqs">FAQs</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Phone: 1300 XXX XXX<br/>
-                    Email: enquiries@edgeviewfinance.com.au<br/>
-                    Hours: Mon-Fri 8AM-6PM AEST</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Edgeview Finance Business Solutions. All rights reserved. | 
-                <a href="/privacy">Privacy Policy</a> | 
-                <a href="/terms">Terms of Service</a> | 
-                <a href="/credit-guide">Credit Guide</a></p>
-            </div>
+  <Header />
+  <main>
+    <!-- Hero Section -->
+    <section class="section-hero hero-section">
+      <div class="container-default">
+        <div class="text-center">
+          <div class="breadcrumb text-white/80 mb-4">
+            <a href="/" class="text-white hover:text-white">Home</a> > Case Studies
+          </div>
+          <h1 class="heading-primary text-white mb-6">Commercial Finance Success Stories</h1>
+          <p class="hero-subtitle text-xl lg:text-2xl font-light mb-8 text-gray-100 max-w-4xl mx-auto">
+            Real results from Australian business builders who've transformed their operations through strategic commercial finance solutions. 
+            Discover how equipment finance, commercial property, working capital, and invoice financing have driven measurable business growth.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center button-gap mb-8">
+            <a href="/get-quote" class="btn-primary btn-large">Start Your Success Story</a>
+            <a href="/contact" class="btn-secondary btn-large text-white border-white hover:bg-white hover:text-secondary-dark">Discuss Your Requirements</a>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap text-gray-100">
+            <span class="flex items-center gap-2">✓ Real Client Outcomes</span>
+            <span class="flex items-center gap-2">✓ Confidential Case Studies</span>
+            <span class="flex items-center gap-2">✓ Proven Results</span>
+          </div>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <style>
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #fff;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header Styles */
-        header {
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
-        
-        .logo h1 {
-            color: #2c5aa0;
-            font-size: 1.5rem;
-            margin-bottom: -5px;
-        }
-        
-        .logo span {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-        
-        .nav-menu a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-menu a:hover,
-        .nav-menu a.active {
-            color: #2c5aa0;
-        }
-        
-        .cta-button {
-            background: #e67e22 !important;
-            color: white !important;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-        
-        .cta-button:hover {
-            background: #d35400 !important;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #2c5aa0 0%, #3498db 100%);
-            color: white;
-            padding: 100px 20px;
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.95;
-        }
-        
-        .hero-cta {
-            margin-bottom: 2rem;
-            gap: 1rem;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .primary-button {
-            background: #e67e22;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-        }
-        
-        .primary-button:hover {
-            background: #d35400;
-            transform: translateY(-2px);
-        }
-        
-        .secondary-button {
-            background: transparent;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border: 2px solid white;
-            border-radius: 5px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-        }
-        
-        .secondary-button:hover {
-            background: white;
-            color: #2c5aa0;
-        }
-        
-        .trust-indicators {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            opacity: 0.9;
-        }
-        
-        /* Overview Stats */
-        .overview-stats {
-            padding: 80px 20px;
-            background: #f8f9fa;
-        }
-        
-        .overview-stats h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2c5aa0;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .stat-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #e67e22;
-            margin-bottom: 0.5rem;
-        }
-        
-        .stat-label {
-            font-size: 1.2rem;
-            color: #2c5aa0;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        
-        .stat-description {
-            color: #666;
-            font-size: 0.95rem;
-        }
-        
-        /* Case Studies Sections */
-        .case-studies-section {
-            padding: 80px 20px;
-        }
-        
-        .case-studies-section.alt-bg {
-            background: #f8f9fa;
-        }
-        
-        .case-studies-section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2c5aa0;
-        }
-        
-        .case-studies-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 3rem;
-        }
-        
-        .case-study-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .case-study-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .case-study-card.featured {
-            border-top: 4px solid #e67e22;
-        }
-        
-        .case-category {
-            background: #2c5aa0;
-            color: white;
-            padding: 0.5rem 1rem;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .case-study-card h3 {
-            padding: 1.5rem 2rem 0;
-            color: #2c5aa0;
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-        }
-        
-        .case-summary {
-            padding: 0 2rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        
-        .funding-amount {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #e67e22;
-        }
-        
-        .funding-type {
-            color: #666;
-            font-weight: 600;
-        }
-        
-        .case-details {
-            padding: 0 2rem 2rem;
-        }
-        
-        .case-section {
-            margin-bottom: 2rem;
-        }
-        
-        .case-section h4 {
-            color: #2c5aa0;
-            font-size: 1.1rem;
-            margin-bottom: 0.8rem;
-            font-weight: 600;
-        }
-        
-        .case-section p {
-            margin-bottom: 1rem;
-        }
-        
-        .case-section ul {
-            list-style: none;
-            margin: 1rem 0;
-        }
-        
-        .case-section li {
-            padding: 0.3rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-        
-        .case-section li:before {
-            content: "✓";
-            color: #27ae60;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-        
-        .outcome-metrics {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-        }
-        
-        .metric {
-            text-align: center;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 10px;
-        }
-        
-        .metric-value {
-            display: block;
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #e67e22;
-            margin-bottom: 0.3rem;
-        }
-        
-        .metric-label {
-            font-size: 0.9rem;
-            color: #666;
-            font-weight: 600;
-        }
-        
-        .testimonial {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 10px;
-            margin-top: 2rem;
-            border-left: 4px solid #e67e22;
-        }
-        
-        .testimonial blockquote {
-            font-style: italic;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-        
-        .testimonial cite {
-            color: #666;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        
-        /* Industry Impact Section */
-        .industry-impact {
-            padding: 80px 20px;
-            background: #2c5aa0;
-            color: white;
-        }
-        
-        .industry-impact h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: white;
-        }
-        
-        .impact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .impact-card {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-        }
-        
-        .impact-card h3 {
-            color: #e67e22;
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .impact-stats {
-            display: flex;
-            justify-content: space-around;
-            margin-bottom: 1.5rem;
-        }
-        
-        .impact-stat {
-            text-align: center;
-        }
-        
-        .impact-stat .stat-value {
-            display: block;
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: white;
-            margin-bottom: 0.3rem;
-        }
-        
-        .impact-stat .stat-label {
-            font-size: 0.85rem;
-            opacity: 0.9;
-        }
-        
-        .impact-card p {
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-        
-        /* CTA Section */
-        .cta-section {
-            background: #e67e22;
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-        }
-        
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 3rem;
-        }
-        
-        .large {
-            font-size: 1.2rem;
-            padding: 18px 36px;
-        }
-        
-        .cta-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .feature {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        
-        .feature strong {
-            color: white;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .feature span {
-            opacity: 0.9;
-            font-size: 0.95rem;
-        }
-        
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            padding: 40px 20px 20px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-section h4 {
-            color: #e67e22;
-            margin-bottom: 1rem;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-section a:hover {
-            color: white;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid #555;
-            padding-top: 1rem;
-            text-align: center;
-            color: #ccc;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
+    <!-- Overview Stats -->
+    <section class="section-content bg-neutral-light">
+      <div class="container-default">
+        <h2 class="heading-secondary text-center mb-16">Strategic Finance Impact Across Australian Businesses</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center card-padding-lg bg-white rounded-xl shadow-lg">
+            <div class="text-4xl font-bold text-primary-orange mb-2">$85M+</div>
+            <div class="text-secondary-dark font-semibold mb-2">Total Funding Facilitated</div>
+            <div class="text-gray-600 text-sm">Across equipment, property, and working capital solutions</div>
+          </div>
+          <div class="text-center card-padding-lg bg-white rounded-xl shadow-lg">
+            <div class="text-4xl font-bold text-primary-orange mb-2">340+</div>
+            <div class="text-secondary-dark font-semibold mb-2">Successful Approvals</div>
+            <div class="text-gray-600 text-sm">Commercial trades and industrial businesses</div>
+          </div>
+          <div class="text-center card-padding-lg bg-white rounded-xl shadow-lg">
+            <div class="text-4xl font-bold text-primary-orange mb-2">97%</div>
+            <div class="text-secondary-dark font-semibold mb-2">Client Satisfaction</div>
+            <div class="text-gray-600 text-sm">Professional service delivery rating</div>
+          </div>
+          <div class="text-center card-padding-lg bg-white rounded-xl shadow-lg">
+            <div class="text-4xl font-bold text-primary-orange mb-2">35%</div>
+            <div class="text-secondary-dark font-semibold mb-2">Average Growth</div>
+            <div class="text-gray-600 text-sm">Business capacity increase post-funding</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Equipment Finance Case Studies -->
+    <section class="section-content">
+      <div class="container-default">
+        <h2 class="heading-secondary text-center mb-16">Equipment Finance Success Stories</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Case Study 1: Excavation Contractor -->
+          <div class="service-card-consistent border-l-4 border-primary-orange">
+            <div class="bg-secondary-dark text-white px-3 py-1 rounded-full text-sm font-semibold mb-4 inline-block">Equipment Finance</div>
+            <h3 class="heading-tertiary text-secondary-dark mb-4">Commercial Excavation Contractor</h3>
+            <div class="flex justify-between items-start mb-6">
+              <div class="text-3xl font-bold text-primary-orange">$320,000</div>
+              <div class="text-gray-600 font-semibold">Equipment Finance Package</div>
+            </div>
             
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
+            <div class="space-y-6">
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-2">Business Background</h4>
+                <p class="body-medium text-gray-700">Established excavation and earthmoving contractor serving commercial construction projects across South East Queensland. 8-year track record with consistent revenue growth and strong client relationships with major construction companies.</p>
+              </div>
+              
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-2">Challenge</h4>
+                <p class="body-medium text-gray-700">Contractor identified significant opportunity to expand operations with larger commercial projects requiring additional heavy machinery. Traditional bank financing proved inadequate for specialised equipment requirements.</p>
+              </div>
+              
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-2">Solution</h4>
+                <p class="body-medium text-gray-700 mb-3">EVFBS structured a comprehensive equipment finance package covering:</p>
+                <ul class="space-y-1 mb-3">
+                  <li class="flex items-start">
+                    <span class="text-primary-orange font-bold mr-2">✓</span>
+                    <span class="body-medium text-gray-700">New 30-tonne excavator: $185,000</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-primary-orange font-bold mr-2">✓</span>
+                    <span class="body-medium text-gray-700">Articulated dump truck: $95,000</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-primary-orange font-bold mr-2">✓</span>
+                    <span class="body-medium text-gray-700">Compaction equipment: $40,000</span>
+                  </li>
+                </ul>
+                <p class="body-medium text-gray-700">5-year terms with competitive rates and seasonal payment flexibility aligned to project cash flow.</p>
+              </div>
+              
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-3">Outcome</h4>
+                <div class="grid grid-cols-3 gap-4 mb-4">
+                  <div class="text-center card-padding-sm bg-neutral-light rounded-lg">
+                    <div class="text-2xl font-bold text-primary-orange">40%</div>
+                    <div class="text-xs text-gray-600">Increase in project capacity</div>
+                  </div>
+                  <div class="text-center card-padding-sm bg-neutral-light rounded-lg">
+                    <div class="text-2xl font-bold text-primary-orange">$180K</div>
+                    <div class="text-xs text-gray-600">Additional annual revenue</div>
+                  </div>
+                  <div class="text-center card-padding-sm bg-neutral-light rounded-lg">
+                    <div class="text-2xl font-bold text-primary-orange">6 months</div>
+                    <div class="text-xs text-gray-600">ROI achievement timeline</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="bg-neutral-light card-padding-sm rounded-lg border-l-4 border-primary-orange">
+                <blockquote class="italic body-medium text-gray-700 mb-2">
+                  "The strategic approach from EVFBS transformed our capability to take on larger commercial projects. The equipment finance structure aligned perfectly with our cash flow, and we've already secured three major contracts that wouldn't have been possible before."
+                </blockquote>
+                <cite class="text-gray-600 text-sm font-semibold">— Commercial Excavation Director, South East Queensland</cite>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case Study 2: Industrial Machinery -->
+          <div class="service-card-consistent border-l-4 border-secondary-dark">
+            <div class="bg-secondary-dark text-white px-3 py-1 rounded-full text-sm font-semibold mb-4 inline-block">Equipment Finance</div>
+            <h3 class="heading-tertiary text-secondary-dark mb-4">Steel Fabrication Business</h3>
+            <div class="flex justify-between items-start mb-6">
+              <div class="text-3xl font-bold text-primary-orange">$450,000</div>
+              <div class="text-gray-600 font-semibold">Industrial Equipment Finance</div>
+            </div>
             
-            .nav-menu {
-                display: none;
-            }
+            <div class="space-y-6">
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-2">Business Background</h4>
+                <p class="body-medium text-gray-700">Specialised steel fabrication company serving mining and industrial sectors. 12-year operational history with focus on custom fabrication and maintenance services for heavy industry.</p>
+              </div>
+              
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-2">Challenge</h4>
+                <p class="body-medium text-gray-700">Growing demand for precision manufacturing required investment in CNC machinery and automated welding systems. Existing equipment limiting capacity to meet client requirements and quality standards.</p>
+              </div>
+              
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-2">Solution</h4>
+                <p class="body-medium text-gray-700">Strategic equipment finance for advanced manufacturing capability including CNC plasma cutting system, automated welding cells, and precision measurement equipment with technology refresh provisions.</p>
+              </div>
+              
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-3">Outcome</h4>
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                  <div class="text-center card-padding-sm bg-neutral-light rounded-lg">
+                    <div class="text-2xl font-bold text-primary-orange">65%</div>
+                    <div class="text-xs text-gray-600">Production efficiency gain</div>
+                  </div>
+                  <div class="text-center card-padding-sm bg-neutral-light rounded-lg">
+                    <div class="text-2xl font-bold text-primary-orange">$320K</div>
+                    <div class="text-xs text-gray-600">Annual revenue increase</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="bg-neutral-light card-padding-sm rounded-lg border-l-4 border-primary-orange">
+                <blockquote class="italic body-medium text-gray-700 mb-2">
+                  "The precision equipment has revolutionised our manufacturing capability. We're now the preferred supplier for several major mining companies, and our quality certification opened doors we couldn't access before."
+                </blockquote>
+                <cite class="text-gray-600 text-sm font-semibold">— Manufacturing Director, Industrial Fabrication Company</cite>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Commercial Property Case Studies -->
+    <section class="section-content bg-neutral-light">
+      <div class="container-default">
+        <h2 class="heading-secondary text-center mb-16">Commercial Property Finance Success Stories</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Case Study 3: Workshop Purchase -->
+          <div class="service-card-consistent border-l-4 border-primary-orange">
+            <div class="bg-secondary-dark text-white px-3 py-1 rounded-full text-sm font-semibold mb-4 inline-block">Commercial Property</div>
+            <h3 class="heading-tertiary text-secondary-dark mb-4">Plumbing Contractor Workshop</h3>
+            <div class="flex justify-between items-start mb-6">
+              <div class="text-3xl font-bold text-primary-orange">$850,000</div>
+              <div class="text-gray-600 font-semibold">Commercial Property Finance</div>
+            </div>
             
-            .case-studies-grid {
-                grid-template-columns: 1fr;
-            }
+            <div class="space-y-6">
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-2">Business Background</h4>
+                <p class="body-medium text-gray-700">Established commercial plumbing contractor specialising in multi-story buildings and industrial installations. Strong financial position with consistent growth over 15 years, transitioning from rental premises to property ownership.</p>
+              </div>
+              
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-2">Challenge</h4>
+                <p class="body-medium text-gray-700">Rising commercial rental costs and limited workshop space constraining business growth. Identified strategic property acquisition opportunity requiring commercial finance structure beyond traditional residential lending.</p>
+              </div>
+              
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-2">Solution</h4>
+                <p class="body-medium text-gray-700 mb-3">EVFBS structured commercial property finance for purpose-built workshop facility including:</p>
+                <ul class="space-y-1 mb-3">
+                  <li class="flex items-start">
+                    <span class="text-primary-orange font-bold mr-2">✓</span>
+                    <span class="body-medium text-gray-700">2,400sqm workshop with overhead crane capability</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-primary-orange font-bold mr-2">✓</span>
+                    <span class="body-medium text-gray-700">Office complex and staff facilities</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-primary-orange font-bold mr-2">✓</span>
+                    <span class="body-medium text-gray-700">Specialised storage for materials and equipment</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-primary-orange font-bold mr-2">✓</span>
+                    <span class="body-medium text-gray-700">Future expansion provisions within property</span>
+                  </li>
+                </ul>
+                <p class="body-medium text-gray-700">20-year term with competitive commercial property rates and tax-effective structure.</p>
+              </div>
+              
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-3">Outcome</h4>
+                <div class="grid grid-cols-3 gap-4 mb-4">
+                  <div class="text-center card-padding-sm bg-neutral-light rounded-lg">
+                    <div class="text-2xl font-bold text-primary-orange">$4,200</div>
+                    <div class="text-xs text-gray-600">Monthly rental savings</div>
+                  </div>
+                  <div class="text-center card-padding-sm bg-neutral-light rounded-lg">
+                    <div class="text-2xl font-bold text-primary-orange">50%</div>
+                    <div class="text-xs text-gray-600">Operational space increase</div>
+                  </div>
+                  <div class="text-center card-padding-sm bg-neutral-light rounded-lg">
+                    <div class="text-2xl font-bold text-primary-orange">$280K</div>
+                    <div class="text-xs text-gray-600">Property appreciation (18 months)</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="bg-neutral-light card-padding-sm rounded-lg border-l-4 border-primary-orange">
+                <blockquote class="italic body-medium text-gray-700 mb-2">
+                  "Owning our workshop has been transformational. The operational efficiency gains and rental savings have already improved our profit margins, whilst building significant equity for future growth initiatives."
+                </blockquote>
+                <cite class="text-gray-600 text-sm font-semibold">— Managing Director, Commercial Plumbing Services</cite>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case Study 4: Warehouse Acquisition -->
+          <div class="service-card-consistent border-l-4 border-secondary-dark">
+            <div class="bg-secondary-dark text-white px-3 py-1 rounded-full text-sm font-semibold mb-4 inline-block">Commercial Property</div>
+            <h3 class="heading-tertiary text-secondary-dark mb-4">Logistics Warehouse Investment</h3>
+            <div class="flex justify-between items-start mb-6">
+              <div class="text-3xl font-bold text-primary-orange">$1.2M</div>
+              <div class="text-gray-600 font-semibold">Investment Property Finance</div>
+            </div>
             
-            .case-summary {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+            <div class="space-y-6">
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-2">Business Background</h4>
+                <p class="body-medium text-gray-700">Transport and logistics company with interstate operations. Seeking commercial property investment to diversify business interests whilst securing long-term operational base.</p>
+              </div>
+              
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-2">Challenge</h4>
+                <p class="body-medium text-gray-700">Required strategic property acquisition for operational use with investment returns. Complex financing needs involving commercial property purchase with development potential for future expansion.</p>
+              </div>
+              
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-2">Solution</h4>
+                <p class="body-medium text-gray-700">Structured commercial investment property finance for strategically located warehouse facility with dual-purpose capability as operational base and investment asset with tenant potential.</p>
+              </div>
+              
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-3">Outcome</h4>
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                  <div class="text-center card-padding-sm bg-neutral-light rounded-lg">
+                    <div class="text-2xl font-bold text-primary-orange">8.2%</div>
+                    <div class="text-xs text-gray-600">Annual investment yield</div>
+                  </div>
+                  <div class="text-center card-padding-sm bg-neutral-light rounded-lg">
+                    <div class="text-2xl font-bold text-primary-orange">$95K</div>
+                    <div class="text-xs text-gray-600">Annual operational savings</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="bg-neutral-light card-padding-sm rounded-lg border-l-4 border-primary-orange">
+                <blockquote class="italic body-medium text-gray-700 mb-2">
+                  "The commercial property investment strategy has delivered both operational benefits and strong investment returns. It's providing a solid foundation for our business expansion plans."
+                </blockquote>
+                <cite class="text-gray-600 text-sm font-semibold">— Operations Director, Logistics Company</cite>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Working Capital Case Studies -->
+    <section class="section-content">
+      <div class="container-default">
+        <h2 class="heading-secondary text-center mb-16">Working Capital & Cash Flow Success Stories</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Case Study 5: Civil Infrastructure -->
+          <div class="service-card-consistent border-l-4 border-primary-orange">
+            <div class="bg-secondary-dark text-white px-3 py-1 rounded-full text-sm font-semibold mb-4 inline-block">Working Capital</div>
+            <h3 class="heading-tertiary text-secondary-dark mb-4">Civil Infrastructure Contractor</h3>
+            <div class="flex justify-between items-start mb-6">
+              <div class="text-3xl font-bold text-primary-orange">$500,000</div>
+              <div class="text-gray-600 font-semibold">Working Capital Facility</div>
+            </div>
             
-            .funding-amount {
-                font-size: 1.8rem;
-            }
+            <div class="space-y-6">
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-2">Business Background</h4>
+                <p class="body-medium text-gray-700">Established civil contracting company specialising in infrastructure projects including road construction, utility installation, and site development for government and commercial clients.</p>
+              </div>
+              
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-2">Challenge</h4>
+                <p class="body-medium text-gray-700">Secured $2.1M government infrastructure project with extended payment terms creating significant cash flow gap. Required working capital to cover labour, materials, and equipment costs during project execution phase.</p>
+              </div>
+              
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-2">Solution</h4>
+                <p class="body-medium text-gray-700 mb-3">EVFBS structured flexible working capital facility including:</p>
+                <ul class="space-y-1 mb-3">
+                  <li class="flex items-start">
+                    <span class="text-primary-orange font-bold mr-2">✓</span>
+                    <span class="body-medium text-gray-700">Revolving credit line for operational expenses</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-primary-orange font-bold mr-2">✓</span>
+                    <span class="body-medium text-gray-700">Progress payment financing against certified work</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-primary-orange font-bold mr-2">✓</span>
+                    <span class="body-medium text-gray-700">Equipment rental and subcontractor payment support</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-primary-orange font-bold mr-2">✓</span>
+                    <span class="body-medium text-gray-700">Retention release provisions aligned to project milestones</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-3">Outcome</h4>
+                <div class="grid grid-cols-3 gap-4 mb-4">
+                  <div class="text-center card-padding-sm bg-neutral-light rounded-lg">
+                    <div class="text-2xl font-bold text-primary-orange">18%</div>
+                    <div class="text-xs text-gray-600">Project margin achievement</div>
+                  </div>
+                  <div class="text-center card-padding-sm bg-neutral-light rounded-lg">
+                    <div class="text-2xl font-bold text-primary-orange">$380K</div>
+                    <div class="text-xs text-gray-600">Project profit realised</div>
+                  </div>
+                  <div class="text-center card-padding-sm bg-neutral-light rounded-lg">
+                    <div class="text-2xl font-bold text-primary-orange">3 months</div>
+                    <div class="text-xs text-gray-600">Early project completion</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="bg-neutral-light card-padding-sm rounded-lg border-l-4 border-primary-orange">
+                <blockquote class="italic body-medium text-gray-700 mb-2">
+                  "The working capital facility enabled us to execute the project without cash flow stress. We delivered ahead of schedule and have since secured two additional major contracts based on our performance."
+                </blockquote>
+                <cite class="text-gray-600 text-sm font-semibold">— Project Director, Civil Infrastructure Company</cite>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case Study 6: Seasonal Trade Business -->
+          <div class="service-card-consistent border-l-4 border-secondary-dark">
+            <div class="bg-secondary-dark text-white px-3 py-1 rounded-full text-sm font-semibold mb-4 inline-block">Working Capital</div>
+            <h3 class="heading-tertiary text-secondary-dark mb-4">Landscaping & Irrigation Contractor</h3>
+            <div class="flex justify-between items-start mb-6">
+              <div class="text-3xl font-bold text-primary-orange">$180,000</div>
+              <div class="text-gray-600 font-semibold">Seasonal Working Capital</div>
+            </div>
             
-            .outcome-metrics {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
+            <div class="space-y-6">
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-2">Business Background</h4>
+                <p class="body-medium text-gray-700">Commercial landscaping and irrigation specialist serving golf courses, sporting facilities, and commercial developments. Seasonal revenue patterns with peak activity during spring and autumn months.</p>
+              </div>
+              
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-2">Challenge</h4>
+                <p class="body-medium text-gray-700">Significant seasonal variations in cash flow with major project commencements requiring upfront material purchases and labour scheduling before payment milestones.</p>
+              </div>
+              
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-2">Solution</h4>
+                <p class="body-medium text-gray-700">Designed seasonal working capital facility with flexible drawdown and repayment structure aligned to business cash flow patterns, including provisions for equipment rental and material purchases.</p>
+              </div>
+              
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-3">Outcome</h4>
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                  <div class="text-center card-padding-sm bg-neutral-light rounded-lg">
+                    <div class="text-2xl font-bold text-primary-orange">45%</div>
+                    <div class="text-xs text-gray-600">Revenue growth achieved</div>
+                  </div>
+                  <div class="text-center card-padding-sm bg-neutral-light rounded-lg">
+                    <div class="text-2xl font-bold text-primary-orange">$85K</div>
+                    <div class="text-xs text-gray-600">Additional annual profit</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="bg-neutral-light card-padding-sm rounded-lg border-l-4 border-primary-orange">
+                <blockquote class="italic body-medium text-gray-700 mb-2">
+                  "The seasonal facility perfectly matches our business cycle. We can now take on larger projects knowing we have the working capital support to deliver without cash flow constraints."
+                </blockquote>
+                <cite class="text-gray-600 text-sm font-semibold">— Business Owner, Commercial Landscaping Services</cite>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Invoice Financing Case Studies -->
+    <section class="section-content bg-neutral-light">
+      <div class="container-default">
+        <h2 class="heading-secondary text-center mb-16">Invoice Financing Success Stories</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Case Study 7: Electrical Contractor -->
+          <div class="service-card-consistent border-l-4 border-primary-orange">
+            <div class="bg-secondary-dark text-white px-3 py-1 rounded-full text-sm font-semibold mb-4 inline-block">Invoice Financing</div>
+            <h3 class="heading-tertiary text-secondary-dark mb-4">Commercial Electrical Contractor</h3>
+            <div class="flex justify-between items-start mb-6">
+              <div class="text-3xl font-bold text-primary-orange">$250,000</div>
+              <div class="text-gray-600 font-semibold">Invoice Financing Facility</div>
+            </div>
             
-            .stats-grid,
-            .impact-grid {
-                grid-template-columns: 1fr;
-            }
+            <div class="space-y-6">
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-2">Business Background</h4>
+                <p class="body-medium text-gray-700">Established electrical contracting company specialising in commercial fit-outs and industrial installations. Consistent revenue growth with strong client base including major construction companies and property developers.</p>
+              </div>
+              
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-2">Challenge</h4>
+                <p class="body-medium text-gray-700">Rapid business growth creating cash flow timing issues with 60-90 day payment terms from major clients. Required immediate access to invoice values to fund ongoing operations and new project materials.</p>
+              </div>
+              
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-2">Solution</h4>
+                <p class="body-medium text-gray-700 mb-3">EVFBS implemented selective invoice financing facility providing:</p>
+                <ul class="space-y-1 mb-3">
+                  <li class="flex items-start">
+                    <span class="text-primary-orange font-bold mr-2">✓</span>
+                    <span class="body-medium text-gray-700">85% advance on approved invoices within 24 hours</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-primary-orange font-bold mr-2">✓</span>
+                    <span class="body-medium text-gray-700">Flexible facility allowing selective invoice financing</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-primary-orange font-bold mr-2">✓</span>
+                    <span class="body-medium text-gray-700">Direct client payment collection management</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-primary-orange font-bold mr-2">✓</span>
+                    <span class="body-medium text-gray-700">Credit protection on major client accounts</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-3">Outcome</h4>
+                <div class="grid grid-cols-3 gap-4 mb-4">
+                  <div class="text-center card-padding-sm bg-neutral-light rounded-lg">
+                    <div class="text-2xl font-bold text-primary-orange">75%</div>
+                    <div class="text-xs text-gray-600">Cash flow improvement</div>
+                  </div>
+                  <div class="text-center card-padding-sm bg-neutral-light rounded-lg">
+                    <div class="text-2xl font-bold text-primary-orange">$420K</div>
+                    <div class="text-xs text-gray-600">Additional project capacity</div>
+                  </div>
+                  <div class="text-center card-padding-sm bg-neutral-light rounded-lg">
+                    <div class="text-2xl font-bold text-primary-orange">24 hours</div>
+                    <div class="text-xs text-gray-600">Average funding timeframe</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="bg-neutral-light card-padding-sm rounded-lg border-l-4 border-primary-orange">
+                <blockquote class="italic body-medium text-gray-700 mb-2">
+                  "Invoice financing transformed our cash flow management. We can now take on multiple projects simultaneously without waiting for payments, and our growth has accelerated significantly."
+                </blockquote>
+                <cite class="text-gray-600 text-sm font-semibold">— Managing Director, Commercial Electrical Services</cite>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case Study 8: HVAC Services -->
+          <div class="service-card-consistent border-l-4 border-secondary-dark">
+            <div class="bg-secondary-dark text-white px-3 py-1 rounded-full text-sm font-semibold mb-4 inline-block">Invoice Financing</div>
+            <h3 class="heading-tertiary text-secondary-dark mb-4">Commercial HVAC Services</h3>
+            <div class="flex justify-between items-start mb-6">
+              <div class="text-3xl font-bold text-primary-orange">$320,000</div>
+              <div class="text-gray-600 font-semibold">Trade Finance Facility</div>
+            </div>
             
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .cta-features {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .case-study-card h3 {
-                padding: 1rem 1.5rem 0;
-            }
-            
-            .case-summary,
-            .case-details {
-                padding: 0 1.5rem;
-            }
-            
-            .case-details {
-                padding-bottom: 1.5rem;
-            }
-            
-            .testimonial {
-                padding: 1.5rem;
-            }
-        }
-    </style>
-</body>
-</html>
+            <div class="space-y-6">
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-2">Business Background</h4>
+                <p class="body-medium text-gray-700">Specialised HVAC contractor serving commercial buildings, industrial facilities, and healthcare institutions. Focus on maintenance contracts and system installations with blue-chip client base.</p>
+              </div>
+              
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-2">Challenge</h4>
+                <p class="body-medium text-gray-700">Large maintenance contracts requiring significant parts inventory and specialist labour scheduling. Extended payment terms creating working capital pressure during peak service periods.</p>
+              </div>
+              
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-2">Solution</h4>
+                <p class="body-medium text-gray-700">Comprehensive trade finance solution combining invoice financing with inventory funding and equipment lease arrangements to support complete business operation requirements.</p>
+              </div>
+              
+              <div>
+                <h4 class="text-secondary-dark font-semibold mb-3">Outcome</h4>
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                  <div class="text-center card-padding-sm bg-neutral-light rounded-lg">
+                    <div class="text-2xl font-bold text-primary-orange">55%</div>
+                    <div class="text-xs text-gray-600">Service capacity increase</div>
+                  </div>
+                  <div class="text-center card-padding-sm bg-neutral-light rounded-lg">
+                    <div class="text-2xl font-bold text-primary-orange">$280K</div>
+                    <div class="text-xs text-gray-600">Annual revenue growth</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="bg-neutral-light card-padding-sm rounded-lg border-l-4 border-primary-orange">
+                <blockquote class="italic body-medium text-gray-700 mb-2">
+                  "The integrated finance solution supports every aspect of our operation. We've secured three major maintenance contracts that we couldn't have serviced without this financial backing."
+                </blockquote>
+                <cite class="text-gray-600 text-sm font-semibold">— Operations Manager, Commercial HVAC Services</cite>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Industry Impact Section -->
+    <section class="section-content">
+      <div class="container-default">
+        <h2 class="heading-secondary text-center mb-16">Strategic Impact Across Commercial Sectors</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="feature-card">
+            <h3 class="heading-tertiary text-secondary-dark mb-4">Civil Contractors</h3>
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div class="text-center card-padding-sm bg-neutral-light rounded-lg">
+                <div class="text-2xl font-bold text-primary-orange">$18M</div>
+                <div class="text-xs text-gray-600">Funding Facilitated</div>
+              </div>
+              <div class="text-center card-padding-sm bg-neutral-light rounded-lg">
+                <div class="text-2xl font-bold text-primary-orange">85</div>
+                <div class="text-xs text-gray-600">Projects Supported</div>
+              </div>
+            </div>
+            <p class="body-medium">Infrastructure projects, earthmoving operations, and civil construction requiring equipment finance, working capital, and project funding solutions.</p>
+          </div>
+          
+          <div class="feature-card">
+            <h3 class="heading-tertiary text-secondary-dark mb-4">Commercial Trades</h3>
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div class="text-center card-padding-sm bg-neutral-light rounded-lg">
+                <div class="text-2xl font-bold text-primary-orange">$24M</div>
+                <div class="text-xs text-gray-600">Funding Facilitated</div>
+              </div>
+              <div class="text-center card-padding-sm bg-neutral-light rounded-lg">
+                <div class="text-2xl font-bold text-primary-orange">140</div>
+                <div class="text-xs text-gray-600">Businesses Supported</div>
+              </div>
+            </div>
+            <p class="body-medium">Electrical, plumbing, HVAC, and specialty trade businesses securing equipment, vehicle, and working capital finance for business growth.</p>
+          </div>
+          
+          <div class="feature-card">
+            <h3 class="heading-tertiary text-secondary-dark mb-4">Industrial Services</h3>
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div class="text-center card-padding-sm bg-neutral-light rounded-lg">
+                <div class="text-2xl font-bold text-primary-orange">$22M</div>
+                <div class="text-xs text-gray-600">Funding Facilitated</div>
+              </div>
+              <div class="text-center card-padding-sm bg-neutral-light rounded-lg">
+                <div class="text-2xl font-bold text-primary-orange">65</div>
+                <div class="text-xs text-gray-600">Operations Enhanced</div>
+              </div>
+            </div>
+            <p class="body-medium">Manufacturing, fabrication, and industrial service companies investing in machinery, facility upgrades, and operational expansion.</p>
+          </div>
+          
+          <div class="feature-card">
+            <h3 class="heading-tertiary text-secondary-dark mb-4">Commercial Property</h3>
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div class="text-center card-padding-sm bg-neutral-light rounded-lg">
+                <div class="text-2xl font-bold text-primary-orange">$21M</div>
+                <div class="text-xs text-gray-600">Property Acquisitions</div>
+              </div>
+              <div class="text-center card-padding-sm bg-neutral-light rounded-lg">
+                <div class="text-2xl font-bold text-primary-orange">45</div>
+                <div class="text-xs text-gray-600">Strategic Purchases</div>
+              </div>
+            </div>
+            <p class="body-medium">Workshop acquisitions, warehouse purchases, and commercial property investments enabling business ownership and operational expansion.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section-cta hero-section">
+      <div class="container-default">
+        <div class="text-center">
+          <h2 class="heading-secondary text-white mb-6">Ready to Write Your Success Story?</h2>
+          <p class="text-xl lg:text-2xl text-gray-100 mb-8 max-w-4xl mx-auto">
+            Join the growing number of Australian business builders who've accelerated their growth through strategic commercial finance partnerships with EVFBS.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center button-gap mb-8">
+            <a href="/get-quote" class="btn-primary btn-large">Start Your Strategic Assessment</a>
+            <a href="/contact" class="btn-secondary btn-large text-white border-white hover:bg-white hover:text-secondary-dark">Discuss Your Requirements</a>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto text-gray-100">
+            <div class="text-center">
+              <div class="font-semibold text-white mb-2">Confidential Assessment</div>
+              <div class="text-sm opacity-90">Professional evaluation of your financing requirements</div>
+            </div>
+            <div class="text-center">
+              <div class="font-semibold text-white mb-2">Strategic Structuring</div>
+              <div class="text-sm opacity-90">Customised solutions aligned to your business goals</div>
+            </div>
+            <div class="text-center">
+              <div class="font-semibold text-white mb-2">Expert Partnership</div>
+              <div class="text-sm opacity-90">Ongoing support throughout your growth journey</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
