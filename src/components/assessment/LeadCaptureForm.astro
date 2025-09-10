@@ -68,6 +68,35 @@ const { score, level } = Astro.props;
 
   <!-- Form -->
   <form id="lead-capture-form" class="space-y-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label for="first_name" class="block text-sm font-medium text-gray-700 mb-2">
+          First Name *
+        </label>
+        <input
+          type="text"
+          id="first_name"
+          name="first_name"
+          required
+          placeholder="John"
+          class="w-full px-4 py-3 border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 focus:ring-opacity-20 transition-colors"
+        />
+      </div>
+      <div>
+        <label for="last_name" class="block text-sm font-medium text-gray-700 mb-2">
+          Last Name *
+        </label>
+        <input
+          type="text"
+          id="last_name"
+          name="last_name"
+          required
+          placeholder="Smith"
+          class="w-full px-4 py-3 border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 focus:ring-opacity-20 transition-colors"
+        />
+      </div>
+    </div>
+    
     <div>
       <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
         Email Address *
@@ -160,8 +189,6 @@ const { score, level } = Astro.props;
 </div>
 
 <script>
-  import { supabase } from '../../lib/supabase.js';
-  
   // Handle form submission
   document.getElementById('lead-capture-form')?.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -181,78 +208,62 @@ const { score, level } = Astro.props;
       // Get assessment data from session storage
       const assessmentData = JSON.parse(sessionStorage.getItem('assessmentData') || '{}');
       
-      // Prepare data for Supabase
+      // Prepare data for API endpoint matching the expected structure
       const data = {
+        firstName: formData.get('first_name') as string,
+        lastName: formData.get('last_name') as string,
         email: formData.get('email') as string,
-        business_name: formData.get('business_name') as string,
         phone: formData.get('phone') as string,
-        q1_financial_management: assessmentData.q1 || null,
-        q2_revenue_profile: assessmentData.q2 || null,
-        q3_asset_visibility: assessmentData.q3 || null,
-        q4_documentation_checklist: assessmentData.q4 || 0,
-        q5_application_experience: assessmentData.q5 || null,
-        total_score: assessmentData.score || 0,
-        readiness_level: assessmentData.level || '',
-        utm_source: new URLSearchParams(window.location.search).get('utm_source') || null,
-        utm_medium: new URLSearchParams(window.location.search).get('utm_medium') || null,
-        utm_campaign: new URLSearchParams(window.location.search).get('utm_campaign') || null,
-        referrer_url: document.referrer || null,
-        email_sent: false,
-        consultation_booked: false,
-        instantly_webhook_sent: false
+        businessName: formData.get('business_name') as string,
+        answers: {
+          q1: assessmentData.q1 || null,
+          q2: assessmentData.q2 || null,
+          q3: assessmentData.q3 || null,
+          q4: assessmentData.q4 || null,
+          q5: assessmentData.q5 || null
+        },
+        totalScore: assessmentData.score || 0,
+        readinessLevel: assessmentData.level || '',
+        utmSource: new URLSearchParams(window.location.search).get('utm_source'),
+        utmMedium: new URLSearchParams(window.location.search).get('utm_medium'),
+        utmCampaign: new URLSearchParams(window.location.search).get('utm_campaign'),
+        referrerUrl: document.referrer
       };
       
-      // Store in Supabase
-      const { error } = await supabase
-        .from('assessment_responses')
-        .insert([data]);
+      // Submit to API endpoint
+      const response = await fetch('/api/assessment-submit.json', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
       
-      if (error) {
-        throw error;
+      const result = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(result.error || `HTTP ${response.status}: ${response.statusText}`);
       }
-      
-      // Send to Instantly.ai webhook (placeholder)
-      await sendToInstantly(data);
       
       // Success - redirect to thank you page
       sessionStorage.setItem('leadCaptured', 'true');
+      sessionStorage.setItem('assessmentId', result.assessmentId);
       window.location.href = '/finance-ready-assessment/thank-you';
       
     } catch (error) {
       console.error('Error submitting form:', error);
       
-      // Show error state
+      // Show error state with more specific message
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+      const errorP = errorDiv?.querySelector('p');
+      if (errorP) {
+        errorP.textContent = `There was an error sending your package: ${errorMessage}. Please try again or contact us directly.`;
+      }
+      
       loadingDiv?.classList.add('hidden');
       errorDiv?.classList.remove('hidden');
       submitBtn.disabled = false;
       submitBtn.textContent = 'Send My $1,035 Package Now';
     }
   });
-  
-  async function sendToInstantly(data: any) {
-    // Placeholder for Instantly.ai integration
-    // Will be activated when API key is provided
-    console.log('Would send to Instantly.ai:', data);
-    
-    // When ready:
-    // const INSTANTLY_WEBHOOK_URL = import.meta.env.INSTANTLY_WEBHOOK_URL;
-    // if (INSTANTLY_WEBHOOK_URL) {
-    //   await fetch(INSTANTLY_WEBHOOK_URL, {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //       'X-API-Key': import.meta.env.INSTANTLY_API_KEY || ''
-    //     },
-    //     body: JSON.stringify({
-    //       email: data.email,
-    //       custom_fields: {
-    //         score: data.total_score,
-    //         level: data.readiness_level,
-    //         business_name: data.business_name,
-    //         phone: data.phone
-    //       }
-    //     })
-    //   });
-    // }
-  }
 </script>
