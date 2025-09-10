@@ -7,7 +7,12 @@ import vercel from "@astrojs/vercel";
 // https://astro.build/config
 export default defineConfig({
   output: 'server', // Server mode for Vercel deployment
-  adapter: vercel(),
+  adapter: vercel({
+    analytics: true,
+    speedInsights: {
+      enabled: true
+    }
+  }),
   integrations: [tailwind(), mdx(), react()],
   server: {
     port: 4002,
