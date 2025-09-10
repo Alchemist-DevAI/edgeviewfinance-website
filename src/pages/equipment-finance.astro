@@ -1,774 +1,496 @@
 ---
-// Equipment Finance Page - Strategic Equipment Financing for Commercial Trades
-// Optimized for Ben the Business Builder ICP (excluding residential builders)
-export const prerender = true;
+import Layout from '../layout/Layout.astro';
+import ContentArea2 from '../components/Index/ContentArea2.astro';
+import ServiceGrid from '../components/Index/ServiceGrid.astro';
+import ProcessSection from '../components/Index/ProcessSection.astro';
+import TestimonialSection from '../components/Index/TestimonialSection.astro';
+import NewsLetter from '../components/Index/NewsLetter.astro';
 
-const siteData = {
-  title: "Equipment Finance Australia | Commercial Trades & Civil Contractors | EVFBS",
-  description: "Strategic equipment financing for commercial trades, civil contractors, and industrial businesses. Heavy machinery, vehicles, and specialised equipment finance from $20K to $500K+ with competitive rates.",
-  keywords: "equipment finance Australia, commercial vehicle finance, heavy machinery loans, trade equipment financing, civil contractor equipment, industrial equipment finance"
+const meta = {
+  title: "Equipment Finance Solutions | Edgeview Finance | Queensland",
+  description: "Professional equipment finance guidance for Queensland trade businesses. Access $50K-$5M+ with 24-48 hour approvals. 20+ years experience helping trades grow.",
+  keywords: "equipment finance Queensland, machinery finance, trade equipment loans, excavator finance, truck finance, business equipment finance"
+};
+
+// Custom hero data for Equipment Finance page
+const heroData = {
+  header: "Need Equipment Finance?\nHere's What You Need to Know",
+  subheading: "Professional equipment finance guidance for Queensland trade businesses",
+  bodyText: "Get the equipment you need with finance that works for your business. Access $50K-$5M+ with approvals as quick as 24-48 hours*.",
+  trustIndicator: "100+ Queensland businesses funded successfully",
+  buttonPrimary: {
+    text: "Book Discovery Call",
+    link: "#book-call"
+  },
+  heroImage: "/assets/images/hero-tradie-optimized.webp"
 };
 ---
 
-<html lang="en-AU">
-<head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={siteData.description} />
-    <meta name="keywords" content={siteData.keywords} />
-    
-    <!-- Equipment Finance Service Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "@id": "https://edgeviewfinance.com.au/equipment-finance",
-      "name": "Equipment Finance",
-      "alternateName": "Commercial Equipment Financing",
-      "description": "Strategic equipment financing for commercial trades, civil contractors, and industrial businesses with competitive rates and flexible terms",
-      "serviceType": "Equipment Financing",
-      "provider": {
-        "@type": "FinancialService",
-        "@id": "https://edgeviewfinance.com.au/#organization",
-        "name": "Edgeview Finance Business Solutions",
-        "areaServed": {
-          "@type": "Country",
-          "name": "Australia"
-        }
-      },
-      "offers": {
-        "@type": "Offer",
-        "name": "Equipment Finance Solutions",
-        "description": "Flexible equipment financing from $20K to $500K+ for commercial trades and civil contractors",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Equipment Finance",
-          "category": "Commercial Finance"
-        }
-      },
-      "audience": {
-        "@type": "BusinessAudience",
-        "businessType": ["Commercial Trades", "Civil Contractors", "Industrial Businesses"],
-        "numberOfEmployees": "10-25"
-      }
-    }
-    </script>
-    
-    <title>{siteData.title}</title>
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="nav-container">
-                <div class="logo">
-                    <h1>Edgeview Finance</h1>
-                    <span>Business Solutions</span>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/services">Services</a></li>
-                    <li><a href="/equipment-finance" class="active">Equipment Finance</a></li>
-                    <li><a href="/working-capital">Working Capital</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/contact" class="cta-button">Expert Consultation</a></li>
-                </ul>
+<Layout title={meta.title}>
+  <!-- Hero Section using Homepage styling -->
+  <section class='section-hero'>
+    <div class='relative z-10 overflow-hidden'>
+      <div class='pt-24 sm:pt-28 lg:pt-32 pb-8 lg:pb-12'>
+        <div class='container-default relative z-10'>
+          <!-- Single Column Layout for Service Pages -->
+          <div class='max-w-4xl mx-auto text-center'>
+            <h1 class='mb-6 font-InstrumentSans text-3xl sm:text-4xl lg:text-[48px] font-bold text-ColorBlack'>
+              <span class='block mb-2'>{heroData.header.split('\n')[0]}</span>
+              <span class='block'>{heroData.header.split('\n')[1]}</span>
+            </h1>
+            
+            <h2 class='mb-6 text-xl lg:text-2xl font-semibold text-gray-700 font-InstrumentSans'>
+              {heroData.subheading}
+            </h2>
+            
+            <p class='mb-6 text-lg text-gray-600 font-InstrumentSans leading-relaxed max-w-3xl mx-auto'>
+              {heroData.bodyText}
+            </p>
+            
+            <div class='mb-8'>
+              <div class='inline-flex items-center gap-2 bg-[#f97316] bg-opacity-10 px-4 py-2'>
+                <svg class='w-5 h-5 text-[#f97316]' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                  <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'></path>
+                </svg>
+                <span class='text-sm font-semibold text-[#1C2C3B] font-InstrumentSans'>
+                  100+ businesses funded successfully
+                </span>
+              </div>
             </div>
-        </nav>
-    </header>
-
-    <main>
-        <!-- Hero Section -->
-        <section class="hero service-hero">
-            <div class="hero-content">
-                <div class="breadcrumb">
-                    <a href="/">Home</a> > <a href="/services">Services</a> > Equipment Finance
-                </div>
-                <h1>Strategic Equipment Finance for Commercial Trades & Civil Contractors</h1>
-                <p class="hero-subtitle">
-                    Professional equipment financing solutions from $20K to $500K+ for heavy machinery, commercial vehicles, and specialised trade equipment. Competitive rates with flexible terms designed for established commercial businesses.
-                </p>
-                <div class="hero-cta">
-                    <a href="/get-quote?service=equipment-finance" class="primary-button">Get Equipment Finance Quote</a>
-                    <a href="/calculator" class="secondary-button">Calculate Repayments</a>
-                </div>
-                <div class="trust-indicators">
-                    <span>✓ 24-48 Hour Approvals</span>
-                    <span>✓ Competitive Commercial Rates</span>
-                    <span>✓ $500M+ Equipment Financed</span>
-                </div>
+            
+            <div class='flex flex-col sm:flex-row gap-4 justify-center'>
+              <a
+                href={heroData.buttonPrimary?.link || '#book-call'}
+                class='bg-[#f97316] text-white px-8 py-4 font-bold transition-all duration-300 inline-block hover:bg-[#ea580c] hover:shadow-lg'
+              >
+                <span>{heroData.buttonPrimary?.text || 'Book Discovery Call'}</span>
+              </a>
+              <a href="tel:1300280895" class="inline-block px-8 py-4 bg-transparent border-2 border-[#1C2C3B] text-[#1C2C3B] font-bold hover:bg-[#1C2C3B] hover:text-white transition-colors">
+                Call 1300 280 895
+              </a>
             </div>
-        </section>
-
-        <!-- Equipment Types Section -->
-        <section class="equipment-types">
-            <div class="container">
-                <h2>Equipment We Finance for Commercial Trades</h2>
-                <div class="equipment-grid">
-                    <div class="equipment-category">
-                        <h3>Heavy Machinery & Construction</h3>
-                        <ul>
-                            <li>Excavators, Diggers & Earthmoving Equipment</li>
-                            <li>Cranes & Lifting Equipment</li>
-                            <li>Concrete Pumps & Mixers</li>
-                            <li>Bulldozers & Graders</li>
-                            <li>Compactors & Road Construction</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="equipment-category">
-                        <h3>Commercial Vehicles & Fleet</h3>
-                        <ul>
-                            <li>Commercial Utes & Work Vehicles</li>
-                            <li>Truck & Heavy Vehicle Fleet</li>
-                            <li>Specialised Service Vehicles</li>
-                            <li>Trailers & Transport Equipment</li>
-                            <li>Van Conversions & Fit-Outs</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="equipment-category">
-                        <h3>Trade & Industrial Equipment</h3>
-                        <ul>
-                            <li>Welding & Fabrication Machinery</li>
-                            <li>HVAC Installation Equipment</li>
-                            <li>Electrical Testing & Safety Equipment</li>
-                            <li>Workshop Tools & Machinery</li>
-                            <li>Material Handling Equipment</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="equipment-category">
-                        <h3>Specialised Contractor Equipment</h3>
-                        <ul>
-                            <li>Mining & Resources Equipment</li>
-                            <li>Agricultural & Farming Machinery</li>
-                            <li>Telecommunications Equipment</li>
-                            <li>Medical & Healthcare Equipment</li>
-                            <li>Technology & IT Infrastructure</li>
-                        </ul>
-                    </div>
-                </div>
+            
+            <div class="flex flex-wrap justify-center gap-6 mt-8 text-sm">
+              <span class="flex items-center text-gray-600">
+                <svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                20+ Years Experience
+              </span>
+              <span class="flex items-center text-gray-600">
+                <svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                Deals Matched Same Day*
+              </span>
+              <span class="flex items-center text-gray-600">
+                <svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                Queensland Specialist
+              </span>
             </div>
-        </section>
-
-        <!-- Process Section -->
-        <section class="process-section">
-            <div class="container">
-                <h2>Professional Equipment Finance Process</h2>
-                <div class="process-steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <h3>Equipment Assessment</h3>
-                        <p>We evaluate your equipment needs, business capacity, and optimal financing structure aligned with your cash flow requirements.</p>
-                    </div>
-                    
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <h3>Strategic Structuring</h3>
-                        <p>Our team structures the finance solution to maximize tax benefits and minimise business disruption during equipment acquisition.</p>
-                    </div>
-                    
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <h3>Lender Comparison</h3>
-                        <p>We negotiate with multiple commercial lenders to secure competitive rates and terms specific to your industry and equipment type.</p>
-                    </div>
-                    
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <h3>Fast Settlement</h3>
-                        <p>Professional management of documentation and settlement processes ensures you can deploy your equipment quickly and efficiently.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Benefits Section -->
-        <section class="benefits-section">
-            <div class="container">
-                <h2>Why Commercial Trades Choose EVFBS Equipment Finance</h2>
-                <div class="benefits-grid">
-                    <div class="benefit">
-                        <h3>Industry Expertise</h3>
-                        <p>Deep understanding of commercial trades, civil contracting, and industrial business requirements. We know your equipment and industry challenges.</p>
-                    </div>
-                    
-                    <div class="benefit">
-                        <h3>Flexible Terms</h3>
-                        <p>Loan terms from 12-60 months with seasonal payment options and balloon payments available to match your business cash flow patterns.</p>
-                    </div>
-                    
-                    <div class="benefit">
-                        <h3>Competitive Rates</h3>
-                        <p>Access to commercial finance rates typically 2-4% lower than consumer finance, with equipment security reducing your overall cost of capital.</p>
-                    </div>
-                    
-                    <div class="benefit">
-                        <h3>Tax Optimisation</h3>
-                        <p>Strategic structuring to maximize depreciation benefits, and other tax advantages available to commercial businesses.</p>
-                    </div>
-                    
-                    <div class="benefit">
-                        <h3>Cash Flow Protection</h3>
-                        <p>Preserve working capital for operations while acquiring essential equipment. Structured to maintain healthy cash flow during growth phases.</p>
-                    </div>
-                    
-                    <div class="benefit">
-                        <h3>Fast Approvals</h3>
-                        <p>24-48 hour approval processes for established commercial businesses, enabling you to secure equipment quickly for time-sensitive projects.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Finance Options -->
-        <section class="finance-options">
-            <div class="container">
-                <h2>Equipment Finance Solutions Available</h2>
-                <div class="options-grid">
-                    <div class="option-card">
-                        <h3>Equipment Loan</h3>
-                        <p>Traditional ownership model with equipment as security</p>
-                        <ul>
-                            <li>Loan amounts: $20K - $500K+</li>
-                            <li>Terms: 12-60 months</li>
-                            <li>Immediate ownership</li>
-                            <li>Full depreciation benefits</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="option-card">
-                        <h3>Equipment Lease</h3>
-                        <p>Operational lease with end-of-term options</p>
-                        <ul>
-                            <li>Lower monthly payments</li>
-                            <li>100% tax deductible</li>
-                            <li>Upgrade options available</li>
-                            <li>Maintenance packages</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="option-card">
-                        <h3>Hire Purchase</h3>
-                        <p>Ownership transfer at completion</p>
-                        <ul>
-                            <li>Fixed monthly payments</li>
-                            <li>Balloon payment options</li>
-                            <li>GST and tax benefits</li>
-                            <li>Equipment ownership</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Call to Action -->
-        <section class="cta-section">
-            <div class="container">
-                <h2>Ready to Finance Your Next Equipment Purchase?</h2>
-                <p>Join hundreds of commercial trades and civil contractors who've secured strategic equipment finance through our professional service.</p>
-                <div class="cta-buttons">
-                    <a href="/get-quote?service=equipment-finance" class="primary-button large">Get Equipment Finance Quote</a>
-                    <a href="/contact" class="secondary-button large">Speak with Equipment Finance Specialist</a>
-                </div>
-                <div class="contact-info">
-                    <p>Quick consultation available: <strong>1300 XXX XXX</strong> | Monday-Friday 8AM-6PM AEST</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Equipment Finance</h4>
-                    <ul>
-                        <li><a href="/heavy-machinery-finance">Heavy Machinery</a></li>
-                        <li><a href="/vehicle-finance">Commercial Vehicles</a></li>
-                        <li><a href="/trade-equipment-finance">Trade Equipment</a></li>
-                        <li><a href="/equipment-lease">Equipment Leasing</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Other Services</h4>
-                    <ul>
-                        <li><a href="/commercial-property">Commercial Property</a></li>
-                        <li><a href="/working-capital">Working Capital</a></li>
-                        <li><a href="/invoice-financing">Invoice Financing</a></li>
-                        <li><a href="/personal-lending">Personal Lending</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="/equipment-finance-calculator">Equipment Calculator</a></li>
-                        <li><a href="/blog/equipment-finance-guide">Finance Guide</a></li>
-                        <li><a href="/case-studies/equipment-finance">Success Stories</a></li>
-                        <li><a href="/faqs/equipment-finance">Equipment Finance FAQs</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Phone: 1300 XXX XXX<br/>
-                    Email: equipment@edgeviewfinance.com.au<br/>
-                    Hours: Mon-Fri 8AM-6PM AEST</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Edgeview Finance Business Solutions. All rights reserved. | 
-                <a href="/privacy">Privacy Policy</a> | 
-                <a href="/terms">Terms of Service</a> | 
-                <a href="/credit-guide">Credit Guide</a></p>
-            </div>
+            <p class="text-xs text-gray-500 mt-4 text-center">*Approval times vary based on complexity and finance type</p>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <style>
-        /* Import base styles from index.astro */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <!-- What is Equipment Finance Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 font-['Instrument_Sans'] text-[#1C2C3B]">
+          Understanding Equipment Finance
+        </h2>
+        <p class="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+          Equipment finance helps Queensland trade businesses acquire essential machinery, vehicles, and tools without depleting working capital. Instead of paying the full purchase price upfront, you can spread the cost over time while using the equipment to generate income.
+        </p>
         
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #fff;
-        }
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-gray-50 p-8">
+            <h3 class="text-xl font-bold mb-4 text-[#1C2C3B]">Finance Options Available</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 mr-2 text-[#f97316] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span><strong>Equipment Loans</strong> - Own Asset from Start</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 mr-2 text-[#f97316] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span><strong>Finance Leases</strong> - Tax-effective options</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 mr-2 text-[#f97316] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span><strong>Hire Purchase</strong> - Own at the end</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 mr-2 text-[#f97316] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span><strong>Private Sales</strong> - Finance existing purchases</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-gray-50 p-8">
+            <h3 class="text-xl font-bold mb-4 text-[#1C2C3B]">Tax Benefits</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 mr-2 text-[#f97316] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span><strong>Tax Deductions</strong> - Interest & Depreciation (Equipment Loan)</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 mr-2 text-[#f97316] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span><strong>GST Input Credits</strong> - Claim GST back (Finance Lease/Hire Purchase)</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 mr-2 text-[#f97316] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span><strong>Depreciation Benefits</strong> - Asset write-offs (Equipment Loans)</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 mr-2 text-[#f97316] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span><strong>100% Finance Available</strong> - Most lenders offer</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-gray-50 p-8">
+            <h3 class="text-xl font-bold mb-4 text-[#1C2C3B]">Cash Flow Advantages</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 mr-2 text-[#f97316] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span><strong>Preserve Capital</strong> - Keep cash for operations</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 mr-2 text-[#f97316] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span><strong>Fixed Payments</strong> - Predictable monthly costs</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 mr-2 text-[#f97316] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span><strong>Quick Approvals</strong> - 24-48 hours possible</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 mr-2 text-[#f97316] mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span><strong>Flexible Options</strong> - Terms to suit you</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Common Challenges Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-['Instrument_Sans'] text-[#1C2C3B]">
+          The Equipment Finance Challenge
+        </h2>
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white p-8 shadow-md">
+            <div class="mb-4">
+              <svg class="w-12 h-12 text-[#f97316]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                <path d="M21 21l-6 -6" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-[#1C2C3B]">Comparing Options</h3>
+            <p class="text-gray-600">
+              Hard to know which lender offers the best deal for your specific equipment and business situation.
+            </p>
+          </div>
+
+          <div class="bg-white p-8 shadow-md">
+            <div class="mb-4">
+              <svg class="w-12 h-12 text-[#f97316]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+                <path d="M9 9l1 0" />
+                <path d="M9 13l6 0" />
+                <path d="M9 17l6 0" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-[#1C2C3B]">Paperwork Complexity</h3>
+            <p class="text-gray-600">
+              Application requirements can be overwhelming and time-consuming to complete correctly.
+            </p>
+          </div>
+
+          <div class="bg-white p-8 shadow-md">
+            <div class="mb-4">
+              <svg class="w-12 h-12 text-[#f97316]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                <path d="M12 12h3.5" />
+                <path d="M12 7v5" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-[#1C2C3B]">Time Pressure</h3>
+            <p class="text-gray-600">
+              Need equipment quickly but traditional approval processes can take weeks.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Solution Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-['Instrument_Sans'] text-[#1C2C3B]">
+          How We Help Trades Businesses
+        </h2>
         
-        /* Header Styles - Reuse from index */
-        header {
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+        <div class="grid md:grid-cols-2 gap-12">
+          <div>
+            <h3 class="text-2xl font-bold mb-6 text-[#1C2C3B]">What We Provide</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <svg class="w-6 h-6 mr-3 text-green-500 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <div>
+                  <strong>Lender Matching</strong> - We compare options from multiple lenders to find your best deal
+                </div>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 mr-3 text-green-500 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <div>
+                  <strong>Application Management</strong> - We handle all paperwork and documentation
+                </div>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 mr-3 text-green-500 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <div>
+                  <strong>Professional Guidance</strong> - Expert advice throughout the entire process
+                </div>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 mr-3 text-green-500 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <div>
+                  <strong>Local Expertise</strong> - Queensland business specialist who understands your needs
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-bold mb-6 text-[#1C2C3B]">Our Experience</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <svg class="w-6 h-6 mr-3 text-green-500 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <div>
+                  <strong>20+ Years</strong> in the finance industry
+                </div>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 mr-3 text-green-500 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <div>
+                  <strong>Former Banking Manager</strong> perspective on approvals
+                </div>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 mr-3 text-green-500 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <div>
+                  <strong>Established Relationships</strong> with multiple lenders
+                </div>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 mr-3 text-green-500 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <div>
+                  <strong>Queensland Focus</strong> - We know local trade businesses
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section (Reuse from homepage) -->
+  <ProcessSection 
+    disclaimerText="No obligation, no paperwork, no junior staff"
+    disclaimerSubtext="*24-48 Hour Approvals available. Equipment Finance deals can be completed in as little as 4-5 days in some cases."
+  />
+
+  <!-- Success Stories Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-['Instrument_Sans'] text-[#1C2C3B]">
+          What Our Clients Say
+        </h2>
         
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="bg-gray-50 p-8">
+            <div class="flex mb-4">
+              <span class="text-[#f97316]">⭐⭐⭐⭐⭐</span>
+            </div>
+            <p class="text-gray-700 mb-6 italic">
+              "Dan has helped us with several purchases over the years including Vehicles, Machinery and Houses. He is always diligent with the information he provides, the quotes are always competitive and he is very prompt. His knowledge is second to none in the industry."
+            </p>
+            <p class="font-bold text-[#1C2C3B]">Colin Sumsion</p>
+            <p class="text-gray-600">Electrician</p>
+          </div>
+
+          <div class="bg-gray-50 p-8">
+            <div class="flex mb-4">
+              <span class="text-[#f97316]">⭐⭐⭐⭐⭐</span>
+            </div>
+            <p class="text-gray-700 mb-6 italic">
+              "When it comes to business finance, Dan is the man. Thank you for your recent work and assistance, I cannot recommend a better business finance broker."
+            </p>
+            <p class="font-bold text-[#1C2C3B]">Doug Berry</p>
+            <p class="text-gray-600">Glazier</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-['Instrument_Sans'] text-[#1C2C3B]">
+          Frequently Asked Questions
+        </h2>
         
-        .logo h1 {
-            color: #2c5aa0;
-            font-size: 1.5rem;
-            margin-bottom: -5px;
-        }
+        <div class="space-y-4">
+          <div class="bg-white shadow-md">
+            <button class="w-full px-6 py-4 text-left flex justify-between items-center faq-toggle">
+              <span class="font-semibold text-[#1C2C3B]">What equipment types can be financed?</span>
+              <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+              </svg>
+            </button>
+            <div class="hidden px-6 pb-4">
+              <p class="text-gray-600">Trade equipment including excavators, trucks, tools, and machinery. Both new and used equipment can be financed (conditions vary). Private sales are also available.</p>
+            </div>
+          </div>
+
+          <div class="bg-white shadow-md">
+            <button class="w-full px-6 py-4 text-left flex justify-between items-center faq-toggle">
+              <span class="font-semibold text-[#1C2C3B]">How much can I borrow?</span>
+              <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+              </svg>
+            </button>
+            <div class="hidden px-6 pb-4">
+              <p class="text-gray-600">Range from $50K to $5M+. The amount depends on equipment value and your business capacity to repay. We'll review your specific situation during the discovery call.</p>
+            </div>
+          </div>
+
+          <div class="bg-white shadow-md">
+            <button class="w-full px-6 py-4 text-left flex justify-between items-center faq-toggle">
+              <span class="font-semibold text-[#1C2C3B]">What's the typical approval timeframe?</span>
+              <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+              </svg>
+            </button>
+            <div class="hidden px-6 pb-4">
+              <p class="text-gray-600">Varies by lender and complexity. Simple applications: 24-48 hours after submission. More complex applications: 1-2 weeks. We manage the process to ensure the fastest possible outcome.</p>
+            </div>
+          </div>
+
+          <div class="bg-white shadow-md">
+            <button class="w-full px-6 py-4 text-left flex justify-between items-center faq-toggle">
+              <span class="font-semibold text-[#1C2C3B]">Do I need a deposit?</span>
+              <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+              </svg>
+            </button>
+            <div class="hidden px-6 pb-4">
+              <p class="text-gray-600">Varies by lender and equipment type. Most lenders provide 100% finance options available. We'll find the best terms available for your situation.</p>
+            </div>
+          </div>
+
+          <div class="bg-white shadow-md">
+            <button class="w-full px-6 py-4 text-left flex justify-between items-center faq-toggle">
+              <span class="font-semibold text-[#1C2C3B]">What documents are required?</span>
+              <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+              </svg>
+            </button>
+            <div class="hidden px-6 pb-4">
+              <p class="text-gray-600">Business financial statements (in some cases, no financials are required), equipment quotes/details, ID and business registration. We'll provide a full checklist specific to your application.</p>
+            </div>
+          </div>
+
+          <div class="bg-white shadow-md">
+            <button class="w-full px-6 py-4 text-left flex justify-between items-center faq-toggle">
+              <span class="font-semibold text-[#1C2C3B]">How do I get started?</span>
+              <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+              </svg>
+            </button>
+            <div class="hidden px-6 pb-4">
+              <p class="text-gray-600">Book a discovery call below or call 1300 280 895. We'll discuss your equipment needs, review your options, and guide you through the entire process.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section - Using Homepage Newsletter Component -->
+  <NewsLetter />
+
+
+  <script>
+    // FAQ Accordion functionality
+    document.querySelectorAll('.faq-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector('svg');
         
-        .logo span {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-        
-        .nav-menu a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-menu a:hover,
-        .nav-menu a.active {
-            color: #2c5aa0;
-        }
-        
-        .cta-button {
-            background: #e67e22 !important;
-            color: white !important;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-        
-        .cta-button:hover {
-            background: #d35400 !important;
-        }
-        
-        /* Service Hero Section */
-        .service-hero {
-            background: linear-gradient(135deg, #2c5aa0 0%, #3498db 100%);
-            color: white;
-            padding: 60px 20px 80px;
-            text-align: center;
-        }
-        
-        .breadcrumb {
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            opacity: 0.8;
-        }
-        
-        .breadcrumb a {
-            color: white;
-            text-decoration: none;
-        }
-        
-        .service-hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.95;
-        }
-        
-        .hero-cta {
-            margin-bottom: 2rem;
-            gap: 1rem;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .primary-button {
-            background: #e67e22;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-        }
-        
-        .primary-button:hover {
-            background: #d35400;
-            transform: translateY(-2px);
-        }
-        
-        .secondary-button {
-            background: transparent;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border: 2px solid white;
-            border-radius: 5px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-        }
-        
-        .secondary-button:hover {
-            background: white;
-            color: #2c5aa0;
-        }
-        
-        .trust-indicators {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            opacity: 0.9;
-        }
-        
-        /* Equipment Types Section */
-        .equipment-types {
-            padding: 80px 20px;
-            background: #f8f9fa;
-        }
-        
-        .equipment-types h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2c5aa0;
-        }
-        
-        .equipment-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-        
-        .equipment-category {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .equipment-category h3 {
-            color: #2c5aa0;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .equipment-category ul {
-            list-style: none;
-        }
-        
-        .equipment-category li {
-            padding: 0.4rem 0;
-            padding-left: 1rem;
-            position: relative;
-        }
-        
-        .equipment-category li:before {
-            content: "→";
-            color: #e67e22;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-        
-        /* Process Section */
-        .process-section {
-            padding: 80px 20px;
-        }
-        
-        .process-section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2c5aa0;
-        }
-        
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .step {
-            text-align: center;
-            padding: 2rem;
-        }
-        
-        .step-number {
-            background: #e67e22;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin: 0 auto 1rem;
-        }
-        
-        .step h3 {
-            color: #2c5aa0;
-            margin-bottom: 1rem;
-        }
-        
-        /* Benefits Section */
-        .benefits-section {
-            padding: 80px 20px;
-            background: #f8f9fa;
-        }
-        
-        .benefits-section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2c5aa0;
-        }
-        
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .benefit {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .benefit h3 {
-            color: #e67e22;
-            margin-bottom: 1rem;
-        }
-        
-        /* Finance Options */
-        .finance-options {
-            padding: 80px 20px;
-        }
-        
-        .finance-options h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2c5aa0;
-        }
-        
-        .options-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .option-card {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 10px;
-            border-left: 4px solid #e67e22;
-        }
-        
-        .option-card h3 {
-            color: #2c5aa0;
-            margin-bottom: 1rem;
-        }
-        
-        .option-card ul {
-            list-style: none;
-            margin-top: 1rem;
-        }
-        
-        .option-card li {
-            padding: 0.3rem 0;
-            padding-left: 1rem;
-            position: relative;
-        }
-        
-        .option-card li:before {
-            content: "✓";
-            color: #27ae60;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-        
-        /* CTA Section */
-        .cta-section {
-            background: #2c5aa0;
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-        }
-        
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-        
-        .large {
-            font-size: 1.2rem;
-            padding: 18px 36px;
-        }
-        
-        .contact-info {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-        
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            padding: 40px 20px 20px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-section h4 {
-            color: #e67e22;
-            margin-bottom: 1rem;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-section a:hover {
-            color: white;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid #555;
-            padding-top: 1rem;
-            text-align: center;
-            color: #ccc;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .service-hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .nav-menu {
-                display: none;
-            }
-            
-            .equipment-grid,
-            .process-steps,
-            .benefits-grid,
-            .options-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .trust-indicators {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
-</body>
-</html>
+        content.classList.toggle('hidden');
+        icon.classList.toggle('rotate-180');
+      });
+    });
+  </script>
+</Layout>

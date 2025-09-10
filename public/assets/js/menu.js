@@ -1,78 +1,124 @@
-const menu = document.querySelector(".menu-block");
-const menuMain = menu.querySelector(".site-menu-main");
-const submenuAll = menu.querySelectorAll(".sub-menu");
-const goBack = menu.querySelector(".go-back");
-const menuTrigger = document.querySelector(".mobile-menu-trigger");
-const closeMenu = menu.querySelector(".mobile-menu-close");
-let subMenu;
-let subMenuArray = [];
-let subMenuTextArray = [];
-
-function last(array) {
-  return array[array.length - 1];
-}
-function last2(array) {
-  return array[array.length - 2];
-}
-
-menuMain.addEventListener("click", (e) => {
-  if (!menu.classList.contains("active")) {
-    return;
-  }
-  if (e.target.closest(".nav-item-has-children")) {
-    const hasChildren = e.target.closest(".nav-item-has-children");
-
-    showSubMenu(hasChildren);
-  }
-});
-goBack.addEventListener("click", () => {
-  const lastItem = last(subMenuArray);
-  const lastItemText = last2(subMenuTextArray);
-  subMenuArray.pop();
-  subMenuTextArray.pop();
-  if (subMenuArray.length >= 0) {
-    document.getElementById(lastItem).style.animation =
-      "slideRight 0.5s ease forwards";
-    menu.querySelector(".current-menu-title").innerHTML = lastItemText;
-    setTimeout(() => {
-      document.getElementById(lastItem).classList.remove("active");
-    }, 300);
-  }
-  if (subMenuArray.length == 0) {
-    menu.querySelector(".mobile-menu-head").classList.remove("active");
-  }
-});
-menuTrigger.addEventListener("click", () => {
-  toggleMenu();
-});
-closeMenu.addEventListener("click", () => {
-  toggleMenu();
-});
-document.querySelector(".menu-overlay").addEventListener("click", () => {
-  toggleMenu();
-});
-function toggleMenu() {
-  menu.classList.toggle("active");
-  document.querySelector(".menu-overlay").classList.toggle("active");
-}
-function showSubMenu(hasChildren) {
-  for (let i = 0; submenuAll.length < i; i++) {
-    submenuAll[i].classList.remove("active");
-  }
-  subMenu = hasChildren.querySelector(".sub-menu");
-  subMenuArray.push(subMenu.id);
-  subMenu.classList.add("active");
-  subMenu.style.animation = "slideLeft 0.5s ease forwards";
-  const menuTitle = hasChildren.querySelector(".drop-trigger").textContent;
-  subMenuTextArray.push(menuTitle);
-
-  menu.querySelector(".current-menu-title").innerHTML = menuTitle;
-  menu.querySelector(".mobile-menu-head").classList.add("active");
-}
-window.onresize = function () {
-  if (this.innerWidth > 991) {
-    if (menu.classList.contains("active")) {
-      toggleMenu();
+// Mobile menu functionality
+(function() {
+  function initMenu() {
+    console.log('Menu.js initializing...');
+    
+    // Get menu elements - support both old and new class names
+    const menuTrigger = document.querySelector(".mobile-menu-trigger");
+    const mobileMenu = document.querySelector(".mobile-menu-block") || document.querySelector(".menu-block");
+    const closeMenu = document.querySelector("#closeBtn") || document.querySelector(".mobile-menu-close");
+    const menuOverlays = document.querySelectorAll(".menu-overlay");
+    const goBack = document.querySelector(".go-back");
+    
+    console.log('Menu elements found:', {
+      menuTrigger: !!menuTrigger,
+      mobileMenu: !!mobileMenu,
+      closeMenu: !!closeMenu,
+      menuOverlays: menuOverlays.length
+    });
+    
+    // Check if elements exist
+    if (!menuTrigger || !mobileMenu) {
+      console.error('Required menu elements not found, retrying in 100ms...');
+      setTimeout(initMenu, 100);
+      return;
     }
+
+    // Toggle menu function
+    function toggleMenu() {
+      console.log('Toggle menu called');
+      const isActive = mobileMenu.classList.contains("active");
+      
+      mobileMenu.classList.toggle("active");
+      menuOverlays.forEach(overlay => overlay.classList.toggle("active"));
+      menuTrigger.classList.toggle("active");
+      
+      // Update ARIA attributes
+      menuTrigger.setAttribute('aria-expanded', (!isActive).toString());
+      
+      // Prevent body scroll when menu is open
+      if (!isActive) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "";
+      }
+    }
+
+    // Close menu function
+    function closeMenuFunc() {
+      console.log('Close menu called');
+      mobileMenu.classList.remove("active");
+      menuOverlays.forEach(overlay => overlay.classList.remove("active"));
+      menuTrigger.classList.remove("active");
+      
+      // Update ARIA attributes
+      menuTrigger.setAttribute('aria-expanded', 'false');
+      
+      document.body.style.overflow = "";
+    }
+
+    // Event listeners
+    menuTrigger.addEventListener("click", function(e) {
+      console.log('Menu trigger clicked');
+      e.preventDefault();
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    if (closeMenu) {
+      closeMenu.addEventListener("click", function(e) {
+        console.log('Close button clicked');
+        e.preventDefault();
+        e.stopPropagation();
+        closeMenuFunc();
+      });
+    }
+
+    menuOverlays.forEach(overlay => {
+      overlay.addEventListener("click", function(e) {
+        console.log('Overlay clicked');
+        e.preventDefault();
+        closeMenuFunc();
+      });
+    });
+
+    // Close menu when clicking on navigation links (but not dropdowns)
+    const mobileNavLinks = mobileMenu.querySelectorAll('a:not(.drop-trigger)');
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        console.log('Nav link clicked');
+        // Small delay for better UX
+        setTimeout(closeMenuFunc, 100);
+      });
+    });
+
+    // Submenu navigation is handled by Navigation.astro
+    // to avoid conflicts between the two scripts
+
+    // Go back functionality
+    if (goBack) {
+      goBack.style.display = 'none'; // Hide by default
+      
+      goBack.addEventListener('click', function() {
+        // This would handle going back in submenu navigation if implemented
+      });
+    }
+
+    // Close menu on window resize if screen becomes large
+    window.addEventListener('resize', function() {
+      if (window.innerWidth >= 1024) {
+        closeMenuFunc();
+      }
+    });
+    
+    console.log('Menu.js initialization complete');
   }
-};
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMenu);
+  } else {
+    // DOM is already ready
+    initMenu();
+  }
+})();

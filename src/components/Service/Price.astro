@@ -19,13 +19,13 @@ const {
 
 <section class='section-pricing'>
   <div class='relative z-10'>
-    <div class='section-space'>
+    <div class='py-12 lg:py-16'>
       <div class='container-default'>
         <div class='jos'>
           <div class='mx-auto max-w-[636px]'>
-            <div class='mb-5'>
+            <div class='mb-4'>
               <h2
-                class='text-center font-PublicSans text-4xl font-bold leading-[1.14] text-[#1212121] lg:text-5xl xl:text-[56px]'>
+                class='text-center font-InstrumentSans text-3xl font-bold leading-[1.14] text-[#1212121] lg:text-4xl xl:text-[48px]'>
                 {header}
               </h2>
             </div>
@@ -36,7 +36,7 @@ const {
         </div>
         <div class='jos'>
           <div
-            class='my-[50px] flex flex-row items-center justify-center gap-6'>
+            class='my-8 flex flex-row items-center justify-center gap-6'>
             <span class='font-bold'>Per Month</span>
             <label for='toggle' class='flex cursor-pointer items-center'>
               <span
@@ -51,21 +51,21 @@ const {
           </div>
           <div class='mx-auto max-w-[1076px]'>
             <div
-              class='flex flex-col items-center rounded-[10px] border border-secondary-dark bg-white p-10 md:flex-row md:divide-x md:px-10 md:py-0 lg:px-[73px]'>
+              class='flex flex-col items-center rounded-[10px] border border-ColorBlack bg-white p-8 md:flex-row md:divide-x md:px-8 md:py-0 lg:px-12'>
               <div
-                class='w-full text-center md:w-1/2 md:py-[50px] md:pr-10 md:text-left lg:pr-20'>
-                <div class='text-xl leading-[1.6] tracking-tighter'>
+                class='w-full text-center md:w-1/2 md:py-10 md:pr-8 md:text-left lg:pr-16'>
+                <div class='text-lg leading-[1.6] tracking-tighter'>
                   {label}
                 </div>
                 <div class='month price-month'>
                   <span
-                    class='font-PublicSans text-[50px] font-bold leading-[1.4] text-[#121212] lg:text-[56px]'
+                    class='font-InstrumentSans text-[40px] font-bold leading-[1.4] text-[#121212] lg:text-[48px]'
                     >{monthlyPrice}</span
                   >/Per Month
                 </div>
                 <div class='annual hidden price-year'>
                   <span
-                    class='font-PublicSans text-[50px] font-bold leading-[1.4] text-[#121212] lg:text-[56px]'
+                    class='font-InstrumentSans text-[40px] font-bold leading-[1.4] text-[#121212] lg:text-[48px]'
                     >{yearlyPrice}</span
                   >/Per Year
                 </div>
@@ -74,8 +74,8 @@ const {
                 </p>
               </div>
               <div
-                class='w-full md:w-1/2 md:py-[50px] md:pl-10 lg:pl-20 xl:pl-32'>
-                <div class='mb-6 text-center font-semibold md:text-left'>
+                class='w-full md:w-1/2 md:py-10 md:pl-8 lg:pl-16 xl:pl-24'>
+                <div class='mb-4 text-center font-semibold md:text-left'>
                   That includes:
                 </div>
                 <ul class='flex flex-col gap-3'>
@@ -96,7 +96,7 @@ const {
                 </ul>
                 <a
                   href={button?.link}
-                  class='btn mt-[30px] block rounded-[3px] border-none bg-[#C1FF00] py-[18px] text-secondary-dark hover:bg-[#a6ff00] xl:mt-[50px]'
+                  class='btn mt-6 block rounded-[3px] border-none bg-[#C1FF00] py-3 text-ColorBlack hover:bg-[#a6ff00] xl:mt-8'
                   >{button?.text}</a
                 >
               </div>

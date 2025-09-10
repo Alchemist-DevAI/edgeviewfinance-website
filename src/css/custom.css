@@ -1,0 +1,356 @@
+.horizontal-slide-from-right-to-left {
+  animation: horizontal-slide-from-right-to-left linear 10s infinite;
+}
+
+.horizontal-slide-from-left-to-right {
+  animation: horizontal-slide-from-left-to-right linear 10s infinite;
+}
+
+@keyframes horizontal-slide-from-right-to-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes horizontal-slide-from-left-to-right {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.sticky-menu.nav-hidden {
+  animation: fadeInDown 0.9s 1;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
+@keyframes rotate-360{
+  0%{
+    transform: rotate(0deg)
+  }
+
+  100%{
+    transform: rotate(360deg)
+  }
+}
+
+/* Custom dropdown menu styles */
+.site-menu-main .sub-menu--item > a {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #4b5563 !important; /* Gray-600 to match main nav */
+  padding: 10px 20px !important;
+  transition: all 0.3s ease !important;
+}
+
+.site-menu-main .sub-menu--item:hover > a {
+  color: #f97316 !important; /* Orange on hover to match brand */
+  background-color: rgba(249, 115, 22, 0.05) !important;
+}
+
+/* Ensure submenu background is clean */
+.site-menu-main .sub-menu {
+  border-radius: 4px !important;
+  border: 1px solid #e5e7eb !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+.rotate-360{
+  animation: rotate-360 20s linear infinite;
+}
+
+
+input:checked~.toggle_dot {
+  transform: translateX(100%);
+}
+
+/* EVFBS Brand Typography - Ensure Instrument Sans is used everywhere */
+* {
+  font-family: 'Instrument Sans', sans-serif !important;
+}
+
+/* Remove all border radius for sharp, professional appearance */
+*, *::before, *::after {
+  border-radius: 0 !important;
+}
+
+/* EVFBS Brand-specific button styles */
+.btn-evfbs-primary {
+  background-color: #FF9E10 !important;
+  color: white !important;
+  border-color: #FF9E10 !important;
+  font-weight: 600 !important;
+}
+
+.btn-evfbs-primary:hover {
+  background-color: #E68900 !important;
+  border-color: #E68900 !important;
+}
+
+.btn-evfbs-secondary {
+  background-color: transparent !important;
+  color: #1C2C3B !important;
+  border-color: #1C2C3B !important;
+  font-weight: 600 !important;
+}
+
+.btn-evfbs-secondary:hover {
+  background-color: #1C2C3B !important;
+  color: white !important;
+}
+
+/* HIGH-IMPACT PROBLEM AMPLIFICATION SECTION STYLES */
+
+/* Radial gradient utility for spotlight effects */
+.bg-gradient-radial {
+  background: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
+/* Enhanced bleeding money animation */
+@keyframes bleeding-money {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.6;
+  }
+  25% { 
+    transform: translateY(-10px) rotate(5deg);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: translateY(-5px) rotate(-3deg);
+    opacity: 1;
+  }
+  75% { 
+    transform: translateY(-15px) rotate(8deg);
+    opacity: 0.9;
+  }
+}
+
+.animate-bleeding-money {
+  animation: bleeding-money 3s ease-in-out infinite;
+}
+
+/* Intense pulsing for critical elements */
+@keyframes intense-pulse {
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+.animate-intense-pulse {
+  animation: intense-pulse 1.5s ease-in-out infinite;
+}
+
+/* Glowing text effect for high-impact numbers */
+@keyframes glow-text {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(255, 212, 0, 0.5),
+                 0 0 10px rgba(255, 212, 0, 0.3),
+                 0 0 15px rgba(255, 212, 0, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(255, 212, 0, 0.8),
+                 0 0 20px rgba(255, 212, 0, 0.6),
+                 0 0 30px rgba(255, 212, 0, 0.4),
+                 0 0 40px rgba(255, 212, 0, 0.2);
+  }
+}
+
+.animate-glow-text {
+  animation: glow-text 2s ease-in-out infinite;
+}
+
+/* Shake effect for urgent warnings */
+@keyframes urgent-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px) rotate(-1deg); }
+  75% { transform: translateX(2px) rotate(1deg); }
+}
+
+.animate-urgent-shake {
+  animation: urgent-shake 0.5s ease-in-out infinite;
+}
+
+/* Card hover bleeding effect */
+@keyframes card-bleed {
+  0% { 
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    border-color: rgba(239, 68, 68, 0.5);
+  }
+  50% { 
+    box-shadow: 0 0 0 8px rgba(239, 68, 68, 0.1),
+                0 0 20px rgba(239, 68, 68, 0.3);
+    border-color: rgba(239, 68, 68, 0.8);
+  }
+  100% { 
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    border-color: rgba(239, 68, 68, 0.5);
+  }
+}
+
+.animate-card-bleed {
+  animation: card-bleed 2s ease-in-out infinite;
+}
+
+/* Override border radius for problem amplification section only - EVFBS SHARP CORNERS */
+.problem-amplification *, 
+.problem-amplification *::before, 
+.problem-amplification *::after {
+  border-radius: 0 !important;
+}
+
+.problem-amplification .rounded-full,
+.problem-amplification .rounded-full::before,
+.problem-amplification .rounded-full::after {
+  border-radius: 9999px !important;
+}
+
+.problem-amplification .rounded-2xl,
+.problem-amplification .rounded-2xl::before,
+.problem-amplification .rounded-2xl::after {
+  border-radius: 1rem !important;
+}
+
+/* Dramatic text gradient */
+.text-gradient-fire {
+  background: linear-gradient(45deg, #ff6b35, #f7931e, #ffcc02, #ff6b35);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* BLOG ARTICLE STYLING - EVFBS Brand Consistency */
+.prose {
+  font-family: 'Instrument Sans', sans-serif !important;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  font-family: 'Instrument Sans', sans-serif !important;
+  color: #1C2C3B !important;
+  font-weight: 700 !important;
+}
+
+.prose h2 {
+  font-size: 2rem !important;
+  margin-top: 2.5rem !important;
+  margin-bottom: 1rem !important;
+  border-bottom: 2px solid #f97316 !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.prose h3 {
+  font-size: 1.5rem !important;
+  margin-top: 2rem !important;
+  margin-bottom: 0.75rem !important;
+  color: #f97316 !important;
+}
+
+.prose p {
+  font-family: 'Instrument Sans', sans-serif !important;
+  color: #4b5563 !important;
+  line-height: 1.8 !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.prose a {
+  color: #f97316 !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+}
+
+.prose a:hover {
+  color: #ea580c !important;
+  text-decoration: underline !important;
+}
+
+.prose ul, .prose ol {
+  margin: 1.5rem 0 !important;
+  padding-left: 1.5rem !important;
+}
+
+.prose li {
+  font-family: 'Instrument Sans', sans-serif !important;
+  color: #4b5563 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.prose blockquote {
+  border-left: 4px solid #f97316 !important;
+  background-color: #fdf2e9 !important;
+  padding: 1rem 1.5rem !important;
+  margin: 2rem 0 !important;
+  font-style: italic !important;
+  color: #1C2C3B !important;
+}
+
+.prose code {
+  background-color: #f3f4f6 !important;
+  color: #1f2937 !important;
+  padding: 0.125rem 0.25rem !important;
+  font-size: 0.875em !important;
+  font-family: 'Courier New', monospace !important;
+}
+
+.prose pre {
+  background-color: #1f2937 !important;
+  color: #f9fafb !important;
+  padding: 1rem !important;
+  margin: 1.5rem 0 !important;
+  overflow-x: auto !important;
+}
+
+.prose img {
+  margin: 2rem 0 !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.prose table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 2rem 0 !important;
+}
+
+.prose th, .prose td {
+  border: 1px solid #e5e7eb !important;
+  padding: 0.75rem !important;
+  text-align: left !important;
+}
+
+.prose th {
+  background-color: #f97316 !important;
+  color: white !important;
+  font-weight: 700 !important;
+}
+

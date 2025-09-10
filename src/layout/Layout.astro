@@ -1,14 +1,34 @@
 ---
+// CSS Import Order - Optimized Cascade Hierarchy
+// 1. External Dependencies (Foundation)
+import "jos-animation/dist/jos.css";
+import "@fontsource/instrument-sans/400.css";
+import "@fontsource/instrument-sans/500.css";
+import "@fontsource/instrument-sans/600.css";
+import "@fontsource/instrument-sans/700.css";
+import "@fortawesome/fontawesome-free/css/all.css";
+
+// 2. Framework Base Layer
 import "../css/tailwind.css";
+
+// 3. Design Token Layer
+import "../css/variables.css";
+
+// 4. Utility Layer
+import "../css/typography-utilities.css";
+
+// 5. Component Layer
 import "../css/menu.css";
 import "../css/custom.css";
+
+// 6. Override Layer (most specific last)
+import "../css/global-overrides.css";
+import "../css/page-specific-overrides.css";
+import "../css/hero-section.css";
+
+// 7. Component Imports
 import Header from "../components/ui/Header.astro";
 import Footer from "../components/ui/Footer.astro";
-import "jos-animation/dist/jos.css";
-import "@fontsource/inter/400.css";
-import "@fontsource/plus-jakarta-sans/800.css";
-import "@fortawesome/fontawesome-free/css/all.css";
-import '@fontsource/public-sans/800.css';
 import { getEntryBySlug } from "astro:content";
 const { title } = Astro.props;
 const MetaData = await getEntryBySlug("site", "meta");
@@ -26,6 +46,10 @@ const { siteName, description, favicon } = MetaData?.data;
       content={description ? description : "Agency11 Theme"}
     />
     <link rel='icon' href={favicon || "/favicon.webp"} />
+    <!-- Force mobile menu submenu styling -->
+    <link rel='stylesheet' href='/assets/css/mobile-menu-fix.css' />
+    <!-- Calendly widget styling -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   </head>
   <body>
     <div class=`page-wrapper relative z-[1] ${Astro.url.pathname==='/'?'bg-[#FDFBF9]':'bg-white'}`>
@@ -40,7 +64,10 @@ const { siteName, description, favicon } = MetaData?.data;
 <script src='/assets/js/countdown.js' is:inline></script>
 <script src='/assets/js/counterup.js' is:inline></script>
 <script src='/assets/js/main.js' is:inline></script>
-<script>
+<!-- Calendly widget script -->
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<!-- JOS animations disabled for static display -->
+<!-- <script>
   import JOS from "jos-animation";
   JOS.init({
     passive: false,
@@ -53,4 +80,4 @@ const { siteName, description, favicon } = MetaData?.data;
     scrollDirection: "down",
     rootMargin: "0% 0% 15% 0%",
   });
-</script>
+</script> -->

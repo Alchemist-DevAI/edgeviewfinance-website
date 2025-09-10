@@ -10,18 +10,18 @@ const { indexheader, description } = IndexData.data;
 ---
 
 <section class='section-service'>
-  <div class='relative z-10 bg-[#121212]'>
+  <div class='relative z-10 bg-white'>
     <div class='section-space'>
       <div class='container-default'>
-        <div class='jos mb-[60px] xl:mb-20'>
+        <div class='mb-[60px] xl:mb-20'>
           <div
             class='mx-auto flex max-w-[700px] flex-col items-center justify-center'>
             <h2
-              class='mb-5 text-center font-PublicSans text-4xl font-bold leading-[1.14] text-[#FDFBF9] lg:text-5xl xl:text-[56px]'>
+              class='mb-5 text-center font-InstrumentSans text-[32px] font-semibold leading-[1.25] text-ColorBlack'>
               {indexheader}
             </h2>
 
-            <p class='text-center text-[#FDFBF9]/80'>
+            <p class='text-center text-ColorBlack/80'>
               {description}
             </p>
           </div>
@@ -33,11 +33,10 @@ const { indexheader, description } = IndexData.data;
               Services?.slice(0, Services.length / 2).map(
                 ({ data: { title } }, index) => (
                   <div
-                    class='jos border-b border-[#FDFBF9]/10 py-6 first:pt-0 lg:last:border-none lg:last:pb-0'
-                    data-jos_delay='0'>
+                    class='border-b border-ColorBlack/10 py-6 first:pt-0 lg:last:border-none lg:last:pb-0'>
                     <a
                       href={`/service/${slug(title)}`}
-                      class='flex items-center justify-between gap-5 font-PublicSans text-[22px] font-semibold leading-[1.23] text-[#FDFBF9] transition-all duration-300 hover:text-primary-orange xl:text-2xl xxl:text-[26px]'>
+                      class='flex items-center justify-between gap-5 font-InstrumentSans text-[22px] font-semibold leading-[1.23] text-ColorBlack transition-all duration-300 hover:text-ColorBlue xl:text-2xl xxl:text-[26px]'>
                       {index + 1}. {title}
                       <span class='inline-block -rotate-[30deg] text-2xl'>
                         <i class='fa fa-arrow-right' />
@@ -53,11 +52,10 @@ const { indexheader, description } = IndexData.data;
               Services?.slice(Services.length / 2, Services.length).map(
                 ({ data: { title } }, index) => (
                   <div
-                    class='jos border-b border-[#FDFBF9]/10 py-6 first:pt-0 lg:last:border-none lg:last:pb-0'
-                    data-jos_delay='0'>
+                    class='border-b border-ColorBlack/10 py-6 first:pt-0 lg:last:border-none lg:last:pb-0'>
                     <a
                       href={`/service/${slug(title)}`}
-                      class='flex items-center justify-between gap-5 font-PublicSans text-[22px] font-semibold leading-[1.23] text-[#FDFBF9] transition-all duration-300 hover:text-primary-orange xl:text-2xl xxl:text-[26px]'>
+                      class='flex items-center justify-between gap-5 font-InstrumentSans text-[22px] font-semibold leading-[1.23] text-ColorBlack transition-all duration-300 hover:text-ColorBlue xl:text-2xl xxl:text-[26px]'>
                       {index + Services?.slice(0, Services.length / 2).length}.{" "}
                       {title}
                       <span class='inline-block -rotate-[30deg] text-2xl'>

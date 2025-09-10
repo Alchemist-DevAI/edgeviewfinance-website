@@ -1,0 +1,113 @@
+---
+import { Image } from "astro:assets";
+
+// Import lender logo images from assets
+import anzLogo from "../../assets/lenders/ANZ_DIGITAL_Blue.png";
+import cbaLogo from "../../assets/lenders/CBA_Logo_Stacked_Lock-up.jpg";
+import nabLogo from "../../assets/lenders/NAB Brand Logo and Guidelines-NAB_Logo_RGB.png";
+import stGeorgeLogo from "../../assets/lenders/St George 2015.JPG";
+import suncorpLogo from "../../assets/lenders/SuncorpHorizontal_PrimaryRGB.jpg";
+import westpacLogo from "../../assets/lenders/Westpac-2015.png";
+import ingLogo from "../../assets/lenders/ING_PRIMARY LOGO_COLOUR_RGB.jpg";
+import judoLogo from "../../assets/lenders/Judo-Bank-STACKED-[on-navy]-[p].png";
+import libertyLogo from "../../assets/lenders/Liberty-2015.png";
+import laTrobeLogo from "../../assets/lenders/La Trobe logo blue keyline.jpg";
+import metroLogo from "../../assets/lenders/Metro_Logo_Screen_Icon_Orange_RGB.svg";
+import earlypayLogo from "../../assets/lenders/Earlypay_Logo-Full_Colour.svg";
+import banjoLogo from "../../assets/lenders/BAN003_Banjo Logo_RGB_FA01_Primary.jpg";
+import moulaLogo from "../../assets/lenders/Main Logo - Full Colour (Blue & Coral) (2).jpg";
+import selfcoLogo from "../../assets/lenders/Selfco_2021_Logo_Black_Horizontal.jpg";
+import primeCapitalLogo from "../../assets/lenders/Prime-Capital.png";
+import moneytechLogo from "../../assets/lenders/Moneytech.png";
+import tradeplus24Logo from "../../assets/lenders/Tradeplus24_logo_Black.jpg";
+
+// Lender Logos Component
+// Displays actual lender partner logos
+
+const lenderLogos = [
+  { name: 'ANZ', image: anzLogo },
+  { name: 'Commonwealth Bank', image: cbaLogo },
+  { name: 'NAB', image: nabLogo },
+  { name: 'St George', image: stGeorgeLogo },
+  { name: 'Suncorp', image: suncorpLogo },
+  { name: 'Westpac', image: westpacLogo },
+  { name: 'ING', image: ingLogo },
+  { name: 'Judo Bank', image: judoLogo },
+  { name: 'Liberty', image: libertyLogo },
+  { name: 'La Trobe', image: laTrobeLogo },
+  { name: 'Metro', image: metroLogo },
+  { name: 'Earlypay', image: earlypayLogo },
+  { name: 'Banjo', image: banjoLogo },
+  { name: 'Moula', image: moulaLogo },
+  { name: 'Selfco', image: selfcoLogo },
+  { name: 'Prime Capital', image: primeCapitalLogo },
+  { name: 'Moneytech', image: moneytechLogo },
+  { name: 'Tradeplus24', image: tradeplus24Logo }
+];
+---
+
+<section class='section-lender-logos bg-gray-50 py-20'>
+  <div class='container-default mx-auto max-w-7xl px-6'>
+    <!-- Section Header -->
+    <div class='text-center mb-12'>
+      <div class='inline-flex items-center bg-[#f97316] bg-opacity-10 text-[#f97316] px-6 py-3 font-semibold text-sm uppercase tracking-wide mb-6'>
+        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
+          <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 1 1 0 000 2H6a2 2 0 100 4h2a2 2 0 100 4h2a1 1 0 100 2 2 2 0 01-2 2H4a2 2 0 01-2-2V7a2 2 0 012-2z" clip-rule="evenodd"/>
+        </svg>
+        Our Lending Panel
+      </div>
+      
+      <h2 class='text-4xl lg:text-5xl font-bold text-[#1C2C3B] mb-4 font-InstrumentSans'>
+        40+ SPECIALIST LENDERS IN OUR NETWORK
+      </h2>
+      
+      <p class='text-xl text-gray-600 max-w-3xl mx-auto font-InstrumentSans'>
+        Direct relationships with Australia's leading equipment, business and home finance providers means we find the right solution for your specific needs
+      </p>
+    </div>
+
+    <!-- Lender Logos Grid -->
+    <div class='relative'>
+      <!-- Professional background card -->
+      <div class='bg-white p-8 lg:p-12 shadow-lg border-l-4 border-[#f97316]'>
+        <div class='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-8'>
+          {lenderLogos.map((lender) => (
+            <div class='flex items-center justify-center p-4 bg-gray-50 hover:bg-white transition-all duration-300 group border border-gray-200 hover:shadow-md'>
+              <Image 
+                src={lender.image} 
+                alt={`${lender.name} logo`}
+                loading='lazy'
+                width={120}
+                height={48}
+                class='h-12 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300'
+              />
+            </div>
+          ))}
+        </div>
+        
+        <!-- More lenders indicator -->
+        <div class='mt-8 text-center'>
+          <p class='text-gray-600 font-semibold text-lg font-InstrumentSans'>
+            + 20 more specialist lenders
+          </p>
+          <p class='text-gray-500 text-sm mt-2 font-InstrumentSans'>
+            Including asset lending specialists, Trade & Debtor Finance Specialists, Foreign Exchange & International Trade
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trust Statement -->
+    <div class='mt-12 text-center'>
+      <div class='inline-flex items-center justify-center bg-white px-8 py-4 shadow-md'>
+        <svg class='w-6 h-6 text-green-600 mr-3' fill='currentColor' viewBox='0 0 20 20'>
+          <path fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z' clip-rule='evenodd'></path>
+        </svg>
+        <span class='text-gray-700 font-semibold font-InstrumentSans'>
+          Approved panel broker with all major lenders • Direct submission capabilities • Priority processing
+        </span>
+      </div>
+    </div>
+  </div>
+</section>

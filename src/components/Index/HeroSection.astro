@@ -1,239 +1,76 @@
 ---
-// EVFBS Hero Section - Agency11 Style with Professional Finance Focus
+import { Image } from "astro:assets";
+
+const { HeroSectionData } = Astro.props;
+const { header, subheading, bodyText, trustIndicator, buttonPrimary, heroImage } = HeroSectionData?.data || {};
 ---
 
-<section class='section-hero relative overflow-hidden bg-gradient-to-br from-brand-primary to-brand-primary-dark'>
-  <!-- Background Pattern -->
-  <div class='absolute inset-0 opacity-10'>
-    <div class='absolute inset-0 bg-grid-pattern'></div>
-  </div>
-  
-  <!-- Content Container -->
-  <div class='relative z-10'>
-    <div class='pt-[105px] sm:pt-[145px] lg:pt-[185px] pb-20'>
-      <div class='container-default'>
-        <div class='grid lg:grid-cols-2 gap-12 items-center'>
-          
-          <!-- Left Content -->
-          <div class='jos' data-jos_delay='0'>
-            <!-- Badge -->
-            <div class='inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-6'>
-              <span class='w-2 h-2 bg-brand-accent rounded-full animate-pulse'></span>
-              <span class='text-white text-sm font-medium'>Trusted by 2,000+ Australian Businesses</span>
-            </div>
-            
-            <!-- Main Headline -->
-            <h1 class='text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight font-PublicSans'>
-              Commercial Finance
-              <span class='block text-brand-accent'>That Powers Growth</span>
+<section class='section-hero'>
+  <div class='relative z-10 overflow-hidden'>
+    <div class='pt-[10px] sm:pt-[15px] lg:pt-[20px] pb-8 lg:pb-12'>
+      <div class='container-default relative z-10'>
+        <!-- Two Column Layout: 60% text left, 40% image right -->
+        <div class='grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center'>
+          <!-- Text Content - 60% width on desktop -->
+          <div class='lg:col-span-3 text-center lg:text-left order-2 lg:order-1'>
+            <h1 class='mb-6 font-InstrumentSans text-hero font-bold leading-[1.2] text-ColorBlack'>
+              {header.split('\n').map((line, index) => (
+                <>
+                  {line}
+                  {index < header.split('\n').length - 1 && <br style="margin-bottom: 0.5rem;" />}
+                </>
+              ))}
             </h1>
             
-            <!-- Subheadline -->
-            <p class='text-xl text-brand-grey-200 mb-8 leading-relaxed'>
-              Access $50k to $5M in equipment finance, working capital, and business funding. 
-              Expert brokers, 40+ lenders, approvals in 24 hours.
+            <h2 class='mb-6 text-xl lg:text-2xl font-semibold text-gray-700 font-InstrumentSans'>
+              {subheading}
+            </h2>
+            
+            <p class='mb-6 text-lg text-gray-600 font-InstrumentSans leading-relaxed'>
+              {bodyText}
             </p>
             
-            <!-- Value Props -->
-            <div class='grid grid-cols-2 gap-4 mb-10'>
-              <div class='flex items-center gap-3'>
-                <div class='w-10 h-10 bg-brand-accent/20 rounded-lg flex items-center justify-center'>
-                  <i class='fa-solid fa-bolt text-brand-accent'></i>
-                </div>
-                <div>
-                  <p class='text-white font-semibold'>24hr Approval</p>
-                  <p class='text-brand-grey-300 text-sm'>Fast decisions</p>
-                </div>
-              </div>
-              
-              <div class='flex items-center gap-3'>
-                <div class='w-10 h-10 bg-brand-accent/20 rounded-lg flex items-center justify-center'>
-                  <i class='fa-solid fa-percent text-brand-accent'></i>
-                </div>
-                <div>
-                  <p class='text-white font-semibold'>From 5.99%</p>
-                  <p class='text-brand-grey-300 text-sm'>Competitive rates</p>
-                </div>
-              </div>
-              
-              <div class='flex items-center gap-3'>
-                <div class='w-10 h-10 bg-brand-accent/20 rounded-lg flex items-center justify-center'>
-                  <i class='fa-solid fa-shield-halved text-brand-accent'></i>
-                </div>
-                <div>
-                  <p class='text-white font-semibold'>Zero Fees</p>
-                  <p class='text-brand-grey-300 text-sm'>No upfront costs</p>
-                </div>
-              </div>
-              
-              <div class='flex items-center gap-3'>
-                <div class='w-10 h-10 bg-brand-accent/20 rounded-lg flex items-center justify-center'>
-                  <i class='fa-solid fa-handshake text-brand-accent'></i>
-                </div>
-                <div>
-                  <p class='text-white font-semibold'>40+ Lenders</p>
-                  <p class='text-brand-grey-300 text-sm'>Best options</p>
-                </div>
+            <div class='mb-8'>
+              <div class='inline-flex items-center gap-2 bg-[#f97316] bg-opacity-10 px-4 py-2'>
+                <svg class='w-5 h-5 text-[#f97316]' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                  <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'></path>
+                </svg>
+                <span class='text-sm font-semibold text-[#1C2C3B] font-InstrumentSans'>
+                  {trustIndicator}
+                </span>
               </div>
             </div>
             
-            <!-- CTA Buttons -->
-            <div class='flex flex-col sm:flex-row gap-4'>
-              <a href='/get-quote' 
-                 class='btn is-large is-blue btn-animation group rounded-[3px]'>
-                <span>Get Your Quote</span>
-                <i class='fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform'></i>
+            <div class='flex flex-col items-center lg:items-start'>
+              <a
+                href={buttonPrimary?.link || '/finance-ready-assessment'}
+                class='bg-[#f97316] text-white px-8 py-4 font-bold transition-all duration-300 inline-block hover:bg-[#ea580c] hover:shadow-lg mb-3'
+              >
+                <span>{buttonPrimary?.text || 'CHECK MY READINESS SCORE'}</span>
               </a>
-              
-              <a href='tel:1300383267' 
-                 class='btn is-large is-outline-white btn-animation group rounded-[3px] !text-white !border-white/30 hover:!bg-white/10'>
-                <i class='fa-solid fa-phone mr-2'></i>
-                <span>1300 EVFBS</span>
-              </a>
-            </div>
-            
-            <!-- Trust Signals -->
-            <div class='mt-10 pt-10 border-t border-white/20'>
-              <div class='flex items-center gap-8'>
-                <div class='flex -space-x-2'>
-                  <div class='w-10 h-10 bg-brand-grey-600 rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold'>JD</div>
-                  <div class='w-10 h-10 bg-brand-grey-700 rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold'>SM</div>
-                  <div class='w-10 h-10 bg-brand-grey-800 rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold'>AK</div>
-                  <div class='w-10 h-10 bg-brand-accent rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold'>+</div>
-                </div>
-                <div>
-                  <div class='flex items-center gap-1 mb-1'>
-                    <i class='fa-solid fa-star text-yellow-400'></i>
-                    <i class='fa-solid fa-star text-yellow-400'></i>
-                    <i class='fa-solid fa-star text-yellow-400'></i>
-                    <i class='fa-solid fa-star text-yellow-400'></i>
-                    <i class='fa-solid fa-star text-yellow-400'></i>
-                  </div>
-                  <p class='text-white text-sm'>4.9/5 from 150+ reviews</p>
-                </div>
-              </div>
+              <p class='text-sm text-gray-500 font-InstrumentSans text-center lg:text-left'>
+                (Complete the Finance Readiness Assessment in 30 secs. No Personal Details Required.)
+              </p>
             </div>
           </div>
           
-          <!-- Right Visual -->
-          <div class='relative jos' data-jos_delay='0.3'>
-            <!-- Stats Cards -->
+          <!-- Hero Image - 40% width on desktop -->
+          <div class='lg:col-span-2 order-1 lg:order-2'>
             <div class='relative'>
-              <!-- Main Card -->
-              <div class='bg-white rounded-2xl shadow-2xl p-8'>
-                <h3 class='text-2xl font-bold text-brand-primary mb-6'>Quick Finance Check</h3>
-                
-                <!-- Mini Form Preview -->
-                <div class='space-y-4'>
-                  <div>
-                    <label class='block text-sm font-medium text-brand-grey-700 mb-2'>Finance Amount</label>
-                    <div class='relative'>
-                      <span class='absolute left-4 top-1/2 -translate-y-1/2 text-brand-grey-500'>$</span>
-                      <input type='text' placeholder='250,000' class='w-full pl-8 pr-4 py-3 border border-brand-grey-300 rounded-lg focus:ring-2 focus:ring-brand-accent focus:border-transparent' />
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <label class='block text-sm font-medium text-brand-grey-700 mb-2'>Finance Type</label>
-                    <select class='w-full px-4 py-3 border border-brand-grey-300 rounded-lg focus:ring-2 focus:ring-brand-accent focus:border-transparent'>
-                      <option>Equipment Finance</option>
-                      <option>Vehicle Finance</option>
-                      <option>Working Capital</option>
-                    </select>
-                  </div>
-                  
-                  <button class='w-full bg-brand-accent hover:bg-brand-accent-dark text-white font-semibold py-3 rounded-lg transition-colors'>
-                    Calculate Repayments
-                  </button>
-                </div>
-                
-                <!-- Bottom Stats -->
-                <div class='mt-6 pt-6 border-t border-brand-grey-200'>
-                  <div class='grid grid-cols-3 gap-4 text-center'>
-                    <div>
-                      <p class='text-2xl font-bold text-brand-primary'>$500M+</p>
-                      <p class='text-xs text-brand-grey-600'>Funded</p>
-                    </div>
-                    <div>
-                      <p class='text-2xl font-bold text-brand-primary'>98%</p>
-                      <p class='text-xs text-brand-grey-600'>Approval</p>
-                    </div>
-                    <div>
-                      <p class='text-2xl font-bold text-brand-primary'>24hr</p>
-                      <p class='text-xs text-brand-grey-600'>Decision</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- Floating Badge -->
-              <div class='absolute -top-4 -right-4 bg-brand-accent text-white rounded-full w-24 h-24 flex flex-col items-center justify-center shadow-lg animate-bounce-slow'>
-                <span class='text-2xl font-bold'>15+</span>
-                <span class='text-xs'>Years Exp</span>
-              </div>
-              
-              <!-- Customer Badge -->
-              <div class='absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-4 flex items-center gap-3'>
-                <div class='w-12 h-12 bg-green-100 rounded-full flex items-center justify-center'>
-                  <i class='fa-solid fa-check text-green-600'></i>
-                </div>
-                <div>
-                  <p class='font-semibold text-brand-primary'>Application Approved</p>
-                  <p class='text-sm text-brand-grey-600'>Just now • $350,000</p>
-                </div>
-              </div>
+              {heroImage && (
+                <Image
+                  src={heroImage}
+                  alt='Queensland Trades Business Owner'
+                  width='600'
+                  height='600'
+                  loading='eager'
+                  class='w-full h-auto object-cover shadow-2xl max-h-[500px] object-top'
+                />
+              )}
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
-  <!-- Bottom Wave -->
-  <div class='absolute bottom-0 left-0 right-0'>
-    <svg class='w-full' viewBox='0 0 1440 120' fill='none' xmlns='http://www.w3.org/2000/svg'>
-      <path d='M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z' fill='white'/>
-    </svg>
-  </div>
 </section>
-
-<style>
-  /* Container styles */
-  .container-default {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-  
-  /* Grid pattern background */
-  .bg-grid-pattern {
-    background-image: 
-      linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-    background-size: 50px 50px;
-  }
-  
-  /* Custom animation */
-  @keyframes bounce-slow {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-  
-  .animate-bounce-slow {
-    animation: bounce-slow 3s ease-in-out infinite;
-  }
-  
-  /* Button outline white styles */
-  .btn.is-outline-white {
-    @apply border-2 bg-transparent;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .section-hero h1 {
-      @apply text-3xl;
-    }
-  }
-</style>

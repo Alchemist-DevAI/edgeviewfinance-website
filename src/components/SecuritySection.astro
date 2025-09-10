@@ -1,0 +1,71 @@
+---
+// SecuritySection.astro - Reusable Security Policy Section Component
+// Purpose: Consistent formatting for all policy sections
+interface Props {
+  id: string;
+  number: number;
+  title: string;
+  icon?: string;
+  children?: any;
+}
+
+const { id, number, title, icon } = Astro.props;
+---
+
+<section id={`section-${id}`} class="security-section mb-16 scroll-mt-32">
+  <div class="section-header mb-8 pb-4 border-b-2 border-gray-100">
+    <div class="flex items-center gap-4 mb-4">
+      <div class="section-number w-12 h-12 bg-[#FF9E10] text-white font-bold text-xl rounded-full flex items-center justify-center">
+        {number}
+      </div>
+      
+      {icon && (
+        <div class="section-icon">
+          <Fragment set:html={icon} />
+        </div>
+      )}
+      
+      <h2 class="text-3xl lg:text-4xl font-bold text-[#1C2C3B] leading-tight">
+        {title}
+      </h2>
+    </div>
+  </div>
+  
+  <div class="section-content prose prose-lg max-w-none">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .security-section {
+    scroll-behavior: smooth;
+  }
+  
+  .section-content :global(p) {
+    @apply text-gray-700 leading-relaxed mb-4;
+  }
+  
+  .section-content :global(ul) {
+    @apply list-none space-y-2 mb-6;
+  }
+  
+  .section-content :global(li) {
+    @apply flex items-start gap-3 text-gray-700;
+  }
+  
+  .section-content :global(.highlight-box) {
+    @apply bg-gray-50 border-l-4 border-[#FF9E10] p-6 my-6 rounded-r-lg;
+  }
+  
+  .section-content :global(.security-feature) {
+    @apply bg-emerald-50 border border-emerald-200 p-4 rounded-lg mb-4;
+  }
+  
+  .section-content :global(.security-feature h4) {
+    @apply text-emerald-800 font-bold text-lg mb-2;
+  }
+  
+  .section-content :global(.security-feature p) {
+    @apply text-emerald-700 mb-0;
+  }
+</style>

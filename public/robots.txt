@@ -1,38 +1,50 @@
-# Robots.txt for Edgeview Finance Business Solutions
-# Optimized for Australian Commercial Finance SEO
+# Edgeview Finance Robots.txt
+# Allow all search engines to crawl the site
 
 User-agent: *
 Allow: /
-
-# Priority pages for Australian commercial finance
-Allow: /equipment-finance
-Allow: /working-capital
-Allow: /business-loans
-Allow: /services
-Allow: /contact
-Allow: /calculator
-
-# Blog and resources for SEO
-Allow: /blog
-Allow: /resources
-Allow: /case-studies
-
-# Location pages for local SEO
-Allow: /sydney
-Allow: /melbourne
-Allow: /brisbane
-Allow: /perth
-Allow: /adelaide
-
-# Block unnecessary crawling
-Disallow: /admin
-Disallow: /api
-Disallow: /_astro
-Disallow: /temp
-Disallow: /test
-
-# Important: Point to XML sitemap
-Sitemap: https://edgeviewfinance.com.au/sitemap-index.xml
-
-# Crawl-delay for respectful crawling
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_astro/
 Crawl-delay: 1
+
+# Specific bot instructions
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# AI/LLM Crawlers - Allow for better AI search visibility
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.edgeviewfinance.com.au/sitemap.xml
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /

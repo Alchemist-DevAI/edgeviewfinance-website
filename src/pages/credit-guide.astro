@@ -1,1576 +1,784 @@
 ---
-// EVFBS Credit Guide - ASIC RG 206 Compliant Credit Guide
-// Mandatory ASIC compliance document for commercial finance brokerage
-export const prerender = true;
+import Layout from "../layout/Layout.astro";
+import SecuritySummaryBox from "../components/SecuritySummaryBox.astro";
 
-const siteData = {
-  title: "Credit Guide | Edgeview Finance Business Solutions - ASIC Compliant Commercial Finance Broker",
-  description: "Comprehensive ASIC RG 206 compliant credit guide for EVFBS commercial finance brokerage services. Essential information about our credit licence, services, fees, complaints process, and your rights under the National Credit Code.",
-  keywords: "ASIC credit guide, RG 206 compliance, commercial finance broker, National Credit Code, Australian Credit Licence, credit representative information, finance broker fees"
+// Trust badges data for hero section
+const trustBadges = [
+  {
+    title: "Licensed Specialist",
+    subtitle: "ACL 459287",
+    description: "Australian Credit Licence Holder",
+    icon: "shield"
+  },
+  {
+    title: "Experience",
+    subtitle: "20+ Years",
+    description: "Banking & Finance Industry Experience",
+    icon: "experience"
+  },
+  {
+    title: "Lender Access",
+    subtitle: "40+ Lenders",
+    description: "Specialist Business & Home Loan Panel",
+    icon: "network"
+  },
+  {
+    title: "Client Protection",
+    subtitle: "Best Interest Duty",
+    description: "Your Interests Come First, Always",
+    icon: "protection"
+  }
+];
+
+// Quick navigation items
+const navigationItems = [
+  { text: "About Your Broker", href: "#about-broker" },
+  { text: "Our Lender Panel", href: "#lender-relationships" },
+  { text: "Fees & Commissions", href: "#fees-commissions" },
+  { text: "Your Rights & Protections", href: "#rights-protections" }
+];
+
+// Summary box content
+const summaryContent = {
+  title: "Credit Guide Summary",
+  items: [
+    "Complete transparency about how we work and how we're paid",
+    "Your rights and protections under Australian Credit Law",
+    "Our commitment to act in your best interests at all times",
+    "Access to 40+ specialist lenders through our panel relationships"
+  ]
 };
-
-const lastUpdated = "15 August 2025";
-const reviewDate = "15 August 2026";
-const creditLicenceNumber = "ACL-XXXXXX"; // Replace with actual ACL number
-const abnNumber = "XX XXX XXX XXX"; // Replace with actual ABN
 ---
 
-<html lang="en-AU">
-<head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={siteData.description} />
-    <meta name="keywords" content={siteData.keywords} />
-    
-    <!-- Credit Guide Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "@id": "https://edgeviewfinance.com.au/credit-guide#webpage",
-      "name": "Credit Guide - ASIC RG 206 Compliant",
-      "description": "ASIC compliant credit guide for Edgeview Finance Business Solutions commercial finance brokerage services",
-      "url": "https://edgeviewfinance.com.au/credit-guide",
-      "dateModified": "2025-08-15",
-      "publisher": {
-        "@type": "FinancialService",
-        "@id": "https://edgeviewfinance.com.au/#organization",
-        "name": "Edgeview Finance Business Solutions",
-        "hasCredential": {
-          "@type": "EducationalOccupationalCredential",
-          "credentialCategory": "Australian Credit Licence",
-          "recognizedBy": {
-            "@type": "Organization",
-            "name": "Australian Securities and Investments Commission",
-            "alternateName": "ASIC"
-          }
-        }
-      },
-      "mainEntity": {
-        "@type": "Article",
-        "@id": "https://edgeviewfinance.com.au/credit-guide#article",
-        "headline": "Credit Guide - Commercial Finance Brokerage Services",
-        "datePublished": "2025-08-15",
-        "dateModified": "2025-08-15",
-        "author": {
-          "@type": "Organization",
-          "name": "Edgeview Finance Business Solutions"
-        },
-        "about": {
-          "@type": "Thing",
-          "name": "Credit Guide and Consumer Rights",
-          "description": "Comprehensive information about credit services, fees, complaints process, and consumer rights under Australian credit legislation"
-        }
-      }
-    }
-    </script>
-    
-    <!-- Open Graph for Social Sharing -->
-    <meta property="og:title" content={siteData.title} />
-    <meta property="og:description" content={siteData.description} />
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://edgeviewfinance.com.au/credit-guide" />
-    <meta property="og:locale" content="en_AU" />
-    
-    <title>{siteData.title}</title>
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="nav-container">
-                <div class="logo">
-                    <h1>Edgeview Finance</h1>
-                    <span>Business Solutions</span>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/services">Services</a></li>
-                    <li><a href="/equipment-finance">Equipment Finance</a></li>
-                    <li><a href="/working-capital">Working Capital</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/contact" class="cta-button">Expert Consultation</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+<Layout 
+  title="Credit Guide | Edgeview Finance - Australian Credit Licence 459287"
+  description="Our Credit Guide explains how we work, who we work with, and how we're paid. Complete transparency and regulatory compliance for your peace of mind."
+>
+  <main class="main-wrapper relative overflow-hidden">
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Credit Guide</h1>
-                <p class="hero-subtitle">
-                    ASIC RG 206 compliant credit guide providing essential information about our commercial finance 
-                    brokerage services, licensing, fees, and your rights under the National Consumer Credit Protection Act 2009.
-                </p>
-                <div class="hero-meta">
-                    <span><strong>Last Updated:</strong> {lastUpdated}</span>
-                    <span><strong>Next Review:</strong> {reviewDate}</span>
-                    <span><strong>ASIC Compliant:</strong> RG 206</span>
-                </div>
-            </div>
-        </section>
+    <!-- Hero Section -->
+    <section class="py-12 md:py-16">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <!-- Hero Content -->
+        <div class="mx-auto max-w-4xl text-center">
+          <h1 class="text-5xl font-bold tracking-tight text-slate-900">
+            How do we ensure your interests come first?
+          </h1>
+          <p class="mx-auto mt-6 max-w-3xl text-xl leading-8 text-slate-600">
+            Our Credit Guide explains exactly how we work, who we work with, and how we're paid - because transparency builds trust in every business relationship.
+          </p>
 
-        <!-- Important Notice -->
-        <section class="important-notice">
-            <div class="container">
-                <div class="notice-box">
-                    <h2>Important Information</h2>
-                    <p>
-                        This Credit Guide is provided to you under section 126 of the National Consumer Credit Protection Act 2009. 
-                        It contains important information about our credit services, including our Australian Credit Licence details, 
-                        the services we provide, how we are remunerated, and your rights and obligations.
-                    </p>
-                    <p><strong>Please read this document carefully before engaging our services.</strong></p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Quick Navigation -->
-        <section class="quick-nav">
-            <div class="container">
-                <h2>Quick Navigation</h2>
-                <div class="nav-links">
-                    <a href="#licensee">Licensee Information</a>
-                    <a href="#representative">Credit Representative</a>
-                    <a href="#services">Services Provided</a>
-                    <a href="#remuneration">Fees & Commission</a>
-                    <a href="#conflicts">Conflicts of Interest</a>
-                    <a href="#complaints">Complaints Process</a>
-                    <a href="#privacy">Privacy Information</a>
-                    <a href="#contact">Contact Details</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Credit Licensee Information -->
-        <section class="credit-section" id="licensee">
-            <div class="container">
-                <h2>Australian Credit Licensee Information</h2>
-                <div class="content">
-                    <div class="licensee-details">
-                        <div class="detail-card">
-                            <h3>Credit Licensee</h3>
-                            <p><strong>Entity Name:</strong> Edgeview Finance Business Solutions Pty Ltd</p>
-                            <p><strong>Australian Business Number (ABN):</strong> {abnNumber}</p>
-                            <p><strong>Australian Credit Licence (ACL):</strong> {creditLicenceNumber}</p>
-                            <p><strong>ASIC Registration:</strong> Australian Credit Licensee</p>
-                        </div>
-                        
-                        <div class="detail-card">
-                            <h3>Licence Authorisation</h3>
-                            <p>
-                                Our Australian Credit Licence authorises us to engage in credit activities including:
-                            </p>
-                            <ul>
-                                <li>Providing credit assistance by suggesting or assisting with credit contract applications</li>
-                                <li>Suggesting or assisting with credit contract changes or refinancing</li>
-                                <li>Suggesting credit providers to customers</li>
-                                <li>Assisting customers to understand credit contract features and risks</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="detail-card">
-                            <h3>Registered Office</h3>
-                            <p>
-                                <strong>Address:</strong><br/>
-                                [Business Address]<br/>
-                                [City, State, Postcode]<br/>
-                                Australia
-                            </p>
-                            <p><strong>Business Hours:</strong> Monday to Friday, 8:00 AM - 6:00 PM AEST</p>
-                        </div>
-                    </div>
-
-                    <div class="highlight-box">
-                        <h4>ASIC Verification</h4>
-                        <p>
-                            You can verify our licence details on the ASIC Professional Registers at 
-                            <a href="https://connectonline.asic.gov.au" target="_blank" rel="noopener noreferrer">
-                            https://connectonline.asic.gov.au</a> using our ACL number {creditLicenceNumber}.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Credit Representative Information -->
-        <section class="credit-section" id="representative">
-            <div class="container">
-                <h2>Credit Representative Information</h2>
-                <div class="content">
-                    <h3>Authorised Credit Representative</h3>
-                    <p>
-                        [Credit Representative Name] operates as an authorised credit representative of 
-                        Edgeview Finance Business Solutions Pty Ltd under our Australian Credit Licence.
-                    </p>
-                    
-                    <div class="representative-details">
-                        <div class="rep-card">
-                            <h4>Representative Details</h4>
-                            <p><strong>Name:</strong> [Credit Representative Name]</p>
-                            <p><strong>Credit Representative Number:</strong> [CRN Number]</p>
-                            <p><strong>Qualifications:</strong> Certificate IV in Finance and Mortgage Broking</p>
-                            <p><strong>Professional Memberships:</strong> Finance Brokers Association of Australia (FBAA)</p>
-                        </div>
-                        
-                        <div class="rep-card">
-                            <h4>Authorisation Scope</h4>
-                            <p>Our credit representative is authorised to:</p>
-                            <ul>
-                                <li>Provide credit assistance for commercial finance products</li>
-                                <li>Assist with loan applications and documentation</li>
-                                <li>Liaise with lenders on behalf of clients</li>
-                                <li>Provide ongoing account management and support</li>
-                                <li>Conduct responsible lending assessments</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h3>Professional Standards</h3>
-                    <p>
-                        Our credit representative maintains professional standards through:
-                    </p>
-                    <ul>
-                        <li>Annual continuing professional development (CPD) training</li>
-                        <li>Adherence to the Code of Conduct for Credit Services</li>
-                        <li>Regular compliance monitoring and audits</li>
-                        <li>Professional indemnity insurance coverage</li>
-                        <li>Membership of industry professional bodies</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Provided -->
-        <section class="credit-section" id="services">
-            <div class="container">
-                <h2>Credit Services We Provide</h2>
-                <div class="content">
-                    <h3>Commercial Finance Brokerage Services</h3>
-                    <p>
-                        Under our Australian Credit Licence, we provide credit assistance services specifically 
-                        focused on commercial finance solutions for Australian businesses.
-                    </p>
-
-                    <div class="services-grid">
-                        <div class="service-detail">
-                            <h4>Equipment Finance</h4>
-                            <ul>
-                                <li>Commercial vehicle and machinery finance</li>
-                                <li>Construction and trade equipment funding</li>
-                                <li>Technology and IT equipment finance</li>
-                                <li>Chattel mortgages and hire purchase agreements</li>
-                                <li>Operating and finance lease arrangements</li>
-                            </ul>
-                            <p><strong>Loan Range:</strong> $20,000 to $2,000,000+</p>
-                        </div>
-
-                        <div class="service-detail">
-                            <h4>Commercial Property Finance</h4>
-                            <ul>
-                                <li>Business premises purchase and refinancing</li>
-                                <li>Commercial property investment loans</li>
-                                <li>Development and construction finance</li>
-                                <li>Strata title and industrial property finance</li>
-                                <li>Commercial mortgage solutions</li>
-                            </ul>
-                            <p><strong>Loan Range:</strong> $100,000 to $10,000,000+</p>
-                        </div>
-
-                        <div class="service-detail">
-                            <h4>Working Capital Solutions</h4>
-                            <ul>
-                                <li>Business line of credit facilities</li>
-                                <li>Overdraft and cash flow funding</li>
-                                <li>Invoice factoring and discounting</li>
-                                <li>Trade finance and debtor finance</li>
-                                <li>Seasonal and project-specific funding</li>
-                            </ul>
-                            <p><strong>Facility Range:</strong> $50,000 to $5,000,000+</p>
-                        </div>
-
-                        <div class="service-detail">
-                            <h4>Personal Lending (Business-Related)</h4>
-                            <ul>
-                                <li>Self-employed home loans</li>
-                                <li>Investment property finance for business owners</li>
-                                <li>Low-doc and bank statement lending</li>
-                                <li>Asset-based lending solutions</li>
-                                <li>Private lending arrangements</li>
-                            </ul>
-                            <p><strong>Loan Range:</strong> $100,000 to $5,000,000+</p>
-                        </div>
-                    </div>
-
-                    <h3>Credit Assistance Services</h3>
-                    <p>Our specific credit assistance services include:</p>
-                    <ul>
-                        <li><strong>Credit Product Selection:</strong> Suggesting appropriate credit products and lenders based on your needs</li>
-                        <li><strong>Application Assistance:</strong> Helping prepare and submit credit applications</li>
-                        <li><strong>Document Preparation:</strong> Assisting with required documentation and compliance</li>
-                        <li><strong>Lender Negotiation:</strong> Negotiating terms and conditions on your behalf</li>
-                        <li><strong>Ongoing Support:</strong> Post-settlement assistance and account management</li>
-                        <li><strong>Refinancing Advice:</strong> Periodic review and refinancing opportunities</li>
-                    </ul>
-
-                    <div class="highlight-box">
-                        <h4>Important Note: Commercial Focus</h4>
-                        <p>
-                            Our services are specifically designed for commercial finance and business lending. 
-                            We do not provide consumer credit assistance for personal purchases unrelated to business activities.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Remuneration and Fees -->
-        <section class="credit-section" id="remuneration">
-            <div class="container">
-                <h2>How We Are Remunerated</h2>
-                <div class="content">
-                    <h3>Commission-Based Model</h3>
-                    <p>
-                        We operate on a commission-based model where we receive payments from lenders when 
-                        successful finance arrangements are established. This means our services are typically 
-                        provided at no direct cost to you.
-                    </p>
-
-                    <div class="remuneration-details">
-                        <div class="fee-category">
-                            <h4>Upfront Commission</h4>
-                            <p>
-                                We receive an upfront commission from the lender when your loan settles. 
-                                This commission is calculated as a percentage of the loan amount:
-                            </p>
-                            <ul>
-                                <li><strong>Equipment Finance:</strong> 0.5% to 2.5% of loan amount</li>
-                                <li><strong>Commercial Property:</strong> 0.6% to 1.2% of loan amount</li>
-                                <li><strong>Working Capital:</strong> 1.0% to 3.0% of facility limit</li>
-                                <li><strong>Personal Lending:</strong> 0.65% to 1.1% of loan amount</li>
-                            </ul>
-                            <p>
-                                <em>Commission rates vary based on loan type, lender, loan amount, and terms. 
-                                Specific commission amounts will be disclosed in your quote.</em>
-                            </p>
-                        </div>
-
-                        <div class="fee-category">
-                            <h4>Trail Commission</h4>
-                            <p>
-                                For some loan products, we may receive ongoing trail commission 
-                                throughout the life of the loan:
-                            </p>
-                            <ul>
-                                <li><strong>Home Loans:</strong> 0.15% to 0.25% per annum of outstanding balance</li>
-                                <li><strong>Some Commercial Facilities:</strong> 0.10% to 0.50% per annum</li>
-                                <li><strong>Line of Credit Facilities:</strong> 0.25% to 0.75% per annum of limit</li>
-                            </ul>
-                            <p>
-                                Trail commission is paid by the lender and does not affect your interest rate or loan terms.
-                            </p>
-                        </div>
-
-                        <div class="fee-category">
-                            <h4>Direct Fees (When Applicable)</h4>
-                            <p>
-                                In specific circumstances, we may charge direct fees for our services:
-                            </p>
-                            <ul>
-                                <li><strong>Complex Structuring Fee:</strong> $2,500 to $15,000 for sophisticated commercial structures</li>
-                                <li><strong>Due Diligence Fee:</strong> $1,500 to $5,000 for detailed financial analysis</li>
-                                <li><strong>Documentation Review Fee:</strong> $500 to $2,000 for complex legal documentation</li>
-                                <li><strong>Unsuccessful Application Fee:</strong> $500 to $2,500 (only if disclosed upfront)</li>
-                            </ul>
-                            <p>
-                                <strong>Important:</strong> Any direct fees will be clearly disclosed and agreed upon 
-                                in writing before we commence work on your application.
-                            </p>
-                        </div>
-                    </div>
-
-                    <h3>Third-Party Payments</h3>
-                    <p>
-                        We may receive payments or benefits from third parties including:
-                    </p>
-                    <ul>
-                        <li>Lender marketing and training events</li>
-                        <li>Professional development and education programs</li>
-                        <li>Technology platform and software subsidies</li>
-                        <li>Industry conference and networking event support</li>
-                    </ul>
-                    <p>
-                        These benefits do not influence our credit assistance services or product recommendations, 
-                        which are based on your specific needs and circumstances.
-                    </p>
-
-                    <div class="highlight-box">
-                        <h4>Transparency Commitment</h4>
-                        <p>
-                            We are committed to full transparency about our remuneration. Before proceeding with 
-                            any application, we will provide you with specific details of:
-                        </p>
-                        <ul>
-                            <li>Exact commission amounts we will receive</li>
-                            <li>Any direct fees that may apply</li>
-                            <li>Alternative remuneration structures available</li>
-                            <li>How our remuneration may influence our recommendations</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Conflicts of Interest -->
-        <section class="credit-section" id="conflicts">
-            <div class="container">
-                <h2>Conflicts of Interest</h2>
-                <div class="content">
-                    <h3>Managing Conflicts of Interest</h3>
-                    <p>
-                        We are committed to managing conflicts of interest to ensure our recommendations 
-                        are in your best interests. We have policies and procedures to identify, 
-                        manage, and disclose any potential conflicts.
-                    </p>
-
-                    <div class="conflict-categories">
-                        <div class="conflict-type">
-                            <h4>Remuneration-Based Conflicts</h4>
-                            <p>
-                                Different lenders may pay different commission rates, which could potentially 
-                                influence our recommendations. To manage this conflict:
-                            </p>
-                            <ul>
-                                <li>We maintain a diverse panel of lenders with competitive rates</li>
-                                <li>Our recommendations are based on a comparison process considering your needs</li>
-                                <li>We disclose commission rates before you sign any applications</li>
-                                <li>We provide explanations for our recommendations beyond just commission</li>
-                            </ul>
-                        </div>
-
-                        <div class="conflict-type">
-                            <h4>Lender Relationships</h4>
-                            <p>
-                                We maintain ongoing business relationships with multiple lenders. These relationships:
-                            </p>
-                            <ul>
-                                <li>Enable us to access competitive products and faster processing</li>
-                                <li>May include volume-based incentives that we disclose transparently</li>
-                                <li>Do not prevent us from recommending the most suitable lender for your needs</li>
-                                <li>Are managed through our conflicts of interest policy</li>
-                            </ul>
-                        </div>
-
-                        <div class="conflict-type">
-                            <h4>Related Entity Interests</h4>
-                            <p>
-                                We do not have ownership interests in any lending institutions. However:
-                            </p>
-                            <ul>
-                                <li>We may have referral arrangements with professional service providers</li>
-                                <li>Any financial interests in related businesses are disclosed</li>
-                                <li>We maintain independence in our credit assistance services</li>
-                                <li>Referrals to related entities are disclosed and optional</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h3>Conflict Management Strategies</h3>
-                    <p>When conflicts of interest arise, we manage them by:</p>
-                    <ul>
-                        <li><strong>Disclosure:</strong> Full disclosure of any relevant conflicts before providing advice</li>
-                        <li><strong>Avoidance:</strong> Declining to act where conflicts cannot be managed appropriately</li>
-                        <li><strong>Management:</strong> Implementing procedures to ensure conflicts don't compromise our advice</li>
-                        <li><strong>Documentation:</strong> Recording conflicts and management strategies in your file</li>
-                    </ul>
-
-                    <div class="highlight-box">
-                        <h4>Your Right to Know</h4>
-                        <p>
-                            You have the right to ask about any potential conflicts of interest that may 
-                            affect our services. We encourage you to discuss any concerns about our 
-                            recommendations or the basis for our advice.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Complaints Process -->
-        <section class="credit-section" id="complaints">
-            <div class="container">
-                <h2>Complaints and Dispute Resolution</h2>
-                <div class="content">
-                    <h3>Internal Complaints Process</h3>
-                    <p>
-                        If you have a complaint about our credit services, we have an internal 
-                        dispute resolution process to address your concerns promptly and fairly.
-                    </p>
-
-                    <div class="complaints-process">
-                        <div class="step">
-                            <div class="step-number">1</div>
-                            <div class="step-content">
-                                <h4>Lodge Your Complaint</h4>
-                                <p>Contact us with your complaint using any of the following methods:</p>
-                                <ul>
-                                    <li><strong>Phone:</strong> 1300 XXX XXX</li>
-                                    <li><strong>Email:</strong> complaints@edgeviewfinance.com.au</li>
-                                    <li><strong>Written:</strong> Post to our registered office</li>
-                                    <li><strong>In Person:</strong> During business hours</li>
-                                </ul>
-                                <p>Please provide details of your complaint including relevant dates, documents, and your desired outcome.</p>
-                            </div>
-                        </div>
-
-                        <div class="step">
-                            <div class="step-number">2</div>
-                            <div class="step-content">
-                                <h4>Acknowledgment</h4>
-                                <p>We will acknowledge your complaint within <strong>1 business day</strong> and provide:</p>
-                                <ul>
-                                    <li>Confirmation we have received your complaint</li>
-                                    <li>A reference number for tracking</li>
-                                    <li>The name of the person handling your complaint</li>
-                                    <li>Information about our complaints process</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="step">
-                            <div class="step-number">3</div>
-                            <div class="step-content">
-                                <h4>Investigation</h4>
-                                <p>We will investigate your complaint by:</p>
-                                <ul>
-                                    <li>Reviewing all relevant documentation and records</li>
-                                    <li>Consulting with relevant staff and systems</li>
-                                    <li>Seeking additional information if required</li>
-                                    <li>Considering applicable laws and industry standards</li>
-                                </ul>
-                                <p><strong>Timeframe:</strong> Most complaints are resolved within 21 days. Complex matters may take up to 45 days.</p>
-                            </div>
-                        </div>
-
-                        <div class="step">
-                            <div class="step-number">4</div>
-                            <div class="step-content">
-                                <h4>Resolution</h4>
-                                <p>We will provide a written response including:</p>
-                                <ul>
-                                    <li>Our findings and the reasons for our decision</li>
-                                    <li>Any remedial action we will take</li>
-                                    <li>Any compensation or corrective measures</li>
-                                    <li>Information about external dispute resolution options</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h3>External Dispute Resolution</h3>
-                    <p>
-                        If you are not satisfied with our internal resolution, or if we do not 
-                        respond within 45 days, you can lodge a complaint with the Australian 
-                        Financial Complaints Authority (AFCA).
-                    </p>
-
-                    <div class="external-complaints">
-                        <div class="external-option">
-                            <h4>Australian Financial Complaints Authority (AFCA)</h4>
-                            <div class="contact-info">
-                                <p><strong>Website:</strong> <a href="https://www.afca.org.au" target="_blank" rel="noopener noreferrer">www.afca.org.au</a></p>
-                                <p><strong>Phone:</strong> 1800 931 678</p>
-                                <p><strong>Email:</strong> info@afca.org.au</p>
-                                <p><strong>Post:</strong> Australian Financial Complaints Authority<br/>
-                                GPO Box 3, Melbourne VIC 3001</p>
-                            </div>
-                            <p>
-                                AFCA is a free service established by the Australian Government to 
-                                resolve complaints about financial services. AFCA can make determinations 
-                                that are binding on us, but not on you.
-                            </p>
-                        </div>
-
-                        <div class="external-option">
-                            <h4>Australian Securities and Investments Commission (ASIC)</h4>
-                            <div class="contact-info">
-                                <p><strong>Website:</strong> <a href="https://www.asic.gov.au" target="_blank" rel="noopener noreferrer">www.asic.gov.au</a></p>
-                                <p><strong>Phone:</strong> 1300 300 630</p>
-                                <p><strong>Online:</strong> ASIC Report Misconduct page</p>
-                            </div>
-                            <p>
-                                ASIC regulates our credit licence and can investigate breaches 
-                                of credit legislation and licensing conditions.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="highlight-box">
-                        <h4>No Cost Complaints Service</h4>
-                        <p>
-                            Our internal complaints handling service is provided at no cost to you. 
-                            AFCA's service is also free. You may wish to seek independent legal 
-                            advice, though this is at your own cost.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Privacy Information -->
-        <section class="credit-section" id="privacy">
-            <div class="container">
-                <h2>Privacy and Personal Information</h2>
-                <div class="content">
-                    <h3>How We Handle Your Information</h3>
-                    <p>
-                        We collect, use, and disclose personal information (including credit information) 
-                        in accordance with the Privacy Act 1988 and the Credit Reporting Privacy Code 2014.
-                    </p>
-
-                    <div class="privacy-summary">
-                        <div class="privacy-item">
-                            <h4>Information Collection</h4>
-                            <p>We collect personal information including:</p>
-                            <ul>
-                                <li>Identity and contact information</li>
-                                <li>Financial and employment details</li>
-                                <li>Credit information from credit reporting bodies</li>
-                                <li>Information from referees and other sources</li>
-                            </ul>
-                        </div>
-
-                        <div class="privacy-item">
-                            <h4>Information Use</h4>
-                            <p>We use your information to:</p>
-                            <ul>
-                                <li>Assess your credit needs and borrowing capacity</li>
-                                <li>Recommend suitable credit products</li>
-                                <li>Submit applications to lenders</li>
-                                <li>Manage our ongoing relationship with you</li>
-                            </ul>
-                        </div>
-
-                        <div class="privacy-item">
-                            <h4>Information Disclosure</h4>
-                            <p>We may disclose your information to:</p>
-                            <ul>
-                                <li>Credit providers and their representatives</li>
-                                <li>Credit reporting bodies</li>
-                                <li>Professional service providers</li>
-                                <li>Our related entities and service providers</li>
-                            </ul>
-                        </div>
-
-                        <div class="privacy-item">
-                            <h4>Your Privacy Rights</h4>
-                            <p>You have the right to:</p>
-                            <ul>
-                                <li>Access your personal information</li>
-                                <li>Request correction of inaccurate information</li>
-                                <li>Make a privacy complaint</li>
-                                <li>Opt out of direct marketing</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="highlight-box">
-                        <h4>Full Privacy Policy</h4>
-                        <p>
-                            For complete information about how we handle your personal information, 
-                            please read our full <a href="/privacy">Privacy Policy</a>. You can also 
-                            contact our Privacy Officer at privacy@edgeviewfinance.com.au with any 
-                            privacy-related questions.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Information -->
-        <section class="credit-section" id="contact">
-            <div class="container">
-                <h2>Contact Information</h2>
-                <div class="content">
-                    <div class="contact-grid">
-                        <div class="contact-card">
-                            <h3>Credit Licensee</h3>
-                            <p><strong>Edgeview Finance Business Solutions Pty Ltd</strong></p>
-                            <p>Australian Credit Licence: {creditLicenceNumber}</p>
-                            <p>ABN: {abnNumber}</p>
-                            <p><strong>Registered Office:</strong><br/>
-                            [Business Address]<br/>
-                            [City, State, Postcode]</p>
-                        </div>
-
-                        <div class="contact-card">
-                            <h3>General Enquiries</h3>
-                            <p><strong>Phone:</strong> 1300 XXX XXX</p>
-                            <p><strong>Email:</strong> enquiries@edgeviewfinance.com.au</p>
-                            <p><strong>Business Hours:</strong><br/>
-                            Monday to Friday<br/>
-                            8:00 AM - 6:00 PM AEST</p>
-                        </div>
-
-                        <div class="contact-card">
-                            <h3>Complaints</h3>
-                            <p><strong>Phone:</strong> 1300 XXX XXX</p>
-                            <p><strong>Email:</strong> complaints@edgeviewfinance.com.au</p>
-                            <p><strong>Response Time:</strong><br/>
-                            Acknowledgment within 1 business day<br/>
-                            Resolution within 21-45 days</p>
-                        </div>
-
-                        <div class="contact-card">
-                            <h3>Privacy Officer</h3>
-                            <p><strong>Email:</strong> privacy@edgeviewfinance.com.au</p>
-                            <p><strong>Phone:</strong> 1300 XXX XXX</p>
-                            <p><strong>Purpose:</strong><br/>
-                            Privacy enquiries and complaints<br/>
-                            Information access requests</p>
-                        </div>
-                    </div>
-
-                    <h3>Professional Memberships</h3>
-                    <div class="memberships">
-                        <p><strong>Finance Brokers Association of Australia (FBAA)</strong><br/>
-                        Member Number: [FBAA Number]</p>
-                        
-                        <p><strong>Mortgage & Finance Association of Australia (MFAA)</strong><br/>
-                        Member Number: [MFAA Number]</p>
-                    </div>
-
-                    <h3>Professional Indemnity Insurance</h3>
-                    <p>
-                        We maintain professional indemnity insurance that satisfies the requirements 
-                        for compensation arrangements under section 912B of the Corporations Act 2001.
-                    </p>
-                    
-                    <div class="insurance-details">
-                        <p><strong>Insurer:</strong> [Insurance Company Name]</p>
-                        <p><strong>Policy Number:</strong> [Policy Number]</p>
-                        <p><strong>Coverage Amount:</strong> $[Amount] per claim</p>
-                        <p><strong>Period:</strong> [Coverage Period]</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Legal Disclaimers -->
-        <section class="legal-disclaimers">
-            <div class="container">
-                <h2>Important Legal Information</h2>
-                <div class="disclaimers-content">
-                    <div class="disclaimer-box">
-                        <h3>General Disclaimer</h3>
-                        <p>
-                            This Credit Guide contains general information only and does not consider your 
-                            specific needs, objectives, or financial situation. Before making any decisions 
-                            about credit products, you should consider whether they are appropriate for your 
-                            circumstances and seek independent financial advice if necessary.
-                        </p>
-                    </div>
-
-                    <div class="disclaimer-box">
-                        <h3>Credit Product Information</h3>
-                        <p>
-                            Credit products have different features, costs, and risks. Interest rates, fees, 
-                            and terms vary between lenders and may change. You should read and understand 
-                            all product disclosure statements and terms and conditions before proceeding 
-                            with any credit application.
-                        </p>
-                    </div>
-
-                    <div class="disclaimer-box">
-                        <h3>Responsible Lending Obligations</h3>
-                        <p>
-                            We are required to comply with responsible lending obligations under the 
-                            National Consumer Credit Protection Act 2009. This includes making reasonable 
-                            inquiries about your requirements and objectives, taking reasonable steps 
-                            to verify your financial situation, and making reasonable assessments about 
-                            whether credit products are unsuitable for you.
-                        </p>
-                    </div>
-
-                    <div class="disclaimer-box">
-                        <h3>Limitation of Liability</h3>
-                        <p>
-                            While we take reasonable care in providing credit assistance services, 
-                            we cannot guarantee that credit applications will be approved or that 
-                            specific terms will be achieved. Our liability is limited to the 
-                            re-performance of our services or refund of fees paid (where applicable).
-                        </p>
-                    </div>
-                </div>
-
-                <div class="version-control">
-                    <h3>Document Control</h3>
-                    <p><strong>Version:</strong> 2.1</p>
-                    <p><strong>Effective Date:</strong> {lastUpdated}</p>
-                    <p><strong>Next Review Date:</strong> {reviewDate}</p>
-                    <p><strong>Approved By:</strong> Credit Licensee</p>
-                    <p><strong>ASIC Compliance:</strong> RG 206</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Call to Action -->
-        <section class="cta-section">
-            <div class="container">
-                <h2>Questions About Our Credit Services?</h2>
-                <p>Our licensed credit professionals are available to discuss your commercial finance needs and explain our services in detail.</p>
-                <div class="cta-buttons">
-                    <a href="/contact" class="primary-button large">Speak with a Credit Professional</a>
-                    <a href="/get-quote" class="secondary-button large">Get a Finance Quote</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Edgeview Finance Business Solutions</h4>
-                    <p>Licensed Australian Finance Broker<br/>
-                    ACL: {creditLicenceNumber}<br/>
-                    ABN: {abnNumber}</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="/equipment-finance">Equipment Finance</a></li>
-                        <li><a href="/commercial-property">Commercial Property</a></li>
-                        <li><a href="/working-capital">Working Capital</a></li>
-                        <li><a href="/invoice-financing">Invoice Financing</a></li>
-                        <li><a href="/personal-lending">Personal Lending</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="/privacy">Privacy Policy</a></li>
-                        <li><a href="/terms">Terms of Service</a></li>
-                        <li><a href="/credit-guide" class="active">Credit Guide</a></li>
-                        <li><a href="/complaints">Complaints Process</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Phone: 1300 XXX XXX<br/>
-                    Email: enquiries@edgeviewfinance.com.au<br/>
-                    Complaints: complaints@edgeviewfinance.com.au<br/>
-                    Hours: Mon-Fri 8AM-6PM AEST</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Edgeview Finance Business Solutions. All rights reserved. | 
-                <a href="/privacy">Privacy Policy</a> | 
-                <a href="/terms">Terms of Service</a> | 
-                <a href="/credit-guide" class="active">Credit Guide</a></p>
-            </div>
         </div>
-    </footer>
 
-    <style>
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #fff;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header Styles */
-        header {
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
-        
-        .logo h1 {
-            color: #2c5aa0;
-            font-size: 1.5rem;
-            margin-bottom: -5px;
-        }
-        
-        .logo span {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-        
-        .nav-menu a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-menu a:hover {
-            color: #2c5aa0;
-        }
-        
-        .cta-button {
-            background: #e67e22 !important;
-            color: white !important;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-        
-        .cta-button:hover {
-            background: #d35400 !important;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #2c5aa0 0%, #3498db 100%);
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.95;
-        }
-        
-        .hero-meta {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            opacity: 0.9;
-            font-size: 0.95rem;
-        }
-        
-        /* Important Notice */
-        .important-notice {
-            padding: 40px 20px;
-            background: #fdf6e3;
-            border-bottom: 3px solid #e67e22;
-        }
-        
-        .notice-box {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .notice-box h2 {
-            color: #d35400;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .notice-box p {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-        }
-        
-        /* Quick Navigation */
-        .quick-nav {
-            padding: 40px 20px;
-            background: white;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .quick-nav h2 {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: #2c5aa0;
-        }
-        
-        .nav-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-        }
-        
-        .nav-links a {
-            background: #f8f9fa;
-            color: #2c5aa0;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 500;
-            transition: all 0.3s;
-            border: 2px solid transparent;
-        }
-        
-        .nav-links a:hover {
-            background: #2c5aa0;
-            color: white;
-            border-color: #2c5aa0;
-        }
-        
-        /* Credit Sections */
-        .credit-section {
-            padding: 60px 20px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .credit-section:nth-child(even) {
-            background: #f8f9fa;
-        }
-        
-        .credit-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #2c5aa0;
-            border-bottom: 3px solid #e67e22;
-            padding-bottom: 0.5rem;
-        }
-        
-        .credit-section h3 {
-            font-size: 1.8rem;
-            margin: 2rem 0 1rem 0;
-            color: #e67e22;
-        }
-        
-        .credit-section h4 {
-            font-size: 1.3rem;
-            margin: 1.5rem 0 1rem 0;
-            color: #2c5aa0;
-        }
-        
-        .content {
-            max-width: 1000px;
-        }
-        
-        .content p {
-            margin-bottom: 1.2rem;
-            font-size: 1.05rem;
-        }
-        
-        .content ul, .content ol {
-            margin: 1rem 0 1.5rem 1.5rem;
-        }
-        
-        .content li {
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Licensee Details */
-        .licensee-details {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .detail-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-            border-left: 4px solid #2c5aa0;
-        }
-        
-        .detail-card h3 {
-            color: #2c5aa0;
-            margin-bottom: 1rem;
-            margin-top: 0;
-        }
-        
-        /* Representative Details */
-        .representative-details {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .rep-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            border: 2px solid #e67e22;
-        }
-        
-        .rep-card h4 {
-            color: #e67e22;
-            margin-bottom: 1rem;
-            margin-top: 0;
-        }
-        
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .service-detail {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-        }
-        
-        .service-detail h4 {
-            color: #2c5aa0;
-            margin-bottom: 1rem;
-            margin-top: 0;
-            font-size: 1.4rem;
-        }
-        
-        .service-detail p {
-            font-weight: 600;
-            color: #e67e22;
-            margin-top: 1rem;
-        }
-        
-        /* Remuneration Details */
-        .remuneration-details {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .fee-category {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            border: 1px solid #ddd;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-        
-        .fee-category h4 {
-            color: #e67e22;
-            margin-bottom: 1rem;
-            margin-top: 0;
-        }
-        
-        /* Conflict Categories */
-        .conflict-categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .conflict-type {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            border-left: 4px solid #d35400;
-        }
-        
-        .conflict-type h4 {
-            color: #d35400;
-            margin-bottom: 1rem;
-            margin-top: 0;
-        }
-        
-        /* Complaints Process Steps */
-        .complaints-process {
-            margin: 2rem 0;
-        }
-        
-        .step {
-            display: flex;
-            gap: 2rem;
-            margin: 2rem 0;
-            padding: 2rem;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-        
-        .step-number {
-            background: #e67e22;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-        
-        .step-content h4 {
-            color: #2c5aa0;
-            margin-bottom: 1rem;
-            margin-top: 0;
-        }
-        
-        /* External Complaints */
-        .external-complaints {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .external-option {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            border: 2px solid #2c5aa0;
-        }
-        
-        .external-option h4 {
-            color: #2c5aa0;
-            margin-bottom: 1rem;
-            margin-top: 0;
-        }
-        
-        .contact-info {
-            background: #f8f9fa;
-            padding: 1rem;
-            border-radius: 5px;
-            margin: 1rem 0;
-        }
-        
-        /* Privacy Summary */
-        .privacy-summary {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .privacy-item {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            border-left: 4px solid #27ae60;
-        }
-        
-        .privacy-item h4 {
-            color: #27ae60;
-            margin-bottom: 1rem;
-            margin-top: 0;
-        }
-        
-        /* Contact Grid */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .contact-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-        }
-        
-        .contact-card h3 {
-            color: #2c5aa0;
-            margin-bottom: 1rem;
-            margin-top: 0;
-        }
-        
-        .memberships {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
-        }
-        
-        .insurance-details {
-            background: #e8f4f8;
-            padding: 1.5rem;
-            border-radius: 5px;
-            margin: 2rem 0;
-        }
-        
-        /* Legal Disclaimers */
-        .legal-disclaimers {
-            padding: 60px 20px;
-            background: #f8f9fa;
-        }
-        
-        .disclaimers-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .disclaimer-box {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            border-left: 4px solid #e74c3c;
-        }
-        
-        .disclaimer-box h3 {
-            color: #e74c3c;
-            margin-bottom: 1rem;
-            margin-top: 0;
-        }
-        
-        .version-control {
-            background: #2c3e50;
-            color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
-            text-align: center;
-        }
-        
-        .version-control h3 {
-            color: #ecf0f1;
-            margin-bottom: 1rem;
-        }
-        
-        /* Highlight Boxes */
-        .highlight-box {
-            background: #e8f4f8;
-            border-left: 4px solid #2c5aa0;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-radius: 0 5px 5px 0;
-        }
-        
-        .highlight-box h4 {
-            color: #2c5aa0;
-            margin-bottom: 1rem;
-            margin-top: 0;
-        }
-        
-        .highlight-box a {
-            color: #2c5aa0;
-            font-weight: 600;
-        }
-        
-        /* CTA Section */
-        .cta-section {
-            background: #2c5aa0;
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-        }
-        
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .primary-button {
-            background: #e67e22;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-        }
-        
-        .primary-button:hover {
-            background: #d35400;
-            transform: translateY(-2px);
-        }
-        
-        .secondary-button {
-            background: transparent;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border: 2px solid white;
-            border-radius: 5px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-        }
-        
-        .secondary-button:hover {
-            background: white;
-            color: #2c5aa0;
-        }
-        
-        .large {
-            font-size: 1.2rem;
-            padding: 18px 36px;
-        }
-        
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            padding: 40px 20px 20px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-section h4 {
-            color: #e67e22;
-            margin-bottom: 1rem;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-section a:hover,
-        .footer-section a.active {
-            color: white;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid #555;
-            padding-top: 1rem;
-            text-align: center;
-            color: #ccc;
-        }
-        
-        .footer-bottom a.active {
-            color: #e67e22;
-            font-weight: 600;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
+        <!-- Trust Badges -->
+        <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {trustBadges.map((badge) => (
+            <div class="trust-badge bg-green-50 border border-green-500 rounded-lg shadow-sm p-4 flex items-center gap-3">
+              <div class="badge-icon text-green-600">
+                {badge.icon === 'shield' && (
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                )}
+                {badge.icon === 'experience' && (
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                )}
+                {badge.icon === 'network' && (
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                  </svg>
+                )}
+                {badge.icon === 'protection' && (
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                )}
+              </div>
+              
+              <div class="badge-content">
+                <div class="badge-title text-sm font-bold text-[#1C2C3B] leading-tight">
+                  {badge.title}
+                </div>
+                <div class="badge-subtitle text-gray-600 text-xs leading-tight">
+                  {badge.subtitle}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Quick Navigation Pills -->
+        <div class="mt-10">
+          <div class="quick-nav flex justify-center gap-3 flex-wrap">
+            {navigationItems.map((item) => (
+              <a href={item.href} class="quick-nav-pill bg-white border border-gray-300 rounded-full px-5 py-2 text-sm text-gray-700 hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all">
+                {item.text}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Entity Consistency Notice -->
+    <section class="py-8 bg-slate-50">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-4xl">
+          <div class="bg-gray-50 border-l-4 border-orange-500 p-4 rounded-md">
+            <p class="text-sm font-medium text-gray-700">
+              <strong>IMPORTANT NOTICE:</strong> Edgeview Finance is a trading name of <strong>Edgeview Mortgages Pty Ltd</strong> (ACN 167 233 712) Australian Credit Licence 459287. This Credit Guide meets all requirements under the National Consumer Credit Protection Act 2009 and provides you with important information about our services, relationships, and obligations.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Summary Box -->
+    <section class="py-12">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-4xl">
+          <SecuritySummaryBox
+            title={summaryContent.title}
+            items={summaryContent.items}
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- About Your Broker -->
+    <section id="about-broker" class="py-12 md:py-16">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-4xl">
+          <h2 class="text-4xl font-bold tracking-tight text-slate-900 mb-8">
+            About Your Broker
+          </h2>
+
+          <!-- Personal Introduction -->
+          <div class="prose max-w-none text-slate-600 mb-8">
+            <p class="text-sm leading-relaxed">
+              Meet <strong>Daniel Peters</strong> (Known as: Dan), your Australian Credit Representative and the principal of Edgeview Finance. With over 20 years in banking and finance, Dan brings deep industry expertise and a genuine commitment to putting your interests first.
+            </p>
+          </div>
+
+          <!-- Contact Information Box -->
+          <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm mb-8">
+            <h3 class="text-xl font-semibold text-slate-900 mb-4">Daniel Peters</h3>
+            <p class="text-sm text-slate-600 mb-4">Australian Credit Representative</p>
+            <div class="space-y-3">
+              <div class="flex items-center">
+                <svg class="h-5 w-5 text-slate-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <span class="text-sm font-medium">dan.peters@edgeviewfinance.com.au</span>
+              </div>
+              <div class="flex items-center">
+                <svg class="h-5 w-5 text-slate-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <span class="text-sm font-medium">1300 280 895</span>
+              </div>
+              <div class="flex items-center">
+                <svg class="h-5 w-5 text-slate-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6" />
+                </svg>
+                <span class="text-sm font-medium">20+ Years Finance Industry Experience</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Our Commitment Section -->
+          <div class="bg-gray-50 border border-gray-200 rounded-xl p-8 mb-8">
+            <div class="flex items-center gap-3 text-2xl font-bold text-[#1C2C3B] mb-6">
+              <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+              </svg>
+              OUR COMMITMENT TO YOU
+            </div>
+            <div class="text-gray-700">
+              <p class="text-sm mb-4">When you work with Edgeview Finance, you can count on us to:</p>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <div class="text-sm text-gray-700 leading-relaxed">
+                    <strong class="text-[#1C2C3B]">Act in your best interests at all times</strong> - it's not just our legal obligation, it's how we've built our reputation
+                  </div>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <div class="text-sm text-gray-700 leading-relaxed">
+                    <strong class="text-[#1C2C3B]">Provide clear, honest advice about your options</strong> - no jargon, no confusion, just straight talk about what works for your situation
+                  </div>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <div class="text-sm text-gray-700 leading-relaxed">
+                    <strong class="text-[#1C2C3B]">Maintain professional standards and competency</strong> - through ongoing training and industry involvement
+                  </div>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <div class="text-sm text-gray-700 leading-relaxed">
+                    <strong class="text-[#1C2C3B]">Respect your privacy and handle information securely</strong> - your financial information deserves the highest protection
+                  </div>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <div class="text-sm text-gray-700 leading-relaxed">
+                    <strong class="text-[#1C2C3B]">Support you throughout the entire process</strong> - from initial consultation through settlement and beyond
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="prose max-w-none text-slate-600">
+            <p class="mb-4 text-sm leading-relaxed">
+              Dan's background includes senior roles at major Australian banks and over 11 years as a specialist commercial finance broker. This combination of corporate banking experience and independent broking gives you the benefit of insider knowledge with personalised service.
+            </p>
+            <p class="font-medium text-slate-800 text-sm">
+              <strong>What this means for you:</strong> You're working with someone who understands both sides of the lending equation - what banks need to say yes, and what business owners need to succeed.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Lender Relationships -->
+    <section id="lender-relationships" class="py-12 md:py-16 bg-slate-50">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-4xl">
+          <h2 class="text-4xl font-bold tracking-tight text-slate-900 mb-8">
+            Our Lender Relationships
+          </h2>
+
+          <div class="text-center mb-10">
+            <p class="text-sm text-slate-600 max-w-3xl mx-auto">
+              We maintain active relationships with over 40 specialist lenders, giving you access to competitive rates and products you won't find going direct to a single bank.
+            </p>
+          </div>
+
+          <!-- Lender Categories -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <!-- Major Banks -->
+            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+              <h3 class="text-xl font-semibold text-slate-900 mb-4">Major Banks</h3>
+              <ul class="space-y-2 text-sm text-slate-600">
+                <li>• Commonwealth Bank</li>
+                <li>• Westpac</li>
+                <li>• ANZ</li>
+                <li>• NAB</li>
+                <li>• Judo Bank</li>
+                <li class="pt-2 text-xs text-slate-500">
+                  + many more
+                </li>
+              </ul>
+            </div>
+
+            <!-- Non-Bank Lenders -->
+            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+              <h3 class="text-xl font-semibold text-slate-900 mb-4">Non-Bank Lenders</h3>
+              <ul class="space-y-2 text-sm text-slate-600">
+                <li>• Resimac</li>
+                <li>• Liberty Financial</li>
+                <li>• La Trobe Financial</li>
+                <li>• RedZed</li>
+                <li>• Pepper Money</li>
+                <li class="pt-2 text-xs text-slate-500">
+                  + many more
+                </li>
+              </ul>
+            </div>
+
+            <!-- Commercial Specialists -->
+            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+              <h3 class="text-xl font-semibold text-slate-900 mb-4">Commercial Specialists</h3>
+              <ul class="space-y-2 text-sm text-slate-600">
+                <li>• Pepper Commercial</li>
+                <li>• Easypay</li>
+                <li>• Moneytech</li>
+                <li>• Prime Capital</li>
+                <li>• Prospa Business Loans</li>
+                <li class="pt-2 text-xs text-slate-500">
+                  + many more
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- What This Means For You Box -->
+          <div class="bg-gray-50 border border-gray-200 rounded-xl p-6">
+            <div class="flex items-center gap-3 text-2xl font-bold text-[#1C2C3B] mb-4">
+              <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+              </svg>
+              WHAT THIS MEANS FOR YOU
+            </div>
+            <div class="space-y-3 text-gray-700">
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <div class="text-sm text-gray-700 leading-relaxed">
+                  <strong class="text-[#1C2C3B]">Access to competitive rates across all markets</strong> - we compare options you can't access directly
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <div class="text-sm text-gray-700 leading-relaxed">
+                  <strong class="text-[#1C2C3B]">Products not available direct to consumers</strong> - specialist business lenders with unique solutions
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <div class="text-sm text-gray-700 leading-relaxed">
+                  <strong class="text-[#1C2C3B]">Expert matching of your needs to suitable lenders</strong> - 20+ years experience in credit assessment
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <div class="text-sm text-gray-700 leading-relaxed">
+                  <strong class="text-[#1C2C3B]">Ongoing relationship management and support</strong> - we maintain relationships so you don't have to
+                </div>
+              </div>
+            </div>
+            <div class="mt-6">
+              <p class="font-medium text-[#1C2C3B] text-sm leading-relaxed">
+                <strong>The Broker Advantage:</strong> While banks can only offer their own products, we can shop the entire market to find the right fit for your unique situation. This often means better rates, terms, and approval chances than going direct.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fees and Commissions -->
+    <section id="fees-commissions" class="py-12 md:py-16">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-4xl">
+          <h2 class="text-4xl font-bold tracking-tight text-slate-900 mb-6">
+            Fees and Commissions - Complete Transparency
+          </h2>
+
+          <!-- Residential Lending Box -->
+          <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm mb-4">
+            <div class="flex items-center mb-3">
+              <h3 class="text-xl font-medium text-[#1C2C3B]">RESIDENTIAL LENDING</h3>
+            </div>
             
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
+            <div class="text-center mb-3">
+              <p class="text-xl font-semibold text-[#1C2C3B]">YOU PAY NOTHING FOR OUR SERVICE</p>
+            </div>
+
+            <div class="text-gray-700 space-y-1 mb-3">
+              <div class="flex items-center">
+                <svg class="h-4 w-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-sm">No upfront fees to you</span>
+              </div>
+              <div class="flex items-center">
+                <svg class="h-4 w-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-sm">No ongoing service charges to you</span>
+              </div>
+              <div class="flex items-center">
+                <svg class="h-4 w-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-sm">No hidden costs or surprises</span>
+              </div>
+              <div class="flex items-center">
+                <svg class="h-4 w-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-sm">We're paid by lenders after successful settlement</span>
+              </div>
+            </div>
+
+            <p class="text-gray-700 font-medium text-sm">
+              <strong>Why this works:</strong> Lenders pay us because we bring them quality applications and save them marketing costs. You get expert service at no cost while gaining access to better rates and products.
+            </p>
+          </div>
+
+          <!-- Commercial Lending Box -->
+          <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm mb-4">
+            <div class="flex items-center mb-3">
+              <h3 class="text-xl font-medium text-[#1C2C3B]">COMMERCIAL LENDING</h3>
+            </div>
             
-            .hero-meta {
-                flex-direction: column;
-                gap: 1rem;
-            }
+            <div class="text-center mb-3">
+              <p class="text-sm font-medium text-[#1C2C3B]">Complex transactions may incur work fees disclosed upfront. Simple commercial loans typically have no fees to you.</p>
+            </div>
+
+            <div class="text-gray-700 space-y-2 mb-3">
+              <div class="flex items-start">
+                <svg class="h-4 w-4 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-sm"><strong>Simple business loans:</strong> Usually no fees to you (paid by lender like residential)</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="h-4 w-4 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-sm"><strong>Complex structuring work:</strong> May incur professional service fees disclosed before you proceed</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="h-4 w-4 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-sm"><strong>Business acquisitions, sophisticated structures:</strong> Work fees may apply due to extensive preparation required</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="h-4 w-4 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-sm"><strong>All fees always disclosed upfront</strong> - no surprises, ever</span>
+              </div>
+            </div>
+
+            <p class="text-gray-700 font-medium text-sm">
+              <strong>The difference:</strong> Most business loans work like home loans - we're paid by the lender. Only complex deals requiring extensive structuring work may incur fees, which we'll discuss clearly before starting.
+            </p>
+          </div>
+
+          <!-- How We're Actually Paid Box -->
+          <div class="bg-gray-50 border-l-4 border-orange-500 rounded-md p-4 mb-4">
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-orange-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <div class="text-gray-700 leading-relaxed">
+                <h3 class="text-xl font-medium text-[#1C2C3B] mb-3">HOW WE'RE ACTUALLY PAID</h3>
+                <div class="space-y-3">
+                <div>
+                  <h4 class="text-base font-semibold mb-1">UPFRONT COMMISSION (paid by lender at settlement):</h4>
+                  <ul class="space-y-0.5 ml-3 text-sm">
+                    <li>• Residential loans: Typically 0.60% - 0.70% of loan amount</li>
+                    <li>• Commercial loans: Typically 0.50% - 1.00% of loan amount</li>
+                  </ul>
+                </div>
+                
+                <div>
+                  <h4 class="text-base font-semibold mb-1">TRAIL COMMISSION (paid by lender annually):</h4>
+                  <ul class="space-y-0.5 ml-3 text-sm">
+                    <li>• Residential loans: Typically 0.15% - 0.20% per year of outstanding balance</li>
+                    <li>• Commercial loans: Typically 0.10% - 0.25% per year of outstanding balance</li>
+                  </ul>
+                </div>
+                
+                <p class="font-medium text-[#1C2C3B] text-sm mt-3">
+                  <strong>Important:</strong> These commissions are built into lender interest rates whether you use a broker or go direct. The rate you receive often beats going direct because of our volume relationships.
+                </p>
+              </div>
+            </div>
+            </div>
+
+          </div>
+
+          <!-- Why This Benefits You Box -->
+          <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-4">
+            <div class="flex items-center gap-3 text-2xl font-medium text-[#1C2C3B] mb-4">
+              <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+              </svg>
+              WHY THIS BENEFITS YOU
+            </div>
+
+            <div class="space-y-3 text-gray-700">
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <div class="text-gray-700 leading-relaxed text-sm">
+                  <strong class="text-[#1C2C3B]">No cost to access our expertise</strong> - you pay the same rate you'd get direct (often better)
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <div class="text-gray-700 leading-relaxed text-sm">
+                  <strong class="text-[#1C2C3B]">We negotiate better rates than you could direct</strong> - volume relationships mean better terms
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <div class="text-gray-700 leading-relaxed text-sm">
+                  <strong class="text-[#1C2C3B]">Professional application management included</strong> - no extra cost for expert preparation
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <div class="text-gray-700 leading-relaxed text-sm">
+                  <strong class="text-[#1C2C3B]">Ongoing support throughout loan life</strong> - annual reviews, refinancing advice, portfolio management
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <div class="text-gray-700 leading-relaxed text-sm">
+                  <strong class="text-[#1C2C3B]">Multiple lender options vs single direct option</strong> - choice means better outcomes
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Your Rights and Protections -->
+    <section id="rights-protections" class="py-8 md:py-12 bg-slate-50">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-4xl">
+          <h2 class="text-4xl font-bold tracking-tight text-slate-900 mb-6">
+            Your Rights and Protections
+          </h2>
+
+          <!-- Rights Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            <!-- Card 1: Best Interest Duty -->
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-4 text-center hover:border-orange-500 hover:-translate-y-1 hover:shadow-lg transition-all flex flex-col justify-between h-full">
+              <div class="flex-grow">
+                <h3 class="text-base font-bold text-[#1C2C3B] mb-2">BEST INTEREST DUTY</h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-3">
+                  We must act in your best interests at all times - not the lender's interests, not our own interests, but yours. Every recommendation must be suitable for your situation, even if it means lower commission for us.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 2: Right to Information -->
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-4 text-center hover:border-orange-500 hover:-translate-y-1 hover:shadow-lg transition-all flex flex-col justify-between h-full">
+              <div class="flex-grow">
+                <h3 class="text-base font-bold text-[#1C2C3B] mb-2">RIGHT TO INFORMATION</h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-3">
+                  You can request specific details about commissions, payments, and our relationships with lenders at any time. Full transparency about how we're paid and any potential conflicts of interest.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 3: Complaint Resolution -->
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-4 text-center hover:border-orange-500 hover:-translate-y-1 hover:shadow-lg transition-all flex flex-col justify-between h-full">
+              <div class="flex-grow">
+                <h3 class="text-base font-bold text-[#1C2C3B] mb-2">COMPLAINT RESOLUTION</h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-3">
+                  Internal dispute resolution within 30 days, plus access to free external dispute resolution. Multiple avenues to resolve any concerns quickly and fairly.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 4: Credit Information Rights -->
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-4 text-center hover:border-orange-500 hover:-translate-y-1 hover:shadow-lg transition-all flex flex-col justify-between h-full">
+              <div class="flex-grow">
+                <h3 class="text-base font-bold text-[#1C2C3B] mb-2">CREDIT INFORMATION RIGHTS</h3>
+                <p class="text-sm text-gray-600 leading-relaxed mb-3">
+                  Access and correct your credit report information, understand how it's used in applications. Full transparency about credit checks and how your information is used.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- AFCA External Dispute Resolution Box -->
+          <div class="bg-gray-50 border-l-4 border-orange-500 rounded-md p-4">
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-orange-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <div class="text-gray-700 leading-relaxed">
+                <h3 class="text-xl font-semibold text-[#1C2C3B] mb-3">EXTERNAL DISPUTE RESOLUTION</h3>
+
+                <div class="mb-4">
+                  <h4 class="text-base font-semibold text-[#1C2C3B] mb-3">Australian Financial Complaints Authority (AFCA)</h4>
+                  <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-gray-700">
+                    <div class="flex items-center">
+                      <svg class="h-4 w-4 text-orange-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                      </svg>
+                      <span class="text-sm"><strong>Phone:</strong> 1800 931 678</span>
+                    </div>
+                    <div class="flex items-center">
+                      <svg class="h-4 w-4 text-orange-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9" />
+                      </svg>
+                      <span class="text-sm"><strong>Website:</strong> afca.org.au</span>
+                    </div>
+                    <div class="flex items-center">
+                      <svg class="h-4 w-4 text-orange-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                      <span class="text-sm"><strong>Email:</strong> info@afca.org.au</span>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="text-sm text-gray-700 mb-3">
+                  AFCA provides free, fair and independent financial services complaint resolution. If we can't resolve a concern internally within 30 days, AFCA can help at no cost to you.
+                </p>
+
+                <p class="font-medium text-[#1C2C3B] text-sm">
+                  <strong>Your protection:</strong> Independent oversight ensures fair treatment and resolution of any disputes.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How We Work Together -->
+    <section class="py-12 md:py-16">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-4xl">
+          <h2 class="text-4xl font-bold tracking-tight text-slate-900 mb-8">
+            How We Work Together
+          </h2>
+
+          <!-- Our Process Flow -->
+          <div class="mb-12">
+            <h3 class="text-xl font-bold text-slate-900 mb-8 text-center">OUR 6-STEP PROCESS</h3>
             
-            .nav-menu {
-                display: none;
-            }
-            
-            .nav-links {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .credit-section h2 {
-                font-size: 2rem;
-            }
-            
-            .licensee-details,
-            .representative-details,
-            .services-grid,
-            .remuneration-details,
-            .conflict-categories,
-            .external-complaints,
-            .privacy-summary,
-            .contact-grid,
-            .disclaimers-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .step {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .credit-section {
-                padding: 40px 10px;
-            }
-            
-            .container {
-                padding: 0 10px;
-            }
-            
-            .detail-card,
-            .rep-card,
-            .service-detail,
-            .fee-category,
-            .conflict-type,
-            .step,
-            .external-option,
-            .privacy-item,
-            .contact-card,
-            .disclaimer-box {
-                padding: 1.5rem;
-            }
-        }
-    </style>
-</body>
-</html>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <!-- Step 1 -->
+              <div class="text-center">
+                <div class="flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mx-auto mb-4">
+                  <svg class="h-8 w-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                </div>
+                <h4 class="text-base font-semibold text-slate-900 mb-2">1. DISCOVERY CALL</h4>
+                <p class="text-sm text-slate-600">Understand your needs, goals, and current situation</p>
+              </div>
+
+              <!-- Step 2 -->
+              <div class="text-center">
+                <div class="flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mx-auto mb-4">
+                  <svg class="h-8 w-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </div>
+                <h4 class="text-base font-semibold text-slate-900 mb-2">2. LENDER SEARCH</h4>
+                <p class="text-sm text-slate-600">Research and identify best-fit lenders for your application</p>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="text-center">
+                <div class="flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mx-auto mb-4">
+                  <svg class="h-8 w-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <h4 class="text-base font-semibold text-slate-900 mb-2">3. DOCUMENT PREPARATION</h4>
+                <p class="text-sm text-slate-600">Professional application preparation with all required documentation</p>
+              </div>
+
+              <!-- Step 4 -->
+              <div class="text-center">
+                <div class="flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mx-auto mb-4">
+                  <svg class="h-8 w-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                </div>
+                <h4 class="text-base font-semibold text-slate-900 mb-2">4. PRESENT OPTIONS</h4>
+                <p class="text-sm text-slate-600">Clear presentation of available options with pros and cons</p>
+              </div>
+
+              <!-- Step 5 -->
+              <div class="text-center">
+                <div class="flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mx-auto mb-4">
+                  <svg class="h-8 w-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                  </svg>
+                </div>
+                <h4 class="text-base font-semibold text-slate-900 mb-2">5. SUBMIT APPLICATIONS</h4>
+                <p class="text-sm text-slate-600">Professional submission to chosen lenders with ongoing management</p>
+              </div>
+
+              <!-- Step 6 -->
+              <div class="text-center">
+                <div class="flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mx-auto mb-4">
+                  <svg class="h-8 w-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+                  </svg>
+                </div>
+                <h4 class="text-base font-semibold text-slate-900 mb-2">6. SETTLEMENT SUPPORT</h4>
+                <p class="text-sm text-slate-600">Coordinate settlement process and ongoing portfolio management</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Footer Navigation -->
+    <section class="footer-nav bg-gray-50 py-10 border-t border-gray-200 text-center">
+        <div class="container mx-auto max-w-4xl px-6">
+            <div class="text-lg font-semibold text-[#1C2C3B] mb-4">
+                Related Compliance Pages
+            </div>
+            <div class="footer-links flex justify-center gap-6 mb-6 flex-wrap">
+                <a href="/privacy-policy" class="footer-link text-gray-600 hover:text-orange-500 hover:underline transition-all">Privacy Policy</a>
+                <span class="footer-divider text-gray-300">|</span>
+                <a href="/data-security-policy" class="footer-link text-gray-600 hover:text-orange-500 hover:underline transition-all">Data Security Policy</a>
+                <span class="footer-divider text-gray-300">|</span>
+                <a href="/terms-of-use" class="footer-link text-gray-600 hover:text-orange-500 hover:underline transition-all">Website Terms</a>
+            </div>
+            <a href="#hero" class="back-to-top inline-flex items-center gap-2 text-orange-500 font-medium hover:-translate-y-1 transition-all">
+                <svg class="back-to-top-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                </svg>
+                Return to Top
+            </a>
+        </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .trust-badge:hover {
+    @apply border-gray-300 shadow-md transform scale-105;
+    transition: all 0.2s ease-in-out;
+  }
+</style>
+
+<script>
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+</script>

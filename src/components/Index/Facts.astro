@@ -6,55 +6,37 @@ const { header, experienceYears, customers, projectsCompleted } =
   FactsData?.data;
 ---
 
-<section class='section-fact'>
-  <div class='z-10 bg-[#121212]'>
-    <div class='section-space'>
-      <div class='container-default'>
-        <div
-          class='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-[0.8fr_minmax(0,_1fr)] xl:gap-20 xxl:gap-[100px]'>
-          <div>
-            <div class='mb-5'>
-              <h2
-                class='text-center font-PublicSans text-4xl font-bold leading-[1.14] text-[#FDFBF9] lg:text-left lg:text-5xl xl:text-[56px]'>
-                {header}
-              </h2>
-            </div>
+<section class='section-fact bg-gray-50 py-16'>
+  <div class='container-default'>
+    <div class='text-center mb-12'>
+      <h2 class='font-InstrumentSans text-3xl lg:text-4xl font-bold text-[#1C2C3B]'>
+        WHY TRADE BUSINESSES TRUST EDGEVIEW FINANCE
+      </h2>
+    </div>
+    <div class='max-w-5xl mx-auto'>
+      <div class='grid grid-cols-1 md:grid-cols-3 gap-8'>
+        <div class='text-center relative md:after:absolute md:after:right-0 md:after:top-1/2 md:after:h-16 md:after:w-0.5 md:after:-translate-y-1/2 md:after:bg-[#FF9E10] last:after:hidden'>
+          <div class='font-InstrumentSans text-5xl lg:text-6xl font-bold text-[#FF9E10] mb-2'>
+            20+
           </div>
-          <div class='grid grid-cols-1 gap-y-6 sm:grid-cols-3'>
-            <div
-              class='relative px-0 text-center after:absolute after:left-full after:top-1/2 after:hidden after:h-10 after:w-0.5 after:-translate-y-1/2 after:bg-primary-orange first:pl-0 last:pr-0 last:after:hidden sm:px-10 sm:after:block'>
-              <div>
-                <div
-                  class='mb-[5px] font-PublicSans text-5xl font-bold leading-[1.14] text-[#FDFBF9] xl:text-[56px]'
-                  data-module='countup'>
-                  <span class='start-number' data-countup-number='15'>{experienceYears}</span>+
-                </div>
-                <span class='text-[#FDFBF9]/60'>Years of experience</span>
-              </div>
-            </div>
-            <div
-              class='relative px-0 text-center after:absolute after:left-full after:top-1/2 after:hidden after:h-10 after:w-0.5 after:-translate-y-1/2 after:bg-primary-orange first:pl-0 last:pr-0 last:after:hidden sm:px-10 sm:after:block'>
-              <div>
-                <div
-                  class='mb-[5px] font-PublicSans text-5xl font-bold leading-[1.14] text-[#FDFBF9] xl:text-[56px]'
-                  data-module='countup'>
-                  <span class='start-number' data-countup-number='84'>{customers}</span>K
-                </div>
-                <span class='text-[#FDFBF9]/60'>Customers worldwide</span>
-              </div>
-            </div>
-            <div
-              class='relative px-0 text-center after:absolute after:left-full after:top-1/2 after:hidden after:h-10 after:w-0.5 after:-translate-y-1/2 after:bg-primary-orange first:pl-0 last:pr-0 last:after:hidden sm:px-10 sm:after:block'>
-              <div>
-                <div
-                  class='mb-[5px] font-PublicSans text-5xl font-bold leading-[1.14] text-[#FDFBF9] xl:text-[56px]'
-                  data-module='countup'>
-                  <span class='start-number' data-countup-number='600'>{projectsCompleted}</span
-                  >+
-                </div>
-                <span class='text-[#FDFBF9]/60'>Project completed</span>
-              </div>
-            </div>
+          <div class='text-gray-600 text-sm lg:text-base font-medium uppercase tracking-wider'>
+            Years Banking<br/>Experience
+          </div>
+        </div>
+        <div class='text-center relative md:after:absolute md:after:right-0 md:after:top-1/2 md:after:h-16 md:after:w-0.5 md:after:-translate-y-1/2 md:after:bg-[#FF9E10] last:after:hidden'>
+          <div class='font-InstrumentSans text-5xl lg:text-6xl font-bold text-[#FF9E10] mb-2'>
+            100+
+          </div>
+          <div class='text-gray-600 text-sm lg:text-base font-medium uppercase tracking-wider'>
+            Businesses<br/>Funded
+          </div>
+        </div>
+        <div class='text-center'>
+          <div class='font-InstrumentSans text-5xl lg:text-6xl font-bold text-[#FF9E10] mb-2'>
+            $500M+
+          </div>
+          <div class='text-gray-600 text-sm lg:text-base font-medium uppercase tracking-wider'>
+            In Finance<br/>Settled
           </div>
         </div>
       </div>

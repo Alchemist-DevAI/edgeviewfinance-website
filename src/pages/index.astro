@@ -1,286 +1,40 @@
 ---
-// EVFBS Homepage with Refined Spacing and Layout
-export const prerender = true;
-
-import Agency11Layout from '../layouts/Agency11Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-
-const siteData = {
-  title: "Expert Commercial Finance Solutions | Edgeview Finance",
-  description: "Professional commercial finance solutions for Australian businesses. Specialising in equipment finance, asset finance, and business loans with competitive rates and expert guidance. Zero upfront fees.",
-  keywords: "commercial finance Australia, equipment finance, business loans, asset finance, trade finance, professional finance broker"
-};
-
-const heroData = {
-  data: {
-    header: "Expert Commercial Finance Solutions",
-    description: "Access competitive commercial finance solutions with expert guidance. Our experienced team specialises in equipment finance, asset finance, and business loans for established Australian businesses. Zero upfront fees.",
-    buttonPrimary: {
-      text: "Get Quote in 60 Seconds",
-      link: "/get-quote"
-    },
-    buttonSecondary: {
-      text: "Call 1300 733 856",
-      link: "tel:1300733856"
-    }
-  }
-};
+import { getEntryBySlug } from "astro:content";
+import Layout from "../layout/Layout.astro";
+import HeroSection from "../components/Index/HeroSection.astro";
+import ValueStackSection from "../components/Index/ValueStackSection.astro";
+import ServiceGrid from "../components/Index/ServiceGrid.astro";
+import ProcessSection from "../components/Index/ProcessSection.astro";
+import LenderLogos from "../components/Index/LenderLogos.astro";
+import Facts from "../components/Index/Facts.astro";
+import CredibilityMatrix from "../components/Index/CredibilityMatrix.astro";
+import ContentArea from "../components/Index/ContentSection.astro";
+import ContentSectionTwo from "../components/Index/ContentSectionTwo.astro";
+import VideoSection from "../components/Index/VideoSection.astro";
+import PortfolioSlider from "../components/Portfolio/PortfolioSlider.astro";
+import BlogSection from "../components/Index/BlogSection.astro";
+import NewsLetter from "../components/Index/NewsLetter.astro";
+import TestimonialSection from "../components/Index/TestimonialSection.astro";
+const HeroSectionData = await getEntryBySlug("IndexPage", "hero");
+const ValueStackData = await getEntryBySlug("IndexPage", "value-stack");
+const {
+  data: { sliderText },
+} = await getEntryBySlug("portfolio", "index");
 ---
 
-<Agency11Layout title={siteData.title} description={siteData.description} keywords={siteData.keywords}>
-  <Header />
-  
-  <main>
-    <!-- Hero Section with Refined Spacing -->
-    <section class='relative z-10 overflow-hidden'>
-      <div class='section-hero'>
-        <div class='container-default relative z-10'>
-            <div class='text-center'>
-              <h1 class='jos heading-primary mx-auto mb-8 font-PublicSans max-w-5xl'>
-                {heroData.data.header}
-              </h1>
-              <p class='jos body-large mx-auto mb-10 max-w-2xl'>
-                {heroData.data.description}
-              </p>
-              <div class='jos flex flex-wrap justify-center button-gap'>
-                <a href={heroData.data.buttonPrimary.link} class='btn is-primary is-large btn-animation group rounded bg-primary-orange hover:bg-primary-orange-dark text-white px-8 py-4 font-semibold text-base lg:text-lg transition-all duration-200 shadow-lg hover:shadow-xl'>
-                  <span>{heroData.data.buttonPrimary.text}</span>
-                </a>
-                <a href={heroData.data.buttonSecondary.link} class='btn is-outline-black is-large btn-animation group rounded border-2 border-secondary-dark text-secondary-dark hover:bg-secondary-dark hover:text-white px-8 py-4 font-semibold text-base lg:text-lg transition-all duration-200'>
-                  <span>{heroData.data.buttonSecondary.text}</span>
-                </a>
-              </div>
-            </div>
-            
-            <!-- Trust Signals with Better Spacing -->
-            <div class="mt-16 flex flex-wrap justify-center gap-x-12 gap-y-6 text-center">
-              <div class="flex flex-col items-center space-y-1">
-                <span class="text-4xl font-bold text-primary-orange">15+</span>
-                <span class="text-sm text-gray-600 font-medium">Years Experience</span>
-              </div>
-              <div class="flex flex-col items-center space-y-1">
-                <span class="text-4xl font-bold text-primary-orange">98%</span>
-                <span class="text-sm text-gray-600 font-medium">Approval Rate</span>
-              </div>
-              <div class="flex flex-col items-center space-y-1">
-                <span class="text-4xl font-bold text-primary-orange">$500M+</span>
-                <span class="text-sm text-gray-600 font-medium">Funded</span>
-              </div>
-              <div class="flex flex-col items-center space-y-1">
-                <span class="text-4xl font-bold text-primary-orange">Zero</span>
-                <span class="text-sm text-gray-600 font-medium">Upfront Fees</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Services Section with Refined Grid and Spacing -->
-    <section class="section-content bg-neutral-light">
-      <div class="container-default">
-        <div class="text-center mb-16 lg:mb-20">
-          <h2 class="heading-secondary mb-6">
-            Professional Commercial Finance Solutions
-          </h2>
-          <p class="body-large max-w-3xl mx-auto">
-            Our experienced team provides professional commercial finance solutions. 
-            Transparent processes, competitive rates, expert guidance.
-          </p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
-          <!-- Equipment Finance Card -->
-          <div class="service-card-consistent border-t-4 border-primary-orange">
-            <div class="flex items-center mb-6">
-              <div class="w-14 h-14 bg-primary-orange rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              </div>
-              <h3 class="text-2xl lg:text-3xl font-bold text-secondary-dark">Equipment Finance</h3>
-            </div>
-            <p class="text-gray-700 mb-6 leading-relaxed">
-              Access competitive equipment finance solutions tailored to your business needs. 
-              Professional service with flexible terms and comprehensive support.
-            </p>
-            <div class="space-y-3 mb-8">
-              <div class="flex items-center">
-                <svg class="w-5 h-5 text-primary-orange mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
-                <span class="text-base">$20K to $500K+ funding</span>
-              </div>
-              <div class="flex items-center">
-                <svg class="w-5 h-5 text-primary-orange mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
-                <span class="text-base">Zero upfront fees</span>
-              </div>
-              <div class="flex items-center">
-                <svg class="w-5 h-5 text-primary-orange mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
-                <span class="text-base">Flexible payment terms</span>
-              </div>
-            </div>
-            <a href="/services/equipment-finance" class="inline-flex items-center text-primary-orange font-semibold hover:text-primary-orange-dark transition-colors text-base">
-              Learn More 
-              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </a>
-          </div>
-
-          <!-- Commercial Loans Card -->
-          <div class="service-card-consistent border-t-4 border-secondary-dark">
-            <div class="flex items-center mb-6">
-              <div class="w-14 h-14 bg-secondary-dark rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 class="text-2xl lg:text-3xl font-bold text-secondary-dark">Commercial Loans</h3>
-            </div>
-            <p class="text-gray-700 mb-6 leading-relaxed">
-              Comprehensive working capital solutions designed for established businesses. 
-              Expert guidance through streamlined processes.
-            </p>
-            <div class="space-y-3 mb-8">
-              <div class="flex items-center">
-                <svg class="w-5 h-5 text-primary-orange mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
-                <span class="text-base">Working capital up to $250K</span>
-              </div>
-              <div class="flex items-center">
-                <svg class="w-5 h-5 text-primary-orange mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
-                <span class="text-base">Streamlined application</span>
-              </div>
-              <div class="flex items-center">
-                <svg class="w-5 h-5 text-primary-orange mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
-                <span class="text-base">Use funds for anything</span>
-              </div>
-            </div>
-            <a href="/services/commercial-loans" class="inline-flex items-center text-secondary-dark font-semibold hover:text-primary-orange transition-colors text-base">
-              Learn More 
-              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </a>
-          </div>
-
-          <!-- Asset Finance Card -->
-          <div class="service-card-consistent border-t-4 border-primary-orange">
-            <div class="flex items-center mb-6">
-              <div class="w-14 h-14 bg-gradient-to-r from-primary-orange to-secondary-dark rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
-              </div>
-              <h3 class="text-2xl lg:text-3xl font-bold text-secondary-dark">Asset Finance</h3>
-            </div>
-            <p class="text-gray-700 mb-6 leading-relaxed">
-              Own your equipment, don't rent it. Build business equity while you use the assets that make you money.
-            </p>
-            <div class="space-y-3 mb-8">
-              <div class="flex items-center">
-                <svg class="w-5 h-5 text-primary-orange mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
-                <span class="text-base">100% asset financing available</span>
-              </div>
-              <div class="flex items-center">
-                <svg class="w-5 h-5 text-primary-orange mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
-                <span class="text-base">Build business equity</span>
-              </div>
-              <div class="flex items-center">
-                <svg class="w-5 h-5 text-primary-orange mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
-                <span class="text-base">Tax benefits included</span>
-              </div>
-            </div>
-            <a href="/services/asset-finance" class="inline-flex items-center text-primary-orange font-semibold hover:text-primary-orange-dark transition-colors text-base">
-              Learn More 
-              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </a>
-          </div>
-
-          <!-- Hire Purchase Card -->
-          <div class="service-card-consistent border-t-4 border-secondary-dark">
-            <div class="flex items-center mb-6">
-              <div class="w-14 h-14 bg-secondary-dark rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-                </svg>
-              </div>
-              <h3 class="text-2xl lg:text-3xl font-bold text-secondary-dark">Hire Purchase</h3>
-            </div>
-            <p class="text-gray-700 mb-6 leading-relaxed">
-              Get equipment now, own it later. Spread costs over time while your new equipment pays for itself.
-            </p>
-            <div class="space-y-3 mb-8">
-              <div class="flex items-center">
-                <svg class="w-5 h-5 text-primary-orange mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
-                <span class="text-base">Own the asset at the end</span>
-              </div>
-              <div class="flex items-center">
-                <svg class="w-5 h-5 text-primary-orange mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
-                <span class="text-base">Low deposit options</span>
-              </div>
-              <div class="flex items-center">
-                <svg class="w-5 h-5 text-primary-orange mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
-                <span class="text-base">Competitive rates</span>
-              </div>
-            </div>
-            <a href="/services/hire-purchase" class="inline-flex items-center text-secondary-dark font-semibold hover:text-primary-orange transition-colors text-base">
-              Learn More 
-              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA Section with Better Spacing -->
-    <section class="section-cta bg-gradient-to-br from-primary-orange to-secondary-dark">
-      <div class="container-default text-center">
-        <h2 class="heading-secondary text-white mb-6">
-          Ready to Get Started?
-        </h2>
-        <p class="body-large text-white/90 max-w-2xl mx-auto mb-10">
-          Join thousands of Australian businesses that trust us with their commercial finance needs. 
-          Fast approvals, competitive rates, zero upfront fees.
-        </p>
-        <div class="flex flex-wrap justify-center button-gap">
-          <a href="/get-quote" class="bg-white text-secondary-dark hover:bg-neutral-light px-8 py-4 rounded font-semibold text-base lg:text-lg transition-all duration-200 shadow-xl hover:shadow-2xl">
-            Get Your Quote
-          </a>
-          <a href="/contact" class="border-2 border-white text-white hover:bg-white hover:text-secondary-dark px-8 py-4 rounded font-semibold text-base lg:text-lg transition-all duration-200">
-            Contact an Expert
-          </a>
-        </div>
-      </div>
-    </section>
+<Layout title='Home Page'>
+  <main class='main-wrapper relative overflow-hidden'>
+    <HeroSection HeroSectionData={HeroSectionData} />
+    <ValueStackSection ValueStackData={ValueStackData} />
+    <ContentArea />
+    <Facts />
+    <ProcessSection />
+    <LenderLogos />
+    <ServiceGrid />
+    <TestimonialSection />
+    <CredibilityMatrix />
+    <VideoSection />
+    <BlogSection />
   </main>
-
-  <Footer />
-</Agency11Layout>
+  <NewsLetter />
+</Layout>

@@ -1,0 +1,73 @@
+---
+import { getEntryBySlug } from "astro:content";
+import Layout from "../layout/Layout.astro";
+import ComingSoonForm from "../components/functional/ComingSoonForm";
+import Logo from "../components/ui/Logo.astro";
+const ComingSoonData = await getEntryBySlug("comingSoon", "index");
+const { title, form, description } = ComingSoonData.data;
+const {
+  data: { web3AccessKey },
+} = await getEntryBySlug("site", "meta");
+---
+
+<Layout title='Coming Soon'>
+  <div class='page-wrapper relative z-[1] bg-ColorOffWhite'>
+    <main class='main-wrapper relative overflow-hidden'>
+      <section class='section-signin'>
+        <div class='section-space'>
+          <div class='container-default'>
+            <div class='mx-auto max-w-[856px]'>
+              <div
+                class='flex flex-col items-center justify-center text-center'>
+                <Logo link='/' css='mb-[60px] lg:mb-20 xl:mb-[100px]' />
+                <div
+                  class='jos mb-10 grid grid-cols-2 gap-10 text-center text-[62px] font-bold leading-none text-ColorLime sm:flex sm:flex-row sm:gap-20 md:gap-x-[100px] lg:mb-[60px]'>
+                  <div
+                    class="relative flex flex-col gap-y-[5px] after:absolute after:left-[calc(100%+_30px)] after:top-0 after:content-none last:after:content-none sm:after:content-['_:'] md:after:left-[calc(100%+_40px)]">
+                    <div class='days'></div>
+                    <span class='text-xl font-medium capitalize'>Days</span>
+                  </div>
+
+                  <div
+                    class="relative flex flex-col gap-y-[5px] after:absolute after:left-[calc(100%+_30px)] after:top-0 after:content-none last:after:content-none sm:after:content-['_:'] md:after:left-[calc(100%+_40px)]">
+                    <div class='hours'></div>
+                    <span class='text-xl font-medium capitalize'>Hours</span>
+                  </div>
+
+                  <div
+                    class="relative flex flex-col gap-y-[5px] after:absolute after:left-[calc(100%+_30px)] after:top-0 after:content-none last:after:content-none sm:after:content-['_:'] md:after:left-[calc(100%+_40px)]">
+                    <div class='minutes'></div>
+                    <span class='text-xl font-medium capitalize'>Minutes</span>
+                  </div>
+
+                  <div
+                    class="relative flex flex-col gap-y-[5px] after:absolute after:left-[calc(100%+_30px)] after:top-0 after:content-none last:after:content-none sm:after:content-['_:'] md:after:left-[calc(100%+_40px)]">
+                    <div class='seconds'></div>
+                    <span class='text-xl font-medium capitalize'>Seconds</span>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <h2 class='mb-10'>
+                      {title}
+                    </h2>
+                  </div>
+                </div>
+                <div class='jos'>
+                  <ComingSoonForm
+                    client:only='react'
+                    formData={form}
+                    web3AccessKey={web3AccessKey}
+                  />
+                  <p class='mt-3'>
+                    {description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</Layout>

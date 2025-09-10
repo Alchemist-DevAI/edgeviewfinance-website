@@ -1,1279 +1,741 @@
 ---
-// EVFBS About Page - Professional Commercial Finance Partnership
-// Optimized for "Ben the Business Builder" ICP
-export const prerender = true;
+import Layout from '../layout/Layout.astro';
+import NewsLetter from '../components/Index/NewsLetter.astro';
 
-const siteData = {
-  title: "About Edgeview Finance Business Solutions | Strategic Commercial Finance Partnership",
-  description: "Meet the strategic commercial finance partnership team specializing in Australian trades and service businesses. Professional assessment, AI-enhanced approach, and expert credentials for sustainable business growth.",
-  keywords: "about EVFBS, commercial finance broker Australia, finance partnership, trade finance specialist, professional credentials ACL"
-};
+// Page metadata - Based on MASTER-COPY.md SEO specifications
+const title = "About Dan Peters & Edgeview Finance Team | Queensland Finance Broking Specialists";
+const description = "Meet Queensland's most experienced finance broking specialists. Dan Peters brings 20+ years of cross-industry expertise to trades businesses, covering residential and commercial finance solutions. Licensed ACL 459287.";
+const keywords = "Dan Peters, Edgeview Finance, Queensland finance broker, trades business finance specialist, residential investment finance, commercial finance broker Brisbane";
 ---
 
-<html lang="en-AU">
-<head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={siteData.description} />
-    <meta name="keywords" content={siteData.keywords} />
+<Layout title={title} description={description} keywords={keywords}>
+  <main class="main-wrapper relative overflow-hidden">
     
-    <!-- About Page Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "AboutPage",
-      "@id": "https://edgeviewfinance.com.au/about#aboutpage",
-      "mainEntity": {
-        "@type": "FinancialService",
-        "@id": "https://edgeviewfinance.com.au/#organization",
-        "name": "Edgeview Finance Business Solutions",
-        "alternateName": "EVFBS",
-        "description": "Strategic commercial finance brokerage specializing in equipment finance, commercial property, and business growth solutions for Australian trades and service businesses",
-        "url": "https://edgeviewfinance.com.au",
-        "foundingDate": "2024",
-        "serviceType": "Commercial Finance Brokerage",
-        "areaServed": {
-          "@type": "Country",
-          "name": "Australia"
-        },
-        "knowsAbout": [
-          "Equipment Finance",
-          "Commercial Property Finance", 
-          "Working Capital Solutions",
-          "Invoice Financing",
-          "AI-Enhanced Financial Analysis",
-          "Commercial Trade Finance"
-        ],
-        "hasCredential": [
-          {
-            "@type": "EducationalOccupationalCredential",
-            "credentialCategory": "Australian Credit License",
-            "recognizedBy": {
-              "@type": "Organization",
-              "name": "Australian Securities and Investments Commission"
-            }
-          }
-        ],
-        "memberOf": {
-          "@type": "Organization",
-          "name": "Finance Brokers Association of Australia"
-        },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+61-XXX-XXX-XXX",
-          "contactType": "customer service",
-          "areaServed": "AU",
-          "availableLanguage": "English"
-        },
-        "employee": [
-          {
-            "@type": "Person",
-            "name": "Michael Blake",
-            "jobTitle": "Principal & Commercial Finance Strategist",
-            "hasCredential": "Certificate IV in Finance & Mortgage Broking, Diploma of Financial Services",
-            "knowsAbout": ["Equipment Finance", "Commercial Property", "Strategic Planning"]
-          },
-          {
-            "@type": "Person",
-            "name": "Sarah Chen",
-            "jobTitle": "Senior Commercial Analyst & Technology Integration Specialist",
-            "hasCredential": "Bachelor of Commerce (Finance), CPA Australia",
-            "knowsAbout": ["Financial Analysis", "AI Technology", "Business Intelligence"]
-          },
-          {
-            "@type": "Person",
-            "name": "David Morrison", 
-            "jobTitle": "Industry Relations Manager & Compliance Specialist",
-            "hasCredential": "Graduate Diploma Financial Planning, FBAA Certified",
-            "knowsAbout": ["Lender Relations", "Compliance Management", "Industry Standards"]
-          }
-        ]
-      }
-    }
-    </script>
-    
-    <!-- Open Graph for Social Sharing -->
-    <meta property="og:title" content={siteData.title} />
-    <meta property="og:description" content={siteData.description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://edgeviewfinance.com.au/about" />
-    <meta property="og:locale" content="en_AU" />
-    
-    <title>{siteData.title}</title>
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="nav-container">
-                <div class="logo">
-                    <h1>Edgeview Finance</h1>
-                    <span>Business Solutions</span>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/services">Services</a></li>
-                    <li><a href="/equipment-finance">Equipment Finance</a></li>
-                    <li><a href="/working-capital">Working Capital</a></li>
-                    <li><a href="/about" class="active">About</a></li>
-                    <li><a href="/contact" class="cta-button">Expert Consultation</a></li>
-                </ul>
+    <!-- SECTION 1: HERO SECTION -->
+    <section class="section-hero py-12 lg:py-16 bg-white">
+      <div class="container-default">
+        <div class="text-center">
+          <h1 class="font-InstrumentSans text-3xl sm:text-4xl lg:text-[42px] font-bold leading-[1.2] text-ColorBlack mb-4">
+            Welcome to Edgeview Finance
+          </h1>
+          <h2 class="text-lg lg:text-xl font-semibold text-gray-700 font-InstrumentSans mb-6">
+            Queensland's Most Experienced Finance Broking Specialists
+          </h2>
+          <p class="text-base lg:text-lg text-gray-600 font-InstrumentSans leading-relaxed max-w-4xl mx-auto mb-8">
+            Drawing from over 20 years of working with hundreds of businesses across every industry imaginable, Dan Peters and the Edgeview Finance team bring unique insights and strategic expertise specifically to Queensland trades businesses for both residential and commercial finance solutions.
+          </p>
+          
+          <!-- Trust Indicators -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8 max-w-5xl mx-auto">
+            <div class="p-4 bg-[#f97316] bg-opacity-10 border-l-4 border-[#f97316]">
+              <div class="text-[#f97316] text-2xl font-bold mb-2">✓</div>
+              <p class="text-base text-[#1C2C3B] font-medium font-InstrumentSans">20+ Years Cross-Industry Experience Now Focused on Trades</p>
             </div>
-        </nav>
-    </header>
+            <div class="p-4 bg-[#f97316] bg-opacity-10 border-l-4 border-[#f97316]">
+              <div class="text-[#f97316] text-2xl font-bold mb-2">✓</div>
+              <p class="text-base text-[#1C2C3B] font-medium font-InstrumentSans">100+ Trades Businesses Successfully Funded</p>
+            </div>
+            <div class="p-4 bg-[#f97316] bg-opacity-10 border-l-4 border-[#f97316]">
+              <div class="text-[#f97316] text-2xl font-bold mb-2">✓</div>
+              <p class="text-base text-[#1C2C3B] font-medium font-InstrumentSans">Trusted & Compliant | Australian Credit Licence 459287 | ASIC-Regulated</p>
+            </div>
+            <div class="p-4 bg-[#f97316] bg-opacity-10 border-l-4 border-[#f97316]">
+              <div class="text-[#f97316] text-2xl font-bold mb-2">✓</div>
+              <p class="text-base text-[#1C2C3B] font-medium font-InstrumentSans">Both Residential & Commercial Finance Solutions</p>
+            </div>
+          </div>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Strategic Partnership for Commercial Finance Excellence</h1>
-                <p class="hero-subtitle">
-                    Professional commercial finance brokerage dedicated to empowering Australian business builders with strategic funding solutions. 
-                    Combining industry expertise, AI-enhanced analytics, and personalized service for sustainable growth.
-                </p>
-                <div class="hero-cta">
-                    <a href="/get-quote" class="primary-button">Start Your Partnership</a>
-                    <a href="/contact" class="secondary-button">Meet the Team</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Company Story -->
-        <section class="company-story">
-            <div class="container">
-                <h2>Our Story: Built for Business Builders</h2>
-                <div class="story-content">
-                    <div class="story-text">
-                        <p class="story-intro">
-                            Edgeview Finance Business Solutions was founded with a singular mission: to provide strategic commercial finance partnerships 
-                            that truly understand the journey of business builders like Ben.
-                        </p>
-                        <p>
-                            We recognized that commercial trades, civil contractors, and industrial businesses needed more than just funding – 
-                            they needed a strategic partner who understood their cash flow cycles, growth challenges, and the unique 
-                            opportunities within sustainable commercial sectors.
-                        </p>
-                        <p>
-                            Our approach combines traditional finance brokerage expertise with cutting-edge AI-enhanced analytics, 
-                            delivering insights that help our clients make informed decisions and structure optimal finance solutions 
-                            aligned with their business objectives.
-                        </p>
-                        <p>
-                            We deliberately focus on commercial sectors with stable cash flows and exclude residential building 
-                            to concentrate our expertise where we can deliver maximum value and sustainable partnerships.
-                        </p>
-                    </div>
-                    <div class="story-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">500+</div>
-                            <div class="stat-label">Strategic Finance Solutions</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">$50M+</div>
-                            <div class="stat-label">Funding Facilitated</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">95%</div>
-                            <div class="stat-label">Client Satisfaction Rate</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Team Profiles -->
-        <section class="team-profiles">
-            <div class="container">
-                <h2>Meet the Strategic Finance Partnership Team</h2>
-                <p class="section-intro">
-                    Our professional team combines deep commercial finance expertise with industry specialization 
-                    to deliver strategic partnerships for Australian business builders.
-                </p>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <div class="member-photo">
-                            <div class="photo-placeholder">MB</div>
-                        </div>
-                        <div class="member-info">
-                            <h3>Michael Blake</h3>
-                            <h4>Principal & Commercial Finance Strategist</h4>
-                            <p class="member-credentials">
-                                <strong>Qualifications:</strong> Certificate IV in Finance & Mortgage Broking, Diploma of Financial Services
-                                <br><strong>License:</strong> Australian Credit License Representative
-                            </p>
-                            <p>
-                                With over 12 years in commercial finance, Michael specializes in strategic funding solutions 
-                                for established trade businesses. His deep understanding of cash flow cycles in commercial 
-                                trades, civil contracting, and industrial sectors enables him to structure optimal finance 
-                                packages that align with business growth objectives. Michael's expertise in AI-enhanced 
-                                financial analysis provides clients with data-driven insights for informed decision-making.
-                            </p>
-                            <div class="member-specialties">
-                                <span>Equipment Finance</span>
-                                <span>Commercial Property</span>
-                                <span>Strategic Planning</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="team-member">
-                        <div class="member-photo">
-                            <div class="photo-placeholder">SC</div>
-                        </div>
-                        <div class="member-info">
-                            <h3>Sarah Chen</h3>
-                            <h4>Senior Commercial Analyst & Technology Integration Specialist</h4>
-                            <p class="member-credentials">
-                                <strong>Qualifications:</strong> Bachelor of Commerce (Finance), CPA Australia
-                                <br><strong>Specialization:</strong> Financial Technology & AI Analytics
-                            </p>
-                            <p>
-                                Sarah brings extensive financial analysis expertise with specialized focus on AI-enhanced 
-                                business assessment. Her background in corporate finance and advanced data analytics enables 
-                                the delivery of sophisticated financial modeling and predictive insights. Sarah leads our 
-                                technology integration initiatives, ensuring clients benefit from cutting-edge analytical 
-                                tools in their finance evaluation and structuring process.
-                            </p>
-                            <div class="member-specialties">
-                                <span>Financial Analysis</span>
-                                <span>AI Technology</span>
-                                <span>Business Intelligence</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="team-member">
-                        <div class="member-photo">
-                            <div class="photo-placeholder">DM</div>
-                        </div>
-                        <div class="member-info">
-                            <h3>David Morrison</h3>
-                            <h4>Industry Relations Manager & Compliance Specialist</h4>
-                            <p class="member-credentials">
-                                <strong>Qualifications:</strong> Graduate Diploma Financial Planning, FBAA Certified
-                                <br><strong>Memberships:</strong> Finance Brokers Association of Australia, Australian Institute of Credit Management
-                            </p>
-                            <p>
-                                David manages our extensive network of specialist commercial lenders and ensures full 
-                                regulatory compliance across all operations. With background in both finance brokerage 
-                                and compliance management, David maintains the professional standards and industry 
-                                relationships that enable optimal client outcomes. His expertise ensures every finance 
-                                solution meets ASIC requirements and industry best practices.
-                            </p>
-                            <div class="member-specialties">
-                                <span>Lender Relations</span>
-                                <span>Compliance Management</span>
-                                <span>Industry Standards</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Team Expertise -->
-        <section class="team-expertise">
-            <div class="container">
-                <h2>Collective Professional Expertise</h2>
-                <div class="expertise-grid">
-                    <div class="expertise-card">
-                        <div class="expertise-icon">🎯</div>
-                        <h3>Strategic Finance Planning</h3>
-                        <p>Advanced qualification in commercial finance structuring with deep understanding of business growth cycles and strategic funding requirements for sustainable expansion.</p>
-                    </div>
-                    <div class="expertise-card">
-                        <div class="expertise-icon">🏗️</div>
-                        <h3>Commercial Trades Specialization</h3>
-                        <p>Extensive experience in commercial trades, civil contracting, and industrial sectors. We understand project cash flows, payment terms, and industry-specific challenges.</p>
-                    </div>
-                    <div class="expertise-card">
-                        <div class="expertise-icon">🤖</div>
-                        <h3>AI-Enhanced Analytics</h3>
-                        <p>Pioneering use of artificial intelligence in financial analysis, providing data-driven insights for optimal finance structure and borrowing capacity assessment.</p>
-                    </div>
-                    <div class="expertise-card">
-                        <div class="expertise-icon">⚖️</div>
-                        <h3>Professional Compliance</h3>
-                        <p>Full ASIC compliance with Australian Credit License credentials. Commitment to professional standards, transparent service, and ethical business practices.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- AI-Enhanced Approach -->
-        <section class="ai-approach">
-            <div class="container">
-                <h2>Technology-Enhanced Service Delivery</h2>
-                <div class="approach-content">
-                    <div class="approach-text">
-                        <h3>AI-Driven Financial Intelligence</h3>
-                        <p>
-                            We leverage advanced artificial intelligence to transform your financial data into actionable insights. 
-                            Our AI-enhanced approach provides comprehensive analysis of cash flow patterns, borrowing capacity, 
-                            and optimal finance structuring for your specific business profile.
-                        </p>
-                        <ul class="approach-benefits">
-                            <li>Predictive cash flow modeling and scenario analysis</li>
-                            <li>Real-time borrowing capacity optimization</li>
-                            <li>Industry benchmarking and performance insights</li>
-                            <li>Strategic finance structure recommendations</li>
-                            <li>Risk assessment and mitigation strategies</li>
-                        </ul>
-                    </div>
-                    <div class="approach-visual">
-                        <div class="tech-feature">
-                            <h4>Smart Analysis</h4>
-                            <p>AI processes your business data to identify optimal financing opportunities and structure</p>
-                        </div>
-                        <div class="tech-feature">
-                            <h4>Predictive Insights</h4>
-                            <p>Forward-looking analytics help anticipate funding needs and growth opportunities</p>
-                        </div>
-                        <div class="tech-feature">
-                            <h4>Strategic Guidance</h4>
-                            <p>Data-driven recommendations align finance solutions with your business objectives</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Professional Assessment Process -->
-        <section class="assessment-process">
-            <div class="container">
-                <h2>Our Professional Assessment Process</h2>
-                <p class="section-intro">
-                    Every partnership begins with comprehensive evaluation to ensure finance solutions align perfectly 
-                    with your business goals and capacity.
-                </p>
-                <div class="process-grid">
-                    <div class="process-step">
-                        <div class="step-number">1</div>
-                        <h3>Discovery & Strategy</h3>
-                        <p>In-depth consultation to understand your business journey, growth objectives, and specific funding requirements as a business builder.</p>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">2</div>
-                        <h3>AI-Enhanced Analysis</h3>
-                        <p>Comprehensive financial assessment using advanced analytics to evaluate borrowing capacity, cash flow patterns, and optimal structure.</p>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">3</div>
-                        <h3>Strategic Structuring</h3>
-                        <p>Design tailored finance solutions aligned with your business cycle, growth timeline, and risk profile for sustainable outcomes.</p>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">4</div>
-                        <h3>Expert Presentation</h3>
-                        <p>Professional application management with our network of specialist commercial lenders to secure optimal terms and conditions.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Industry Credentials -->
-        <section class="credentials">
-            <div class="container">
-                <h2>Professional Credentials & Licensing</h2>
-                <div class="credentials-grid">
-                    <div class="credential-card">
-                        <h3>Australian Credit License</h3>
-                        <p><strong>ACL:</strong> [License Number]</p>
-                        <p>Licensed by the Australian Securities and Investments Commission (ASIC) to provide credit assistance and brokerage services. Full regulatory compliance ensuring client protection and professional service standards.</p>
-                    </div>
-                    <div class="credential-card">
-                        <h3>Business Registration</h3>
-                        <p><strong>ABN:</strong> [ABN Number]</p>
-                        <p>Registered Australian business entity operating in full compliance with all regulatory requirements and professional standards.</p>
-                    </div>
-                    <div class="credential-card">
-                        <h3>Professional Memberships</h3>
-                        <p><strong>FBAA Member</strong></p>
-                        <p>Active member of the Finance Brokers Association of Australia, committed to professional development and industry best practices.</p>
-                    </div>
-                    <div class="credential-card">
-                        <h3>Insurance & Protection</h3>
-                        <p><strong>PI Insurance:</strong> $2M Coverage</p>
-                        <p>Comprehensive professional indemnity insurance protecting clients and ensuring service delivery standards.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Client Success Stories -->
-        <section class="client-testimonials">
-            <div class="container">
-                <h2>What Business Builders Say About Our Partnership</h2>
-                <div class="testimonials-grid">
-                    <div class="testimonial">
-                        <div class="testimonial-content">
-                            <div class="quote-mark">"</div>
-                            <p>
-                                "EVFBS understood our civil contracting business from day one. Their AI-enhanced analysis 
-                                identified the perfect equipment finance structure that matched our project cycles. 
-                                We've secured funding for three major excavators and expanded our fleet by 40%."
-                            </p>
-                        </div>
-                        <div class="testimonial-author">
-                            <h4>Ben Morrison</h4>
-                            <p>Managing Director, Morrison Civil Contractors</p>
-                            <div class="testimonial-industry">Civil Contracting</div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial">
-                        <div class="testimonial-content">
-                            <div class="quote-mark">"</div>
-                            <p>
-                                "The strategic approach to our working capital requirements was exactly what our 
-                                electrical business needed. Professional service, transparent communication, and 
-                                funding that supports our growth rather than constraining it."
-                            </p>
-                        </div>
-                        <div class="testimonial-author">
-                            <h4>Lisa Thompson</h4>
-                            <p>Director, Thompson Industrial Electrical</p>
-                            <div class="testimonial-industry">Industrial Electrical</div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial">
-                        <div class="testimonial-content">
-                            <div class="quote-mark">"</div>
-                            <p>
-                                "From initial consultation to funding approval, the process was streamlined and professional. 
-                                Their industry knowledge of commercial plumbing helped secure optimal terms for our 
-                                commercial property purchase."
-                            </p>
-                        </div>
-                        <div class="testimonial-author">
-                            <h4>Mark Hughes</h4>
-                            <p>Owner, Hughes Commercial Plumbing</p>
-                            <div class="testimonial-industry">Commercial Trades</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Why Choose EVFBS -->
-        <section class="why-choose">
-            <div class="container">
-                <h2>Why Australian Business Builders Choose EVFBS</h2>
-                <div class="benefits-grid">
-                    <div class="benefit">
-                        <h3>Strategic Partnership Approach</h3>
-                        <p>We're not just a finance broker – we're your strategic partner committed to long-term business success and growth.</p>
-                    </div>
-                    <div class="benefit">
-                        <h3>Commercial Trades Expertise</h3>
-                        <p>Deep specialization in commercial trades, civil contractors, and industrial businesses with exclusion of high-risk residential building.</p>
-                    </div>
-                    <div class="benefit">
-                        <h3>Technology-Enhanced Service</h3>
-                        <p>AI-driven analytics provide superior insights and recommendations for optimal finance structure and strategic planning.</p>
-                    </div>
-                    <div class="benefit">
-                        <h3>Professional Assessment</h3>
-                        <p>Comprehensive evaluation process ensures finance solutions align with your business goals, capacity, and growth objectives.</p>
-                    </div>
-                    <div class="benefit">
-                        <h3>Transparent Communication</h3>
-                        <p>Clear, professional communication throughout the entire process with no hidden fees or surprise conditions.</p>
-                    </div>
-                    <div class="benefit">
-                        <h3>ASIC Compliant Service</h3>
-                        <p>Licensed and compliant service delivery meeting all regulatory requirements and professional standards for your protection.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Call to Action -->
-        <section class="cta-section">
-            <div class="container">
-                <h2>Ready to Begin Your Strategic Finance Partnership?</h2>
-                <p>Join hundreds of Australian business builders who've transformed their growth trajectory through our professional finance solutions.</p>
-                <div class="cta-buttons">
-                    <a href="/get-quote" class="primary-button large">Request Professional Assessment</a>
-                    <a href="/contact" class="secondary-button large">Start the Conversation</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Edgeview Finance Business Solutions</h4>
-                    <p>Licensed Australian Finance Broker<br/>
-                    ACL: [License Number]<br/>
-                    ABN: [ABN Number]</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="/equipment-finance">Equipment Finance</a></li>
-                        <li><a href="/commercial-property">Commercial Property</a></li>
-                        <li><a href="/working-capital">Working Capital</a></li>
-                        <li><a href="/invoice-financing">Invoice Financing</a></li>
-                        <li><a href="/personal-lending">Personal Lending</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="/calculator">Loan Calculator</a></li>
-                        <li><a href="/blog">Finance Guides</a></li>
-                        <li><a href="/case-studies">Success Stories</a></li>
-                        <li><a href="/faqs">FAQs</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Phone: 1300 XXX XXX<br/>
-                    Email: enquiries@edgeviewfinance.com.au<br/>
-                    Hours: Mon-Fri 8AM-6PM AEST</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Edgeview Finance Business Solutions. All rights reserved. | 
-                <a href="/privacy">Privacy Policy</a> | 
-                <a href="/terms">Terms of Service</a> | 
-                <a href="/credit-guide">Credit Guide</a></p>
-            </div>
+          <!-- Hero CTA -->
+          <div class="flex flex-col items-center">
+            <a
+              href="/finance-ready-assessment"
+              class="bg-[#f97316] text-white px-8 py-4 font-bold transition-all duration-300 inline-block hover:bg-[#ea580c] hover:shadow-lg mb-3 font-InstrumentSans"
+            >
+              Take Finance Ready Assessment
+            </a>
+            <p class="text-sm text-gray-500 font-InstrumentSans">
+              (Complete the Finance Readiness Assessment in 30 secs. No Personal Details Required.)
+            </p>
+          </div>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <style>
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #fff;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header Styles */
-        header {
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
-        
-        .logo h1 {
-            color: #2c5aa0;
-            font-size: 1.5rem;
-            margin-bottom: -5px;
-        }
-        
-        .logo span {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-        
-        .nav-menu a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-menu a:hover,
-        .nav-menu a.active {
-            color: #2c5aa0;
-        }
-        
-        .cta-button {
-            background: #e67e22 !important;
-            color: white !important;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-        
-        .cta-button:hover {
-            background: #d35400 !important;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #2c5aa0 0%, #3498db 100%);
-            color: white;
-            padding: 100px 20px;
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.95;
-        }
-        
-        .hero-cta {
-            gap: 1rem;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .primary-button {
-            background: #e67e22;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-        }
-        
-        .primary-button:hover {
-            background: #d35400;
-            transform: translateY(-2px);
-        }
-        
-        .secondary-button {
-            background: transparent;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border: 2px solid white;
-            border-radius: 5px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-        }
-        
-        .secondary-button:hover {
-            background: white;
-            color: #2c5aa0;
-        }
-        
-        /* Company Story Section */
-        .company-story {
-            padding: 80px 20px;
-            background: #f8f9fa;
-        }
-        
-        .company-story h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2c5aa0;
-        }
-        
-        .story-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-        
-        .story-intro {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #2c5aa0;
-            margin-bottom: 1.5rem;
-        }
-        
-        .story-text p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-        
-        .story-stats {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-        
-        .stat-item {
-            text-align: center;
-            padding: 2rem;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #e67e22;
-            margin-bottom: 0.5rem;
-        }
-        
-        .stat-label {
-            color: #666;
-            font-weight: 600;
-        }
-        
-        /* Team Profiles Section */
-        .team-profiles {
-            padding: 80px 20px;
-        }
-        
-        .team-profiles h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #2c5aa0;
-        }
-        
-        .team-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-        
-        .team-member {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 2rem;
-            background: white;
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            align-items: start;
-        }
-        
-        .member-photo {
-            text-align: center;
-        }
-        
-        .photo-placeholder {
-            width: 150px;
-            height: 150px;
-            background: linear-gradient(135deg, #2c5aa0, #3498db);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2rem;
-            font-weight: bold;
-            margin: 0 auto;
-            box-shadow: 0 5px 15px rgba(44, 90, 160, 0.3);
-        }
-        
-        .member-info h3 {
-            color: #2c5aa0;
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .member-info h4 {
-            color: #e67e22;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-        
-        .member-credentials {
-            background: #f8f9fa;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-            border-left: 4px solid #e67e22;
-        }
-        
-        .member-credentials strong {
-            color: #2c5aa0;
-        }
-        
-        .member-info p {
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-        
-        .member-specialties {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        
-        .member-specialties span {
-            background: #2c5aa0;
-            color: white;
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-        
-        /* Team Expertise Section */
-        .team-expertise {
-            padding: 80px 20px;
-        }
-        
-        .team-expertise h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2c5aa0;
-        }
-        
-        .expertise-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .expertise-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        
-        .expertise-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .expertise-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .expertise-card h3 {
-            color: #2c5aa0;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
-        
-        /* AI Approach Section */
-        .ai-approach {
-            padding: 80px 20px;
-            background: #f8f9fa;
-        }
-        
-        .ai-approach h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2c5aa0;
-        }
-        
-        .approach-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        
-        .approach-text h3 {
-            color: #e67e22;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .approach-text p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-        }
-        
-        .approach-benefits {
-            list-style: none;
-        }
-        
-        .approach-benefits li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-        
-        .approach-benefits li:before {
-            content: "✓";
-            color: #27ae60;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-        
-        .approach-visual {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-        
-        .tech-feature {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .tech-feature h4 {
-            color: #2c5aa0;
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Assessment Process Section */
-        .assessment-process {
-            padding: 80px 20px;
-        }
-        
-        .assessment-process h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #2c5aa0;
-        }
-        
-        .section-intro {
-            text-align: center;
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .process-step {
-            text-align: center;
-            padding: 2rem;
-        }
-        
-        .step-number {
-            background: #e67e22;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin: 0 auto 1rem;
-        }
-        
-        .process-step h3 {
-            color: #2c5aa0;
-            margin-bottom: 1rem;
-        }
-        
-        /* Credentials Section */
-        .credentials {
-            padding: 80px 20px;
-            background: #f8f9fa;
-        }
-        
-        .credentials h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2c5aa0;
-        }
-        
-        .credentials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .credential-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        
-        .credential-card h3 {
-            color: #2c5aa0;
-            margin-bottom: 1rem;
-        }
-        
-        .credential-card p strong {
-            color: #e67e22;
-        }
-        
-        /* Client Testimonials Section */
-        .client-testimonials {
-            padding: 80px 20px;
-            background: #f8f9fa;
-        }
-        
-        .client-testimonials h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2c5aa0;
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-        
-        .testimonial {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            position: relative;
-        }
-        
-        .quote-mark {
-            font-size: 4rem;
-            color: #e67e22;
-            position: absolute;
-            top: 1rem;
-            left: 2rem;
-            line-height: 1;
-        }
-        
-        .testimonial-content {
-            margin-top: 2rem;
-        }
-        
-        .testimonial-content p {
-            font-style: italic;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            color: #333;
-        }
-        
-        .testimonial-author h4 {
-            color: #2c5aa0;
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
-        
-        .testimonial-author p {
-            color: #666;
-            margin-bottom: 1rem;
-            font-size: 1rem;
-        }
-        
-        .testimonial-industry {
-            background: #e67e22;
-            color: white;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            display: inline-block;
-        }
-        
-        /* Why Choose Section */
-        .why-choose {
-            padding: 80px 20px;
-        }
-        
-        .why-choose h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2c5aa0;
-        }
-        
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .benefit {
-            padding: 2rem;
-        }
-        
-        .benefit h3 {
-            color: #e67e22;
-            margin-bottom: 1rem;
-        }
-        
-        /* CTA Section */
-        .cta-section {
-            background: #2c5aa0;
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-        }
-        
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .large {
-            font-size: 1.2rem;
-            padding: 18px 36px;
-        }
-        
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            padding: 40px 20px 20px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-section h4 {
-            color: #e67e22;
-            margin-bottom: 1rem;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-section a:hover {
-            color: white;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid #555;
-            padding-top: 1rem;
-            text-align: center;
-            color: #ccc;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
+    <!-- SECTION 2: OUR STORY -->
+    <section class="py-12 lg:py-16 bg-gray-50">
+      <div class="container-default">
+        <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <!-- Content Column -->
+          <div>
+            <h2 class="font-InstrumentSans text-2xl lg:text-3xl font-bold text-[#1C2C3B] mb-4">
+              Our Story
+            </h2>
+            <h3 class="text-lg lg:text-xl font-semibold text-gray-700 font-InstrumentSans mb-6">
+              From Big Bank Limits to Financial Intelligence Freedom
+            </h3>
             
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
+            <div class="space-y-4 text-base text-gray-600 leading-relaxed font-InstrumentSans">
+              <p>
+                Edgeview Finance was born out of frustration — and a vision.
+              </p>
+              <p>
+                While working as a business banker at one of the Big 4 banks, Dan Peters kept seeing good businesses turned away. Not because they weren't strong businesses, but because they didn't fit neatly into one bank's narrow credit policy. Time and again, it was a square peg in a round hole problem.
+              </p>
+              <p>
+                Dan knew there had to be a better way.
+              </p>
+              <p>
+                In 2015 he founded Edgeview Finance with a simple but powerful principle: leverage the full spectrum of lenders, products, and credit appetites to design finance solutions that actually fit the business — not force the business to fit the finance.
+              </p>
+              <p>
+                From day one, Edgeview's focus has been on building long-term partnerships with business owners, supporting them as they grow from small operations into multi-million-dollar enterprises. We've walked alongside clients as they've scaled through different banking tiers, helping them secure the right facilities at each stage of their journey.
+              </p>
+              <p>
+                Today, Edgeview Finance combines decades of banking and broking experience with cutting-edge technology to deliver what we call Financial Intelligence: AI-powered clarity, proactive insights, and smarter decision-making built into every deal.
+              </p>
+            </div>
+          </div>
+
+          <!-- Image Column -->
+          <div>
+            <div class="relative">
+              <img 
+                src="/assets/img/dan-peters-headshot-new.jpg" 
+                alt="Dan Peters - Principal & Director, Edgeview Finance"
+                width="600"
+                height="400"
+                class="w-full h-auto object-cover shadow-2xl"
+                loading="lazy"
+              />
+              <!-- Orange overlay for branding -->
+              <div class="absolute inset-0 bg-[#f97316] opacity-10"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: EXPERIENCE & EXPERTISE STATISTICS -->
+    <section class="section-fact bg-white py-12 lg:py-16">
+      <div class="container-default">
+        <div class="text-center mb-8">
+          <h2 class="font-InstrumentSans text-3xl lg:text-4xl font-bold text-[#1C2C3B] mb-6">
+            Experience & Expertise
+          </h2>
+          <h3 class="text-xl lg:text-2xl font-semibold text-gray-700 font-InstrumentSans mb-8">
+            Cross-Industry Experience Now Focused on Trades Business Success
+          </h3>
+          <p class="text-lg text-gray-600 font-InstrumentSans leading-relaxed max-w-4xl mx-auto">
+            Drawing from 20+ years of experience across hundreds of businesses in every industry imaginable, we bring unique insights to trades businesses that generic brokers simply can't match. This cross-industry expertise allows us to see opportunities, anticipate challenges, and structure solutions that others miss.
+          </p>
+        </div>
+
+        <!-- Statistics Cards -->
+        <div class="max-w-5xl mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="text-center relative md:after:absolute md:after:right-0 md:after:top-1/2 md:after:h-16 md:after:w-0.5 md:after:-translate-y-1/2 md:after:bg-[#f97316] last:after:hidden">
+              <div class="font-InstrumentSans text-4xl lg:text-5xl font-bold text-[#f97316] mb-2">
+                20+
+              </div>
+              <div class="text-gray-600 text-sm lg:text-base font-medium uppercase tracking-wider font-InstrumentSans">
+                Years Cross-Industry<br/>Experience
+              </div>
+              <p class="text-xs text-gray-500 mt-2 font-InstrumentSans">Deep insights from hundreds of businesses across every sector</p>
+            </div>
             
-            .nav-menu {
-                display: none;
-            }
+            <div class="text-center relative md:after:absolute md:after:right-0 md:after:top-1/2 md:after:h-16 md:after:w-0.5 md:after:-translate-y-1/2 md:after:bg-[#f97316] last:after:hidden">
+              <div class="font-InstrumentSans text-4xl lg:text-5xl font-bold text-[#f97316] mb-2">
+                100+
+              </div>
+              <div class="text-gray-600 text-sm lg:text-base font-medium uppercase tracking-wider font-InstrumentSans">
+                Trades Businesses<br/>Successfully Funded
+              </div>
+              <p class="text-xs text-gray-500 mt-2 font-InstrumentSans">Proven results for Queensland trades businesses</p>
+            </div>
             
-            .story-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
+            <div class="text-center relative md:after:absolute md:after:right-0 md:after:top-1/2 md:after:h-16 md:after:w-0.5 md:after:-translate-y-1/2 md:after:bg-[#f97316] last:after:hidden">
+              <div class="text-4xl text-[#f97316] mb-4">⚡</div>
+              <div class="text-gray-600 text-sm lg:text-base font-medium uppercase tracking-wider font-InstrumentSans">
+                Both Residential &<br/>Commercial Finance Solutions
+              </div>
+              <p class="text-xs text-gray-500 mt-2 font-InstrumentSans">Complete finance coverage for business and investment needs</p>
+            </div>
             
-            .story-stats {
-                flex-direction: row;
-                justify-content: space-around;
-            }
+            <div class="text-center">
+              <div class="font-InstrumentSans text-4xl lg:text-5xl font-bold text-[#f97316] mb-2">
+                $500M+
+              </div>
+              <div class="text-gray-600 text-sm lg:text-base font-medium uppercase tracking-wider font-InstrumentSans">
+                Loans<br/>Funded
+              </div>
+              <p class="text-xs text-gray-500 mt-2 font-InstrumentSans">Total lending volume arranged for Queensland businesses</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Finance Types Section -->
+        <div class="mt-12 bg-gray-50 p-6 lg:p-10">
+          <h3 class="text-xl lg:text-2xl font-semibold text-[#1C2C3B] mb-6 text-center font-InstrumentSans">
+            Complete Finance Solutions We Arrange:
+          </h3>
+          
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Residential Finance -->
+            <div>
+              <h4 class="text-xl font-semibold text-[#f97316] mb-6 uppercase tracking-wide font-InstrumentSans">
+                RESIDENTIAL FINANCE:
+              </h4>
+              <div class="space-y-4">
+                <div class="flex items-start gap-3">
+                  <div class="text-[#f97316] text-xl font-bold mt-1">•</div>
+                  <div class="font-InstrumentSans">
+                    <span class="font-semibold text-gray-800">Investment Property Loans</span>
+                    <span class="text-gray-600"> - Build wealth through strategic property investment</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="text-[#f97316] text-xl font-bold mt-1">•</div>
+                  <div class="font-InstrumentSans">
+                    <span class="font-semibold text-gray-800">Home Loans & Refinancing</span>
+                    <span class="text-gray-600"> - Competitive rates and terms for trades business owners</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="text-[#f97316] text-xl font-bold mt-1">•</div>
+                  <div class="font-InstrumentSans">
+                    <span class="font-semibold text-gray-800">SMSF Property Loans</span>
+                    <span class="text-gray-600"> - Self-managed super fund property investment</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Commercial Finance -->
+            <div>
+              <h4 class="text-xl font-semibold text-[#f97316] mb-6 uppercase tracking-wide font-InstrumentSans">
+                COMMERCIAL FINANCE:
+              </h4>
+              <div class="space-y-4">
+                <div class="flex items-start gap-3">
+                  <div class="text-[#f97316] text-xl font-bold mt-1">•</div>
+                  <div class="font-InstrumentSans">
+                    <span class="font-semibold text-gray-800">Equipment Finance</span>
+                    <span class="text-gray-600"> - New and used equipment, vehicles, machinery</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="text-[#f97316] text-xl font-bold mt-1">•</div>
+                  <div class="font-InstrumentSans">
+                    <span class="font-semibold text-gray-800">Working Capital</span>
+                    <span class="text-gray-600"> - Cash flow support, business growth funding</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="text-[#f97316] text-xl font-bold mt-1">•</div>
+                  <div class="font-InstrumentSans">
+                    <span class="font-semibold text-gray-800">Commercial Property</span>
+                    <span class="text-gray-600"> - Purchase, refinance, development finance</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="text-[#f97316] text-xl font-bold mt-1">•</div>
+                  <div class="font-InstrumentSans">
+                    <span class="font-semibold text-gray-800">Business Acquisition</span>
+                    <span class="text-gray-600"> - Purchase existing businesses, expansion funding</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="text-[#f97316] text-xl font-bold mt-1">•</div>
+                  <div class="font-InstrumentSans">
+                    <span class="font-semibold text-gray-800">Invoice Finance</span>
+                    <span class="text-gray-600"> - Debtor finance, factoring, cash flow acceleration</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: OUR APPROACH (PROCESS SECTION) -->
+    <section class="py-12 lg:py-16 bg-gray-50">
+      <div class="container-default">
+        <div class="text-center mb-8">
+          <h2 class="font-InstrumentSans text-3xl lg:text-4xl font-bold text-[#1C2C3B] mb-6">
+            Our Approach
+          </h2>
+          <h3 class="text-xl lg:text-2xl font-semibold text-gray-700 font-InstrumentSans mb-8">
+            How We're Different From Other Brokers
+          </h3>
+        </div>
+
+        <!-- Process Steps -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-[#f97316] text-white font-bold text-2xl flex items-center justify-center mx-auto mb-4 font-InstrumentSans">
+              1
+            </div>
+            <h4 class="text-lg font-semibold text-[#1C2C3B] mb-3 uppercase tracking-wide font-InstrumentSans">
+              WE LISTEN & UNDERSTAND
+            </h4>
+            <p class="text-sm text-gray-600 leading-relaxed font-InstrumentSans">
+              Every trades business is unique - we take time to understand your specific needs, challenges, and goals before recommending any finance solution.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-[#f97316] text-white font-bold text-2xl flex items-center justify-center mx-auto mb-4 font-InstrumentSans">
+              2
+            </div>
+            <h4 class="text-lg font-semibold text-[#1C2C3B] mb-3 uppercase tracking-wide font-InstrumentSans">
+              WE MATCH THE RIGHT SOLUTION
+            </h4>
+            <p class="text-sm text-gray-600 leading-relaxed font-InstrumentSans">
+              Using our network of 40+ specialist lenders, we find the finance option that best fits your business situation, not just what's easiest to arrange.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-[#f97316] text-white font-bold text-2xl flex items-center justify-center mx-auto mb-4 font-InstrumentSans">
+              3
+            </div>
+            <h4 class="text-lg font-semibold text-[#1C2C3B] mb-3 uppercase tracking-wide font-InstrumentSans">
+              WE SUPPORT YOU THROUGH THE PROCESS
+            </h4>
+            <p class="text-sm text-gray-600 leading-relaxed font-InstrumentSans">
+              From initial application to final settlement, we're with you every step of the way, providing updates, handling queries, and ensuring smooth progress.
+            </p>
+          </div>
+        </div>
+
+        <!-- Differentiators -->
+        <div class="bg-white p-8 lg:p-12">
+          <h3 class="text-xl lg:text-2xl font-semibold text-[#1C2C3B] mb-6 text-center font-InstrumentSans">
+            What sets us apart:
+          </h3>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="flex items-start gap-3 p-4 bg-[#f97316] bg-opacity-10 border-l-4 border-[#f97316]">
+              <div class="text-[#f97316] text-xl font-bold mt-1">✓</div>
+              <span class="text-[#1C2C3B] font-InstrumentSans">Trades business specialisation - we speak your language</span>
+            </div>
+            <div class="flex items-start gap-3 p-4 bg-[#f97316] bg-opacity-10 border-l-4 border-[#f97316]">
+              <div class="text-[#f97316] text-xl font-bold mt-1">✓</div>
+              <span class="text-[#1C2C3B] font-InstrumentSans">Direct access to decision-makers - no call centres</span>
+            </div>
+            <div class="flex items-start gap-3 p-4 bg-[#f97316] bg-opacity-10 border-l-4 border-[#f97316]">
+              <div class="text-[#f97316] text-xl font-bold mt-1">✓</div>
+              <span class="text-[#1C2C3B] font-InstrumentSans">Local Queensland knowledge and presence</span>
+            </div>
+            <div class="flex items-start gap-3 p-4 bg-[#f97316] bg-opacity-10 border-l-4 border-[#f97316]">
+              <div class="text-[#f97316] text-xl font-bold mt-1">✓</div>
+              <span class="text-[#1C2C3B] font-InstrumentSans">No upfront fees - we work on your success</span>
+            </div>
+            <div class="flex items-start gap-3 p-4 bg-[#f97316] bg-opacity-10 border-l-4 border-[#f97316]">
+              <div class="text-[#f97316] text-xl font-bold mt-1">✓</div>
+              <span class="text-[#1C2C3B] font-InstrumentSans">Same-day initial assessments available</span>
+            </div>
+            <div class="flex items-start gap-3 p-4 bg-[#f97316] bg-opacity-10 border-l-4 border-[#f97316]">
+              <div class="text-[#f97316] text-xl font-bold mt-1">✓</div>
+              <span class="text-[#1C2C3B] font-InstrumentSans">Transparent communication throughout the process</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: TESTIMONIALS -->
+    <section class="py-12 lg:py-16 bg-white">
+      <div class="container-default">
+        <div class="text-center mb-8">
+          <h2 class="font-InstrumentSans text-3xl lg:text-4xl font-bold text-[#1C2C3B] mb-6">
+            Results & Testimonials
+          </h2>
+          <h3 class="text-xl lg:text-2xl font-semibold text-gray-700 font-InstrumentSans mb-8">
+            What Our Clients Say About Working With Us
+          </h3>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <!-- Testimonials Column -->
+          <div class="space-y-8">
+            <!-- Testimonial 1: Adam Burns -->
+            <div class="bg-white p-6 border-2 border-gray-200 transition-all duration-300 hover:border-[#f97316] hover:shadow-lg">
+              <div class="mb-4 flex items-center gap-1">
+                <span class="text-[#f97316] text-2xl">⭐⭐⭐⭐⭐</span>
+              </div>
+              <blockquote class="text-base text-gray-600 mb-4 leading-relaxed font-InstrumentSans">
+                "Dan's broad experience in commercial finance, combined with his genuine approach to understanding our business needs, made the difference in securing our commercial property finance. Professional service with results that speak for themselves."
+              </blockquote>
+              <div class="border-t border-gray-200 pt-6">
+                <div class="text-xl font-semibold text-[#1C2C3B] mb-1 font-InstrumentSans">
+                  Adam Burns
+                </div>
+                <div class="text-sm text-[#f97316] uppercase tracking-wide font-semibold font-InstrumentSans">
+                  Commercial Property Investment
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 2: David Morris -->
+            <div class="bg-white p-6 border-2 border-gray-200 transition-all duration-300 hover:border-[#f97316] hover:shadow-lg">
+              <div class="mb-4 flex items-center gap-1">
+                <span class="text-[#f97316] text-2xl">⭐⭐⭐⭐⭐</span>
+              </div>
+              <blockquote class="text-base text-gray-600 mb-4 leading-relaxed font-InstrumentSans">
+                "Dan and his team have provided professional assistance and real value to the process of mortgage application on each of the occasions we have used their services. Without doubt, Edgeview Finance is my go-to team."
+              </blockquote>
+              <div class="border-t border-gray-200 pt-6">
+                <div class="text-xl font-semibold text-[#1C2C3B] mb-1 font-InstrumentSans">
+                  David Morris
+                </div>
+                <div class="text-sm text-[#f97316] uppercase tracking-wide font-semibold font-InstrumentSans">
+                  Business Owner
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 3: Tobin Wogandt -->
+            <div class="bg-white p-6 border-2 border-gray-200 transition-all duration-300 hover:border-[#f97316] hover:shadow-lg">
+              <div class="mb-4 flex items-center gap-1">
+                <span class="text-[#f97316] text-2xl">⭐⭐⭐⭐⭐</span>
+              </div>
+              <blockquote class="text-base text-gray-600 mb-4 leading-relaxed font-InstrumentSans">
+                "Very helpful. Great communication. Went over and above on a complicated loan. The level of service and attention to detail exceeded our expectations. Highly recommended."
+              </blockquote>
+              <div class="border-t border-gray-200 pt-6">
+                <div class="text-xl font-semibold text-[#1C2C3B] mb-1 font-InstrumentSans">
+                  Tobin Wogandt
+                </div>
+                <div class="text-sm text-[#f97316] uppercase tracking-wide font-semibold font-InstrumentSans">
+                  Trades Business Owner
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Results Column -->
+          <div>
+            <div class="bg-[#1C2C3B] p-8 lg:p-12 text-white h-full flex flex-col">
+              <h3 class="text-2xl lg:text-3xl font-semibold mb-8 text-center font-InstrumentSans">
+                Our track record speaks for itself:
+              </h3>
+              
+              <ul class="space-y-6 flex-1">
+                <li class="flex items-start gap-4">
+                  <div class="text-[#f97316] text-2xl font-bold flex-shrink-0 mt-1">✓</div>
+                  <span class="text-lg text-gray-300 leading-relaxed font-InstrumentSans">100+ businesses successfully funded</span>
+                </li>
+                <li class="flex items-start gap-4">
+                  <div class="text-[#f97316] text-2xl font-bold flex-shrink-0 mt-1">✓</div>
+                  <span class="text-lg text-gray-300 leading-relaxed font-InstrumentSans">Over $500 million in finance arranged (cumulative)</span>
+                </li>
+                <li class="flex items-start gap-4">
+                  <div class="text-[#f97316] text-2xl font-bold flex-shrink-0 mt-1">✓</div>
+                  <span class="text-lg text-gray-300 leading-relaxed font-InstrumentSans">95%+ client satisfaction rate</span>
+                </li>
+                <li class="flex items-start gap-4">
+                  <div class="text-[#f97316] text-2xl font-bold flex-shrink-0 mt-1">✓</div>
+                  <span class="text-lg text-gray-300 leading-relaxed font-InstrumentSans">Average approval time: 5-14 business days</span>
+                </li>
+                <li class="flex items-start gap-4">
+                  <div class="text-[#f97316] text-2xl font-bold flex-shrink-0 mt-1">✓</div>
+                  <span class="text-lg text-gray-300 leading-relaxed font-InstrumentSans">Multiple lender options for every application</span>
+                </li>
+              </ul>
+              
+              <!-- Trust Badges -->
+              <div class="text-center mt-8 pt-8 border-t border-gray-600">
+                <div class="flex justify-center items-center space-x-8 mb-4">
+                  <img 
+                    src="/assets/img/10-year-circle.png" 
+                    alt="MFAA 10+ Years Member"
+                    width="80"
+                    height="80"
+                    class="h-16 w-auto opacity-70"
+                    loading="lazy"
+                  />
+                  <img 
+                    src="/assets/img/qld-leaders-logo.jpg" 
+                    alt="QLD Leaders Industry Expert"
+                    width="100"
+                    height="60"
+                    class="h-12 w-auto opacity-70"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: MEET THE TEAM -->
+    <section class="py-12 lg:py-16 bg-gray-50">
+      <div class="container-default">
+        <div class="text-center mb-8">
+          <h2 class="font-InstrumentSans text-3xl lg:text-4xl font-bold text-[#1C2C3B] mb-6">
+            Meet Dan Peters
+          </h2>
+          <h3 class="text-xl lg:text-2xl font-semibold text-gray-700 font-InstrumentSans mb-8">
+            The Experienced Professional Behind Your Success
+          </h3>
+        </div>
+
+        <!-- Team Member: Dan Peters -->
+        <div class="bg-white p-6 lg:p-10 border-2 border-gray-200 transition-all duration-300 hover:border-[#f97316] hover:shadow-xl mb-10">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            <!-- Photo Column -->
+            <div class="text-center">
+              <div class="w-64 h-64 mx-auto mb-6 overflow-hidden border-l-4 border-[#f97316]">
+                <img 
+                  src="/assets/img/dan-peters-headshot-new.jpg" 
+                  alt="Dan Peters, Principal & Director"
+                  width="256"
+                  height="256"
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <h3 class="text-2xl font-bold text-[#1C2C3B] mb-2 font-InstrumentSans">
+                Dan Peters
+              </h3>
+              <div class="text-lg font-semibold text-[#f97316] mb-4 font-InstrumentSans">
+                Principal & Director
+              </div>
+            </div>
             
-            .approach-content {
-                grid-template-columns: 1fr;
-            }
+            <!-- Bio Column -->
+            <div class="lg:col-span-2">
+              <div class="space-y-4 text-base text-gray-600 leading-relaxed font-InstrumentSans">
+                <p>
+                  Dan Peters is the founder and director of Edgeview Finance, bringing over 20 years of experience in banking and broking. After beginning his career as a business banker with one of Australia's Big 4 banks, he saw too many strong businesses turned away simply because they didn't fit a single lender's credit policy. That frustration became the catalyst for Edgeview Finance — giving business owners access to 40+ specialist lenders and transforming finance from a transactional necessity into a strategic advantage. Dan has since worked with hundreds of Queensland businesses, particularly in the trades and commercial sector, helping them unlock growth opportunities and build long-term wealth through property investment.
+                </p>
+                <p>
+                  Away from the office, Dan is an active patrolling lifesaver with Northcliffe SLSC, involved in the Nippers program, and a committed blood donor. He's most at home outdoors — camping with family and friends, exploring the coast, and enjoying everything the Queensland lifestyle has to offer. This balance of professional expertise and community involvement reflects Dan's philosophy: finance should be about more than numbers — it should support people, families, and businesses to thrive.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team Values Section -->
+        <div class="text-center">
+          <h3 class="text-2xl lg:text-3xl font-semibold text-[#1C2C3B] mb-8 font-InstrumentSans">
+            Our Team Values
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="p-4 bg-white border-l-4 border-[#f97316] transition-all duration-300 hover:shadow-lg">
+              <p class="text-base text-gray-600 font-medium font-InstrumentSans">
+                Deep industry expertise and specialisation
+              </p>
+            </div>
+            <div class="p-4 bg-white border-l-4 border-[#f97316] transition-all duration-300 hover:shadow-lg">
+              <p class="text-base text-gray-600 font-medium font-InstrumentSans">
+                Commitment to transparent, honest communication
+              </p>
+            </div>
+            <div class="p-4 bg-white border-l-4 border-[#f97316] transition-all duration-300 hover:shadow-lg">
+              <p class="text-base text-gray-600 font-medium font-InstrumentSans">
+                Results-focused approach to client service
+              </p>
+            </div>
+            <div class="p-4 bg-white border-l-4 border-[#f97316] transition-all duration-300 hover:shadow-lg">
+              <p class="text-base text-gray-600 font-medium font-InstrumentSans">
+                Ongoing professional development and training
+              </p>
+            </div>
+            <div class="p-4 bg-white border-l-4 border-[#f97316] transition-all duration-300 hover:shadow-lg">
+              <p class="text-base text-gray-600 font-medium font-InstrumentSans">
+                Strong relationships with lenders and industry partners
+              </p>
+            </div>
+            <div class="p-4 bg-white border-l-4 border-[#f97316] transition-all duration-300 hover:shadow-lg">
+              <p class="text-base text-gray-600 font-medium font-InstrumentSans">
+                Genuine care for client success and business growth
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: CREDENTIALS & TRUST -->
+    <section class="py-12 lg:py-16 bg-white">
+      <div class="container-default">
+        <div class="text-center mb-8">
+          <h2 class="font-InstrumentSans text-3xl lg:text-4xl font-bold text-[#1C2C3B] mb-6">
+            Credentials & Trust
+          </h2>
+          <h3 class="text-xl lg:text-2xl font-semibold text-gray-700 font-InstrumentSans mb-8">
+            Professional Standards You Can Trust
+          </h3>
+        </div>
+
+        <!-- Credential Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div class="bg-white p-8 text-center border-2 border-gray-200 transition-all duration-300 hover:border-[#f97316] hover:shadow-lg">
+            <div class="credential-icon text-5xl text-[#f97316] mb-4">🏛️</div>
+            <h4 class="text-lg font-semibold text-[#1C2C3B] mb-3 uppercase tracking-wide font-InstrumentSans">
+              AUSTRALIAN CREDIT LICENSE
+            </h4>
+            <div class="text-2xl font-bold text-[#f97316] mb-3 font-InstrumentSans">459287</div>
+            <p class="text-sm text-gray-600 font-InstrumentSans">Fully licensed and compliant with ASIC regulations</p>
+          </div>
+
+          <div class="bg-white p-8 text-center border-2 border-gray-200 transition-all duration-300 hover:border-[#f97316] hover:shadow-lg">
+            <div class="text-5xl text-[#f97316] mb-4">👥</div>
+            <h4 class="text-lg font-semibold text-[#1C2C3B] mb-3 uppercase tracking-wide font-InstrumentSans">
+              PROFESSIONAL MEMBERSHIPS
+            </h4>
+            <p class="text-sm text-gray-600 font-InstrumentSans">Active member of industry associations and ongoing professional development</p>
+          </div>
+
+          <div class="bg-white p-8 text-center border-2 border-gray-200 transition-all duration-300 hover:border-[#f97316] hover:shadow-lg">
+            <div class="text-4xl font-bold text-[#f97316] mb-4 font-InstrumentSans">40+</div>
+            <h4 class="text-lg font-semibold text-[#1C2C3B] mb-3 uppercase tracking-wide font-InstrumentSans">
+              ACTIVE LENDER PARTNERSHIPS
+            </h4>
+            <p class="text-sm text-gray-600 font-InstrumentSans">Direct relationships with major banks, credit unions, and specialist lenders</p>
+          </div>
+
+          <div class="bg-white p-8 text-center border-2 border-gray-200 transition-all duration-300 hover:border-[#f97316] hover:shadow-lg">
+            <div class="credential-icon text-5xl text-[#f97316] mb-4">🏞️</div>
+            <h4 class="text-lg font-semibold text-[#1C2C3B] mb-3 uppercase tracking-wide font-InstrumentSans">
+              QUEENSLAND LOCAL EXPERTISE
+            </h4>
+            <p class="text-sm text-gray-600 font-InstrumentSans">Deep understanding of local market conditions and business environments</p>
+          </div>
+        </div>
+
+        <!-- Lender Network Section -->
+        <div class="bg-gray-50 p-8 lg:p-12 mb-12">
+          <h3 class="text-xl lg:text-2xl font-semibold text-[#1C2C3B] mb-6 text-center font-InstrumentSans">
+            Our Trusted Lender Network Includes:
+          </h3>
+          
+          <div class="text-center text-lg text-gray-600 mb-6">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              <div class="p-4 bg-white border-l-4 border-[#f97316]">
+                <span class="font-semibold text-gray-800 font-InstrumentSans">Major Banks</span>
+              </div>
+              <div class="p-4 bg-white border-l-4 border-[#f97316]">
+                <span class="font-semibold text-gray-800 font-InstrumentSans">Regional Banks</span>
+              </div>
+              <div class="p-4 bg-white border-l-4 border-[#f97316]">
+                <span class="font-semibold text-gray-800 font-InstrumentSans">Credit Unions</span>
+              </div>
+              <div class="p-4 bg-white border-l-4 border-[#f97316]">
+                <span class="font-semibold text-gray-800 font-InstrumentSans">Non-Bank Lenders</span>
+              </div>
+            </div>
+          </div>
+          <div class="text-center text-lg text-gray-600">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+              <div class="p-4 bg-white border-l-4 border-[#f97316]">
+                <span class="font-semibold text-gray-800 font-InstrumentSans">Specialist Equipment Financiers</span>
+              </div>
+              <div class="p-4 bg-white border-l-4 border-[#f97316]">
+                <span class="font-semibold text-gray-800 font-InstrumentSans">SMSF Lenders</span>
+              </div>
+              <div class="p-4 bg-white border-l-4 border-[#f97316]">
+                <span class="font-semibold text-gray-800 font-InstrumentSans">Alternative Funders</span>
+              </div>
+            </div>
+          </div>
+          
+          <p class="text-center text-gray-600 italic mt-6 font-InstrumentSans">
+            We maintain direct relationships with over 40 approved lenders to ensure you get the most competitive rates and terms available.
+          </p>
+        </div>
+
+        <!-- Professional Standards Section -->
+        <div class="bg-white shadow-xl p-8 lg:p-12">
+          <h3 class="text-2xl font-bold text-[#1C2C3B] mb-8 text-center font-InstrumentSans">
+            As a licenced finance broking firm, we maintain the highest professional standards
+          </h3>
+          
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
             
-            .expertise-grid,
-            .credentials-grid,
-            .benefits-grid,
-            .process-grid,
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
+            <!-- Left Column -->
+            <div class="space-y-6">
+              <div>
+                <h4 class="text-lg font-bold text-[#1C2C3B] mb-4 font-InstrumentSans">
+                  Regulatory Compliance:
+                </h4>
+                <ul class="space-y-2 text-gray-600 font-InstrumentSans">
+                  <li class="flex items-start">
+                    <span class="inline-block w-2 h-2 bg-[#f97316] mt-2 mr-3 flex-shrink-0"></span>
+                    ASIC registered and compliant credit intermediary
+                  </li>
+                  <li class="flex items-start">
+                    <span class="inline-block w-2 h-2 bg-[#f97316] mt-2 mr-3 flex-shrink-0"></span>
+                    Regular compliance reviews and professional training
+                  </li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 class="text-lg font-bold text-[#1C2C3B] mb-4 font-InstrumentSans">
+                  Industry Excellence:
+                </h4>
+                <ul class="space-y-2 text-gray-600 font-InstrumentSans">
+                  <li class="flex items-start">
+                    <span class="inline-block w-2 h-2 bg-[#f97316] mt-2 mr-3 flex-shrink-0"></span>
+                    Member of professional finance associations
+                  </li>
+                  <li class="flex items-start">
+                    <span class="inline-block w-2 h-2 bg-[#f97316] mt-2 mr-3 flex-shrink-0"></span>
+                    Commitment to ongoing professional development
+                  </li>
+                </ul>
+              </div>
+            </div>
             
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
+            <!-- Right Column -->
+            <div class="space-y-6">
+              <div>
+                <h4 class="text-lg font-bold text-[#1C2C3B] mb-4 font-InstrumentSans">
+                  Client Commitment:
+                </h4>
+                <ul class="space-y-2 text-gray-600 font-InstrumentSans">
+                  <li class="flex items-start">
+                    <span class="inline-block w-2 h-2 bg-[#f97316] mt-2 mr-3 flex-shrink-0"></span>
+                    No upfront costs - we're paid by the lender upon successful settlement
+                  </li>
+                  <li class="flex items-start">
+                    <span class="inline-block w-2 h-2 bg-[#f97316] mt-2 mr-3 flex-shrink-0"></span>
+                    Complete confidentiality of all client information
+                  </li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 class="text-lg font-bold text-[#1C2C3B] mb-4 font-InstrumentSans">
+                  Service Excellence:
+                </h4>
+                <ul class="space-y-2 text-gray-600 font-InstrumentSans">
+                  <li class="flex items-start">
+                    <span class="inline-block w-2 h-2 bg-[#f97316] mt-2 mr-3 flex-shrink-0"></span>
+                    Transparent communication throughout the process
+                  </li>
+                  <li class="flex items-start">
+                    <span class="inline-block w-2 h-2 bg-[#f97316] mt-2 mr-3 flex-shrink-0"></span>
+                    Same-day response guarantee on all enquiries
+                  </li>
+                </ul>
+              </div>
+            </div>
             
-            .team-member {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .photo-placeholder {
-                width: 120px;
-                height: 120px;
-                font-size: 1.5rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .story-stats {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .stat-item {
-                padding: 1.5rem;
-            }
-            
-            .stat-number {
-                font-size: 2rem;
-            }
-        }
-    </style>
-</body>
-</html>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+  <NewsLetter />
+</Layout>

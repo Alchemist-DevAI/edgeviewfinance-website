@@ -1,0 +1,26 @@
+---
+import AboutHero from "../../components/About/AboutHero.astro";
+import FaqSection from "../../components/Index/FaqSection.astro";
+import ServiceSection from "../../components/Service/ServiceSection.astro";
+import Layout from "../../layout/Layout.astro";
+import Price from "../../components/Service/Price.astro";
+import HorizontalLine from "../../components/ui/HorizontalLine.astro";
+import BreadCumb from "../../components/ui/BreadCumb.astro";
+---
+
+<Layout title='Services'>
+  <main class='main-wrapper relative overflow-hidden'>
+    <BreadCumb>
+      <h1 class='breadcrumb-title'>Our Services</h1>
+      <ul class='breadcrumb-nav'>
+        <li><a href='/'>Home</a></li>
+        <li>Our Services</li>
+      </ul>
+    </BreadCumb>
+    <ServiceSection />
+    <HorizontalLine color='bg-ColorBlack' />
+    <AboutHero />
+    <Price />
+    <FaqSection />
+  </main>
+</Layout>

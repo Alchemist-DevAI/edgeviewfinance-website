@@ -1,0 +1,106 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layout/Layout.astro";
+import { slug } from "github-slugger";
+import { getEntryBySlug } from "astro:content";
+import PortfolioSlider from "../../components/Portfolio/PortfolioSlider.astro";
+import RelatedPortfolio from "../../components/Portfolio/RelatedPortfolio.astro";
+import BreadCumb from "../../components/ui/BreadCumb.astro";
+import { Image } from "astro:assets";
+var portfolio = await getCollection("portfolio");
+portfolio = portfolio.filter((portfolioSingle) =>
+  portfolioSingle.slug.startsWith("portfolio-")
+);
+export async function getStaticPaths() {
+  var portfolio = await getCollection("portfolio");
+  portfolio = portfolio.filter((portfolioSingle) =>
+    portfolioSingle.slug.startsWith("portfolio-")
+  );
+  return portfolio.map((portfolioData: any) => {
+    return {
+      params: { single: slug(portfolioData?.data?.title) },
+      props: { portfolioData },
+    };
+  });
+}
+const { portfolioData } = Astro.props;
+const { title, image, category, client, duration, websiteLink } =
+  portfolioData?.data;
+const { Content } = await portfolioData?.render();
+const {
+  data: { sliderText, relatedProjectsText },
+} = await getEntryBySlug("portfolio", "index");
+const Relatedportfolio = portfolio
+  .filter(
+    (portfolioFilter) =>
+      portfolioFilter.slug !== "index" &&
+      portfolioFilter.data.category === portfolioData.data.category
+  )
+  .slice(0, 2);
+---
+
+<Layout title=''>
+  <main class='main-wrapper relative overflow-hidden'>
+    <BreadCumb>
+      <h1 class='breadcrumb-title'>Applications</h1>
+      <ul class='breadcrumb-nav'>
+        <li><a href='/'>Home</a></li>
+        <li><a href='/portfolio'>Portfolio</a></li>
+        <li>{title}</li>
+      </ul>
+    </BreadCumb>
+    <section class='section-portfolio'>
+      <div class='section-space'>
+        <div class='container-default'>
+          <div class='mx-auto max-w-[1076px]'>
+            <Image
+              src={image}
+              alt='portfolio-main-img'
+              width='1076'
+              height='600'
+              class='h-auto w-full rounded-[10px]'
+            />
+            <ul
+              class='mb-[60px] mt-[30px] flex flex-wrap justify-between gap-8'>
+              <li>
+                <span
+                  class='mb-[5px] block text-xl font-bold leading-[1.4] text-ColorBlack'
+                  >Client:</span
+                >
+                <span class='text-ColorBlack/80'>{client}</span>
+              </li>
+              <li>
+                <span
+                  class='mb-[5px] block text-xl font-bold leading-[1.4] text-ColorBlack'
+                  >Category:</span
+                >
+                <span class='text-ColorBlack/80'>{category}</span>
+              </li>
+              <li>
+                <span
+                  class='mb-[5px] block text-xl font-bold leading-[1.4] text-ColorBlack'
+                  >Duration:</span
+                >
+                <span class='text-ColorBlack/80'>{duration}</span>
+              </li>
+              <li>
+                <span class='mb-[5px] block text-xl font-bold leading-[1.4]'
+                  >Website Link:</span
+                >
+                <span class='text-ColorBlack/80'>{websiteLink}</span>
+              </li>
+            </ul>
+            <div class='rich-text'>
+              <Content />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <PortfolioSlider sliderText={sliderText} />
+    <RelatedPortfolio
+      Relatedportfolios={Relatedportfolio}
+      relatedProjectsText={relatedProjectsText}
+    />
+  </main>
+</Layout>

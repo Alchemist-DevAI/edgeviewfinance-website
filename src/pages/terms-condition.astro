@@ -1,0 +1,22 @@
+---
+import { getEntryBySlug } from "astro:content";
+import Layout from "../layout/Layout.astro";
+import BreadCumb from "../components/ui/BreadCumb.astro";
+const TermsConditionBody = await getEntryBySlug("termsCondition", "index");
+const { Content } = await TermsConditionBody.render();
+---
+
+<Layout title='Terms & Condition'>
+  <main class='main-wrapper relative overflow-hidden'>
+    <BreadCumb>
+      <h1 class='breadcrumb-title'>Terms And Condition</h1>
+      <ul class='breadcrumb-nav'>
+        <li><a href='/'>Home</a></li>
+        <li>Terms And Condition</li>
+      </ul>
+    </BreadCumb>
+    <div style="margin: 20px;">
+      <Content />
+    </div>
+  </main>
+</Layout>

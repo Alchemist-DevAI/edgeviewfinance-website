@@ -2,11 +2,11 @@ import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
-import vercel from "@astrojs/vercel";
+import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'server', // Server mode for Vercel deployment
+  output: 'hybrid', // Hybrid mode to support API endpoints
   adapter: vercel({
     analytics: true,
     speedInsights: {
@@ -14,16 +14,7 @@ export default defineConfig({
     }
   }),
   integrations: [tailwind(), mdx(), react()],
-  server: {
-    port: 4002,
-    host: '0.0.0.0'  // Changed from 127.0.0.1 to allow access from Windows host
-  },
   vite: {
-    server: {
-      watch: {
-        usePolling: true
-      }
-    },
     resolve: {
       alias: {
         '@': new URL('./src', import.meta.url).pathname
