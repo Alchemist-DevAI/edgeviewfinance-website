@@ -49,5 +49,16 @@
     }
   ],
   "rewrites": [],
-  "regions": ["syd1"]
+  "regions": ["syd1"],
+  "functions": {
+    "src/pages/**/*.ts": {
+      "runtime": "nodejs20.x"
+    },
+    "src/pages/**/*.js": {
+      "runtime": "nodejs20.x"
+    },
+    ".vercel/output/functions/_render.func/index.js": {
+      "runtime": "nodejs20.x"
+    }
+  }
 }
