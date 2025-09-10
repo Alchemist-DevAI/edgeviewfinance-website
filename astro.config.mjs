@@ -2,13 +2,12 @@ import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
-import vercel from "@astrojs/vercel/serverless";
+import vercel from "@astrojs/vercel/static";
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'hybrid', // Hybrid mode to support API endpoints
+  output: 'static', // Static generation to avoid runtime issues
   adapter: vercel({
-    runtime: 'nodejs20.x',
     analytics: true,
     speedInsights: {
       enabled: true
