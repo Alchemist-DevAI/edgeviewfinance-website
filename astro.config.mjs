@@ -8,6 +8,7 @@ import vercel from "@astrojs/vercel/serverless";
 export default defineConfig({
   output: 'hybrid', // Hybrid mode to support API endpoints
   adapter: vercel({
+    runtime: 'nodejs20.x',
     analytics: true,
     speedInsights: {
       enabled: true
