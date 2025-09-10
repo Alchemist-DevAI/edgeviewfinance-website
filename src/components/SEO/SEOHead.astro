@@ -1,0 +1,157 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  canonical?: string;
+  type?: 'website' | 'article' | 'service';
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  keywords?: string;
+}
+
+const {
+  title,
+  description = "Edgeview Finance - Commercial Finance Solutions for Queensland Trade Businesses. Equipment finance, vehicle finance, property finance and more.",
+  image = "/assets/images/og-image.jpg",
+  canonical,
+  type = 'website',
+  publishedTime,
+  modifiedTime,
+  author = "Edgeview Finance",
+  keywords = "commercial finance, equipment finance, vehicle finance, business loans, Queensland, trade business finance, excavator finance, truck finance"
+} = Astro.props;
+
+const siteUrl = "https://www.edgeviewfinance.com.au";
+const fullImageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
+const canonicalUrl = canonical || `${siteUrl}${Astro.url.pathname}`;
+---
+
+<!-- Primary Meta Tags -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{title} | Edgeview Finance - Commercial Finance Brisbane</title>
+<meta name="title" content={`${title} | Edgeview Finance`} />
+<meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
+<meta name="author" content={author} />
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:title" content={`${title} | Edgeview Finance`} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={fullImageUrl} />
+<meta property="og:site_name" content="Edgeview Finance" />
+<meta property="og:locale" content="en_AU" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonicalUrl} />
+<meta property="twitter:title" content={`${title} | Edgeview Finance`} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={fullImageUrl} />
+
+<!-- Article specific -->
+{type === 'article' && publishedTime && (
+  <meta property="article:published_time" content={publishedTime} />
+)}
+{type === 'article' && modifiedTime && (
+  <meta property="article:modified_time" content={modifiedTime} />
+)}
+{type === 'article' && author && (
+  <meta property="article:author" content={author} />
+)}
+
+<!-- Additional SEO -->
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
+<meta name="google" content="nositelinkssearchbox" />
+<meta name="format-detection" content="telephone=no" />
+
+<!-- Geo Tags for Local SEO -->
+<meta name="geo.region" content="AU-QLD" />
+<meta name="geo.placename" content="Brisbane" />
+<meta name="geo.position" content="-27.4698;153.0251" />
+<meta name="ICBM" content="-27.4698, 153.0251" />
+
+<!-- Favicon -->
+<link rel="icon" type="image/webp" href="/favicon.webp" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon.webp" />
+
+<!-- Structured Data for Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialService",
+  "name": "Edgeview Finance",
+  "description": "Commercial Finance Solutions for Queensland Trade Businesses",
+  "url": "https://www.edgeviewfinance.com.au",
+  "logo": "https://www.edgeviewfinance.com.au/assets/images/logo.png",
+  "image": "https://www.edgeviewfinance.com.au/assets/images/og-image.jpg",
+  "telephone": "+61 7 3088 7597",
+  "email": "dan@edgeviewfinance.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Brisbane",
+    "addressRegion": "QLD",
+    "addressCountry": "AU"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -27.4698,
+    "longitude": 153.0251
+  },
+  "areaServed": {
+    "@type": "State",
+    "name": "Queensland",
+    "containedInPlace": {
+      "@type": "Country",
+      "name": "Australia"
+    }
+  },
+  "priceRange": "$$",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "09:00",
+    "closes": "17:00"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/edgeview-finance",
+    "https://www.facebook.com/edgeviewfinance"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Commercial Finance Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Equipment Finance",
+          "description": "Finance solutions for excavators, trucks, and trade equipment"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Vehicle Finance",
+          "description": "Commercial vehicle and fleet financing"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Property Finance",
+          "description": "Commercial property loans and refinancing"
+        }
+      }
+    ]
+  }
+}
+</script>
