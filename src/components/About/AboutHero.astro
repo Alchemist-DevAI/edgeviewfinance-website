@@ -5,7 +5,7 @@ import { Image } from "astro:assets";
 
 const HeroData = await getEntryBySlug("aboutPage", "hero");
 const { Content } = await HeroData.render();
-const { header, blockquote, person, videoLink, heroImage } = HeroData?.data;
+const { header, blockquote, person, videoLink, img } = HeroData?.data;
 ---
 
 <section class='section-about-hero'>
@@ -20,7 +20,7 @@ const { header, blockquote, person, videoLink, heroImage } = HeroData?.data;
             data-jos_delay='0'>
             <div
               class='relative flex items-center justify-center mx-auto lg:mx-0 max-w-full sm:max-w-[80%] md:max-w-[70%] lg:max-w-full'>
-              <HeroImage img={heroImage} videoLink={videoLink} />
+              <HeroImage img={img} videoLink={videoLink} />
             </div>
           </div>
           <div
