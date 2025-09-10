@@ -8,7 +8,8 @@ const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYm
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 // Initialize Resend - will use environment variable from Vercel
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resendApiKey = process.env.RESEND_API_KEY || import.meta.env.RESEND_API_KEY;
+const resend = resendApiKey ? new Resend(resendApiKey) : null;
 
 export const prerender = false; // This is a server-side route
 
@@ -92,11 +93,13 @@ export const POST: APIRoute = async ({ request }) => {
 
     // Send notification emails
     let emailSent = false;
-    try {
-      // Send internal notification email
-      const internalEmail = await resend.emails.send({
-        from: process.env.EMAIL_FROM || 'Edgeview Finance <noreply@edgeviewfinance.com.au>',
-        to: process.env.EMAIL_TO || 'dan@edgeviewfinance.com.au',
+    
+    if (resend) {
+      try {
+        // Send internal notification email
+        const internalEmail = await resend.emails.send({
+        from: process.env.EMAIL_FROM || import.meta.env.EMAIL_FROM || 'Edgeview Finance <noreply@edgeviewfinance.com.au>',
+        to: process.env.EMAIL_TO || import.meta.env.EMAIL_TO || 'dan@edgeviewfinance.com.au',
         subject: `New Finance Ready Assessment - ${data.firstName} ${data.lastName}`,
         html: `
           <h2>New Finance Ready Assessment Submission</h2>
@@ -175,10 +178,13 @@ export const POST: APIRoute = async ({ request }) => {
         .update({ email_sent: true })
         .eq('id', insertedData?.id);
 
-    } catch (emailError) {
-      console.error('Email sending error:', emailError);
-      // Don't fail the whole request if email fails - data is already saved
-      // Just log the error and continue
+      } catch (emailError) {
+        console.error('Email sending error:', emailError);
+        // Don't fail the whole request if email fails - data is already saved
+        // Just log the error and continue
+      }
+    } else {
+      console.log('Resend API not configured - skipping email notifications');
     }
 
     // Update analytics (increment daily counter) - simplified for now
