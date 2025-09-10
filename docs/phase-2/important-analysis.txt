@@ -1,0 +1,230 @@
+========== src/css/blog-cards.css ==========
+\!important count: 1
+
+2:   Blog Cards - Clean CSS without !important overrides
+
+========== src/css/contact-page.css ==========
+\!important count: 26
+
+6:  font-size: 1.125rem !important; /* 18px at base - matches text-lg */
+7:  font-weight: 700 !important;
+8:  line-height: 1.4 !important;
+13:    font-size: 1.25rem !important; /* 20px on desktop - matches lg:text-xl */
+19:  margin-bottom: 0.75rem !important;
+23:  font-size: 0.875rem !important; /* 14px */
+24:  font-weight: 600 !important;
+25:  margin-bottom: 0.75rem !important;
+30:  font-size: 1.125rem !important; /* 18px */
+35:  font-size: 1.125rem !important; /* 18px at base */
+36:  font-weight: 700 !important;
+41:    font-size: 1.25rem !important; /* 20px on desktop */
+47:  font-size: 1.125rem !important; /* 18px at base */
+48:  font-weight: 700 !important;
+53:    font-size: 1.25rem !important; /* 20px on desktop */
+59:  font-size: 1.125rem !important; /* 18px at base */
+60:  font-weight: 700 !important;
+65:    font-size: 1.25rem !important; /* 20px on desktop */
+71:  font-size: 1.125rem !important; /* 18px at base */
+72:  font-weight: 600 !important;
+
+========== src/css/custom.css ==========
+\!important count: 82
+
+57:  font-size: 14px !important;
+58:  font-weight: 500 !important;
+59:  color: #4b5563 !important; /* Gray-600 to match main nav */
+60:  padding: 10px 20px !important;
+61:  transition: all 0.3s ease !important;
+65:  color: #f97316 !important; /* Orange on hover to match brand */
+66:  background-color: rgba(249, 115, 22, 0.05) !important;
+71:  border-radius: 4px !important;
+72:  border: 1px solid #e5e7eb !important;
+73:  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+87:  font-family: 'Instrument Sans', sans-serif !important;
+92:  border-radius: 0 !important;
+97:  background-color: #FF9E10 !important;
+98:  color: white !important;
+99:  border-color: #FF9E10 !important;
+100:  font-weight: 600 !important;
+104:  background-color: #E68900 !important;
+105:  border-color: #E68900 !important;
+109:  background-color: transparent !important;
+110:  color: #1C2C3B !important;
+
+========== src/css/global-overrides.css ==========
+\!important count: 91
+
+9:  border-radius: 0 !important;
+16:  color: var(--brand-orange-primary) !important;
+20:  background-color: var(--brand-orange-primary) !important;
+24:  border-color: var(--brand-orange-primary) !important;
+30:  border-radius: 0 !important;
+35:  transform: none !important;
+61:  font-size: 1.75rem !important; /* 28px at base */
+62:  font-weight: 400 !important; /* Design spec uses 400 weight */
+63:  letter-spacing: -0.02em !important;
+64:  line-height: 1.1 !important;
+68:  h1 { font-size: 2rem !important; } /* 32px */
+72:  h1 { font-size: 2.5rem !important; } /* 40px */
+76:  h1 { font-size: 3rem !important; } /* 48px - MASTER-DESIGN.md spec */
+80:  font-size: 1.125rem !important; /* 18px at base */
+81:  font-weight: var(--font-weight-medium) !important; /* Design spec uses 500 weight */
+82:  color: var(--text-secondary) !important; /* Design spec color */
+83:  font-family: var(--font-primary) !important;
+88:  h2, .subheading { font-size: 1.25rem !important; } /* 20px */
+92:  h2, .subheading { font-size: 1.375rem !important; } /* 22px */
+96:  h2, .subheading { font-size: 1.5rem !important; } /* 24px - MASTER-DESIGN.md spec */
+
+========== src/css/header-overrides.css ==========
+\!important count: 11
+
+5:  position: fixed !important;
+21:  color: #1C2C3B !important;
+22:  transition: color 0.3s ease !important;
+26:  color: #FF9E10 !important;
+31:  background-color: rgba(28, 44, 59, 0.5) !important;
+32:  color: #ffffff !important;
+33:  border: 2px solid transparent !important;
+34:  transition: all 0.3s ease !important;
+38:  background-color: #FF9E10 !important;
+39:  color: #000000 !important;
+40:  border-color: #FF9E10 !important;
+
+========== src/css/hero-section.css ==========
+\!important count: 36
+
+13:  font-size: 2.25rem !important; /* 36px */
+14:  font-weight: 700 !important; /* Bold weight for better impact */
+15:  letter-spacing: -0.02em !important; /* Per design spec */
+16:  line-height: 1.1 !important; /* Per design spec */
+17:  margin-bottom: 1rem !important;
+22:    font-size: 2.5rem !important; /* 40px tablet */
+28:    font-size: 2.75rem !important; /* 44px */
+34:    font-size: 3rem !important; /* 48px - MASTER-DESIGN.md spec */
+41:  font-size: 1.25rem !important; /* 20px mobile */
+42:  font-weight: 500 !important; /* MASTER-DESIGN.md spec uses 500 */
+43:  color: #4B5563 !important; /* Gray-600 per design spec */
+44:  line-height: 1.4 !important;
+45:  margin-bottom: 1.5rem !important;
+50:    font-size: 1.375rem !important; /* 22px tablet */
+56:    font-size: 1.5rem !important; /* 24px - MASTER-DESIGN.md spec */
+63:  font-size: 0.875rem !important; /* 14px mobile per spec */
+64:  line-height: 1.6 !important;
+65:  font-weight: 400 !important;
+66:  color: #4B5563 !important; /* Consistent gray */
+71:    font-size: 0.9375rem !important; /* 15px tablet */
+
+========== src/css/menu.css ==========
+\!important count: 24
+
+48:    display: flex !important;
+66:  position: absolute !important;
+95:  position: fixed !important;
+209:    color: #fff !important;
+213:    padding-top: 19px !important;
+214:    padding-bottom: 19px !important;
+242:    display: flex !important;
+483:    top: 0 !important;
+601:    color: #ffc947 !important;
+675:    background-color: #fff !important;
+679:    background-color: #13111a !important;
+683:    background-color: #fff !important;
+703:    background-color: #13111a !important;
+906:    position: absolute !important;
+919:  background: #0d152e !important;
+923:  color: #fff !important;
+927:  color: #fff !important;
+931:  color: #fff !important;
+935:  display: block !important;
+939:  display: none !important;
+
+========== src/css/page-specific-overrides.css ==========
+\!important count: 38
+
+10:  font-size: 1.5rem !important; /* 24px - text-2xl */
+11:  font-weight: 600 !important;
+12:  line-height: 1.3 !important;
+18:    font-size: 1.5rem !important; /* 24px - maintain text-2xl */
+25:    font-size: 1.5rem !important; /* 24px - maintain text-2xl */
+34:  font-size: 1.25rem !important; /* 20px */
+35:  font-weight: 600 !important;
+41:    font-size: 1.5rem !important; /* 24px */
+50:  font-size: 1.125rem !important; /* 18px */
+51:  font-weight: 600 !important;
+57:    font-size: 1.25rem !important; /* 20px */
+66:  font-size: 1.25rem !important; /* 20px */
+67:  font-weight: 600 !important;
+73:    font-size: 1.5rem !important; /* 24px */
+83:  font-size: 1.125rem !important; /* 18px */
+84:  font-weight: 600 !important;
+91:    font-size: 1.25rem !important; /* 20px */
+99:  font-size: 1rem !important; /* 16px */
+100:  font-weight: 600 !important;
+105:    font-size: 1.125rem !important; /* 18px */
+
+========== src/css/success-stories.css ==========
+\!important count: 47
+
+5:  border-radius: 0 !important;
+15:  font-size: 12px !important;
+16:  font-weight: 500 !important;
+26:  font-size: 14px !important;
+27:  font-weight: 600 !important;
+34:  font-size: 13px !important;
+35:  font-weight: 600 !important;
+44:  font-size: 14px !important;
+45:  font-weight: 400 !important;
+52:  font-size: 11px !important;
+53:  font-weight: 600 !important;
+63:  font-size: 12px !important;
+64:  font-weight: 400 !important;
+71:  font-size: 13px !important;
+72:  font-weight: 500 !important;
+82:  font-size: 14px !important;
+83:  font-weight: 500 !important;
+93:  font-size: 14px !important;
+94:  font-weight: 500 !important;
+101:  font-size: 20px !important;
+
+========== src/css/tailwind.css ==========
+\!important count: 9
+
+359:  border-radius: 0 !important;
+360:  -webkit-border-radius: 0 !important;
+361:  -moz-border-radius: 0 !important;
+368:  border-radius: 0 !important;
+377:  border-radius: 0 !important;
+378:  border-top-left-radius: 0 !important;
+379:  border-top-right-radius: 0 !important;
+380:  border-bottom-left-radius: 0 !important;
+381:  border-bottom-right-radius: 0 !important;
+
+========== src/css/typography-utilities.css ==========
+\!important count: 149
+
+12:  font-size: var(--h1-size-mobile) !important;   /* 28px mobile */
+13:  font-weight: var(--font-weight-normal) !important;
+14:  letter-spacing: var(--letter-spacing-tight) !important;
+15:  line-height: var(--line-height-tight) !important;
+16:  font-family: var(--font-primary) !important;
+17:  color: var(--text-primary) !important;
+21:  .heading-hero { font-size: 2rem !important; } /* 32px */
+25:  .heading-hero { font-size: 2.5rem !important; } /* 40px */
+29:  .heading-hero { font-size: var(--h1-size-desktop) !important; } /* 48px */
+34:  font-size: var(--h1-size-mobile) !important;   /* 28px mobile */
+35:  font-weight: var(--font-weight-normal) !important;
+36:  letter-spacing: var(--letter-spacing-tight) !important;
+37:  line-height: var(--line-height-tight) !important;
+38:  font-family: var(--font-primary) !important;
+39:  color: var(--text-primary) !important;
+43:  .heading-section { font-size: var(--h1-size-desktop) !important; } /* 48px */
+48:  font-size: var(--h2-size-mobile) !important;   /* 18px mobile */
+49:  font-weight: var(--font-weight-medium) !important;
+50:  color: var(--text-secondary) !important;
+51:  font-family: var(--font-primary) !important;
+
+========== src/css/variables.css ==========
+\!important count: 0
+0
+
+
