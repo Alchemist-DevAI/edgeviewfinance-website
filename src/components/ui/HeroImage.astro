@@ -4,13 +4,15 @@ import { Image } from "astro:assets";
 const { img, videoLink } = Astro.props;
 ---
 
-<Image
-  src={img}
-  alt='hero image'
-  width='600'
-  height='579'
-  class='h-auto w-full'
-/>
+{img && (
+  <Image
+    src={img}
+    alt='hero image'
+    width='600'
+    height='579'
+    class='h-auto w-full'
+  />
+)}
 <a
   data-fslightbox='gallery'
   href={videoLink}
