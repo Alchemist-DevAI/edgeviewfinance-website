@@ -1,0 +1,18 @@
+---
+import FaqSection from "../components/Index/FaqSection.astro";
+import BreadCumb from "../components/ui/BreadCumb.astro";
+import Layout from "../layout/Layout.astro";
+---
+
+<Layout title="FAQ's">
+  <main class='main-wrapper relative overflow-hidden'>
+    <BreadCumb>
+      <h1 class='breadcrumb-title'>FAQs</h1>
+      <ul class='breadcrumb-nav'>
+        <li><a href='/'>Home</a></li>
+        <li>FAQ</li>
+      </ul>
+    </BreadCumb>
+    <FaqSection />
+  </main>
+</Layout>

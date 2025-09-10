@@ -1,0 +1,178 @@
+---
+import { getEntryBySlug } from "astro:content";
+
+const ContactCTAData = await getEntryBySlug("aboutPage", "contact-cta");
+const { header, subheading, description, benefits, contactInfo, responsePromise } = ContactCTAData?.data;
+---
+
+<section class="contact-cta-section bg-gray-50">
+  <div class="container-default">
+    <!-- Main CTA Section -->
+    <div class="bg-white shadow-xl overflow-hidden">
+      <div class="grid lg:grid-cols-2">
+        <!-- Content Side -->
+        <div class="bg-[#1C2C3B] p-12 lg:p-16 flex items-center">
+          <div class="w-full">
+            <div class="inline-flex items-center bg-[#f97316] text-white px-4 py-2 mb-8">
+              <svg class="mr-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+              </svg>
+              <span class="font-semibold uppercase tracking-wide font-InstrumentSans">Let's Get Started</span>
+            </div>
+            
+            <h2 class="mb-8 font-InstrumentSans text-4xl lg:text-5xl xl:text-6xl font-bold text-white uppercase tracking-tight leading-none">
+              {header}
+            </h2>
+            
+            <p class="mb-8 text-xl text-gray-300 font-InstrumentSans leading-relaxed">
+              {description}
+            </p>
+            
+            <!-- Benefits List -->
+            <div class="space-y-3 mb-10">
+              {benefits.map((benefit) => (
+                <div class="flex items-center text-gray-300">
+                  <svg class="mr-3 h-5 w-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="font-InstrumentSans">{benefit}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        
+        <!-- Contact Info Side -->
+        <div class="bg-gradient-to-br from-gray-50 to-white p-12 lg:p-16 flex items-center">
+          <div class="w-full">
+            <!-- Contact Information -->
+            <div class="space-y-8 mb-10">
+              <!-- Phone -->
+              <div class="text-center">
+                <div class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2 font-InstrumentSans">
+                  {contactInfo.phone.label}
+                </div>
+                <a 
+                  href={`tel:${contactInfo.phone.value.replace(/[^0-9]/g, '')}`}
+                  class="text-3xl font-bold text-[#f97316] hover:text-[#ea580c] transition-colors font-InstrumentSans"
+                >
+                  {contactInfo.phone.value}
+                </a>
+              </div>
+              
+              <!-- Email -->
+              <div class="text-center">
+                <div class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2 font-InstrumentSans">
+                  {contactInfo.email.label}
+                </div>
+                <a 
+                  href={`mailto:${contactInfo.email.value}`}
+                  class="text-lg font-semibold text-[#1C2C3B] hover:text-[#f97316] transition-colors font-InstrumentSans break-all"
+                >
+                  {contactInfo.email.value}
+                </a>
+              </div>
+              
+              <!-- Office Hours -->
+              <div class="text-center">
+                <div class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2 font-InstrumentSans">
+                  {contactInfo.hours.label}
+                </div>
+                <div class="text-base text-gray-600 font-InstrumentSans">
+                  {contactInfo.hours.value.split('\n').map((line, index) => (
+                    <>
+                      {line}
+                      {index < contactInfo.hours.value.split('\n').length - 1 && <br />}
+                    </>
+                  ))}
+                </div>
+              </div>
+            </div>
+            
+            <!-- CTA Buttons -->
+            <div class="space-y-4">
+              <a
+                href={`tel:${contactInfo.phone.value.replace(/[^0-9]/g, '')}`}
+                class="block w-full bg-[#f97316] text-white px-8 py-5 font-bold text-lg transition-all duration-300 hover:bg-[#ea580c] hover:shadow-lg font-InstrumentSans text-center"
+              >
+                CALL NOW - GET STARTED TODAY
+              </a>
+              
+              <div class="flex items-center justify-center">
+                <div class="h-px bg-gray-300 flex-1"></div>
+                <span class="px-4 text-gray-500 font-InstrumentSans">or</span>
+                <div class="h-px bg-gray-300 flex-1"></div>
+              </div>
+              
+              <a
+                href={`mailto:${contactInfo.email.value}`}
+                class="block w-full border-2 border-[#1C2C3B] bg-white text-[#1C2C3B] px-8 py-5 font-bold text-lg transition-all duration-300 hover:bg-[#1C2C3B] hover:text-white font-InstrumentSans text-center"
+              >
+                <span class="flex items-center justify-center">
+                  <svg class="mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  </svg>
+                  SEND AN EMAIL
+                </span>
+              </a>
+              
+              <p class="text-sm text-gray-500 mt-4 font-InstrumentSans text-center">
+                Australian Credit Licence 459287
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Response Promise Section -->
+    <div class="response-promise bg-white p-8 border-2 border-[#f97316] mt-8">
+      <h3 class="text-2xl font-semibold text-[#1C2C3B] mb-6 text-center font-InstrumentSans">
+        {responsePromise.title}
+      </h3>
+      <p class="text-lg text-gray-600 text-center leading-relaxed font-InstrumentSans max-w-4xl mx-auto">
+        {responsePromise.description}
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+.contact-cta-section {
+  padding: 8rem 1rem;
+  background: #F3F4F6;
+}
+
+.container-default {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .contact-cta-section {
+    padding: 4rem 1rem;
+  }
+  
+  .response-promise {
+    padding: 1.5rem;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-cta-section {
+    padding: 3rem 1rem;
+  }
+}
+
+/* Focus states for accessibility */
+.contact-cta-section a:focus {
+  outline: 3px solid #f97316;
+  outline-offset: 2px;
+}
+
+/* Ensure no border radius (sharp corners) */
+* {
+  border-radius: 0 !important;
+}
+</style>

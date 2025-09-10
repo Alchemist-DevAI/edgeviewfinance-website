@@ -10,19 +10,19 @@ const { content, header, button } = QNA.data;
 
 <section class='section-faq'>
   <div class='relative z-10 overflow-hidden'>
-    <div class='section-space'>
+    <div class='py-12 lg:py-16'>
       <div class='container-default'>
         <Header heading={header} MaxWidth='max-w-[625px]' />
         <div class='jos'>
           <ul
-            class='mx-auto max-w-[1076px] rounded-[10px] border border-secondary-dark'>
+            class='mx-auto max-w-[1076px] rounded-[10px] border border-ColorBlack'>
             {
               content.map(({ Q, A }: any, index: number) => (
                 <FaqCard Q={Q} A={A} index={index} />
               ))
             }
           </ul>
-          <div class='jos mt-[60px] flex justify-center xl:mt-20'>
+          <div class='jos mt-8 flex justify-center xl:mt-10'>
             <Button link={button?.link} text={button?.text} />
           </div>
         </div>

@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layout/Layout.astro";
+import PortfolioSection from "../../components/functional/PortfolioSection";
+import BreadCumb from "../../components/ui/BreadCumb.astro";
+var portfolio = await getCollection("portfolio");
+portfolio = portfolio.filter((portfolioSingle) =>
+  portfolioSingle.slug.startsWith("portfolio-")
+);
+var Categories: any = [];
+portfolio?.map(({ data: { category } }: any) => Categories.push(category));
+const uniqueCategories: any = new Set(Categories);
+---
+
+<Layout title='Portfolio'>
+  <main class='main-wrapper relative overflow-hidden'>
+    <BreadCumb>
+      <h1 class='breadcrumb-title'>Portfolio</h1>
+      <ul class='breadcrumb-nav'>
+        <li><a href='/'>Home</a></li>
+        <li>Portfolio</li>
+      </ul>
+    </BreadCumb>
+    <PortfolioSection
+      client:only='react'
+      portfolio={portfolio}
+      uniqueCategories={uniqueCategories}
+    />
+  </main>
+</Layout>

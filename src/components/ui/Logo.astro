@@ -1,27 +1,19 @@
 ---
-// EVFBS Logo Component
-const { link = "/", css = "" } = Astro.props;
+import { Image } from "astro:assets";
+import { getEntryBySlug } from "astro:content";
+
+const { link, css, logo } = Astro.props;
+const MetaData = await getEntryBySlug("site", "meta");
 ---
 
-<a href={link} class={`inline-flex items-center ${css}`} aria-label="Edgeview Finance Business Solutions Homepage">
-  <!-- EVFBS Logo SVG or Image -->
-  <div class="flex items-center gap-2">
-    <!-- Logo Icon -->
-    <div class="w-10 h-10 bg-brand-primary rounded-lg flex items-center justify-center">
-      <span class="text-white font-bold text-lg">EV</span>
-    </div>
-    <!-- Logo Text -->
-    <div class="flex flex-col">
-      <span class="text-brand-primary font-bold text-xl leading-tight">Edgeview Finance</span>
-      <span class="text-brand-grey-600 text-xs uppercase tracking-wider">Business Solutions</span>
-    </div>
-  </div>
+<a href={link} class={css} aria-label="Edgeview Finance - Home">
+  <Image
+    src={logo ? logo : MetaData?.data?.logo}
+    alt='Edgeview Finance Logo'
+    width='180'
+    height='60'
+    loading='eager'
+    class='h-auto w-[140px] md:w-[180px]'
+  />
+  <span class="sr-only">Edgeview Finance - Home</span>
 </a>
-
-<style>
-  /* Logo hover effect */
-  a:hover .text-brand-primary {
-    color: #0066CC;
-    transition: color 0.3s ease;
-  }
-</style>

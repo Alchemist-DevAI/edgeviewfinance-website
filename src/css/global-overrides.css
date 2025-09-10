@@ -1,0 +1,393 @@
+/* Global Typography and Brand Overrides */
+
+/* ============================================
+   DESIGN SYSTEM - SHARP PROFESSIONAL FLAT DESIGN
+   ============================================ */
+
+/* Global flat design enforcement - no rounded corners */
+*, *::before, *::after {
+  border-radius: 0 !important;
+}
+
+/* Brand colors now defined in variables.css */
+
+/* Global orange color overrides */
+.text-orange-500, .text-orange-600, .text-\[\#FF9E10\] {
+  color: var(--brand-orange-primary) !important;
+}
+
+.bg-orange-500, .bg-orange-600, .bg-\[\#FF9E10\] {
+  background-color: var(--brand-orange-primary) !important;
+}
+
+.border-orange-500, .border-orange-600, .border-\[\#FF9E10\] {
+  border-color: var(--brand-orange-primary) !important;
+}
+
+/* Flat design overrides for common rounded elements */
+.rounded, .rounded-sm, .rounded-md, .rounded-lg, .rounded-xl, .rounded-2xl,
+.rounded-full, .rounded-t, .rounded-r, .rounded-b, .rounded-l {
+  border-radius: 0 !important;
+}
+
+/* Remove transform scales for flat design */
+.hover\:scale-105:hover, .group:hover .group-hover\:scale-105 {
+  transform: none !important;
+}
+
+/* ============================================
+   TYPOGRAPHY SYSTEM - RESPONSIVE
+   ============================================ */
+
+/* Base font size for mobile */
+html {
+  font-size: 16px;
+}
+
+@media (min-width: 480px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* Responsive heading sizes - Based on MASTER-DESIGN.md specs */
+h1 {
+  font-size: 1.75rem !important; /* 28px at base */
+  font-weight: 400 !important; /* Design spec uses 400 weight */
+  letter-spacing: -0.02em !important;
+  line-height: 1.1 !important;
+}
+
+@media (min-width: 640px) {
+  h1 { font-size: 2rem !important; } /* 32px */
+}
+
+@media (min-width: 768px) {
+  h1 { font-size: 2.5rem !important; } /* 40px */
+}
+
+@media (min-width: 1024px) {
+  h1 { font-size: 3rem !important; } /* 48px - MASTER-DESIGN.md spec */
+}
+
+h2, .subheading {
+  font-size: 1.125rem !important; /* 18px at base */
+  font-weight: var(--font-weight-medium) !important; /* Design spec uses 500 weight */
+  color: var(--text-secondary) !important; /* Design spec color */
+  font-family: var(--font-primary) !important;
+  line-height: var(--line-height-normal);
+}
+
+@media (min-width: 640px) {
+  h2, .subheading { font-size: 1.25rem !important; } /* 20px */
+}
+
+@media (min-width: 768px) {
+  h2, .subheading { font-size: 1.375rem !important; } /* 22px */
+}
+
+@media (min-width: 1024px) {
+  h2, .subheading { font-size: 1.5rem !important; } /* 24px - MASTER-DESIGN.md spec */
+}
+
+h3 {
+  font-size: 1rem !important; /* 16px at base */
+  font-weight: 600 !important;
+}
+
+@media (min-width: 640px) {
+  h3 { font-size: 1.125rem !important; } /* 18px */
+}
+
+@media (min-width: 768px) {
+  h3 { font-size: 1.25rem !important; } /* 20px */
+}
+
+@media (min-width: 1024px) {
+  h3 { font-size: 1.5rem !important; } /* 24px - for section headers */
+}
+
+h4 {
+  font-size: 0.875rem !important; /* 14px at base */
+  font-weight: 600 !important;
+}
+
+@media (min-width: 640px) {
+  h4 { font-size: 0.875rem !important; } /* 14px */
+}
+
+@media (min-width: 768px) {
+  h4 { font-size: 1rem !important; } /* 16px */
+}
+
+@media (min-width: 1024px) {
+  h4 { font-size: 1.125rem !important; } /* 18px */
+}
+
+/* Body text and paragraphs - MASTER-DESIGN.md spec */
+p {
+  font-size: 0.875rem !important; /* 14px at base mobile */
+}
+
+@media (min-width: 640px) {
+  p { font-size: 0.875rem !important; } /* 14px */
+}
+
+@media (min-width: 1024px) {
+  p { font-size: 1rem !important; } /* 16px - MASTER-DESIGN.md spec */
+}
+
+/* Section descriptions */
+.section-description, 
+p.description {
+  font-size: 0.875rem !important; /* 14px at base */
+  font-weight: var(--font-weight-normal) !important; /* Normal weight for descriptions */
+  color: var(--text-secondary) !important; /* Lighter gray from design */
+  font-family: var(--font-primary) !important;
+}
+
+@media (min-width: 640px) {
+  .section-description, 
+  p.description { font-size: 0.875rem !important; } /* 14px */
+}
+
+@media (min-width: 768px) {
+  .section-description, 
+  p.description { font-size: 1rem !important; } /* 16px */
+}
+
+@media (min-width: 1024px) {
+  .section-description, 
+  p.description { font-size: 1rem !important; } /* 16px - consistent with body text */
+}
+
+/* Small text */
+small, .text-small {
+  font-size: 0.875rem !important; /* 14px at base */
+}
+
+@media (min-width: 640px) {
+  small, .text-small { font-size: 0.875rem !important; } /* 14px */
+}
+
+/* Navigation specific responsive sizing */
+@media (max-width: 1023px) {
+  .nav-link-item {
+    font-size: 14px !important;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 1023px) {
+  .nav-link-item {
+    font-size: 15px !important;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .nav-link-item {
+    font-size: 16px !important;
+  }
+}
+
+/* ============================================
+   BUTTON OVERRIDES - Fix conflicting classes
+   ============================================ */
+
+/* Hero Primary CTA Button - Navy blue to bright orange */
+.btn-primary-hero {
+  background-color: var(--brand-blue-primary) !important;
+  color: var(--text-inverse) !important;
+  border: 2px solid var(--brand-blue-primary) !important;
+  transition: var(--transition-button) !important;
+  border-radius: var(--radius-none) !important;
+  transform: none !important;
+}
+
+.btn-primary-hero:hover {
+  background-color: var(--brand-orange-primary) !important;
+  color: var(--text-inverse) !important;
+  border-color: var(--brand-orange-primary) !important;
+  transform: none !important;
+}
+
+/* Hero Secondary CTA Button - Semi-transparent navy to bright orange (matching Live Chat) */
+.btn-secondary-hero {
+  background-color: rgba(28, 44, 59, 0.5) !important;
+  color: var(--text-inverse) !important;
+  border: 2px solid transparent !important;
+  transition: var(--transition-button) !important;
+  border-radius: var(--radius-none) !important;
+  transform: none !important;
+}
+
+.btn-secondary-hero:hover {
+  background-color: var(--brand-orange-primary) !important;
+  color: var(--text-inverse) !important;
+  border-color: var(--brand-orange-primary) !important;
+  transform: none !important;
+}
+
+/* Legacy button classes - updated with bright orange and flat design */
+.btn.is-lime {
+  background-color: var(--brand-orange-primary) !important;
+  color: #ffffff !important;
+  border: 2px solid var(--brand-orange-primary) !important;
+  transition: all 0.3s ease !important;
+  border-radius: 0 !important;
+  transform: none !important;
+}
+
+.btn.is-lime:hover {
+  background-color: #1C2C3B !important;
+  color: #ffffff !important;
+  border-color: #1C2C3B !important;
+  transform: none !important;
+}
+
+.btn.is-outline-black {
+  background-color: rgba(28, 44, 59, 0.5) !important;
+  color: #ffffff !important;
+  border: 2px solid transparent !important;
+  transition: all 0.3s ease !important;
+  border-radius: 0 !important;
+  transform: none !important;
+}
+
+.btn.is-outline-black:hover {
+  background-color: var(--brand-orange-primary) !important;
+  color: #ffffff !important;
+  border-color: var(--brand-orange-primary) !important;
+  transform: none !important;
+}
+
+/* ============================================
+   NAVIGATION OVERRIDES
+   ============================================ */
+
+/* CRITICAL: Force navigation text visibility - defensive CSS with maximum specificity */
+.nav-link-wrapper .nav-text,
+.nav-dropdown-btn-combined .nav-text,
+button.nav-link-item .nav-text,
+.dropdown-toggle-btn .nav-text,
+.nav-link-item .nav-text,
+.nav-text {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  font-size: inherit !important;
+  text-indent: 0 !important;
+  height: auto !important;
+  width: auto !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: normal !important;
+  position: static !important;
+  color: inherit !important;
+  font-weight: inherit !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  line-height: inherit !important;
+  text-decoration: none !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Navigation hover - ensure orange on ALL nav items */
+.nav-link-item,
+.nav-link-item *,
+.nav-dropdown-btn-combined,
+.nav-dropdown-btn-combined * {
+  transition: color 0.3s ease !important;
+}
+
+.nav-link-item:hover,
+.nav-link-item:hover *,
+.nav-dropdown-btn-combined:hover,
+.nav-dropdown-btn-combined:hover * {
+  color: var(--brand-orange-primary) !important;
+}
+
+/* Ensure dropdown buttons have proper text visibility */
+button.nav-link-item,
+.nav-dropdown-btn-combined,
+.dropdown-toggle-btn {
+  background: transparent !important;
+  border: none !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  color: inherit !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+}
+
+button.nav-link-item:focus,
+.nav-dropdown-btn-combined:focus,
+.dropdown-toggle-btn:focus {
+  outline: 2px solid var(--brand-orange-primary) !important;
+  outline-offset: 2px !important;
+}
+
+/* ============================================
+   STICKY HEADER
+   ============================================ */
+
+.site-header {
+  position: fixed !important;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Compensate for fixed header */
+.main-wrapper {
+  padding-top: 80px !important;
+}
+.section-hero {
+  padding-top: 40px !important;
+}
+
+/* ============================================
+   UTILITY OVERRIDES
+   ============================================ */
+
+/* Screen reader only class for accessibility */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Ensure Instrument Sans is used globally */
+body, 
+h1, h2, h3, h4, h5, h6,
+p, span, a, button, input, textarea {
+  font-family: var(--font-primary) !important;
+}
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ============================================
+   CLEAN NAVIGATION STYLES - NO AGGRESSIVE OVERRIDES
+   ============================================ */

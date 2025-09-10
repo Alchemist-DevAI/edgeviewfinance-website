@@ -1,0 +1,78 @@
+---
+import { getEntryBySlug } from "astro:content";
+import { Image } from "astro:assets";
+const TeamData = await getEntryBySlug("aboutPage", "team");
+const { header, members, description, button, points } = TeamData?.data;
+const { hideHeader } = Astro.props;
+---
+
+<section class='section-team'>
+  <div class='section-space-bottom'>
+    <div class='container-default'>
+      <div
+        class={`${!hideHeader && "grid grid-cols-1 items-center gap-10 lg:grid-cols-[0.75fr_minmax(0,_1fr)] xl:gap-20 xxl:gap-[134px]"}`}>
+        {
+          !hideHeader && (
+            <div class='jos' data-jos_animation='fade-right'>
+              <div>
+                <div class='mb-5'>
+                  <h2 class='font-InstrumentSans text-display-md font-bold leading-[1.14] text-[#121212] lg:text-left'>
+                    {header}
+                  </h2>
+                </div>
+              </div>
+              <p class='mb-5'>{description}</p>
+              <ul class='flex flex-col gap-5 font-semibold'>
+                {points?.map((point: string) => (
+                  <li class='flex leading-none items-start'>
+                    <Image
+                      src={"/assets/img/icons/badge.svg"}
+                      height='20'
+                      width='20'
+                      alt='badgeIcon'
+                      class='w-5 mr-2'
+                    />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+              <div class='mt-8 lg:mt-[50px]'>
+                <a
+                  href={button?.link}
+                  class='btn is-lime is-large btn-animation group inline-block rounded-[3px]'>
+                  <span>{button?.text}</span>
+                </a>
+              </div>
+            </div>
+          )
+        }
+        <div class='jos' data-jos_animation='fade-left'>
+          <div
+            class='grid grid-cols-1 gap-x-6 gap-y-[30px] sm:grid-cols-2 md:grid-cols-3 mt-3'>
+            {
+              members.slice(0, 6).map(({ name, post, image }: any) => (
+                <div class='group flex flex-col items-center justify-center text-center'>
+                  <div class='mb-6 h-auto max-w-full overflow-hidden rounded-[50%]'>
+                    <img
+                      src={image}
+                      alt='team-img-1'
+                      width='196'
+                      height='196'
+                      class='h-full w-full object-cover'
+                    />
+                  </div>
+                  <div>
+                    <div class='mb-[5px] block text-xl font-semibold leading-[1.4] text-ColorDark'>
+                      {name}
+                    </div>
+                    <span>{post}</span>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

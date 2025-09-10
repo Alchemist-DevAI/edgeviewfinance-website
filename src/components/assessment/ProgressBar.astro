@@ -1,0 +1,25 @@
+---
+export interface Props {
+  current: number;
+  total: number;
+  percentage: number;
+}
+
+const { current, total, percentage } = Astro.props;
+---
+
+<div class="mb-8">
+  <div class="flex justify-between text-sm text-gray-600 mb-2">
+    <span>Question {current} of {total}</span>
+    <span>{percentage}% complete</span>
+  </div>
+  <div class="h-2 bg-gray-200">
+    <div 
+      class="h-full bg-orange-500 transition-all duration-300"
+      style={`width: ${percentage}%`}
+    />
+  </div>
+  <div class="mt-2 text-xs text-gray-500 text-center">
+    Less than {Math.ceil((total - current) * 0.5)} minute{Math.ceil((total - current) * 0.5) !== 1 ? 's' : ''} remaining
+  </div>
+</div>

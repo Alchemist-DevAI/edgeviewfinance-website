@@ -1,586 +1,328 @@
 ---
-// EVFBS Contact Page - Professional Commercial Finance Consultation
-// Optimized for "Ben the Business Builder" ICP with assessment focus
-import Agency11Layout from '../layouts/Agency11Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+// Contact Page - Edgeview Finance
+// Implements the MASTER-ARCHITECTURE-DOCUMENT v5.0 PUBLISH READY specifications
+// All 10 sections as specified in the architecture document
 
-export const prerender = true;
-
-const siteData = {
-  title: "Contact EVFBS | Expert Commercial Finance Consultation Australia",
-  description: "Get professional commercial finance assessment from licensed Australian finance brokers. Contact Edgeview Finance Business Solutions for equipment finance, working capital, and business loan consultations.",
-  keywords: "commercial finance consultation Australia, finance broker contact, equipment finance assessment, business loan consultation, commercial finance expert"
-};
+import Layout from "../layout/Layout.astro";
+import ContactHero from "../components/Contact/ContactHero.astro";
+import ContactMethods from "../components/Contact/ContactMethods.astro";
+import ResponseGuarantee from "../components/Contact/ResponseGuarantee.astro";
+import ContactForm from "../components/Contact/ContactForm.astro";
+import BusinessInfo from "../components/Contact/BusinessInfo.astro";
+import ContactFAQ from "../components/Contact/ContactFAQ.astro";
+import TrustCredentials from "../components/Contact/TrustCredentials.astro";
+import "../css/contact-page.css";
 ---
 
-<Agency11Layout title={siteData.title} description={siteData.description} keywords={siteData.keywords}>
+<Layout 
+  title='Contact Us - Get Your Business Finance Sorted Today | Edgeview Finance'
+  description='Get answers to your business finance questions today. Call 1300 280 895 to speak directly with Dan Peters. Same-day response guaranteed. Queensland commercial finance specialist.'
+>
+  <main class='main-wrapper relative overflow-hidden'>
     
-  <!-- Contact Page Schema -->
-  <script type="application/ld+json" slot="head">
-    {
-      "@context": "https://schema.org",
-      "@type": "ContactPage",
-      "@id": "https://edgeviewfinance.com.au/contact#contactpage",
-      "name": "Contact Edgeview Finance Business Solutions",
-      "description": "Professional commercial finance consultation and assessment services",
-      "url": "https://edgeviewfinance.com.au/contact",
-      "mainEntity": {
-        "@type": "FinancialService",
-        "@id": "https://edgeviewfinance.com.au/#organization",
-        "name": "Edgeview Finance Business Solutions",
-        "alternateName": "EVFBS",
-        "description": "Licensed Australian finance broker specializing in commercial finance for trades and service businesses",
-        "url": "https://edgeviewfinance.com.au",
-        "serviceType": "Commercial Finance Brokerage",
-        "areaServed": {
-          "@type": "Country",
-          "name": "Australia"
-        },
-        "contactPoint": [
-          {
-            "@type": "ContactPoint",
-            "telephone": "+61-1300-XXX-XXX",
-            "contactType": "customer service",
-            "areaServed": "AU",
-            "availableLanguage": "English",
-            "hoursAvailable": {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-              "opens": "08:00",
-              "closes": "18:00",
-              "validFrom": "2024-01-01",
-              "validThrough": "2024-12-31"
-            }
-          },
-          {
-            "@type": "ContactPoint",
-            "email": "enquiries@edgeviewfinance.com.au",
-            "contactType": "customer service",
-            "areaServed": "AU",
-            "availableLanguage": "English"
-          }
-        ],
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Level 12, 123 Queen Street",
-          "addressLocality": "Brisbane",
-          "addressRegion": "QLD",
-          "postalCode": "4000",
-          "addressCountry": "AU"
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "Australia",
-          "description": "Serving commercial trades and service businesses across Australia"
-        },
-        "hasCredential": {
-          "@type": "EducationalOccupationalCredential",
-          "credentialCategory": "Australian Credit Licence",
-          "recognizedBy": {
-            "@type": "Organization",
-            "name": "Australian Securities and Investments Commission",
-            "alternateName": "ASIC"
-          }
-        }
-      }
-    }
-  </script>
+    <!-- Section 2: HERO SECTION - NEW COMPONENT -->
+    <!-- White background with dark text, matching homepage design -->
+    <ContactHero />
+    
+    <!-- Section 3: CONTACT METHODS OVERVIEW - NEW COMPONENT -->
+    <!-- Three-card layout with professional design matching homepage -->
+    <ContactMethods />
+    
+    <!-- Section 4: RESPONSE GUARANTEE - NEW COMPONENT -->
+    <!-- Response time guarantees and what to prepare section -->
+    <ResponseGuarantee />
+    
+    <!-- Section 5: CONTACT FORM - NEW COMPONENT -->
+    <!-- Comprehensive finance assessment form -->
+    <ContactForm />
+    
+    <!-- Section 6: BUSINESS INFORMATION & HOURS - NEW COMPONENT -->
+    <!-- Contact details, business hours, and location information -->
+    <BusinessInfo />
+    
+    <!-- Section 7: TRUST & CREDENTIALS - NEW COMPONENT -->
+    <!-- Professional credentials and compliance information -->
+    <TrustCredentials />
+    
+    <!-- Section 8: FAQ SECTION - NEW COMPONENT -->
+    <!-- Accordion-style frequently asked questions -->
+    <ContactFAQ />
+    
+  </main>
+</Layout>
+
+<style>
+/* Global contact page styles */
+:root {
+  /* Brand Colors - Exact match with homepage */
+  --color-primary: #f97316;
+  --color-dark: #1C2C3B;
+  --color-success: #22C55E;
+  --color-gray-50: #F9FAFB;
+  --color-gray-600: #4B5563;
+}
+
+/* Ensure consistent sharp corners throughout - matching homepage */
+* {
+  border-radius: 0 !important;
+}
+
+/* Ensure buttons have consistent sharp styling */
+.btn,
+.btn-primary,
+.btn-secondary,
+button[type="submit"],
+a[class*="bg-"] {
+  border-radius: 0 !important;
+}
+
+/* Smooth scroll behavior for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus states for accessibility */
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Click-to-call styling for mobile */
+@media (max-width: 768px) {
+  a[href^="tel:"] {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+  }
   
-  <!-- Open Graph for Social Sharing -->
-  <meta property="og:title" content={siteData.title} slot="head" />
-  <meta property="og:description" content={siteData.description} slot="head" />
-  <meta property="og:type" content="website" slot="head" />
-  <meta property="og:url" content="https://edgeviewfinance.com.au/contact" slot="head" />
-  <meta property="og:locale" content="en_AU" slot="head" />
+  a[href^="tel:"]:hover {
+    color: #ea580c;
+  }
+}
 
-  <Header />
+/* Form validation styling */
+.error {
+  border-color: #ef4444 !important;
+}
 
-    <main>
-        <!-- Hero Section -->
-        <section class="section-hero hero-section">
-            <div class="container-default">
-                <div class="text-center">
-                    <h1 class="heading-primary text-white mb-6">Professional Commercial Finance Consultation</h1>
-                    <p class="hero-subtitle text-xl lg:text-2xl font-light mb-8 text-gray-100 max-w-4xl mx-auto">
-                        Ready to discuss your business finance requirements? Speak with licensed Australian finance brokers who understand 
-                        commercial trades, civil contractors, and industrial businesses. Get strategic guidance tailored to your growth objectives.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap text-gray-100 mb-8">
-                        <span class="flex items-center gap-2">✓ Licensed Australian Finance Broker</span>
-                        <span class="flex items-center gap-2">✓ ASIC Compliant Service</span>
-                        <span class="flex items-center gap-2">✓ 500+ Strategic Finance Solutions</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+.error-message {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
 
-        <!-- Contact Methods -->
-        <section class="section-content bg-neutral-light">
-            <div class="container-default">
-                <h2 class="heading-secondary text-center mb-16">Multiple Ways to Connect</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="service-card-consistent border-2 border-primary-orange">
-                        <div class="text-center">
-                            <div class="text-4xl mb-6">📞</div>
-                            <h3 class="heading-tertiary text-secondary-dark mb-4">Phone Consultation</h3>
-                            <p class="text-xl font-semibold text-primary-orange mb-4">1300 XXX XXX</p>
-                            <p class="body-medium mb-6">Speak directly with a licensed finance broker for immediate strategic guidance and assessment.</p>
-                            <div class="bg-neutral-light card-padding-sm rounded-lg">
-                                <p class="body-medium mb-2"><strong class="text-secondary-dark">Business Hours:</strong></p>
-                                <p class="text-sm text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM AEST<br/>
-                                Saturday: 9:00 AM - 1:00 PM AEST<br/>
-                                Sunday: Emergency consultations only</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="service-card-consistent">
-                        <div class="text-center">
-                            <div class="text-4xl mb-6">✉️</div>
-                            <h3 class="heading-tertiary text-secondary-dark mb-4">Email Assessment</h3>
-                            <p class="text-lg font-semibold text-primary-orange mb-4">enquiries@edgeviewfinance.com.au</p>
-                            <p class="body-medium mb-6">Send your finance requirements for detailed written assessment and strategic recommendations.</p>
-                            <div class="bg-neutral-light card-padding-sm rounded-lg border-l-4 border-secondary-dark mb-6">
-                                <div class="space-y-2">
-                                    <div class="text-sm">
-                                        <span class="font-semibold text-secondary-dark">New Applications:</span> applications@edgeviewfinance.com.au
-                                    </div>
-                                    <div class="text-sm">
-                                        <span class="font-semibold text-secondary-dark">Existing Clients:</span> support@edgeviewfinance.com.au
-                                    </div>
-                                    <div class="text-sm">
-                                        <span class="font-semibold text-secondary-dark">Urgent Enquiries:</span> urgent@edgeviewfinance.com.au
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bg-green-50 border border-green-200 rounded-lg card-padding-sm">
-                                <p class="text-sm text-green-700"><strong>Response Time:</strong> Within 4 business hours</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="service-card-consistent">
-                        <div class="text-center">
-                            <div class="text-4xl mb-6">📝</div>
-                            <h3 class="heading-tertiary text-secondary-dark mb-4">Online Assessment Form</h3>
-                            <p class="body-medium mb-6">Complete our professional assessment form below for comprehensive analysis and strategic recommendations.</p>
-                            <div class="space-y-2">
-                                <div class="flex items-center justify-center text-green-600 text-sm">
-                                    <span class="mr-2">✓</span> Confidential assessment
-                                </div>
-                                <div class="flex items-center justify-center text-green-600 text-sm">
-                                    <span class="mr-2">✓</span> Strategic recommendations
-                                </div>
-                                <div class="flex items-center justify-center text-green-600 text-sm">
-                                    <span class="mr-2">✓</span> Priority response
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="service-card-consistent border-2 border-red-400 bg-gradient-to-br from-white to-red-50">
-                        <div class="text-center">
-                            <div class="text-4xl mb-6">🚨</div>
-                            <h3 class="heading-tertiary text-secondary-dark mb-4">Emergency Finance Support</h3>
-                            <p class="text-xl font-semibold text-red-600 mb-4">1300 XXX XXX (24/7)</p>
-                            <p class="body-medium mb-6">For urgent finance requirements affecting business operations or time-critical opportunities.</p>
-                            <div class="bg-white border border-red-200 rounded-lg card-padding-sm mb-6">
-                                <div class="space-y-2 text-left">
-                                    <div class="text-sm text-red-700">• Equipment breakdown affecting operations</div>
-                                    <div class="text-sm text-red-700">• Time-sensitive contract opportunities</div>
-                                    <div class="text-sm text-red-700">• Cash flow emergencies</div>
-                                    <div class="text-sm text-red-700">• Settlement deadlines</div>
-                                </div>
-                            </div>
-                            <div class="bg-yellow-100 border border-yellow-300 rounded-lg card-padding-sm">
-                                <p class="text-xs text-yellow-800"><strong>Emergency Service Fee:</strong> $150 after-hours consultation fee applies for non-urgent matters</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="service-card-consistent border-2 border-green-400 bg-gradient-to-br from-white to-green-50">
-                        <div class="text-center">
-                            <div class="text-4xl mb-6">📅</div>
-                            <h3 class="heading-tertiary text-secondary-dark mb-4">Online Consultation Booking</h3>
-                            <p class="body-medium mb-6">Schedule a professional consultation at your convenience with our licensed finance brokers.</p>
-                            <div class="space-y-4 mb-6">
-                                <div class="bg-white border-l-4 border-green-500 card-padding-sm rounded text-left">
-                                    <p class="text-sm"><strong class="text-secondary-dark">Video Consultation:</strong> 30-60 minutes via Zoom or Teams</p>
-                                </div>
-                                <div class="bg-white border-l-4 border-green-500 card-padding-sm rounded text-left">
-                                    <p class="text-sm"><strong class="text-secondary-dark">Phone Consultation:</strong> 30-45 minutes structured discussion</p>
-                                </div>
-                                <div class="bg-white border-l-4 border-green-500 card-padding-sm rounded text-left">
-                                    <p class="text-sm"><strong class="text-secondary-dark">On-site Visit:</strong> Brisbane, Gold Coast, and Sunshine Coast areas</p>
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <button type="button" class="btn-primary btn-large mb-4" onclick="alert('Booking system integration coming soon. Please call 1300 XXX XXX to schedule.')">
-                                    Book Consultation Online
-                                </button>
-                                <p class="text-xs text-gray-600 italic">Online booking system launching soon. Call us directly for immediate scheduling.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+/* Loading state for form submission */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
 
-        <!-- Professional Assessment Form -->
-        <section class="section-content">
-            <div class="container-default">
-                <div class="text-center mb-16">
-                    <h2 class="heading-secondary mb-6">Professional Finance Assessment Form</h2>
-                    <p class="body-large max-w-4xl mx-auto">Provide your business details for comprehensive analysis and strategic finance recommendations. All information is treated confidentially and assessed by licensed finance professionals.</p>
-                </div>
-                
-                <form class="max-w-6xl mx-auto" action="/submit-assessment" method="POST" aria-label="Commercial Finance Assessment Form">
-                    <div class="service-card-consistent mb-8">
-                        <h3 class="heading-tertiary text-secondary-dark mb-6 border-b-2 border-primary-orange pb-3">Business Information</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="flex flex-col">
-                                <label for="business-name" class="form-label">Business Name *</label>
-                                <input type="text" id="business-name" name="businessName" required aria-describedby="business-name-help" class="form-input">
-                                <div id="business-name-help" class="sr-only">Enter your registered business name or trading name</div>
-                            </div>
-                            <div class="flex flex-col">
-                                <label for="abn" class="form-label">ABN</label>
-                                <input type="text" id="abn" name="abn" placeholder="XX XXX XXX XXX" class="form-input">
-                            </div>
-                            <div class="flex flex-col">
-                                <label for="industry" class="form-label">Industry Sector *</label>
-                                <select id="industry" name="industry" required class="form-input">
-                                    <option value="">Select your industry</option>
-                                    <option value="commercial-trades">Commercial Trades (Electrical, Plumbing, HVAC)</option>
-                                    <option value="civil-contractors">Civil Contractors (Earthmoving, Infrastructure)</option>
-                                    <option value="transport-logistics">Transport & Logistics</option>
-                                    <option value="manufacturing">Manufacturing & Fabrication</option>
-                                    <option value="construction-services">Construction Services</option>
-                                    <option value="industrial-services">Industrial Services</option>
-                                    <option value="other">Other Commercial Service</option>
-                                </select>
-                            </div>
-                            <div class="flex flex-col">
-                                <label for="years-operation" class="form-label">Years in Operation *</label>
-                                <select id="years-operation" name="yearsOperation" required class="form-input">
-                                    <option value="">Select years</option>
-                                    <option value="startup">Startup (Less than 1 year)</option>
-                                    <option value="1-2">1-2 years</option>
-                                    <option value="3-5">3-5 years</option>
-                                    <option value="5-10">5-10 years</option>
-                                    <option value="10+">10+ years</option>
-                                </select>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
+/* Animation for smooth interactions */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
 
-                    <div class="service-card-consistent mb-8">
-                        <h3 class="heading-tertiary text-secondary-dark mb-6 border-b-2 border-primary-orange pb-3">Contact Details</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="flex flex-col">
-                                <label for="contact-name" class="form-label">Your Name *</label>
-                                <input type="text" id="contact-name" name="contactName" required class="form-input">
-                            </div>
-                            <div class="flex flex-col">
-                                <label for="position" class="form-label">Position/Role *</label>
-                                <input type="text" id="position" name="position" placeholder="e.g., Owner, Director, Financial Manager" required class="form-input">
-                            </div>
-                            <div class="flex flex-col">
-                                <label for="phone" class="form-label">Phone Number *</label>
-                                <input type="tel" id="phone" name="phone" placeholder="04XX XXX XXX" required class="form-input">
-                            </div>
-                            <div class="flex flex-col">
-                                <label for="email" class="form-label">Email Address *</label>
-                                <input type="email" id="email" name="email" required class="form-input">
-                            </div>
-                        </div>
-                        </div>
-                    </div>
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-                    <div class="service-card-consistent mb-8">
-                        <h3 class="heading-tertiary text-secondary-dark mb-6 border-b-2 border-primary-orange pb-3">Finance Requirements</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="flex flex-col">
-                                <label for="finance-type" class="form-label">Finance Type Required *</label>
-                                <select id="finance-type" name="financeType" required class="form-input">
-                                    <option value="">Select finance type</option>
-                                    <option value="equipment-finance">Equipment Finance</option>
-                                    <option value="commercial-property">Commercial Property Finance</option>
-                                    <option value="working-capital">Working Capital Solutions</option>
-                                    <option value="invoice-financing">Invoice Financing</option>
-                                    <option value="personal-lending">Personal Home Lending</option>
-                                    <option value="multiple">Multiple Finance Solutions</option>
-                                    <option value="unsure">Unsure - Need Guidance</option>
-                                </select>
-                            </div>
-                            <div class="flex flex-col">
-                                <label for="loan-amount" class="form-label">Approximate Amount Required *</label>
-                                <select id="loan-amount" name="loanAmount" required class="form-input">
-                                    <option value="">Select amount range</option>
-                                    <option value="20k-50k">$20,000 - $50,000</option>
-                                    <option value="50k-100k">$50,000 - $100,000</option>
-                                    <option value="100k-250k">$100,000 - $250,000</option>
-                                    <option value="250k-500k">$250,000 - $500,000</option>
-                                    <option value="500k-1m">$500,000 - $1,000,000</option>
-                                    <option value="1m+">$1,000,000+</option>
-                                </select>
-                            </div>
-                            <div class="flex flex-col">
-                                <label for="timeframe" class="form-label">Required Timeframe *</label>
-                                <select id="timeframe" name="timeframe" required class="form-input">
-                                    <option value="">Select timeframe</option>
-                                    <option value="immediate">Immediate (Within 2 weeks)</option>
-                                    <option value="1-month">Within 1 month</option>
-                                    <option value="1-3-months">1-3 months</option>
-                                    <option value="3-6-months">3-6 months</option>
-                                    <option value="planning">Strategic planning phase</option>
-                                </select>
-                            </div>
-                            <div class="flex flex-col md:col-span-2">
-                                <label for="purpose" class="form-label">Purpose of Finance *</label>
-                                <textarea id="purpose" name="purpose" rows="3" placeholder="Describe what the finance will be used for (e.g., purchase excavator for expansion, commercial property acquisition, cash flow for large contract)" required class="form-input"></textarea>
-                            </div>
-                        </div>
-                    </div>
+/* Ensure proper spacing for contact page sections */
+.section-hero,
+.section-contact-methods,
+.section-response-guarantee,
+.section-contact-form,
+.section-business-info,
+.section-contact-faq,
+.section-trust-credentials {
+  position: relative;
+}
 
-                    <div class="service-card-consistent mb-8">
-                        <h3 class="heading-tertiary text-secondary-dark mb-6 border-b-2 border-primary-orange pb-3">Business Financial Position</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="flex flex-col">
-                                <label for="annual-revenue" class="form-label">Annual Revenue (Approximate) *</label>
-                                <select id="annual-revenue" name="annualRevenue" required class="form-input">
-                                    <option value="">Select revenue range</option>
-                                    <option value="under-500k">Under $500,000</option>
-                                    <option value="500k-1m">$500,000 - $1,000,000</option>
-                                    <option value="1m-2m">$1,000,000 - $2,000,000</option>
-                                    <option value="2m-5m">$2,000,000 - $5,000,000</option>
-                                    <option value="5m+">$5,000,000+</option>
-                                </select>
-                            </div>
-                            <div class="flex flex-col">
-                                <label for="current-debts" class="form-label">Existing Business Debts</label>
-                                <select id="current-debts" name="currentDebts" class="form-input">
-                                    <option value="">Select debt level</option>
-                                    <option value="none">No existing business debts</option>
-                                    <option value="minimal">Minimal debts (Under $50K)</option>
-                                    <option value="moderate">Moderate debts ($50K-$200K)</option>
-                                    <option value="significant">Significant debts ($200K+)</option>
-                                    <option value="refinancing">Looking to refinance existing debts</option>
-                                </select>
-                            </div>
-                            <div class="flex flex-col">
-                                <label for="property-assets" class="form-label">Property/Asset Security Available</label>
-                                <select id="property-assets" name="propertyAssets" class="form-input">
-                                    <option value="">Select security available</option>
-                                    <option value="residential-property">Residential property available</option>
-                                    <option value="commercial-property">Commercial property available</option>
-                                    <option value="equipment-assets">Equipment/business assets</option>
-                                    <option value="multiple-assets">Multiple asset types</option>
-                                    <option value="unsecured">Prefer unsecured finance</option>
-                                    <option value="unsure">Unsure what's available</option>
-                                </select>
-                            </div>
-                            <div class="flex flex-col md:col-span-2">
-                                <label for="additional-info" class="form-label">Additional Information</label>
-                                <textarea id="additional-info" name="additionalInfo" rows="4" placeholder="Any additional information about your business, finance requirements, or specific challenges you're facing..." class="form-input"></textarea>
-                            </div>
-                        </div>
-                    </div>
+/* Mobile-first responsive design improvements */
+@media (max-width: 640px) {
+  .container-default {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Ensure buttons are touch-friendly */
+  button,
+  a.btn-primary,
+  .btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Stack form elements on mobile */
+  .grid {
+    gap: 1rem;
+  }
+}
 
-                    <div class="service-card-consistent mb-8">
-                        <h3 class="heading-tertiary text-secondary-dark mb-6 border-b-2 border-primary-orange pb-3">Preferred Contact Method</h3>
-                        <div class="space-y-4 mb-6">
-                            <label class="flex items-center space-x-3 cursor-pointer">
-                                <input type="radio" name="contactPreference" value="phone" checked class="w-4 h-4 text-primary-orange border-gray-300 focus:ring-primary-orange focus:ring-2">
-                                <span class="body-medium text-gray-700">Phone call (fastest response)</span>
-                            </label>
-                            <label class="flex items-center space-x-3 cursor-pointer">
-                                <input type="radio" name="contactPreference" value="email" class="w-4 h-4 text-primary-orange border-gray-300 focus:ring-primary-orange focus:ring-2">
-                                <span class="body-medium text-gray-700">Email with detailed assessment</span>
-                            </label>
-                            <label class="flex items-center space-x-3 cursor-pointer">
-                                <input type="radio" name="contactPreference" value="both" class="w-4 h-4 text-primary-orange border-gray-300 focus:ring-primary-orange focus:ring-2">
-                                <span class="body-medium text-gray-700">Both phone and email</span>
-                            </label>
-                        </div>
-                        
-                        <div class="flex flex-col">
-                            <label for="best-time" class="form-label">Best Time to Contact</label>
-                            <select id="best-time" name="bestTime" class="form-input">
-                                <option value="">Select preferred time</option>
-                                <option value="morning">Morning (8AM-12PM)</option>
-                                <option value="afternoon">Afternoon (12PM-5PM)</option>
-                                <option value="evening">Evening (5PM-6PM)</option>
-                                <option value="anytime">Anytime during business hours</option>
-                            </select>
-                        </div>
-                    </div>
+/* Print styles for accessibility */
+@media print {
+  .section-contact-form,
+  .section-cta {
+    display: none;
+  }
+  
+  a[href^="tel:"]::after {
+    content: " (" attr(href) ")";
+  }
+  
+  a[href^="mailto:"]::after {
+    content: " (" attr(href) ")";
+  }
+}
 
-                    <div class="mt-8">
-                        <div class="space-y-4 mb-8">
-                            <label class="flex items-start space-x-3 cursor-pointer">
-                                <input type="checkbox" name="privacyConsent" required class="mt-1 w-4 h-4 text-primary-orange border-gray-300 rounded focus:ring-primary-orange focus:ring-2">
-                                <span class="text-sm text-gray-700">I consent to EVFBS collecting and using my information for assessment purposes and understand this information will be treated confidentially in accordance with the <a href="/privacy" class="text-primary-orange hover:underline">Privacy Policy</a> *</span>
-                            </label>
-                            <label class="flex items-start space-x-3 cursor-pointer">
-                                <input type="checkbox" name="marketingConsent" class="mt-1 w-4 h-4 text-primary-orange border-gray-300 rounded focus:ring-primary-orange focus:ring-2">
-                                <span class="text-sm text-gray-700">I would like to receive strategic finance insights and business growth tips via email (optional)</span>
-                            </label>
-                        </div>
-                        
-                        <div class="text-center">
-                            <button type="submit" class="btn-primary btn-large">Request Professional Assessment</button>
-                            <p class="mt-4 text-sm text-gray-600 font-medium">Guaranteed response within 4 business hours from a licensed finance professional</p>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </section>
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .bg-gray-50 {
+    background-color: #ffffff;
+  }
+  
+  .text-gray-600 {
+    color: #000000;
+  }
+  
+  .border-gray-300 {
+    border-color: #000000;
+  }
+}
 
-        <!-- Business Location & Map -->
-        <section class="section-content bg-neutral-light">
-            <div class="container-default">
-                <h2 class="heading-secondary text-center mb-16">Visit Our Office</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    <div class="space-y-8">
-                        <div class="service-card-consistent">
-                            <h3 class="heading-tertiary text-secondary-dark mb-6">Brisbane Head Office</h3>
-                            <div class="flex items-start space-x-4 mb-6">
-                                <div class="text-2xl">📍</div>
-                                <div>
-                                    <p class="font-semibold text-secondary-dark mb-2">Edgeview Finance Business Solutions</p>
-                                    <p class="body-medium text-gray-700">Level 12, 123 Queen Street<br/>
-                                    Brisbane QLD 4000<br/>
-                                    Australia</p>
-                                </div>
-                            </div>
-                            <div class="space-y-3 mb-6">
-                                <div class="flex items-center space-x-3">
-                                    <span class="text-lg">🚗</span>
-                                    <span class="body-medium text-gray-700">Secure visitor parking available</span>
-                                </div>
-                                <div class="flex items-center space-x-3">
-                                    <span class="text-lg">🚇</span>
-                                    <span class="body-medium text-gray-700">Central Station 5-minute walk</span>
-                                </div>
-                                <div class="flex items-center space-x-3">
-                                    <span class="text-lg">☕</span>
-                                    <span class="body-medium text-gray-700">Professional meeting rooms</span>
-                                </div>
-                                <div class="flex items-center space-x-3">
-                                    <span class="text-lg">♿</span>
-                                    <span class="body-medium text-gray-700">Wheelchair accessible</span>
-                                </div>
-                            </div>
-                            <div class="bg-neutral-light card-padding-sm rounded-lg border-l-4 border-primary-orange">
-                                <p class="font-semibold text-secondary-dark mb-2">Office Hours:</p>
-                                <p class="body-medium text-gray-700">Mon-Fri: 8:00 AM - 6:00 PM<br/>
-                                Sat: 9:00 AM - 1:00 PM<br/>
-                                <em>Appointments preferred</em></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="service-card-consistent">
-                        <div class="bg-gray-100 rounded-lg h-96 flex items-center justify-center">
-                            <div class="text-center p-8">
-                                <h4 class="heading-tertiary text-secondary-dark mb-4">Interactive Map Coming Soon</h4>
-                                <p class="body-medium text-gray-700 mb-4">Professional mapping integration with:</p>
-                                <ul class="space-y-2 mb-6 text-left">
-                                    <li class="body-medium text-gray-700">• Turn-by-turn directions</li>
-                                    <li class="body-medium text-gray-700">• Parking locations</li>
-                                    <li class="body-medium text-gray-700">• Public transport options</li>
-                                    <li class="body-medium text-gray-700">• Nearby amenities</li>
-                                </ul>
-                                <button type="button" class="btn-primary" onclick="window.open('https://maps.google.com/maps?q=Queen+Street+Brisbane+QLD+4000', '_blank')">
-                                    View in Google Maps
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+</style>
 
-        <!-- Service Areas & Business Hours -->
-        <section class="section-content">
-            <div class="container-default">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="service-card-consistent">
-                        <h3 class="heading-tertiary text-secondary-dark mb-6">Service Areas</h3>
-                        <p class="body-medium text-gray-700 mb-6">Edgeview Finance Business Solutions provides commercial finance services across Australia:</p>
-                        <ul class="space-y-2 mb-6">
-                            <li class="body-medium text-gray-700">• New South Wales</li>
-                            <li class="body-medium text-gray-700">• Victoria</li>
-                            <li class="body-medium text-gray-700">• Queensland</li>
-                            <li class="body-medium text-gray-700">• Western Australia</li>
-                            <li class="body-medium text-gray-700">• South Australia</li>
-                            <li class="body-medium text-gray-700">• Tasmania</li>
-                            <li class="body-medium text-gray-700">• Northern Territory</li>
-                            <li class="body-medium text-gray-700">• Australian Capital Territory</li>
-                        </ul>
-                        <p class="font-semibold text-secondary-dark">Specializing in regional and metropolitan commercial businesses</p>
-                    </div>
-                    
-                    <div class="service-card-consistent">
-                        <h3 class="heading-tertiary text-secondary-dark mb-6">Business Hours</h3>
-                        <div class="space-y-4 mb-6">
-                            <div class="flex justify-between items-center">
-                                <span class="body-medium font-semibold text-secondary-dark">Monday - Friday</span>
-                                <span class="body-medium text-gray-700">8:00 AM - 6:00 PM AEST</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span class="body-medium font-semibold text-secondary-dark">Saturday</span>
-                                <span class="body-medium text-gray-700">9:00 AM - 1:00 PM AEST</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span class="body-medium font-semibold text-secondary-dark">Sunday</span>
-                                <span class="body-medium text-gray-700">Emergency consultations only</span>
-                            </div>
-                        </div>
-                        <p class="text-sm text-gray-600 italic">After-hours emergency consultations available for urgent finance requirements.</p>
-                    </div>
-                    
-                    <div class="service-card-consistent">
-                        <h3 class="heading-tertiary text-secondary-dark mb-6">Professional Licensing</h3>
-                        <div class="space-y-4 mb-6">
-                            <div>
-                                <p class="font-semibold text-secondary-dark">Australian Credit Licence:</p>
-                                <p class="body-medium text-gray-700">ACL: [License Number]</p>
-                            </div>
-                            <div>
-                                <p class="font-semibold text-secondary-dark">Australian Business Number:</p>
-                                <p class="body-medium text-gray-700">ABN: [ABN Number]</p>
-                            </div>
-                            <div>
-                                <p class="font-semibold text-secondary-dark">Regulatory Body:</p>
-                                <p class="body-medium text-gray-700">Australian Securities and Investments Commission (ASIC)</p>
-                            </div>
-                        </div>
-                        <p class="text-sm text-gray-600">All services provided under full ASIC compliance and regulation.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- Structured Data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Edgeview Finance",
+  "image": "https://edgeviewfinance.com.au/assets/images/edgeview-finance-logo.png",
+  "@id": "https://edgeviewfinance.com.au/contact",
+  "url": "https://edgeviewfinance.com.au",
+  "telephone": "1300280895",
+  "email": "financeteam@edgeviewfinance.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "PO BOX 9122",
+    "addressLocality": "GCMC",
+    "addressRegion": "QLD",
+    "postalCode": "9726",
+    "addressCountry": "AU"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -27.9704,
+    "longitude": 153.4256
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "08:30",
+      "closes": "17:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00",
+      "closes": "13:00"
+    }
+  ],
+  "serviceArea": {
+    "@type": "State",
+    "name": "Queensland"
+  },
+  "sameAs": [
+    "https://au.linkedin.com/company/edgeview-finance",
+    "https://www.facebook.com/EdgeviewFinance/"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "1300280895",
+    "email": "financeteam@edgeviewfinance.com.au",
+    "contactType": "customer service",
+    "availableLanguage": "en-AU",
+    "serviceType": "Commercial Finance Brokerage"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "100+"
+  },
+  "priceRange": "Free Consultation",
+  "paymentAccepted": "All major finance options",
+  "currenciesAccepted": "AUD"
+}
+</script>
 
-        <!-- Call to Action -->
-        <section class="section-cta hero-section">
-            <div class="container-default">
-                <div class="text-center">
-                    <h2 class="heading-secondary text-white mb-6">Ready to Partner for Strategic Business Growth?</h2>
-                    <p class="text-xl lg:text-2xl text-gray-100 mb-8 max-w-4xl mx-auto">
-                        Join hundreds of Australian business builders who've secured strategic finance solutions through our professional partnership approach.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center button-gap">
-                        <a href="tel:1300XXXXXX" class="btn-primary btn-large">Call Now: 1300 XXX XXX</a>
-                        <a href="/calculator" class="btn-secondary btn-large text-white border-white hover:bg-white hover:text-secondary-dark">Calculate Repayments</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <Footer />
-
-</Agency11Layout>
+<!-- Analytics and tracking -->
+<script>
+// Contact page analytics tracking
+document.addEventListener('DOMContentLoaded', function() {
+  // Track phone click events
+  const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+  phoneLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      // Analytics tracking code would go here
+      console.log('Phone CTA clicked:', this.href);
+    });
+  });
+  
+  // Track email click events
+  const emailLinks = document.querySelectorAll('a[href^="mailto:"]');
+  emailLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      // Analytics tracking code would go here
+      console.log('Email CTA clicked:', this.href);
+    });
+  });
+  
+  // Track form interactions
+  const form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', function() {
+      // Analytics tracking code would go here
+      console.log('Contact form submitted');
+    });
+  }
+  
+  // Track FAQ interactions
+  const faqQuestions = document.querySelectorAll('.faq-question');
+  faqQuestions.forEach(question => {
+    question.addEventListener('click', function() {
+      const questionText = this.querySelector('span').textContent;
+      // Analytics tracking code would go here
+      console.log('FAQ opened:', questionText);
+    });
+  });
+});
+</script>

@@ -1,0 +1,644 @@
+---
+import Layout from '../../layout/Layout.astro';
+import Header from '../../components/ui/Header.astro';
+// Footer removed - already included in Layout
+import AssessmentQuestion from '../../components/assessment/AssessmentQuestion.astro';
+import ProgressBar from '../../components/assessment/ProgressBar.astro';
+import ScoreDisplay from '../../components/assessment/ScoreDisplay.astro';
+import ResultCard from '../../components/assessment/ResultCard.astro';
+import LeadCaptureForm from '../../components/assessment/LeadCaptureForm.astro';
+
+const title = "Finance Ready Assessment Questions | Edgeview Finance";
+const description = "Complete your professional business finance readiness assessment";
+---
+
+<Layout title={title} description={description}>
+  <Header />
+  
+  <main class="min-h-screen bg-gray-50">
+    <!-- Assessment Container -->
+    <section class="py-4 lg:py-6">
+      <div class="container-default">
+        <div class="max-w-4xl mx-auto">
+          <!-- Progress Bar -->
+          <div id="progress-container" class="mb-4">
+            <ProgressBar currentStep={1} totalSteps={5} />
+          </div>
+
+          <!-- Question Container -->
+          <div id="question-container" class="bg-white shadow-lg border border-gray-200 p-4 lg:p-6">
+            <!-- Questions will be dynamically loaded here -->
+            <div id="q1" class="question-slide">
+              <AssessmentQuestion 
+                questionNumber={1}
+                questionText="How current are your business financial records?"
+                questionType="radio"
+                options={[
+                  { value: "fully-current", label: "Fully Current", description: "Management accounts updated monthly, cash flow monitored, BAS and tax returns up to date" },
+                  { value: "mostly-current", label: "Mostly Current", description: "Quarterly BAS up to date, last financial year completed, some management reporting" },
+                  { value: "basic-compliance", label: "Basic Compliance", description: "Tax returns lodged, BAS generally current, annual accounts only" },
+                  { value: "behind", label: "Behind", description: "Outstanding obligations, incomplete records, rely on accountant for everything" }
+                ]}
+              />
+            </div>
+
+            <div id="q2" class="question-slide hidden">
+              <AssessmentQuestion 
+                questionNumber={2}
+                questionText="What's your annual business turnover?"
+                questionType="radio"
+                options={[
+                  { value: "10m-plus", label: "$10M+", description: "Established business, multiple revenue streams, professional financial management" },
+                  { value: "3m-10m", label: "$3M - $10M", description: "Growing business, solid revenue base, structured operations" },
+                  { value: "1m-3m", label: "$1M - $3M", description: "Owner working in business, established but growing, key person dependency" },
+                  { value: "under-1m", label: "Under $1M", description: "Owner is key person, limited debt history, may need alternative lending" }
+                ]}
+              />
+            </div>
+
+            <div id="q3" class="question-slide hidden">
+              <AssessmentQuestion 
+                questionNumber={3}
+                questionText="How well do you know your current financial position?"
+                questionType="radio"
+                options={[
+                  { value: "complete-visibility", label: "Complete Visibility", description: "All contracts accessible, commitment schedule maintained, security position clear, asset register current" },
+                  { value: "good-understanding", label: "Good Understanding", description: "Know major assets and debts, most documentation available, some detail gaps" },
+                  { value: "basic-knowledge", label: "Basic Knowledge", description: "General position awareness, would need to gather information, unsure of some details" },
+                  { value: "limited-visibility", label: "Limited Visibility", description: "Unclear on total obligations, no central records, would need significant work" }
+                ]}
+              />
+            </div>
+
+            <div id="q4" class="question-slide hidden">
+              <AssessmentQuestion 
+                questionNumber={4}
+                questionText="If a lender asked today, could you provide these documents? (Tick all items you could provide within 24 hours)"
+                questionType="checkbox"
+                options={[
+                  { value: "financial-statements", label: "Last 2 years' financial statements" },
+                  { value: "ytd-reports", label: "Year to Date Profit & Loss and Balance Sheet" },
+                  { value: "commitment-schedule", label: "Commitment Schedule", description: "List of all debts & repayment details" },
+                  { value: "position-statement", label: "Statement of Position", description: "List of assets and debts" },
+                  { value: "bank-statements", label: "6 months' bank statements", description: "All accounts" },
+                  { value: "lease-agreements", label: "Current lease agreement(s)" },
+                  { value: "ato-access", label: "ATO portal access/tax account statements" },
+                  { value: "aged-reports", label: "Aged debtors/creditors reports" },
+                  { value: "insurance-policies", label: "Current insurance policies" }
+                ]}
+              />
+            </div>
+
+            <div id="q5" class="question-slide hidden">
+              <AssessmentQuestion 
+                questionNumber={5}
+                questionText="When did you last apply for business finance?"
+                questionType="radio"
+                options={[
+                  { value: "currently-active", label: "Currently Active", description: "Applied in last 6 months, know current requirements, understand the process" },
+                  { value: "recent-experience", label: "Recent Experience", description: "Within last 2 years, some process understanding, may need requirement updates" },
+                  { value: "some-time-ago", label: "Some Time Ago", description: "2-5 years ago, requirements have likely changed, market has evolved" },
+                  { value: "never-long-ago", label: "Never/Very Long Ago", description: "No recent experience, unaware of current requirements, need full guidance" }
+                ]}
+              />
+            </div>
+
+            <!-- Navigation -->
+            <div class="flex justify-between mt-8">
+              <button id="back-btn" class="px-6 py-3 text-gray-600 hover:text-gray-900 font-medium hidden">
+                <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Back
+              </button>
+              <button id="next-btn" class="ml-auto px-8 py-3 bg-orange-500 text-white font-semibold hover:bg-orange-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                Next
+                <svg class="w-5 h-5 inline ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </button>
+              <button id="submit-btn" class="ml-auto px-8 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold hover:shadow-lg transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed hidden" disabled>
+                See My Results
+                <svg class="w-5 h-5 inline ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </button>
+            </div>
+            
+            <!-- Trust indicators (below navigation) -->
+            <div class="mt-6 flex flex-wrap gap-4 text-xs text-gray-500 justify-center">
+              <div class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-9a2 2 0 00-2-2H6a2 2 0 00-2 2v9a2 2 0 002 2zm10-12V6a4 4 0 00-8 0v3h8z"></path>
+                </svg>
+                Secure & Confidential
+              </div>
+              <div class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                3 minutes average
+              </div>
+              <div class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                </svg>
+                100+ businesses
+              </div>
+            </div>
+          </div>
+
+          <!-- Results Container (Initially Hidden) -->
+          <div id="results-container" class="hidden">
+            <div class="bg-white shadow-lg border border-gray-200 p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 min-h-[200px]">
+              <h2 class="text-xl sm:text-2xl font-bold text-center text-gray-900 mb-4 sm:mb-6">Your Finance Readiness Score</h2>
+              <div id="score-display" class="min-h-[100px] flex items-center justify-center"></div>
+            </div>
+            <div id="result-card"></div>
+            <div id="lead-capture" class="mt-8"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+</Layout>
+
+<script>
+  // Assessment state
+  let currentQuestion = 1;
+  const totalQuestions = 5;
+  const answers = {
+    q1: null,
+    q2: null,
+    q3: null,
+    q4: [],
+    q5: null
+  };
+
+  // Get elements
+  const backBtn = document.getElementById('back-btn');
+  const nextBtn = document.getElementById('next-btn');
+  const submitBtn = document.getElementById('submit-btn');
+  const questionContainer = document.getElementById('question-container');
+  const resultsContainer = document.getElementById('results-container');
+  const progressContainer = document.getElementById('progress-container');
+
+  // Initialize
+  function init() {
+    attachEventListeners();
+    updateProgress();
+  }
+
+  // Attach event listeners
+  function attachEventListeners() {
+    // Radio buttons
+    document.querySelectorAll('input[type="radio"]').forEach(radio => {
+      radio.addEventListener('change', handleRadioChange);
+    });
+
+    // Checkboxes
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+      checkbox.addEventListener('change', handleCheckboxChange);
+    });
+
+    // Navigation buttons
+    backBtn?.addEventListener('click', goBack);
+    nextBtn?.addEventListener('click', goNext);
+    submitBtn?.addEventListener('click', submitAssessment);
+  }
+
+  // Handle radio selection
+  function handleRadioChange(e) {
+    const questionKey = `q${currentQuestion}`;
+    answers[questionKey] = e.target.value;
+    
+    // Enable appropriate button
+    if (currentQuestion === totalQuestions) {
+      submitBtn.disabled = false;
+    } else {
+      nextBtn.disabled = false;
+    }
+  }
+
+  // Handle checkbox selection
+  function handleCheckboxChange(e) {
+    const questionKey = `q${currentQuestion}`;
+    if (e.target.checked) {
+      if (!answers[questionKey].includes(e.target.value)) {
+        answers[questionKey].push(e.target.value);
+      }
+    } else {
+      answers[questionKey] = answers[questionKey].filter(v => v !== e.target.value);
+    }
+    nextBtn.disabled = answers[questionKey].length === 0;
+  }
+
+  // Navigate back
+  function goBack() {
+    if (currentQuestion > 1) {
+      document.getElementById(`q${currentQuestion}`).classList.add('hidden');
+      currentQuestion--;
+      document.getElementById(`q${currentQuestion}`).classList.remove('hidden');
+      updateProgress();
+      updateButtons();
+      // Scroll to top of question
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  // Navigate next
+  function goNext() {
+    if (currentQuestion < totalQuestions) {
+      document.getElementById(`q${currentQuestion}`).classList.add('hidden');
+      currentQuestion++;
+      document.getElementById(`q${currentQuestion}`).classList.remove('hidden');
+      updateProgress();
+      updateButtons();
+      
+      // Check if answer exists for new question
+      const questionKey = `q${currentQuestion}`;
+      if (currentQuestion === 4) {
+        nextBtn.disabled = answers[questionKey].length === 0;
+      } else {
+        nextBtn.disabled = !answers[questionKey];
+      }
+      
+      // Scroll to top of question
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  // Update navigation buttons
+  function updateButtons() {
+    backBtn.classList.toggle('hidden', currentQuestion === 1);
+    
+    if (currentQuestion === totalQuestions) {
+      nextBtn.classList.add('hidden');
+      submitBtn.classList.remove('hidden');
+      
+      // Check if last question is answered
+      const questionKey = `q${currentQuestion}`;
+      submitBtn.disabled = !answers[questionKey] || answers[questionKey] === '';
+    } else {
+      nextBtn.classList.remove('hidden');
+      submitBtn.classList.add('hidden');
+    }
+  }
+
+  // Update progress bar
+  function updateProgress() {
+    const progressBar = progressContainer.querySelector('.bg-orange-500');
+    if (progressBar) {
+      const percentage = (currentQuestion / totalQuestions) * 100;
+      progressBar.style.width = `${percentage}%`;
+    }
+    
+    // Update step text
+    const stepText = progressContainer.querySelector('[data-step-text]');
+    if (stepText) {
+      stepText.textContent = `Question ${currentQuestion} of ${totalQuestions}`;
+    }
+  }
+
+  // Calculate score
+  function calculateScore() {
+    let score = 0;
+    
+    // Q1: Financial Records (max 10)
+    const q1Scores = { 'fully-current': 10, 'mostly-current': 7, 'basic-compliance': 4, 'behind': 1 };
+    score += q1Scores[answers.q1] || 0;
+    
+    // Q2: Revenue (max 10)  
+    const q2Scores = { '10m-plus': 10, '3m-10m': 7, '1m-3m': 4, 'under-1m': 2 };
+    score += q2Scores[answers.q2] || 0;
+    
+    // Q3: Financial Position Visibility (max 10)
+    const q3Scores = { 'complete-visibility': 10, 'good-understanding': 7, 'basic-knowledge': 4, 'limited-visibility': 1 };
+    score += q3Scores[answers.q3] || 0;
+    
+    // Q4: Documentation (max 10)
+    // 9 documents total, each worth ~1.11 points
+    const docScore = Math.min(10, (answers.q4.length / 9) * 10);
+    score += docScore;
+    
+    // Q5: Experience (max 10)
+    const q5Scores = { 'currently-active': 10, 'recent-experience': 7, 'some-time-ago': 4, 'never-long-ago': 1 };
+    score += q5Scores[answers.q5] || 0;
+    
+    return Math.round(score);
+  }
+
+  // Get readiness level
+  function getReadinessLevel(score) {
+    if (score >= 45) return { level: 'Elite', color: 'green' };
+    if (score >= 35) return { level: 'Professional', color: 'blue' };
+    if (score >= 25) return { level: 'Nearly Ready', color: 'amber' };
+    if (score >= 15) return { level: 'Foundation', color: 'orange' };
+    return { level: 'Support Needed', color: 'red' };
+  }
+
+  // Submit assessment
+  async function submitAssessment() {
+    // Prevent submission if button is disabled
+    if (submitBtn.disabled) {
+      return;
+    }
+    
+    const score = calculateScore();
+    const { level, color } = getReadinessLevel(score);
+    
+    // Store in session
+    sessionStorage.setItem('assessmentScore', score);
+    sessionStorage.setItem('assessmentLevel', level);
+    sessionStorage.setItem('assessmentAnswers', JSON.stringify(answers));
+    
+    // Hide question container, show results
+    questionContainer.classList.add('hidden');
+    progressContainer.classList.add('hidden');
+    resultsContainer.classList.remove('hidden');
+    
+    // Display score with lead capture form
+    displayResults(score, level, color);
+    
+    // Scroll to top to show results
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Display results
+  function displayResults(score, level, color) {
+    const scoreDisplay = document.getElementById('score-display');
+    
+    // Use specific color classes that Tailwind can compile
+    const colorClasses = {
+      green: 'text-green-600',
+      blue: 'text-blue-600',
+      amber: 'text-amber-600',
+      orange: 'text-orange-600',
+      red: 'text-red-600'
+    };
+    
+    const borderClasses = {
+      green: 'border-green-500',
+      blue: 'border-blue-500',
+      amber: 'border-amber-500',
+      orange: 'border-orange-500',
+      red: 'border-red-500'
+    };
+    
+    scoreDisplay.innerHTML = `
+      <div class="text-center py-4">
+        <div class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold ${colorClasses[color]} mb-2">${score}/50</div>
+        <div class="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold">${level}</div>
+      </div>
+    `;
+    
+    const resultCard = document.getElementById('result-card');
+    const resultMessage = getResultMessage(level);
+    resultCard.innerHTML = `
+      <div class="bg-gray-50 p-6 border-l-4 ${borderClasses[color]}">
+        <h3 class="text-xl font-bold mb-4">${resultMessage.headline}</h3>
+        <p class="mb-4 text-gray-700">${resultMessage.description}</p>
+      </div>
+    `;
+    
+    // Add lead capture form
+    const leadCapture = document.getElementById('lead-capture');
+    leadCapture.innerHTML = `
+      <div class="bg-white shadow-lg border border-gray-200 p-4 sm:p-6 md:p-8">
+        <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-center mb-4">Get Your Free Finance Ready Package - valued at $1,035</h3>
+        <p class="text-center text-gray-600 mb-6">Congratulations on completing your Finance Ready Assessment! Now unlock your exclusive Finance Ready Package with everything you need to secure funding.</p>
+        
+        <!-- Value Stack -->
+        <div class="bg-gray-50 p-4 sm:p-6 mb-6 border border-gray-200">
+          <h4 class="font-semibold text-lg mb-4 text-center">Your Complete Finance Ready Package Includes:</h4>
+          <div class="space-y-3">
+            <div class="flex items-start">
+              <svg class="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <div>
+                <span class="font-medium">Personalised Finance Ready Report</span>
+                <span class="text-gray-600"> - Your custom roadmap to funding (Value: $497)</span>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <div>
+                <span class="font-medium">Finance Ready Lending Playbook</span>
+                <span class="text-gray-600"> - 47-page insider guide to securing business finance (Value: $197)</span>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <div>
+                <span class="font-medium">Business Finance Calculator Suite</span>
+                <span class="text-gray-600"> - Calculate borrowing power & repayments (Value: $97)</span>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <div>
+                <span class="font-medium">7-Day Email Course</span>
+                <span class="text-gray-600"> - Master the funding process step-by-step (Value: $147)</span>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <div>
+                <span class="font-medium">Document Preparation Checklist</span>
+                <span class="text-gray-600"> - Never miss a requirement (Value: $97)</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4 pt-4 border-t border-gray-300 text-center">
+            <div class="text-sm text-gray-600">Total Package Value: <span class="line-through">$1,035</span></div>
+            <div class="text-lg font-bold text-green-600">Your Price Today: FREE</div>
+          </div>
+        </div>
+        
+        <p class="text-center text-gray-600 mb-6">Enter your details below to receive instant access to your complete Finance Ready Package.</p>
+        
+        <form id="lead-form" class="space-y-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
+              <input type="text" id="firstName" name="firstName" required 
+                class="w-full px-4 py-2 border border-gray-300 focus:border-orange-500 focus:outline-none">
+            </div>
+            <div>
+              <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">Last Name *</label>
+              <input type="text" id="lastName" name="lastName" required 
+                class="w-full px-4 py-2 border border-gray-300 focus:border-orange-500 focus:outline-none">
+            </div>
+          </div>
+          
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+            <input type="email" id="email" name="email" required 
+              class="w-full px-4 py-2 border border-gray-300 focus:border-orange-500 focus:outline-none">
+          </div>
+          
+          <div>
+            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+            <input type="tel" id="phone" name="phone" 
+              class="w-full px-4 py-2 border border-gray-300 focus:border-orange-500 focus:outline-none">
+          </div>
+          
+          <div>
+            <label for="businessName" class="block text-sm font-medium text-gray-700 mb-1">Business Name</label>
+            <input type="text" id="businessName" name="businessName" 
+              class="w-full px-4 py-2 border border-gray-300 focus:border-orange-500 focus:outline-none">
+          </div>
+          
+          <div class="pt-4">
+            <button type="submit" 
+              class="w-full py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold text-lg hover:shadow-lg transition-all">
+              Get My Free Report & Resources
+            </button>
+          </div>
+          
+          <p class="text-xs text-gray-500 text-center">
+            We respect your privacy. Your information will only be used to send your assessment results and follow-up resources.
+          </p>
+        </form>
+        
+        <div id="form-message" class="mt-4 hidden"></div>
+      </div>
+    `;
+    
+    // Attach form submit handler
+    document.getElementById('lead-form').addEventListener('submit', handleLeadSubmit);
+  }
+  
+  // Get result message based on level
+  function getResultMessage(level) {
+    const messages = {
+      'Elite': {
+        headline: 'Outstanding! You\'re in the Top 10%',
+        description: 'Your business demonstrates exceptional financial management and documentation standards. You\'re perfectly positioned to strategically plan your finance requirements for the next 12 months.'
+      },
+      'Professional': {
+        headline: 'Excellent! You\'re Well-Prepared',
+        description: 'You have strong fundamentals with some areas that could be enhanced to join the elite 10%. Your business shows good financial management and reasonable documentation systems.'
+      },
+      'Nearly Ready': {
+        headline: 'Good Foundation with Strategic Gaps',
+        description: 'You have solid fundamentals but several gaps that could trigger information requests during applications. The good news is these gaps are strategic and addressable with the right guidance.'
+      },
+      'Foundation': {
+        headline: 'Foundation Building Required',
+        description: 'Your business would benefit from systematic preparation before engaging with mainstream lenders. This isn\'t uncommon - many successful businesses start here.'
+      },
+      'Support Needed': {
+        headline: 'Strategic Support Recommended',
+        description: 'Your assessment indicates several areas need attention. With the right support and systematic preparation, you can build a strong foundation for future finance applications.'
+      }
+    };
+    return messages[level] || messages['Foundation'];
+  }
+  
+  // Handle lead form submission
+  async function handleLeadSubmit(e) {
+    e.preventDefault();
+    
+    const form = e.target;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const messageDiv = document.getElementById('form-message');
+    
+    // Disable button and show loading
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+    
+    // Get form data
+    const formData = new FormData(form);
+    const score = parseInt(sessionStorage.getItem('assessmentScore'));
+    const level = sessionStorage.getItem('assessmentLevel');
+    const answers = JSON.parse(sessionStorage.getItem('assessmentAnswers'));
+    
+    // Get UTM parameters from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    // Prepare submission data
+    const submissionData = {
+      firstName: formData.get('firstName'),
+      lastName: formData.get('lastName'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      businessName: formData.get('businessName'),
+      totalScore: score,
+      readinessLevel: level,
+      answers: answers,
+      utmSource: urlParams.get('utm_source'),
+      utmMedium: urlParams.get('utm_medium'),
+      utmCampaign: urlParams.get('utm_campaign'),
+      referrerUrl: document.referrer
+    };
+    
+    try {
+      // Submit to API
+      const response = await fetch('/api/assessment-submit.json', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(submissionData)
+      });
+      
+      const result = await response.json();
+      
+      if (response.ok && result.success) {
+        // Show success message
+        messageDiv.className = 'mt-4 p-4 bg-green-50 border border-green-200 text-green-700';
+        messageDiv.innerHTML = `
+          <div class="font-semibold mb-2">Success! Your Finance Ready Package is on its way.</div>
+          <div class="text-sm">
+            <p class="mb-2">We've received your assessment results and will send your personalised report to ${submissionData.email} shortly.</p>
+            <p>You can also <a href="/finance-ready-assessment/thank-you" class="underline font-semibold">view your results now</a>.</p>
+          </div>
+        `;
+        messageDiv.classList.remove('hidden');
+        
+        // Update button to show success
+        submitBtn.textContent = '✓ Successfully Submitted';
+        submitBtn.classList.add('bg-green-600');
+        
+        // Redirect after 3 seconds
+        setTimeout(() => {
+          window.location.href = '/finance-ready-assessment/thank-you';
+        }, 3000);
+      } else {
+        // Show error message
+        messageDiv.className = 'mt-4 p-4 bg-red-50 border border-red-200 text-red-700';
+        messageDiv.textContent = result.error || 'Something went wrong. Please try again.';
+        messageDiv.classList.remove('hidden');
+        
+        // Re-enable button
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Get My Free Report & Resources';
+      }
+    } catch (error) {
+      // Show error message
+      messageDiv.className = 'mt-4 p-4 bg-red-50 border border-red-200 text-red-700';
+      messageDiv.textContent = 'Network error. Please check your connection and try again.';
+      messageDiv.classList.remove('hidden');
+      
+      // Re-enable button
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Get My Free Report & Resources';
+      
+      console.error('Submission error:', error);
+    }
+  }
+
+  // Initialize on load
+  init();
+</script>

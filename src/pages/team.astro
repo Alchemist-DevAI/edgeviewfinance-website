@@ -1,0 +1,20 @@
+---
+import Layout from "../layout/Layout.astro";
+import MainTeam from "../components/About/Team.astro";
+import OtherTeam from "../components/Team/OtherTeam.astro";
+import BreadCumb from "../components/ui/BreadCumb.astro";
+---
+
+<Layout title='Team'>
+  <main class='main-wrapper relative overflow-hidden'>
+    <BreadCumb>
+      <h1 class='breadcrumb-title'>Our Team</h1>
+      <ul class='breadcrumb-nav'>
+        <li><a href='/'>Home</a></li>
+        <li>Our Team</li>
+      </ul>
+    </BreadCumb>
+    <MainTeam hideHeader={true} />
+    <OtherTeam />
+  </main>
+</Layout>

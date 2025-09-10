@@ -1,43 +1,25 @@
-# Astro Starter Kit: Minimal
+# Agency11
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Agency11 is a fully customizable website template for a robust agency website.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+[Live Preview](https://astro-agency11.vercel.app/)
 
-## 🚀 Project Structure
+# Description
 
-Inside of your Astro project, you'll see the following folders and files:
+Agency11 is a website template that simplifies the process of developing a website for your Agency. It has never been simpler to showcase your website creatively.
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Creating an appealing and professional-looking Agency website is no longer an ordeal when you select this template.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+All it takes to launch a full-fledged Agency website is installing and configuring the template to meet your requirements. By opting for this creative template for Astro, you will not spend hours setting up a website on your desk. Simply configure it, enter your details, and your Agency website is ready to launch.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Key Features
+- MDX Integrated
+- Easy customization options using MDX.
+- User-friendly and convincing interface.
+- Easy to edit.
+- No coding required.
+- Portfolio details with all client details.
+- Service details with all the Services you provide.
+- Showcase your Expert Areas, Partners, Methods, Team.
+- Showcase your Projects and also Client Feedback on Project.
+- Special sections like About Us, Blogs, Portfolio, Contact.

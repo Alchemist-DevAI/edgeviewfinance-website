@@ -1,0 +1,97 @@
+---
+import { getEntryBySlug } from "astro:content";
+import Button from "../ui/Button.astro";
+
+const Facts = await getEntryBySlug("aboutPage", "facts");
+const {
+  header,
+  button,
+  SatisfiedClients,
+  ActiveEngagement,
+  SuccessProjects,
+  AwardsWinning,
+} = Facts?.data;
+const { Content } = await Facts.render();
+---
+
+<section class='section-fact'>
+  <div class='section-space'>
+    <div class='container-custom has-container-custom'>
+      <div
+        class='grid gap-10 gap-x-12 lg:grid-cols-2 xl:grid-cols-[1fr_minmax(0,_0.7fr)] xxl:gap-x-[185px]'>
+        <div class='jos' data-jos_animation='fade-right' data-jos_delay='0'>
+          <div>
+            <div class='mb-5'>
+              <h2>
+                {header}
+              </h2>
+            </div>
+            <Content />
+          </div>
+          <Button
+            link={button?.link}
+            text={button?.text}
+            css='mt-8 inline-block lg:mt-[50px]'
+          />
+        </div>
+        <div>
+          <div
+            class='grid items-center justify-center gap-6 sm:grid-cols-2 sm:gap-0.5 sm:bg-ColorOffWhite'>
+            <div class='text-center sm:bg-white sm:pb-10'>
+              <div
+                class='mb-1 font-InstrumentSans text-display-lg font-extrabold leading-[1.2] -tracking-[1px] text-ColorBlack'
+                data-module="countup">
+                <span
+                  class='start-number'
+                  data-countup-number={SatisfiedClients}
+                  >{SatisfiedClients}</span
+                >K+
+              </div>
+              <span class='text-xl font-semibold text-ColorLime'
+                >Satisfied clients</span
+              >
+            </div>
+            <div class='text-center sm:bg-white sm:pb-10'>
+              <div
+                class='mb-1 font-InstrumentSans text-display-lg font-extrabold leading-[1.2] -tracking-[1px] text-ColorBlack'
+                data-module="countup">
+                <span
+                  class='start-number'
+                  data-countup-number={ActiveEngagement}
+                  >{ActiveEngagement}</span
+                >K+
+              </div>
+              <span class='text-xl font-semibold text-ColorLime'
+                >Active Engagement</span
+              >
+            </div>
+            <div class='text-center sm:bg-white sm:pt-10'>
+              <div
+                class='mb-1 font-InstrumentSans text-display-lg font-extrabold leading-[1.2] -tracking-[1px] text-ColorBlack'
+                data-module="countup">
+                <span class='start-number' data-countup-number={SuccessProjects}
+                  >{SuccessProjects}</span
+                >K+
+              </div>
+              <span class='text-xl font-semibold text-ColorLime'
+                >Success projects</span
+              >
+            </div>
+            <div class='text-center sm:bg-white sm:pt-10'>
+              <div
+                class='mb-1 font-InstrumentSans text-display-lg font-extrabold leading-[1.2] -tracking-[1px] text-ColorBlack'
+                data-module="countup">
+                <span class='start-number' data-countup-number={AwardsWinning}
+                  >{AwardsWinning}</span
+                >+
+              </div>
+              <span class='text-xl font-semibold text-ColorLime'
+                >Awards winning</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
