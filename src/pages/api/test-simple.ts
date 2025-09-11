@@ -4,8 +4,9 @@ export const prerender = false;
 
 export const GET: APIRoute = async () => {
   return new Response(JSON.stringify({ 
-    message: 'API is working',
-    timestamp: new Date().toISOString() 
+    message: 'API is working - test deployment',
+    timestamp: new Date().toISOString(),
+    status: 'active'
   }), {
     status: 200,
     headers: {
