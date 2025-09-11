@@ -231,7 +231,7 @@ const { score, level } = Astro.props;
       };
       
       // Submit to API endpoint
-      const response = await fetch('/api/assessment-submit', {
+      const response = await fetch('/api/assessment-submit.json', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
