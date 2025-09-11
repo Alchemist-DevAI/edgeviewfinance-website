@@ -6,11 +6,13 @@ import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'hybrid', // Hybrid mode to support API endpoints
+  output: 'hybrid',
   adapter: vercel({
     webAnalytics: {
       enabled: true
-    }
+    },
+    functionPerRoute: false,
+    edgeMiddleware: false
   }),
   integrations: [tailwind(), mdx(), react()],
   vite: {
