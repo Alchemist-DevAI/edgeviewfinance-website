@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 
-export const prerender = false; // This is a server-side route
+export const prerender = false;
 
 export const POST: APIRoute = async ({ request }) => {
   console.log('Assessment API endpoint called');
