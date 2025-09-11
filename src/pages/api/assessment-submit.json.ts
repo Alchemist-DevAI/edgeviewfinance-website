@@ -152,14 +152,14 @@ export const POST: APIRoute = async ({ request }) => {
         const internalEmailPromise = resend.emails.send({
           from: emailFrom,
           to: emailTo,
-          subject: `New Finance Assessment: ${data.firstName} ${data.lastName} - Score: ${data.totalScore}/5`,
+          subject: `New Finance Assessment: ${data.firstName} ${data.lastName} - Score: ${data.totalScore}/50`,
           html: `
             <h2>New Finance Ready Assessment Completed</h2>
             <p><strong>Name:</strong> ${data.firstName} ${data.lastName}</p>
             <p><strong>Email:</strong> ${data.email}</p>
             <p><strong>Phone:</strong> ${data.phone || 'Not provided'}</p>
             <p><strong>Business:</strong> ${data.businessName || 'Not provided'}</p>
-            <p><strong>Score:</strong> ${data.totalScore}/5</p>
+            <p><strong>Score:</strong> ${data.totalScore}/50</p>
             <p><strong>Readiness Level:</strong> ${data.readinessLevel}</p>
             <hr>
             <h3>Answers:</h3>
@@ -181,7 +181,7 @@ export const POST: APIRoute = async ({ request }) => {
           html: `
             <h2>Thank You ${data.firstName}!</h2>
             <p>We've received your Finance Ready Assessment.</p>
-            <p><strong>Your Score:</strong> ${data.totalScore}/5</p>
+            <p><strong>Your Score:</strong> ${data.totalScore}/50</p>
             <p><strong>Readiness Level:</strong> ${data.readinessLevel}</p>
             <p>One of our finance specialists will review your assessment and contact you within 24 hours to discuss your results and next steps.</p>
             <p>If you have any urgent questions, please don't hesitate to call us on 1300 336 365.</p>

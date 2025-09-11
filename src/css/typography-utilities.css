@@ -10,7 +10,7 @@
 /* Hero Heading - Primary H1 for hero sections */
 .heading-hero {
   font-size: var(--h1-size-mobile) !important;   /* 28px mobile */
-  font-weight: var(--font-weight-normal) !important;
+  font-weight: var(--font-weight-bold) !important;
   letter-spacing: var(--letter-spacing-tight) !important;
   line-height: var(--line-height-tight) !important;
   font-family: var(--font-primary) !important;
@@ -32,7 +32,7 @@
 /* Section Heading - H1 for section headers */
 .heading-section {
   font-size: var(--h1-size-mobile) !important;   /* 28px mobile */
-  font-weight: var(--font-weight-normal) !important;
+  font-weight: var(--font-weight-bold) !important;
   letter-spacing: var(--letter-spacing-tight) !important;
   line-height: var(--line-height-tight) !important;
   font-family: var(--font-primary) !important;
