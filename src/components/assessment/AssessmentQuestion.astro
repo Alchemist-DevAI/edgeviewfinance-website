@@ -55,7 +55,7 @@ const {
         ))}
       </div>
       <div class="text-sm text-gray-500 mb-6">
-        Items checked: <span id={`checked-count-${questionNumber}`} data-question={questionNumber}>0</span> / {options.length}
+        Items checked: <span id={"checked-count-" + questionNumber}>0</span> / {options.length}
       </div>
     </div>
   ) : (
@@ -96,27 +96,21 @@ const {
   
 </div>
 
-<script define:vars={{ questionNumber, questionType }}>
-  if (questionType === 'checkbox') {
-    // Wait for DOM to be ready
-    document.addEventListener('DOMContentLoaded', () => {
-      const checkboxes = document.querySelectorAll(`input[name="question-${questionNumber}-checkbox"]`);
-      const countSpan = document.getElementById(`checked-count-${questionNumber}`);
-      
-      function updateCount() {
-        const checkedCount = document.querySelectorAll(`input[name="question-${questionNumber}-checkbox"]:checked`).length;
-        if (countSpan) {
-          countSpan.textContent = checkedCount;
-        }
-      }
-      
-      checkboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', updateCount);
-      });
-      
-      // Initial count update
-      updateCount();
+{questionType === 'checkbox' && (
+  <script type="text/javascript">
+    // Update checkbox count for question
+    const questionNum = {questionNumber};
+    const checkboxes = document.querySelectorAll(`input[name="question-${questionNum}-checkbox"]`);
+    const countSpan = document.getElementById(`checked-count-${questionNum}`);
+    
+    function updateCount() {
+      const checkedCount = document.querySelectorAll(`input[name="question-${questionNum}-checkbox"]:checked`).length;
+      if (countSpan) countSpan.textContent = checkedCount;
+    }
+    
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', updateCount);
     });
-  }
-</script>
+  </script>
+)}
 

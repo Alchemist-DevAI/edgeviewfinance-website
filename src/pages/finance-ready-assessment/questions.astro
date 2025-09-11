@@ -232,12 +232,6 @@ const description = "Complete your professional business finance readiness asses
       answers[questionKey] = answers[questionKey].filter(v => v !== e.target.value);
     }
     nextBtn.disabled = answers[questionKey].length === 0;
-    
-    // Update checkbox counter
-    const countSpan = document.getElementById(`checked-count-${currentQuestion}`);
-    if (countSpan) {
-      countSpan.textContent = answers[questionKey].length;
-    }
   }
 
   // Navigate back

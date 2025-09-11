@@ -29,24 +29,23 @@ import "../css/hero-section.css";
 // 7. Component Imports
 import Header from "../components/ui/Header.astro";
 import Footer from "../components/ui/Footer.astro";
-import SEOHead from "../components/SEO/SEOHead.astro";
 import { getEntryBySlug } from "astro:content";
-const { title, description: pageDescription, image, canonical, type, keywords } = Astro.props;
+const { title } = Astro.props;
 const MetaData = await getEntryBySlug("site", "meta");
 const { siteName, description, favicon } = MetaData?.data;
 ---
 
 <!doctype html>
-<html lang='en-AU'>
+<html lang='en'>
   <head>
-    <SEOHead 
-      title={title}
-      description={pageDescription || description}
-      image={image}
-      canonical={canonical}
-      type={type}
-      keywords={keywords}
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>{siteName}{" "} | {" "}{title}</title>
+    <meta
+      name='description'
+      content={description ? description : "Agency11 Theme"}
     />
+    <link rel='icon' href={favicon || "/favicon.webp"} />
     <!-- Force mobile menu submenu styling -->
     <link rel='stylesheet' href='/assets/css/mobile-menu-fix.css' />
     <!-- Calendly widget styling -->

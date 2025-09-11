@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev --port 4002 --host 0.0.0.0",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro check && astro build",
     "build:fast": "astro build",
     "preview": "astro preview --host",
     "astro": "astro"
@@ -13,7 +13,6 @@
   "dependencies": {
     "@astrojs/check": "^0.5.10",
     "@astrojs/mdx": "^2.3.0",
-    "@astrojs/node": "^8.3.4",
     "@astrojs/vercel": "^7.8.2",
     "@astrojs/react": "^3.3.1",
     "@astrojs/tailwind": "^5.1.0",
