@@ -2,12 +2,25 @@
 import Layout from '../../layout/Layout.astro';
 ---
 
+<style>
+  /* Ensure the thank you page displays all content properly */
+  main {
+    min-height: calc(100vh - 160px); /* Account for header and footer */
+  }
+  
+  @media (max-width: 768px) {
+    main {
+      min-height: calc(100vh - 120px);
+    }
+  }
+</style>
+
 <Layout 
   title="Thank You - Finance Ready Assessment | Edgeview Finance"
   description="Your Finance Ready Assessment package is on its way. Check your email for your personalized report and exclusive resources."
   canonical="https://edgeview.com.au/finance-ready-assessment/thank-you"
 >
-  <main class="min-h-screen bg-gray-50 py-12">
+  <main class="bg-gray-50 pt-20 py-12 pb-24">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Success Header -->
@@ -160,7 +173,7 @@ import Layout from '../../layout/Layout.astro';
       </div>
 
       <!-- Footer Navigation -->
-      <div class="text-center mt-12">
+      <div class="text-center mt-12 mb-16">
         <a 
           href="/" 
           class="inline-flex items-center text-orange-500 hover:text-orange-600 font-medium"
