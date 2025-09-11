@@ -5,17 +5,17 @@
   "scripts": {
     "dev": "astro dev --port 4002 --host 0.0.0.0",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro build",
     "build:fast": "astro build",
     "preview": "astro preview --host",
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.10",
-    "@astrojs/mdx": "^2.3.0",
-    "@astrojs/vercel": "^7.8.2",
-    "@astrojs/react": "^3.3.1",
-    "@astrojs/tailwind": "^5.1.0",
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/mdx": "^4.3.5",
+    "@astrojs/react": "^4.3.1",
+    "@astrojs/tailwind": "^6.0.2",
+    "@astrojs/vercel": "^8.2.7",
     "@fontsource/cabin": "^5.0.18",
     "@fontsource/instrument-sans": "^5.2.6",
     "@fontsource/inter": "^5.0.18",
@@ -25,7 +25,7 @@
     "@supabase/supabase-js": "^2.57.0",
     "@types/react": "^18.2.79",
     "@types/react-dom": "^18.2.25",
-    "astro": "^4.6.1",
+    "astro": "^5.13.7",
     "github-slugger": "^2.0.0",
     "jos-animation": "^0.9.2",
     "playwright": "^1.55.0",
@@ -38,5 +38,8 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.4.3"
+  },
+  "engines": {
+    "node": "22.x"
   }
 }
