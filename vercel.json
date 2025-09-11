@@ -1,4 +1,8 @@
 {
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "installCommand": "npm install",
+  "framework": "astro",
   "headers": [
     {
       "source": "/(.*)",
@@ -45,5 +49,10 @@
     }
   ],
   "rewrites": [],
-  "regions": ["syd1"]
+  "regions": ["syd1"],
+  "functions": {
+    "api/*": {
+      "maxDuration": 30
+    }
+  }
 }
