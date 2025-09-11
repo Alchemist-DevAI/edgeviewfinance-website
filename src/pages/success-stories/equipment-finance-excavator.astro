@@ -779,7 +779,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Track CTA clicks
   const ctaButtons = document.querySelectorAll('a[href*="contact"], a[href*="tel:"]');
   ctaButtons.forEach(button => {
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function(this: HTMLAnchorElement) {
       if (typeof gtag !== 'undefined') {
         gtag('event', 'cta_click', {
           cta_location: 'case_study_page',
@@ -793,7 +793,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Track related story clicks
   const relatedLinks = document.querySelectorAll('a[href*="/success-stories/"]');
   relatedLinks.forEach(link => {
-    link.addEventListener('click', function() {
+    link.addEventListener('click', function(this: HTMLAnchorElement) {
       if (typeof gtag !== 'undefined') {
         gtag('event', 'related_story_click', {
           from_case_study: 'equipment-finance-excavator',
