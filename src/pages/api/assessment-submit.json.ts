@@ -184,7 +184,7 @@ export const POST: APIRoute = async ({ request }) => {
       console.log('=== EMAIL SENDING SECTION ===');
       
       try {
-        const emailFrom = process.env.EMAIL_FROM || 'onboarding@resend.dev';
+        const emailFrom = process.env.EMAIL_FROM || 'noreply@website.edgeviewfinance.com.au';
         const emailTo = process.env.EMAIL_TO || 'dan@edgeviewfinance.com.au';
         
         console.log('Email configuration:');
