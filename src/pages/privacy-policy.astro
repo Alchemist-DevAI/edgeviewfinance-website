@@ -632,7 +632,7 @@ import Layout from "../layout/Layout.astro";
         });
 
         // Toggle expand functionality - make it globally available
-        (window as any).toggleExpand = function(expandId: string) {
+        window.toggleExpand = function(expandId) {
             const expandContent = document.getElementById(expandId);
             const iconId = expandId.split('-')[0] + '-icon';
             const icon = document.getElementById(iconId);
