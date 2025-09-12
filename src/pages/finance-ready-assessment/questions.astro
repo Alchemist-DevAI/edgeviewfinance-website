@@ -209,29 +209,29 @@ const description = "Complete your professional business finance readiness asses
   }
 
   // Handle radio selection
-  function handleRadioChange(e) {
+  function handleRadioChange(e: any) {
     const questionKey = `q${currentQuestion}`;
     answers[questionKey] = e.target.value;
     
     // Enable appropriate button
     if (currentQuestion === totalQuestions) {
-      submitBtn.disabled = false;
+      (submitBtn as any).disabled = false;
     } else {
-      nextBtn.disabled = false;
+      (nextBtn as any).disabled = false;
     }
   }
 
   // Handle checkbox selection
-  function handleCheckboxChange(e) {
+  function handleCheckboxChange(e: any) {
     const questionKey = `q${currentQuestion}`;
     if (e.target.checked) {
       if (!answers[questionKey].includes(e.target.value)) {
         answers[questionKey].push(e.target.value);
       }
     } else {
-      answers[questionKey] = answers[questionKey].filter(v => v !== e.target.value);
+      answers[questionKey] = answers[questionKey].filter((v: any) => v !== e.target.value);
     }
-    nextBtn.disabled = answers[questionKey].length === 0;
+    (nextBtn as any).disabled = answers[questionKey].length === 0;
   }
 
   // Navigate back
@@ -259,7 +259,7 @@ const description = "Complete your professional business finance readiness asses
       // Check if answer exists for new question
       const questionKey = `q${currentQuestion}`;
       if (currentQuestion === 4) {
-        nextBtn.disabled = answers[questionKey].length === 0;
+        (nextBtn as any).disabled = answers[questionKey].length === 0;
       } else {
         nextBtn.disabled = !answers[questionKey];
       }
@@ -330,7 +330,7 @@ const description = "Complete your professional business finance readiness asses
   }
 
   // Get readiness level
-  function getReadinessLevel(score) {
+  function getReadinessLevel(score: any) {
     if (score >= 45) return { level: 'Elite', color: 'green' };
     if (score >= 35) return { level: 'Professional', color: 'blue' };
     if (score >= 25) return { level: 'Nearly Ready', color: 'amber' };
@@ -366,7 +366,7 @@ const description = "Complete your professional business finance readiness asses
   }
 
   // Display results
-  function displayResults(score, level, color) {
+  function displayResults(score: any, level: any, color: any) {
     const scoreDisplay = document.getElementById('score-display');
     
     // Use specific color classes that Tailwind can compile
@@ -520,7 +520,7 @@ const description = "Complete your professional business finance readiness asses
   }
   
   // Get result message based on level
-  function getResultMessage(level) {
+  function getResultMessage(level: any) {
     const messages = {
       'Elite': {
         headline: 'Outstanding! You\'re in the Top 10%',
@@ -547,7 +547,7 @@ const description = "Complete your professional business finance readiness asses
   }
   
   // Handle lead form submission
-  async function handleLeadSubmit(e) {
+  async function handleLeadSubmit(e: any) {
     e.preventDefault();
     
     const form = e.target;
