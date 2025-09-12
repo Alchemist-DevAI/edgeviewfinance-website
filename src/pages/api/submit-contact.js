@@ -11,6 +11,38 @@ const supabaseAnonKey = import.meta.env.SUPABASE_ANON_KEY || import.meta.env.PUB
 // Always use EmailService - it will handle missing API key gracefully
 const emailService = EmailService;
 
+// Common headers for all responses
+const getCommonHeaders = () => ({
+  'Content-Type': 'application/json',
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+});
+
+// Handle GET requests - return 405 Method Not Allowed with clear message
+export async function GET({ request }) {
+  return new Response(JSON.stringify({
+    success: false,
+    error: 'Method Not Allowed',
+    message: 'This endpoint only accepts POST requests for form submissions.',
+    allowedMethods: ['POST']
+  }), {
+    status: 405,
+    headers: {
+      ...getCommonHeaders(),
+      'Allow': 'POST, OPTIONS'
+    }
+  });
+}
+
+// Handle OPTIONS requests for CORS preflight
+export async function OPTIONS({ request }) {
+  return new Response(null, {
+    status: 200,
+    headers: getCommonHeaders()
+  });
+}
+
 export async function POST({ request }) {
   try {
     // Check for required environment variables
@@ -21,9 +53,7 @@ export async function POST({ request }) {
         error: 'Server configuration error. Please contact support.' 
       }), {
         status: 500,
-        headers: {
-          'Content-Type': 'application/json'
-        }
+        headers: getCommonHeaders()
       });
     }
 
@@ -76,9 +106,7 @@ export async function POST({ request }) {
         error: 'Failed to save submission' 
       }), {
         status: 500,
-        headers: {
-          'Content-Type': 'application/json'
-        }
+        headers: getCommonHeaders()
       });
     }
     
@@ -132,9 +160,7 @@ export async function POST({ request }) {
       submissionId: data.id 
     }), {
       status: 200,
-      headers: {
-        'Content-Type': 'application/json'
-      }
+      headers: getCommonHeaders()
     });
     
   } catch (err) {
@@ -144,9 +170,7 @@ export async function POST({ request }) {
       error: 'Server error occurred' 
     }), {
       status: 500,
-      headers: {
-        'Content-Type': 'application/json'
-      }
+      headers: getCommonHeaders()
     });
   }
 }

@@ -250,15 +250,6 @@ input:checked~.toggle_dot {
   100% { background-position: 0% 50%; }
 }
 
-/* Brand-appropriate text gradient for headings */
-.text-gradient-brand {
-  background: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #FF9E10 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent; /* Fallback for browsers that don't support gradient text */
-}
-
 /* BLOG ARTICLE STYLING - EVFBS Brand Consistency */
 .prose {
   font-family: 'Instrument Sans', sans-serif !important;
