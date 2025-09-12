@@ -375,7 +375,7 @@ button.nav-link-item:focus,
   min-height: unset !important;
   height: auto !important;
   overflow: visible !important;
-  padding-bottom: 6rem !important;
+  padding-bottom: 10rem !important; /* Increased from 6rem for more spacing */
 }
 
 /* Screen reader only class for accessibility */
