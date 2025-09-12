@@ -1,1 +1,62 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+.astro/
+
+# Environment variables
+.env
+.env.local
+.env.production
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Vercel
 .vercel
+
+# Testing
+coverage/
+.nyc_output/
+test-results/
+tests/
+scripts/
+
+# Documentation
+docs/
+DEPLOYMENT-CHECKLIST.md
+SEO-IMPLEMENTATION-GUIDE.md
+ACCESSIBILITY-IMPROVEMENTS-PHASE1.md
+ASTRO_AUDIT_TRACKER.md
+CONTACT-FORM-SETUP.md
+GOOGLE_ANALYTICS_IMPLEMENTATION.md
+SPAM_PREVENTION_GUIDE.md
+WEBSITE-MIGRATION-CHECKLIST.md
+
+# Development files
+oauth-server.js
+get-google-refresh-token.html
+google-api-tasks.js
+google-search-console.js
+request-indexing.js
+submit-sitemap.js
+test-accessibility.js
+test-google-apis-simple.js
+test-google-apis.js
+test-nav-structure.html
+verify-google-setup.js
+server.log
+404-page-updated.png
