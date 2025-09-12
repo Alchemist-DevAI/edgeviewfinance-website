@@ -9,6 +9,16 @@
   border-radius: 0 !important;
 }
 
+/* Form controls exception - ensure proper checkbox/radio rendering */
+input[type="checkbox"], input[type="radio"] {
+  appearance: auto !important;
+  -webkit-appearance: auto !important;
+  width: 1rem !important;
+  height: 1rem !important;
+  flex-shrink: 0 !important;
+  border-radius: 0.125rem !important;
+}
+
 /* Brand colors now defined in variables.css */
 
 /* Global orange color overrides */

@@ -19,10 +19,23 @@
 /* Navigation item hover effects */
 .nav-link-item {
   color: #1C2C3B !important;
+  font-weight: 600 !important;
   transition: color 0.3s ease !important;
 }
 
 .nav-link-item:hover {
+  color: #FF9E10 !important;
+}
+
+/* Ensure dropdown buttons are bold */
+.nav-dropdown-btn-combined,
+button.nav-dropdown-btn-combined {
+  font-weight: 600 !important;
+  color: #1C2C3B !important;
+}
+
+.nav-dropdown-btn-combined:hover,
+button.nav-dropdown-btn-combined:hover {
   color: #FF9E10 !important;
 }
 
