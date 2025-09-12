@@ -1,11 +1,6 @@
 {
   "buildCommand": "npm run build:fast",
   "installCommand": "npm install",
-  "functions": {
-    "src/pages/**/*.astro": {
-      "runtime": "nodejs20.x"
-    }
-  },
   "headers": [
     {
       "source": "/(.*)",
