@@ -84,7 +84,7 @@ const { sections } = Astro.props;
       link.addEventListener('click', (e) => {
         e.preventDefault();
         const targetId = link.getAttribute('href');
-        const targetElement = targetId ? document.querySelector(targetId) : null;
+        const targetElement = document.querySelector(targetId);
         
         if (targetElement) {
           targetElement.scrollIntoView({

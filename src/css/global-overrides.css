@@ -363,21 +363,6 @@ button.nav-link-item:focus,
    UTILITY OVERRIDES
    ============================================ */
 
-/* Thank You Page - Fix content cutoff issue */
-.thank-you-page body,
-.thank-you-page .page-wrapper {
-  min-height: unset !important;
-  height: auto !important;
-  overflow: visible !important;
-}
-
-.thank-you-page main {
-  min-height: unset !important;
-  height: auto !important;
-  overflow: visible !important;
-  padding-bottom: 10rem !important; /* Increased from 6rem for more spacing */
-}
-
 /* Screen reader only class for accessibility */
 .sr-only {
   position: absolute !important;

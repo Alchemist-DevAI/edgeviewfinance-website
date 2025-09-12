@@ -2,8 +2,8 @@
 import { getCollection } from "astro:content";
 import Layout from "../layout/Layout.astro";
 import BlogCard from "../components/Blog/BlogCard.astro";
-import BlogCategories from "../components/Blog/BlogCategories.astro";
-import BlogSearch from "../components/Blog/BlogSearch.astro";
+import BlogCategories from "../components/blog/BlogCategories.astro";
+import BlogSearch from "../components/blog/BlogSearch.astro";
 import NewsLetter from "../components/Index/NewsLetter.astro";
 import "../css/blog-cards.css";
 
@@ -94,10 +94,9 @@ const pageDescription = "Get insider finance knowledge from Queensland's special
                 <p class='text-base mb-6 text-gray-600 text-center font-InstrumentSans'>
                   Join hundreds of business owners getting weekly finance strategies delivered to their inbox
                 </p>
-                <form id='newsletter-form-blog' class='space-y-4'>
+                <form class='space-y-4'>
                   <input 
                     type='email' 
-                    name='email'
                     placeholder='Enter your email address'
                     class='w-full px-4 py-3 border border-gray-300 text-base focus:outline-none focus:border-[#f97316] transition-colors font-InstrumentSans'
                     required
@@ -109,7 +108,6 @@ const pageDescription = "Get insider finance knowledge from Queensland's special
                     Get Finance Insider Insights
                   </button>
                 </form>
-                <div id='newsletter-message-blog' class='hidden mt-4 p-4 text-center font-InstrumentSans'></div>
                 <div class='mt-6 flex justify-center gap-6 text-sm text-gray-500 font-InstrumentSans'>
                   <span class='flex items-center gap-1'>
                     <svg class='w-4 h-4 text-green-500' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
@@ -259,70 +257,6 @@ const pageDescription = "Get insider finance knowledge from Queensland's special
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Newsletter form submission functionality
-    const newsletterForm = document.getElementById('newsletter-form-blog');
-    const newsletterMessage = document.getElementById('newsletter-message-blog');
-    
-    if (newsletterForm && newsletterMessage) {
-      newsletterForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        const formData = new FormData(this);
-        const email = formData.get('email');
-        const submitBtn = this.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
-        
-        // Show loading state
-        submitBtn.textContent = 'Subscribing...';
-        submitBtn.disabled = true;
-        newsletterMessage.classList.add('hidden');
-        
-        try {
-          const response = await fetch('/api/newsletter-subscribe', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              email: email,
-              source: 'blog'
-            })
-          });
-          
-          const result = await response.json();
-          
-          if (response.ok && result.success) {
-            // Show success message
-            newsletterMessage.innerHTML = '<div class="p-4 bg-green-100 text-green-800 border border-green-300">✓ ' + (result.message || 'Successfully subscribed to newsletter!') + '</div>';
-            newsletterMessage.classList.remove('hidden');
-            
-            // Reset form
-            this.reset();
-            
-            // Track successful subscription (if analytics available)
-            if (typeof gtag !== 'undefined') {
-              gtag('event', 'newsletter_signup', {
-                event_category: 'engagement',
-                event_label: 'blog_page'
-              });
-            }
-          } else {
-            // Show error message
-            newsletterMessage.innerHTML = '<div class="p-4 bg-red-100 text-red-800 border border-red-300">✗ ' + (result.error || 'Failed to subscribe. Please try again.') + '</div>';
-            newsletterMessage.classList.remove('hidden');
-          }
-        } catch (error) {
-          console.error('Newsletter subscription error:', error);
-          newsletterMessage.innerHTML = '<div class="p-4 bg-red-100 text-red-800 border border-red-300">✗ Network error. Please check your connection and try again.</div>';
-          newsletterMessage.classList.remove('hidden');
-        } finally {
-          // Reset button
-          submitBtn.textContent = originalText;
-          submitBtn.disabled = false;
-        }
-      });
-    }
-
     // Newsletter toggle functionality
     const newsletterToggleBtn = document.getElementById('newsletter-toggle-btn');
     const newsletterFormSection = document.getElementById('newsletter-form-section');

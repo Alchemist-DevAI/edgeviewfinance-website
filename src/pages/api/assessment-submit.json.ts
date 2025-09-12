@@ -3,15 +3,7 @@ import type { APIRoute } from 'astro';
 export const prerender = false; // This is a server-side route
 
 export const POST: APIRoute = async ({ request }) => {
-  console.log('=== ASSESSMENT API ENDPOINT CALLED ===');
-  console.log('Timestamp:', new Date().toISOString());
-  console.log('Environment check:');
-  console.log('- NODE_ENV:', process.env.NODE_ENV);
-  console.log('- VERCEL:', process.env.VERCEL ? 'true' : 'false');
-  console.log('- RESEND_API_KEY exists:', !!process.env.RESEND_API_KEY);
-  console.log('- RESEND_API_KEY prefix:', process.env.RESEND_API_KEY ? process.env.RESEND_API_KEY.substring(0, 10) + '...' : 'undefined');
-  console.log('- EMAIL_FROM:', process.env.EMAIL_FROM || 'not set');
-  console.log('- EMAIL_TO:', process.env.EMAIL_TO || 'not set');
+  console.log('Assessment API endpoint called');
   
   // Initialize Supabase client
   let supabase: any = null;
@@ -24,9 +16,9 @@ export const POST: APIRoute = async ({ request }) => {
     const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBhZHV2bnZvY2FjcW5tbGZ1dnluIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQzNTAxNDQsImV4cCI6MjA2OTkyNjE0NH0.GVla_jyPO1tWuQvLm9MscVNH4PC1HWiYx0Ej4xbTauE';
     
     supabase = createClient(supabaseUrl, supabaseAnonKey);
-    console.log('✓ Supabase client initialized successfully');
+    console.log('Supabase client initialized');
   } catch (error) {
-    console.error('✗ Failed to initialize Supabase:', error);
+    console.error('Failed to initialize Supabase:', error);
     return new Response(JSON.stringify({ 
       error: 'Database configuration error',
       details: 'Failed to initialize database connection'
@@ -36,38 +28,18 @@ export const POST: APIRoute = async ({ request }) => {
     });
   }
 
-  // Initialize Resend with enhanced debugging
+  // Initialize Resend if API key is available
   try {
     const resendApiKey = process.env.RESEND_API_KEY;
-    console.log('Resend initialization attempt:');
-    console.log('- API key exists:', !!resendApiKey);
-    console.log('- API key is valid format:', resendApiKey ? resendApiKey.startsWith('re_') : false);
-    console.log('- API key length:', resendApiKey ? resendApiKey.length : 0);
-    
-    if (resendApiKey && resendApiKey.startsWith('re_') && resendApiKey.length > 10) {
+    if (resendApiKey) {
       const { Resend } = await import('resend');
       resend = new Resend(resendApiKey);
-      console.log('✓ Resend API initialized successfully');
-      
-      // Test Resend connection
-      try {
-        console.log('Testing Resend API connection...');
-        // We can't test without sending, but we can check if the instance was created
-        console.log('✓ Resend instance created successfully');
-      } catch (testError) {
-        console.error('✗ Resend connection test failed:', testError);
-      }
+      console.log('Resend API configured');
     } else {
-      console.log('✗ Resend API key not found or invalid format, email sending disabled');
-      console.log('Expected format: re_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+      console.log('Resend API key not found, email sending disabled');
     }
   } catch (error) {
-    console.error('✗ Failed to initialize Resend:', error);
-    console.error('Error details:', {
-      name: error.name,
-      message: error.message,
-      stack: error.stack
-    });
+    console.error('Failed to initialize Resend:', error);
     // Continue without email sending - this is not critical for the assessment submission
   }
   try {
@@ -171,41 +143,23 @@ export const POST: APIRoute = async ({ request }) => {
     console.log('Assessment saved successfully:', insertedData?.id);
 
     // Send emails if Resend is configured
-    let emailStatus = {
-      attempted: false,
-      resendConfigured: !!resend,
-      internalEmailSent: false,
-      userEmailSent: false,
-      errors: []
-    };
-
     if (resend && insertedData) {
-      emailStatus.attempted = true;
-      console.log('=== EMAIL SENDING SECTION ===');
-      
       try {
-        const emailFrom = process.env.EMAIL_FROM || 'noreply@website.edgeviewfinance.com.au';
+        const emailFrom = process.env.EMAIL_FROM || 'noreply@edgeviewfinance.com.au';
         const emailTo = process.env.EMAIL_TO || 'dan@edgeviewfinance.com.au';
         
-        console.log('Email configuration:');
-        console.log('- From:', emailFrom);
-        console.log('- To (internal):', emailTo);
-        console.log('- To (user):', data.email);
-        console.log('- Assessment ID:', insertedData.id);
-        
-        console.log('Attempting to send internal notification email...');
         // Send internal notification email
-        const internalEmailResult = await resend.emails.send({
+        const internalEmailPromise = resend.emails.send({
           from: emailFrom,
           to: emailTo,
-          subject: `New Finance Assessment: ${data.firstName} ${data.lastName} - Score: ${data.totalScore}/50`,
+          subject: `New Finance Assessment: ${data.firstName} ${data.lastName} - Score: ${data.totalScore}/5`,
           html: `
             <h2>New Finance Ready Assessment Completed</h2>
             <p><strong>Name:</strong> ${data.firstName} ${data.lastName}</p>
             <p><strong>Email:</strong> ${data.email}</p>
             <p><strong>Phone:</strong> ${data.phone || 'Not provided'}</p>
             <p><strong>Business:</strong> ${data.businessName || 'Not provided'}</p>
-            <p><strong>Score:</strong> ${data.totalScore}/50</p>
+            <p><strong>Score:</strong> ${data.totalScore}/5</p>
             <p><strong>Readiness Level:</strong> ${data.readinessLevel}</p>
             <hr>
             <h3>Answers:</h3>
@@ -218,132 +172,47 @@ export const POST: APIRoute = async ({ request }) => {
             </ul>
           `
         });
-        
-        if (internalEmailResult.error) {
-          console.error('Internal email failed:', internalEmailResult.error);
-          emailStatus.errors.push(`Internal email error: ${internalEmailResult.error}`);
-        } else {
-          console.log('✓ Internal email sent successfully. Message ID:', internalEmailResult.data?.id);
-          emailStatus.internalEmailSent = true;
-        }
 
-        console.log('Attempting to send user thank you email...');
         // Send thank you email to user
-        const userEmailResult = await resend.emails.send({
+        const userEmailPromise = resend.emails.send({
           from: emailFrom,
           to: data.email,
           subject: 'Your Finance Ready Assessment Results - Edgeview Finance',
           html: `
             <h2>Thank You ${data.firstName}!</h2>
             <p>We've received your Finance Ready Assessment.</p>
-            <p><strong>Your Score:</strong> ${data.totalScore}/50</p>
+            <p><strong>Your Score:</strong> ${data.totalScore}/5</p>
             <p><strong>Readiness Level:</strong> ${data.readinessLevel}</p>
             <p>One of our finance specialists will review your assessment and contact you within 24 hours to discuss your results and next steps.</p>
-            <p>If you have any urgent questions, please don't hesitate to call us on 1300 280 895.</p>
+            <p>If you have any urgent questions, please don't hesitate to call us on 1300 336 365.</p>
             <br>
             <p>Best regards,<br>The Edgeview Finance Team</p>
           `
         });
 
-        if (userEmailResult.error) {
-          console.error('User email failed:', userEmailResult.error);
-          emailStatus.errors.push(`User email error: ${userEmailResult.error}`);
-        } else {
-          console.log('✓ User email sent successfully. Message ID:', userEmailResult.data?.id);
-          emailStatus.userEmailSent = true;
-        }
+        // Wait for both emails to send
+        await Promise.all([internalEmailPromise, userEmailPromise]);
         
-        // Update the database to mark email status
-        const emailSent = emailStatus.internalEmailSent || emailStatus.userEmailSent;
-        const updateResult = await supabase
+        // Update the database to mark email as sent
+        await supabase
           .from('assessment_responses')
-          .update({ 
-            email_sent: emailSent,
-            email_details: JSON.stringify(emailStatus)
-          })
+          .update({ email_sent: true })
           .eq('id', insertedData.id);
           
-        if (updateResult.error) {
-          console.error('Failed to update email status in database:', updateResult.error);
-        } else {
-          console.log('✓ Database updated with email status');
-        }
-        
-        console.log('=== EMAIL SENDING COMPLETE ===');
-        console.log('Email Status Summary:', emailStatus);
-        
+        console.log('Emails sent successfully');
       } catch (emailError) {
-        console.error('=== EMAIL SENDING FAILED ===');
-        console.error('Email error details:', {
-          name: emailError.name,
-          message: emailError.message,
-          stack: emailError.stack,
-          cause: emailError.cause
-        });
-        emailStatus.errors.push(`Critical email error: ${emailError.message}`);
-        
-        // Try to update the database with the error
-        try {
-          await supabase
-            .from('assessment_responses')
-            .update({ 
-              email_sent: false,
-              email_details: JSON.stringify(emailStatus)
-            })
-            .eq('id', insertedData.id);
-        } catch (dbError) {
-          console.error('Failed to update error status in database:', dbError);
-        }
-      }
-    } else {
-      console.log('=== EMAIL SENDING SKIPPED ===');
-      console.log('Reasons:');
-      console.log('- Resend configured:', !!resend);
-      console.log('- Assessment saved:', !!insertedData);
-      console.log('- Assessment ID:', insertedData?.id || 'N/A');
-      
-      if (insertedData) {
-        // Update database to indicate emails were not sent
-        try {
-          await supabase
-            .from('assessment_responses')
-            .update({ 
-              email_sent: false,
-              email_details: JSON.stringify({ 
-                skipped: true, 
-                reason: 'Resend not configured or assessment not saved',
-                resendConfigured: !!resend,
-                assessmentSaved: !!insertedData
-              })
-            })
-            .eq('id', insertedData.id);
-        } catch (dbError) {
-          console.error('Failed to update skip status in database:', dbError);
-        }
+        // Log error but don't fail the request
+        console.error('Failed to send emails:', emailError);
+        // Email sending failed, but assessment was saved
       }
     }
 
-    // Return success response with email status
+    // Return success response
     console.log('Assessment processed successfully');
-    console.log('=== FINAL STATUS ===');
-    console.log('- Assessment saved:', !!insertedData);
-    console.log('- Email attempted:', emailStatus.attempted);
-    console.log('- Internal email sent:', emailStatus.internalEmailSent);
-    console.log('- User email sent:', emailStatus.userEmailSent);
-    console.log('- Email errors:', emailStatus.errors.length);
-    
     return new Response(JSON.stringify({ 
       success: true,
       assessmentId: insertedData?.id,
-      message: 'Assessment saved successfully',
-      emailStatus: {
-        attempted: emailStatus.attempted,
-        resendConfigured: emailStatus.resendConfigured,
-        internalEmailSent: emailStatus.internalEmailSent,
-        userEmailSent: emailStatus.userEmailSent,
-        hasErrors: emailStatus.errors.length > 0,
-        errorCount: emailStatus.errors.length
-      }
+      message: 'Assessment saved successfully'
     }), {
       status: 200,
       headers

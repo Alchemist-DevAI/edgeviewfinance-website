@@ -168,7 +168,7 @@ const description = "Complete your professional business finance readiness asses
   // Assessment state
   let currentQuestion = 1;
   const totalQuestions = 5;
-  const answers: {[key: string]: string | string[] | null} = {
+  const answers = {
     q1: null,
     q2: null,
     q3: null,
@@ -177,9 +177,9 @@ const description = "Complete your professional business finance readiness asses
   };
 
   // Get elements
-  const backBtn = document.getElementById('back-btn') as HTMLButtonElement | null;
-  const nextBtn = document.getElementById('next-btn') as HTMLButtonElement | null;
-  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement | null;
+  const backBtn = document.getElementById('back-btn');
+  const nextBtn = document.getElementById('next-btn');
+  const submitBtn = document.getElementById('submit-btn');
   const questionContainer = document.getElementById('question-container');
   const resultsContainer = document.getElementById('results-container');
   const progressContainer = document.getElementById('progress-container');
@@ -209,43 +209,37 @@ const description = "Complete your professional business finance readiness asses
   }
 
   // Handle radio selection
-  function handleRadioChange(e: Event) {
+  function handleRadioChange(e) {
     const questionKey = `q${currentQuestion}`;
-    const target = e.target as HTMLInputElement;
-    answers[questionKey] = target.value;
+    answers[questionKey] = e.target.value;
     
     // Enable appropriate button
     if (currentQuestion === totalQuestions) {
-      if (submitBtn) submitBtn.disabled = false;
+      submitBtn.disabled = false;
     } else {
-      if (nextBtn) nextBtn.disabled = false;
+      nextBtn.disabled = false;
     }
   }
 
   // Handle checkbox selection
-  function handleCheckboxChange(e: Event) {
+  function handleCheckboxChange(e) {
     const questionKey = `q${currentQuestion}`;
-    const target = e.target as HTMLInputElement;
-    const answersArray = answers[questionKey] as string[];
-    
-    if (target.checked) {
-      if (!answersArray.includes(target.value)) {
-        answersArray.push(target.value);
+    if (e.target.checked) {
+      if (!answers[questionKey].includes(e.target.value)) {
+        answers[questionKey].push(e.target.value);
       }
     } else {
-      answers[questionKey] = answersArray.filter(v => v !== target.value);
+      answers[questionKey] = answers[questionKey].filter(v => v !== e.target.value);
     }
-    if (nextBtn) nextBtn.disabled = (answers[questionKey] as string[]).length === 0;
+    nextBtn.disabled = answers[questionKey].length === 0;
   }
 
   // Navigate back
   function goBack() {
     if (currentQuestion > 1) {
-      const currentEl = document.getElementById(`q${currentQuestion}`);
-      if (currentEl) currentEl.classList.add('hidden');
+      document.getElementById(`q${currentQuestion}`).classList.add('hidden');
       currentQuestion--;
-      const nextEl = document.getElementById(`q${currentQuestion}`);
-      if (nextEl) nextEl.classList.remove('hidden');
+      document.getElementById(`q${currentQuestion}`).classList.remove('hidden');
       updateProgress();
       updateButtons();
       // Scroll to top of question
@@ -256,20 +250,18 @@ const description = "Complete your professional business finance readiness asses
   // Navigate next
   function goNext() {
     if (currentQuestion < totalQuestions) {
-      const currentEl = document.getElementById(`q${currentQuestion}`);
-      if (currentEl) currentEl.classList.add('hidden');
+      document.getElementById(`q${currentQuestion}`).classList.add('hidden');
       currentQuestion++;
-      const nextEl = document.getElementById(`q${currentQuestion}`);
-      if (nextEl) nextEl.classList.remove('hidden');
+      document.getElementById(`q${currentQuestion}`).classList.remove('hidden');
       updateProgress();
       updateButtons();
       
       // Check if answer exists for new question
       const questionKey = `q${currentQuestion}`;
       if (currentQuestion === 4) {
-        if (nextBtn) nextBtn.disabled = (answers[questionKey] as string[]).length === 0;
+        nextBtn.disabled = answers[questionKey].length === 0;
       } else {
-        if (nextBtn) nextBtn.disabled = !answers[questionKey];
+        nextBtn.disabled = !answers[questionKey];
       }
       
       // Scroll to top of question
@@ -279,35 +271,33 @@ const description = "Complete your professional business finance readiness asses
 
   // Update navigation buttons
   function updateButtons() {
-    if (backBtn) backBtn.classList.toggle('hidden', currentQuestion === 1);
+    backBtn.classList.toggle('hidden', currentQuestion === 1);
     
     if (currentQuestion === totalQuestions) {
-      if (nextBtn) nextBtn.classList.add('hidden');
-      if (submitBtn) submitBtn.classList.remove('hidden');
+      nextBtn.classList.add('hidden');
+      submitBtn.classList.remove('hidden');
       
       // Check if last question is answered
       const questionKey = `q${currentQuestion}`;
-      if (submitBtn) submitBtn.disabled = !answers[questionKey] || answers[questionKey] === '';
+      submitBtn.disabled = !answers[questionKey] || answers[questionKey] === '';
     } else {
-      if (nextBtn) nextBtn.classList.remove('hidden');
-      if (submitBtn) submitBtn.classList.add('hidden');
+      nextBtn.classList.remove('hidden');
+      submitBtn.classList.add('hidden');
     }
   }
 
   // Update progress bar
   function updateProgress() {
-    if (progressContainer) {
-      const progressBar = progressContainer.querySelector('.bg-orange-500') as HTMLElement;
-      if (progressBar) {
-        const percentage = (currentQuestion / totalQuestions) * 100;
-        progressBar.style.width = `${percentage}%`;
-      }
-      
-      // Update step text
-      const stepText = progressContainer.querySelector('[data-step-text]') as HTMLElement;
-      if (stepText) {
-        stepText.textContent = `Question ${currentQuestion} of ${totalQuestions}`;
-      }
+    const progressBar = progressContainer.querySelector('.bg-orange-500');
+    if (progressBar) {
+      const percentage = (currentQuestion / totalQuestions) * 100;
+      progressBar.style.width = `${percentage}%`;
+    }
+    
+    // Update step text
+    const stepText = progressContainer.querySelector('[data-step-text]');
+    if (stepText) {
+      stepText.textContent = `Question ${currentQuestion} of ${totalQuestions}`;
     }
   }
 
@@ -316,31 +306,31 @@ const description = "Complete your professional business finance readiness asses
     let score = 0;
     
     // Q1: Financial Records (max 10)
-    const q1Scores: {[key: string]: number} = { 'fully-current': 10, 'mostly-current': 7, 'basic-compliance': 4, 'behind': 1 };
-    score += q1Scores[answers.q1 as string] || 0;
+    const q1Scores = { 'fully-current': 10, 'mostly-current': 7, 'basic-compliance': 4, 'behind': 1 };
+    score += q1Scores[answers.q1] || 0;
     
     // Q2: Revenue (max 10)  
-    const q2Scores: {[key: string]: number} = { '10m-plus': 10, '3m-10m': 7, '1m-3m': 4, 'under-1m': 2 };
-    score += q2Scores[answers.q2 as string] || 0;
+    const q2Scores = { '10m-plus': 10, '3m-10m': 7, '1m-3m': 4, 'under-1m': 2 };
+    score += q2Scores[answers.q2] || 0;
     
     // Q3: Financial Position Visibility (max 10)
-    const q3Scores: {[key: string]: number} = { 'complete-visibility': 10, 'good-understanding': 7, 'basic-knowledge': 4, 'limited-visibility': 1 };
-    score += q3Scores[answers.q3 as string] || 0;
+    const q3Scores = { 'complete-visibility': 10, 'good-understanding': 7, 'basic-knowledge': 4, 'limited-visibility': 1 };
+    score += q3Scores[answers.q3] || 0;
     
     // Q4: Documentation (max 10)
     // 9 documents total, each worth ~1.11 points
-    const docScore = Math.min(10, ((answers.q4 as string[]).length / 9) * 10);
+    const docScore = Math.min(10, (answers.q4.length / 9) * 10);
     score += docScore;
     
     // Q5: Experience (max 10)
-    const q5Scores: {[key: string]: number} = { 'currently-active': 10, 'recent-experience': 7, 'some-time-ago': 4, 'never-long-ago': 1 };
-    score += q5Scores[answers.q5 as string] || 0;
+    const q5Scores = { 'currently-active': 10, 'recent-experience': 7, 'some-time-ago': 4, 'never-long-ago': 1 };
+    score += q5Scores[answers.q5] || 0;
     
     return Math.round(score);
   }
 
   // Get readiness level
-  function getReadinessLevel(score: number) {
+  function getReadinessLevel(score) {
     if (score >= 45) return { level: 'Elite', color: 'green' };
     if (score >= 35) return { level: 'Professional', color: 'blue' };
     if (score >= 25) return { level: 'Nearly Ready', color: 'amber' };
@@ -557,11 +547,11 @@ const description = "Complete your professional business finance readiness asses
   }
   
   // Handle lead form submission
-  async function handleLeadSubmit(e: Event) {
+  async function handleLeadSubmit(e) {
     e.preventDefault();
     
-    const form = e.target as HTMLFormElement;
-    const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    const form = e.target;
+    const submitBtn = form.querySelector('button[type="submit"]');
     const messageDiv = document.getElementById('form-message');
     
     // Disable button and show loading

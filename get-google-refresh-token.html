@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Google OAuth Refresh Token - Edgeview Finance</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #4285f4;
+            padding-bottom: 10px;
+        }
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .step {
+            background: #f8f9fa;
+            border-left: 4px solid #4285f4;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .step h3 {
+            margin-top: 0;
+            color: #4285f4;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: monospace;
+            margin: 5px 0;
+        }
+        button {
+            background: #4285f4;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        button:hover {
+            background: #357ae8;
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        .success {
+            background: #d4edda;
+            border: 1px solid #28a745;
+            color: #155724;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+        .error {
+            background: #f8d7da;
+            border: 1px solid #dc3545;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 Google OAuth Setup - Edgeview Finance</h1>
+        
+        <div class="warning">
+            <strong>⚠️ Important:</strong> This tool helps you get the OAuth refresh token needed for Google APIs integration. 
+            Make sure you've already created OAuth credentials in Google Cloud Console before proceeding.
+        </div>
+
+        <div class="step">
+            <h3>Step 1: Enter Your OAuth Credentials</h3>
+            <p>Get these from Google Cloud Console → APIs & Services → Credentials</p>
+            
+            <label>Client ID:</label>
+            <input type="text" id="clientId" placeholder="your-client-id.apps.googleusercontent.com">
+            
+            <label>Client Secret:</label>
+            <input type="text" id="clientSecret" placeholder="your-client-secret">
+        </div>
+
+        <div class="step">
+            <h3>Step 2: Choose Redirect URI</h3>
+            <select id="redirectUri" style="width: 100%; padding: 10px; margin: 5px 0;">
+                <option value="http://localhost:4003/api/auth/callback">Local Testing (http://localhost:4003/api/auth/callback)</option>
+                <option value="https://www.edgeviewfinance.com.au/api/auth/callback">Production (https://www.edgeviewfinance.com.au/api/auth/callback)</option>
+            </select>
+        </div>
+
+        <div class="step">
+            <h3>Step 3: Authenticate with Google</h3>
+            <p>This will redirect you to Google to approve permissions. After approval, you'll be redirected back with an authorization code.</p>
+            <button onclick="authenticate()" id="authButton">🚀 Start OAuth Flow</button>
+        </div>
+
+        <div class="step" id="step4" style="display: none;">
+            <h3>Step 4: Exchange Code for Refresh Token</h3>
+            <p>After authentication, paste the authorization code here:</p>
+            
+            <label>Authorization Code (from URL):</label>
+            <input type="text" id="authCode" placeholder="4/0AY0e-g7...">
+            
+            <button onclick="getRefreshToken()" id="tokenButton">Get Refresh Token</button>
+            
+            <div id="curlCommand" style="display: none;">
+                <p><strong>Alternative: Use this curl command:</strong></p>
+                <div class="code-block" id="curlText"></div>
+            </div>
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // Google OAuth scopes needed
+        const SCOPES = [
+            'https://www.googleapis.com/auth/webmasters',
+            'https://www.googleapis.com/auth/analytics.readonly',
+            'https://www.googleapis.com/auth/business.manage'
+        ].join(' ');
+
+        // Check if we returned from OAuth with a code
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const code = urlParams.get('code');
+            
+            if (code) {
+                document.getElementById('step4').style.display = 'block';
+                document.getElementById('authCode').value = code;
+                showSuccess('✅ Authorization successful! Code received. Now click "Get Refresh Token" below.');
+                
+                // Auto-generate curl command
+                generateCurlCommand(code);
+            }
+        };
+
+        function authenticate() {
+            const clientId = document.getElementById('clientId').value;
+            const redirectUri = document.getElementById('redirectUri').value;
+            
+            if (!clientId) {
+                showError('Please enter your Client ID first!');
+                return;
+            }
+            
+            // Save credentials to localStorage for later
+            localStorage.setItem('google_client_id', clientId);
+            localStorage.setItem('google_client_secret', document.getElementById('clientSecret').value);
+            localStorage.setItem('google_redirect_uri', redirectUri);
+            
+            const authUrl = 'https://accounts.google.com/o/oauth2/v2/auth?' +
+                'client_id=' + encodeURIComponent(clientId) +
+                '&redirect_uri=' + encodeURIComponent(redirectUri) +
+                '&response_type=code' +
+                '&scope=' + encodeURIComponent(SCOPES) +
+                '&access_type=offline' +
+                '&prompt=consent';
+            
+            window.location.href = authUrl;
+        }
+
+        function generateCurlCommand(code) {
+            const clientId = localStorage.getItem('google_client_id') || document.getElementById('clientId').value;
+            const clientSecret = localStorage.getItem('google_client_secret') || document.getElementById('clientSecret').value;
+            const redirectUri = localStorage.getItem('google_redirect_uri') || document.getElementById('redirectUri').value;
+            
+            if (clientId && clientSecret) {
+                const curlCmd = `curl -X POST https://oauth2.googleapis.com/token \\
+  -d "code=${code}" \\
+  -d "client_id=${clientId}" \\
+  -d "client_secret=${clientSecret}" \\
+  -d "redirect_uri=${redirectUri}" \\
+  -d "grant_type=authorization_code"`;
+                
+                document.getElementById('curlCommand').style.display = 'block';
+                document.getElementById('curlText').textContent = curlCmd;
+            }
+        }
+
+        async function getRefreshToken() {
+            const code = document.getElementById('authCode').value;
+            const clientId = localStorage.getItem('google_client_id') || document.getElementById('clientId').value;
+            const clientSecret = localStorage.getItem('google_client_secret') || document.getElementById('clientSecret').value;
+            const redirectUri = localStorage.getItem('google_redirect_uri') || document.getElementById('redirectUri').value;
+            
+            if (!code || !clientId || !clientSecret) {
+                showError('Missing required fields! Make sure you have Client ID, Client Secret, and Authorization Code.');
+                return;
+            }
+            
+            document.getElementById('tokenButton').disabled = true;
+            document.getElementById('tokenButton').textContent = 'Getting token...';
+            
+            try {
+                const response = await fetch('https://oauth2.googleapis.com/token', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams({
+                        code: code,
+                        client_id: clientId,
+                        client_secret: clientSecret,
+                        redirect_uri: redirectUri,
+                        grant_type: 'authorization_code'
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.refresh_token) {
+                    showRefreshToken(data);
+                } else if (data.error) {
+                    showError(`Error: ${data.error_description || data.error}`);
+                } else {
+                    showError('No refresh token received. This might happen if you\'ve already used this authorization code.');
+                }
+            } catch (error) {
+                showError(`Network error: ${error.message}`);
+            } finally {
+                document.getElementById('tokenButton').disabled = false;
+                document.getElementById('tokenButton').textContent = 'Get Refresh Token';
+            }
+        }
+
+        function showRefreshToken(data) {
+            const html = `
+                <div class="success">
+                    <h2>🎉 Success! Here's your refresh token:</h2>
+                    <div class="code-block" style="background: #f8f9fa; color: #333;">
+GOOGLE_REFRESH_TOKEN=${data.refresh_token}
+                    </div>
+                    
+                    <h3>📋 Add these to your .env file:</h3>
+                    <div class="code-block" style="background: #f8f9fa; color: #333;">
+# Google OAuth Credentials
+GOOGLE_CLIENT_ID=${localStorage.getItem('google_client_id')}
+GOOGLE_CLIENT_SECRET=${localStorage.getItem('google_client_secret')}
+GOOGLE_REFRESH_TOKEN=${data.refresh_token}
+
+# Also add these service-specific IDs:
+GOOGLE_ANALYTICS_PROPERTY_ID=
+GOOGLE_MY_BUSINESS_ACCOUNT_ID=
+GOOGLE_MY_BUSINESS_LOCATION_ID=
+                    </div>
+                    
+                    <p><strong>Access Token (for testing):</strong></p>
+                    <div class="code-block" style="background: #f8f9fa; color: #333; word-break: break-all;">
+${data.access_token}
+                    </div>
+                    
+                    <p>Token expires in: ${data.expires_in} seconds</p>
+                </div>
+            `;
+            document.getElementById('result').innerHTML = html;
+        }
+
+        function showSuccess(message) {
+            document.getElementById('result').innerHTML = `<div class="success">${message}</div>`;
+        }
+
+        function showError(message) {
+            document.getElementById('result').innerHTML = `<div class="error">${message}</div>`;
+        }
+        
+        // Restore saved credentials if they exist
+        if (localStorage.getItem('google_client_id')) {
+            document.getElementById('clientId').value = localStorage.getItem('google_client_id');
+        }
+        if (localStorage.getItem('google_client_secret')) {
+            document.getElementById('clientSecret').value = localStorage.getItem('google_client_secret');
+        }
+    </script>
+</body>
+</html>
