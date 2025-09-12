@@ -429,7 +429,7 @@ console.log("Header data:", JSON.stringify(Header?.data, null, 2));
     text-decoration: none !important;
     text-transform: none !important;
     color: inherit !important;
-    font-weight: inherit !important;
+    font-weight: 700 !important; /* FORCE BOLD TEXT */
     background: transparent !important;
     -webkit-text-fill-color: currentColor !important;
     text-fill-color: currentColor !important;
@@ -450,6 +450,7 @@ console.log("Header data:", JSON.stringify(Header?.data, null, 2));
     display: inline-block !important;
     opacity: 1 !important;
     color: inherit !important;
+    font-weight: 700 !important; /* FORCE BOLD TEXT IN ALL CONTEXTS */
     -webkit-text-fill-color: currentColor !important;
   }
 
@@ -469,6 +470,53 @@ console.log("Header data:", JSON.stringify(Header?.data, null, 2));
     font-weight: inherit !important;
     color: inherit !important;
     text-decoration: none !important;
+  }
+
+  /* COMPREHENSIVE BOLD TEXT ENFORCEMENT - Target all navigation elements */
+  .site-menu-main .nav-item .nav-text,
+  .site-menu-main .nav-link-item,
+  .site-menu-main .nav-main-link,
+  .site-menu-main .nav-dropdown-btn-combined,
+  .site-menu-main button,
+  .site-menu-main a,
+  nav.menu-block .nav-text,
+  nav.menu-block .nav-link-item,
+  nav.menu-block .nav-main-link,
+  nav.menu-block .nav-dropdown-btn-combined,
+  nav.menu-block button,
+  nav.menu-block a,
+  .mobile-menu-block .nav-text,
+  .mobile-menu-block .nav-link-item,
+  .mobile-menu-block .nav-main-link,
+  .mobile-menu-block .nav-dropdown-btn-combined,
+  .mobile-menu-block button[class*="nav"],
+  .mobile-menu-block a[class*="nav"] {
+    font-weight: 700 !important;
+  }
+
+  /* Ensure main menu items in desktop view are bold */
+  @media (min-width: 1024px) {
+    .site-menu-main > .nav-item > .nav-link-item,
+    .site-menu-main > .nav-item > .nav-dropdown-btn-combined,
+    .site-menu-main > .nav-item > .nav-link-wrapper > .nav-link-item,
+    .site-menu-main > .nav-item > .nav-link-wrapper > .nav-main-link,
+    .site-menu-main > .nav-item .nav-text {
+      font-weight: 700 !important;
+    }
+  }
+
+  /* Ensure mobile menu items are bold */
+  @media (max-width: 1023px) {
+    .mobile-menu-content .nav-item .nav-link-item,
+    .mobile-menu-content .nav-item .nav-dropdown-btn-combined,
+    .mobile-menu-content .nav-item .nav-main-link,
+    .mobile-menu-content .nav-item .nav-text,
+    .mobile-menu-block .nav-text,
+    .mobile-menu-block .nav-link-item,
+    .mobile-menu-block .nav-main-link,
+    .mobile-menu-block .nav-dropdown-btn-combined {
+      font-weight: 700 !important;
+    }
   }
 
   /* Header spacing fix */
