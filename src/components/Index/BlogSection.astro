@@ -8,12 +8,12 @@ const blogs = await getCollection("blogs");
 const { header, description } = blogHeader?.data;
 ---
 
-<section class="section-blog bg-gray-50 py-20">
+<section class="section-blog bg-gray-50 py-12">
   <div class="container-default mx-auto max-w-7xl px-6">
     
     <!-- Section Header -->
-    <div class="text-center mb-16">
-      <h2 class="text-4xl lg:text-5xl font-semibold text-[#1C2C3B] mb-6 font-['Instrument_Sans']">
+    <div class="text-center mb-10">
+      <h2 class="text-4xl lg:text-5xl font-semibold text-[#1C2C3B] mb-4 font-['Instrument_Sans']">
         {header}
       </h2>
       <p class="text-xl text-[#4B5563] font-['Instrument_Sans'] max-w-3xl mx-auto">
@@ -22,7 +22,7 @@ const { header, description } = blogHeader?.data;
     </div>
 
     <!-- Blog Grid -->
-    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
       {
         blogs?.slice(0, 6).map(
           ({ data: { title, category, image, author, date } }: any) => (
@@ -85,7 +85,7 @@ const { header, description } = blogHeader?.data;
     </div>
 
     <!-- View All Button -->
-    <div class="text-center mt-12">
+    <div class="text-center mt-8">
       <a
         href="/blog"
         class="btn-primary inline-flex items-center justify-center bg-[#f97316] hover:bg-[#ea580c] text-white px-8 py-4 font-semibold transition-all duration-300 font-['Instrument_Sans']">
