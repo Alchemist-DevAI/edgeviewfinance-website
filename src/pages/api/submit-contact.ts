@@ -208,7 +208,7 @@ export const POST: APIRoute = async ({ request }) => {
           html: `
             <h2>Thank You ${formData.firstName}!</h2>
             <p>We've received your enquiry and one of our finance specialists will be in touch within 24 hours.</p>
-            <p>If you have any urgent questions, please don't hesitate to call us on 1300 336 365.</p>
+            <p>If you have any urgent questions, please don't hesitate to call us on 1300 280 895.</p>
             <br>
             <p>Best regards,<br>The Edgeview Finance Team</p>
           `
