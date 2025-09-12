@@ -1,7 +1,8 @@
 export const prerender = false; // Mark this endpoint as server-side
 
+import type { APIRoute } from 'astro';
 import { createClient } from '@supabase/supabase-js';
-import { EmailService, MockEmailService } from '../../lib/email/service.js';
+import { EmailService } from '../../lib/email/service.js';
 
 // Initialize Supabase client using environment variables from Astro
 // In Astro, we use import.meta.env for environment variables
@@ -11,7 +12,7 @@ const supabaseAnonKey = import.meta.env.SUPABASE_ANON_KEY || import.meta.env.PUB
 // Always use EmailService - it will handle missing API key gracefully
 const emailService = EmailService;
 
-export async function POST({ request }) {
+export const POST: APIRoute = async ({ request }) => {
   try {
     // Check for required environment variables
     if (!supabaseUrl || !supabaseAnonKey) {
