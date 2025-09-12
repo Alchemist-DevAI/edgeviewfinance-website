@@ -49,10 +49,5 @@
     }
   ],
   "rewrites": [],
-  "regions": ["syd1"],
-  "functions": {
-    "api/*": {
-      "maxDuration": 30
-    }
-  }
+  "regions": ["syd1"]
 }
