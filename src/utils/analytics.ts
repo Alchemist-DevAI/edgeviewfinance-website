@@ -123,7 +123,7 @@ export const trackFinanceEvents = {
     event_label: linkText || url,
     custom_parameters: { 
       destination_url: url,
-      link_text: linkText 
+      link_text: linkText || '' 
     }
   }),
 
@@ -216,14 +216,14 @@ export const trackPerformance = (): void => {
       if (entry.entryType === 'first-input') {
         trackEvent('web_vitals_fid', {
           event_category: 'performance',
-          value: Math.round(entry.processingStart - entry.startTime)
+          value: Math.round((entry as any).processingStart - entry.startTime)
         });
       }
       
       if (entry.entryType === 'layout-shift') {
         trackEvent('web_vitals_cls', {
           event_category: 'performance',
-          value: Math.round(entry.value * 1000)
+          value: Math.round((entry as any).value * 1000)
         });
       }
     }
