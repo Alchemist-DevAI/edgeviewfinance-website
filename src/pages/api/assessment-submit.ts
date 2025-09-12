@@ -16,11 +16,18 @@ export const POST: APIRoute = async ({ request }) => {
   try {
     // Initialize Supabase client
     const { createClient } = await import('@supabase/supabase-js');
-    const supabaseUrl = import.meta.env.SUPABASE_URL || import.meta.env.PUBLIC_SUPABASE_URL;
-    const supabaseAnonKey = import.meta.env.SUPABASE_ANON_KEY || import.meta.env.PUBLIC_SUPABASE_ANON_KEY;
+    const supabaseUrl = process.env.SUPABASE_URL;
+    const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
     
     if (!supabaseUrl || !supabaseAnonKey) {
-      throw new Error('Supabase configuration missing');
+      console.error('Missing Supabase configuration');
+      return new Response(JSON.stringify({ 
+        error: 'Server configuration error',
+        details: 'Database connection not configured'
+      }), {
+        status: 500,
+        headers
+      });
     }
     
     const supabase = createClient(supabaseUrl, supabaseAnonKey);

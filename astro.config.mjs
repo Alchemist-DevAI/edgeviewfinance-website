@@ -8,19 +8,12 @@ import vercel from "@astrojs/vercel/serverless";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.edgeviewfinance.com.au',
-  output: 'hybrid', // Hybrid mode - mix of static and server
+  output: 'server', // Server mode - required for Vercel with API routes
   adapter: vercel({
     analytics: true,
     speedInsights: { enabled: true }
   }),
-  integrations: [
-    tailwind(), 
-    mdx(), 
-    react(), 
-    sitemap({
-      entryLimit: 45000
-    })
-  ],
+  integrations: [tailwind(), mdx(), react(), sitemap()],
   server: {
     port: 4002,
     host: '0.0.0.0'  // Changed from 127.0.0.1 to allow access from Windows host
