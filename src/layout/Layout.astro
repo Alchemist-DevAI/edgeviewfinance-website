@@ -30,7 +30,7 @@ import "../css/hero-section.css";
 import Header from "../components/ui/Header.astro";
 import Footer from "../components/ui/Footer.astro";
 import { getEntryBySlug } from "astro:content";
-const { title } = Astro.props;
+const { title, bodyClass = '' } = Astro.props;
 const MetaData = await getEntryBySlug("site", "meta");
 const { siteName, description, favicon } = MetaData?.data;
 ---
@@ -51,7 +51,7 @@ const { siteName, description, favicon } = MetaData?.data;
     <!-- Calendly widget styling -->
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   </head>
-  <body>
+  <body class={bodyClass}>
     <div class=`page-wrapper relative z-[1] ${Astro.url.pathname==='/'?'bg-[#FDFBF9]':'bg-white'}`>
       <Header />
       <slot />

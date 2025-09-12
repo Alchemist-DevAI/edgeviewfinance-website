@@ -2,52 +2,11 @@
 import Layout from '../../layout/Layout.astro';
 ---
 
-<style>
-  /* CRITICAL: Override Tailwind's min-h-screen constraint that's cutting off content */
-  body {
-    min-height: unset !important; /* Remove min-h-screen from Tailwind */
-    height: auto !important;
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
-  
-  .page-wrapper {
-    min-height: unset !important; /* Remove min-h-screen from Tailwind */
-    height: auto !important;
-    overflow: visible !important;
-  }
-  
-  /* Ensure the thank you page displays all content properly */
-  main {
-    min-height: unset !important; /* Override any inherited min-height */
-    height: auto !important; /* Allow content to determine height */
-    overflow: visible !important; /* Ensure no content is clipped */
-    padding-bottom: 6rem !important; /* Extra bottom spacing for visibility */
-  }
-  
-  /* Ensure proper spacing on mobile */
-  @media (max-width: 768px) {
-    main {
-      padding-bottom: 4rem !important;
-    }
-  }
-  
-  /* Additional bottom margin for the last element */
-  .thank-you-content > *:last-child {
-    margin-bottom: 4rem !important;
-  }
-  
-  /* Ensure html and body can expand beyond viewport */
-  html {
-    height: auto !important;
-    overflow-y: auto;
-  }
-</style>
-
 <Layout 
   title="Thank You - Finance Ready Assessment | Edgeview Finance"
   description="Your Finance Ready Assessment package is on its way. Check your email for your personalized report and exclusive resources."
   canonical="https://edgeview.com.au/finance-ready-assessment/thank-you"
+  bodyClass="thank-you-page"
 >
   <main class="bg-gray-50 pt-20 py-12">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 thank-you-content">
