@@ -1,1 +1,0 @@
-# Deploy sitemap files
