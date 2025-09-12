@@ -29,6 +29,7 @@ import "../css/hero-section.css";
 // 7. Component Imports
 import Header from "../components/ui/Header.astro";
 import Footer from "../components/ui/Footer.astro";
+import GoogleAnalytics from "../components/analytics/GoogleAnalytics.astro";
 import { getEntryBySlug } from "astro:content";
 const { title } = Astro.props;
 const MetaData = await getEntryBySlug("site", "meta");
@@ -50,6 +51,8 @@ const { siteName, description, favicon } = MetaData?.data;
     <link rel='stylesheet' href='/assets/css/mobile-menu-fix.css' />
     <!-- Calendly widget styling -->
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <!-- Google Analytics GA4 - Optimized Component -->
+    <GoogleAnalytics />
   </head>
   <body>
     <div class=`page-wrapper relative z-[1] ${Astro.url.pathname==='/'?'bg-[#FDFBF9]':'bg-white'}`>
@@ -66,6 +69,8 @@ const { siteName, description, favicon } = MetaData?.data;
 <script src='/assets/js/main.js' is:inline></script>
 <!-- Calendly widget script -->
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<!-- Analytics Initialization -->
+<script type="module" src="/src/scripts/analytics-init.js"></script>
 <!-- JOS animations disabled for static display -->
 <!-- <script>
   import JOS from "jos-animation";

@@ -4,31 +4,31 @@ const CtaData = await getEntryBySlug("IndexPage", "cta");
 const { title, description, buttonPrimary, buttonSecondary } = CtaData?.data;
 ---
 
-<section class='section-cta bg-gray-50 py-20'>
+<section class='section-cta bg-gray-50 py-12'>
   <div class='container-default mx-auto max-w-7xl px-6'>
     <!-- Professional CTA Section -->
     <div class='bg-white shadow-xl overflow-hidden'>
       <div class='grid lg:grid-cols-2'>
         <!-- Content Side -->
-        <div class='bg-[#1C2C3B] p-12 lg:p-16 flex items-center'>
+        <div class='bg-[#1C2C3B] p-8 lg:p-12 flex items-center'>
           <div class='w-full'>
-            <div class='inline-flex items-center bg-[#f97316] text-white px-4 py-2 mb-8'>
+            <div class='inline-flex items-center bg-[#f97316] text-white px-4 py-2 mb-6'>
               <svg class='mr-2 h-5 w-5' fill='currentColor' viewBox='0 0 20 20'>
                 <path fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z' clip-rule='evenodd'/>
               </svg>
               <span class='font-semibold uppercase tracking-wide font-InstrumentSans'>Final Step</span>
             </div>
             
-            <h2 class='mb-8 font-InstrumentSans text-5xl lg:text-6xl xl:text-7xl font-bold text-white uppercase tracking-tight leading-none'>
+            <h2 class='mb-6 font-InstrumentSans text-5xl lg:text-6xl xl:text-7xl font-bold text-white uppercase tracking-tight leading-none'>
               <span class='text-white'>{title || "YOUR NEXT STEP IS SIMPLE"}</span>
             </h2>
             
-            <p class='mb-8 text-xl text-gray-300 font-InstrumentSans'>
+            <p class='mb-6 text-xl text-gray-300 font-InstrumentSans'>
               {description || "Stop letting finance hold your business back. Join 100's of businesses who've found a better way."}
             </p>
             
             <!-- Trust Points -->
-            <div class='space-y-3 mb-10'>
+            <div class='space-y-3 mb-8'>
               <div class='flex items-center text-gray-300'>
                 <svg class='mr-3 h-5 w-5 text-green-500 flex-shrink-0' fill='currentColor' viewBox='0 0 20 20'>
                   <path fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z' clip-rule='evenodd'/>
@@ -52,9 +52,9 @@ const { title, description, buttonPrimary, buttonSecondary } = CtaData?.data;
         </div>
         
         <!-- CTA Side -->
-        <div class='bg-gradient-to-br from-gray-50 to-white p-12 lg:p-16 flex items-center'>
+        <div class='bg-gradient-to-br from-gray-50 to-white p-8 lg:p-12 flex items-center'>
           <div class='w-full text-center'>
-            <div class='mb-8'>
+            <div class='mb-6'>
               <div class='text-6xl font-bold text-[#f97316] mb-2 font-InstrumentSans'>2 MIN</div>
               <p class='text-gray-600 font-InstrumentSans'>to change your business trajectory</p>
             </div>

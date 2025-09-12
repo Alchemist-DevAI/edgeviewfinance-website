@@ -1,0 +1,41 @@
+{
+  "$ref": "#/definitions/career",
+  "definitions": {
+    "career": {
+      "type": "object",
+      "properties": {
+        "position": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "salaryRange": {
+          "type": "string"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "position",
+        "description",
+        "type",
+        "category",
+        "location",
+        "salaryRange"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
