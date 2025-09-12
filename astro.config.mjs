@@ -8,7 +8,7 @@ import vercel from "@astrojs/vercel/serverless";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.edgeviewfinance.com.au',
-  output: 'server', // Server mode - required for API routes, sitemap endpoints handle sitemaps
+  output: 'hybrid', // Hybrid mode - mix of static and server
   adapter: vercel({
     analytics: true,
     speedInsights: { enabled: true }
