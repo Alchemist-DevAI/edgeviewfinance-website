@@ -14,7 +14,14 @@ export default defineConfig({
     speedInsights: { enabled: true },
     runtime: 'nodejs20.x'
   }),
-  integrations: [tailwind(), mdx(), react(), sitemap()],
+  integrations: [
+    tailwind(), 
+    mdx(), 
+    react(), 
+    sitemap({
+      entryLimit: 45000
+    })
+  ],
   server: {
     port: 4002,
     host: '0.0.0.0'  // Changed from 127.0.0.1 to allow access from Windows host
