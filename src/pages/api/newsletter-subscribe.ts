@@ -129,7 +129,7 @@ export const POST: APIRoute = async ({ request }) => {
             html: `
               <h2>Welcome to Our Newsletter!</h2>
               <p>Thank you for subscribing to the Edgeview Finance newsletter.</p>
-              <p>You'll receive our latest insights on commercial finance, business tips, and industry updates.</p>
+              <p>You'll receive our latest insights on all things finance, business tips, and industry updates.</p>
               <p>If you have any questions, feel free to reach out to us at 1300 280 895.</p>
               <br>
               <p>Best regards,<br>The Edgeview Finance Team</p>
@@ -223,7 +223,7 @@ export const POST: APIRoute = async ({ request }) => {
           html: `
             <h2>Welcome to Our Newsletter!</h2>
             <p>Thank you for subscribing to the Edgeview Finance newsletter.</p>
-            <p>You'll receive our latest insights on commercial finance, business tips, and industry updates.</p>
+            <p>You'll receive our latest insights on all things finance, business tips, and industry updates.</p>
             <p>If you have any questions, feel free to reach out to us at 1300 280 895.</p>
             <br>
             <p>Best regards,<br>The Edgeview Finance Team</p>
