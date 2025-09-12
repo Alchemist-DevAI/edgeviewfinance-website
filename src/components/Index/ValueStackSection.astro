@@ -118,18 +118,14 @@ const { title, valueStack, totalValue, investment, investmentSubtext, disclaimer
             <p class="text-base lg:text-lg font-semibold text-[#1C2C3B] mb-3 font-InstrumentSans">
               {investmentSubtext || 'We get paid by the lender when you get funded'}
             </p>
+            <p class="text-xs text-gray-500 font-InstrumentSans px-2">
+              {disclaimer || '*In many cases we get paid by the lender. For complex applications requiring financial modelling, we may charge a work fee upfront, quoted in your pricing proposal.'}
+            </p>
+            <p class="text-xs text-gray-500 font-InstrumentSans px-2 mt-1">
+              Credit License 459287 | Terms & Conditions apply
+            </p>
           </div>
         </div>
-      </div>
-      
-      <!-- Disclaimer text moved outside of the box -->
-      <div class="mt-4 text-center mx-auto max-w-[900px]">
-        <p class="text-xs text-gray-500 font-InstrumentSans px-4">
-          {disclaimer || '*In many cases we get paid by the lender. For complex applications requiring financial modelling, we may charge a work fee upfront, quoted in your pricing proposal.'}
-        </p>
-        <p class="text-xs text-gray-500 font-InstrumentSans px-4 mt-1">
-          Credit License 459287 | Terms & Conditions apply
-        </p>
       </div>
     </div>
   </div>

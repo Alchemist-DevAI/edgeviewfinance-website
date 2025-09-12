@@ -2,16 +2,18 @@ import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
-import vercel from "@astrojs/vercel";
+import sitemap from "@astrojs/sitemap";
+import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'server', // Server mode - better for Vercel with API routes
+  site: 'https://www.edgeviewfinance.com.au',
+  output: 'hybrid', // Hybrid mode - better for Vercel with API routes
   adapter: vercel({
     analytics: true,
     speedInsights: { enabled: true }
   }),
-  integrations: [tailwind(), mdx(), react()],
+  integrations: [tailwind(), mdx(), react(), sitemap()],
   server: {
     port: 4002,
     host: '0.0.0.0'  // Changed from 127.0.0.1 to allow access from Windows host
