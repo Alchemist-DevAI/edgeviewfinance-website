@@ -1,6 +1,6 @@
 {
   "buildCommand": "npm run build:fast",
-  "outputDirectory": "dist",
+  "outputDirectory": "dist", 
   "installCommand": "npm install",
   "framework": "astro",
   "headers": [
