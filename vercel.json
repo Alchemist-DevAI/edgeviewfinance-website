@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run build:fast",
+  "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "installCommand": "npm install",
   "framework": "astro",
@@ -49,10 +49,5 @@
     }
   ],
   "rewrites": [],
-  "regions": ["syd1"],
-  "functions": {
-    "src/**/*.{js,ts}": {
-      "runtime": "nodejs20.x"
-    }
-  }
+  "regions": ["syd1"]
 }
