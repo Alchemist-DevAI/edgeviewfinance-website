@@ -48,19 +48,21 @@ evfbs-agency11-pure/
 ### 📝 Heading Styles
 
 #### H1 Not Displaying Correctly on Finance Assessment
-- **Issue**: H1 heading on assessment start page not matching site style
-- **Root Cause**: Missing Tailwind classes for consistent heading style
+- **Issue**: H1 heading on assessment pages not appearing bold
+- **Root Cause**: Custom CSS classes `.text-hero` setting `font-weight: var(--font-weight-normal) !important` overriding `font-bold`
 - **Solution**:
   ```html
   <h1 class="text-5xl lg:text-6xl font-black text-gray-900 mb-8">
     Your Heading Text
   </h1>
   ```
+- **Technical Details**: The `.text-hero` class uses `font-weight-normal` with `!important`, requiring `font-black` (900) to override it properly
 - **Files Affected**: 
   - `/src/pages/finance-assessment/index.astro`
   - `/src/pages/finance-assessment/start.astro`
-- **Verified**: 2025-09-12
-- **Attempts Before Success**: 4
+  - `/src/pages/finance-ready-assessment.astro`
+- **Verified**: 2025-09-13
+- **Attempts Before Success**: 2
 
 ---
 
@@ -266,6 +268,7 @@ rm -rf .astro dist node_modules/.cache
 
 | Date | Issue | Solution | Verified By |
 |------|-------|----------|-------------|
+| 2025-09-13 | H1 finance-ready-assessment not bold | Used font-black to override CSS variables | Development Team |
 | 2025-09-13 | Nav dropdowns not bold | Added !important to font-weight | Development Team |
 | 2025-09-13 | Value stack spacing | Reduced padding values | Development Team |
 | 2025-09-13 | Hero whitespace | Adjusted top padding | Development Team |
