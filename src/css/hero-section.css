@@ -106,20 +106,20 @@
 
 /* Section spacing for better proportion */
 .section-hero {
-  padding-top: 2rem !important; /* 32px mobile */
+  padding-top: 1rem !important; /* 16px mobile - reduced from 32px */
   padding-bottom: 3rem !important; /* 48px mobile */
 }
 
 @media (min-width: 768px) {
   .section-hero {
-    padding-top: 3rem !important; /* 48px tablet */
+    padding-top: 1.5rem !important; /* 24px tablet - reduced from 48px */
     padding-bottom: 4rem !important; /* 64px tablet */
   }
 }
 
 @media (min-width: 1024px) {
   .section-hero {
-    padding-top: 5rem !important; /* 80px desktop per MASTER-DESIGN.md */
+    padding-top: 2rem !important; /* 32px desktop - reduced from 80px */
     padding-bottom: 5rem !important; /* 80px desktop */
   }
 }
