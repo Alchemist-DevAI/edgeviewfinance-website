@@ -3,12 +3,12 @@ import tailwind from "@astrojs/tailwind";
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
-import vercel from "@astrojs/vercel/static";
+import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.edgeviewfinance.com.au',
-  output: 'static', // Static mode for compatibility with Vercel
+  output: 'server', // Server mode - required for Vercel with API routes
   adapter: vercel({
     analytics: true,
     speedInsights: { enabled: true }

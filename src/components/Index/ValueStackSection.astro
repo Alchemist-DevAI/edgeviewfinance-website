@@ -3,26 +3,26 @@ const { ValueStackData } = Astro.props;
 const { title, valueStack, totalValue, investment, investmentSubtext, disclaimer } = ValueStackData?.data;
 ---
 
-<section class="section-value-stack bg-gray-50 py-8 lg:py-12">
+<section class="section-value-stack bg-gray-50 py-4 lg:py-6">
   <div class="container-default">
     <div class="text-center">
       <!-- VALUE STACK BOX - CRITICAL CONVERSION ELEMENT -->
       <div class="mx-auto max-w-[900px] bg-white border-4 border-[#f97316] shadow-xl overflow-hidden">
-        <div class="bg-[#f97316] py-4 px-6">
+        <div class="bg-[#f97316] py-2 px-4">
           <h3 class="text-center text-xl lg:text-2xl font-bold font-InstrumentSans text-white tracking-wide leading-tight">
             {title || "WHAT YOU GET WHEN WORKING WITH EDGEVIEW FINANCE:"}
           </h3>
         </div>
         
-        <div class="p-6 lg:p-8">
+        <div class="p-4 lg:p-5">
           <!-- Custom layout with specific ordering -->
-          <div class="mb-6">
+          <div class="mb-4">
             <!-- Two-column grid for first 6 items -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-x-8 mb-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-1 lg:gap-x-6 mb-2">
               <!-- Left Column -->
-              <div class="space-y-2">
+              <div class="space-y-1">
                 <!-- 40+ Specialist Lender Network Access -->
-                <div class="flex justify-between items-center py-1.5 lg:py-2">
+                <div class="flex justify-between items-center py-1">
                   <div class="flex items-center gap-2">
                     <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
@@ -32,7 +32,7 @@ const { title, valueStack, totalValue, investment, investmentSubtext, disclaimer
                   <span class="text-[#f97316] font-bold text-sm lg:text-base font-InstrumentSans whitespace-nowrap ml-2">$2,500</span>
                 </div>
                 <!-- Professional Lender Negotiation Service -->
-                <div class="flex justify-between items-center py-1.5 lg:py-2">
+                <div class="flex justify-between items-center py-1">
                   <div class="flex items-center gap-2">
                     <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
@@ -42,7 +42,7 @@ const { title, valueStack, totalValue, investment, investmentSubtext, disclaimer
                   <span class="text-[#f97316] font-bold text-sm lg:text-base font-InstrumentSans whitespace-nowrap ml-2">$3,500</span>
                 </div>
                 <!-- Personalised Business Finance Profile -->
-                <div class="flex justify-between items-center py-1.5 lg:py-2">
+                <div class="flex justify-between items-center py-1">
                   <div class="flex items-center gap-2">
                     <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
@@ -54,9 +54,9 @@ const { title, valueStack, totalValue, investment, investmentSubtext, disclaimer
               </div>
               
               <!-- Right Column -->
-              <div class="space-y-2">
+              <div class="space-y-1">
                 <!-- MBA Financial Strategy Expertise -->
-                <div class="flex justify-between items-center py-1.5 lg:py-2">
+                <div class="flex justify-between items-center py-1">
                   <div class="flex items-center gap-2">
                     <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
@@ -66,7 +66,7 @@ const { title, valueStack, totalValue, investment, investmentSubtext, disclaimer
                   <span class="text-[#f97316] font-bold text-sm lg:text-base font-InstrumentSans whitespace-nowrap ml-2">$5,000</span>
                 </div>
                 <!-- Expert Application Preparation -->
-                <div class="flex justify-between items-center py-1.5 lg:py-2">
+                <div class="flex justify-between items-center py-1">
                   <div class="flex items-center gap-2">
                     <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
@@ -76,7 +76,7 @@ const { title, valueStack, totalValue, investment, investmentSubtext, disclaimer
                   <span class="text-[#f97316] font-bold text-sm lg:text-base font-InstrumentSans whitespace-nowrap ml-2">$2,500</span>
                 </div>
                 <!-- Ongoing Strategic Partnership -->
-                <div class="flex justify-between items-center py-1.5 lg:py-2">
+                <div class="flex justify-between items-center py-1">
                   <div class="flex items-center gap-2">
                     <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
@@ -89,9 +89,9 @@ const { title, valueStack, totalValue, investment, investmentSubtext, disclaimer
             </div>
             
             <!-- Priceless item on its own line, right-aligned -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-x-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-1 lg:gap-x-6">
               <div class="hidden lg:block"></div> <!-- Empty left column -->
-              <div class="flex justify-between items-center py-1.5 lg:py-2">
+              <div class="flex justify-between items-center py-1">
                 <div class="flex items-center gap-2">
                   <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
@@ -103,7 +103,7 @@ const { title, valueStack, totalValue, investment, investmentSubtext, disclaimer
             </div>
           </div>
           
-          <div class="bg-gray-100 -mx-6 lg:-mx-8 px-6 lg:px-8 py-3 mb-4">
+          <div class="bg-gray-100 -mx-4 lg:-mx-5 px-4 lg:px-5 py-2 mb-3">
             <div class="flex justify-between items-center">
               <span class="text-xl lg:text-2xl font-bold text-[#1C2C3B] font-InstrumentSans">TOTAL VALUE:</span>
               <span class="text-2xl lg:text-3xl font-bold text-[#f97316] font-InstrumentSans">{totalValue || '$28,500+'}</span>
@@ -111,21 +111,25 @@ const { title, valueStack, totalValue, investment, investmentSubtext, disclaimer
           </div>
           
           <div class="text-center">
-            <div class="flex justify-center items-center mb-2">
+            <div class="flex justify-center items-center mb-1">
               <span class="text-xl lg:text-2xl font-bold text-[#1C2C3B] font-InstrumentSans mr-2">Your Investment:</span>
               <span class="text-2xl lg:text-3xl font-bold text-[#f97316] font-InstrumentSans">{investment || '$0*'}</span>
             </div>
-            <p class="text-base lg:text-lg font-semibold text-[#1C2C3B] mb-3 font-InstrumentSans">
+            <p class="text-base lg:text-lg font-semibold text-[#1C2C3B] mb-2 font-InstrumentSans">
               {investmentSubtext || 'We get paid by the lender when you get funded'}
-            </p>
-            <p class="text-xs text-gray-500 font-InstrumentSans px-2">
-              {disclaimer || '*In many cases we get paid by the lender. For complex applications requiring financial modelling, we may charge a work fee upfront, quoted in your pricing proposal.'}
-            </p>
-            <p class="text-xs text-gray-500 font-InstrumentSans px-2 mt-1">
-              Credit License 459287 | Terms & Conditions apply
             </p>
           </div>
         </div>
+      </div>
+      
+      <!-- Disclaimer text outside the value stack box -->
+      <div class="max-w-[900px] mx-auto text-center mt-4">
+        <p class="text-xs text-gray-600 font-InstrumentSans px-4">
+          {disclaimer || '*In many cases we get paid by the lender. For complex applications requiring financial modelling, we may charge a work fee upfront, quoted in your pricing proposal.'}
+        </p>
+        <p class="text-xs text-gray-600 font-InstrumentSans px-4 mt-1">
+          Credit License 459287 | Terms & Conditions apply
+        </p>
       </div>
     </div>
   </div>
