@@ -11,7 +11,8 @@ export default defineConfig({
   output: 'server', // Server mode - required for Vercel with API routes
   adapter: vercel({
     analytics: true,
-    speedInsights: { enabled: true }
+    speedInsights: { enabled: true },
+    runtime: 'nodejs20.x'
   }),
   integrations: [tailwind(), mdx(), react(), sitemap()],
   server: {
