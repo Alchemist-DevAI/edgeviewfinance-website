@@ -156,6 +156,62 @@ evfbs-agency11-pure/
 
 ---
 
+### 🔍 Error Tracking & Monitoring
+
+#### Sentry Error Tracking Re-Implementation
+- **Issue**: Sentry integration needed proper error handling to prevent deployment failures
+- **Requirements**:
+  - Conditional loading - enabled only in production
+  - Graceful degradation if Sentry fails to initialize
+  - Robust error boundaries to prevent app crashes
+  - API endpoint for testing error tracking functionality
+- **Root Cause**: Previous implementation lacked fallback handling for Sentry initialization failures
+- **Solution**:
+  ```javascript
+  // In astro.config.mjs - Dynamic import with error handling
+  let sentry = null;
+  try {
+    const sentryModule = await import("@astrojs/sentry");
+    sentry = sentryModule.default;
+    console.log('✅ Sentry module loaded successfully');
+  } catch (error) {
+    console.warn('⚠️ Sentry module failed to load:', error.message);
+    console.warn('⚠️ Continuing without Sentry - application will work normally');
+  }
+
+  // Environment-based enablement
+  const shouldEnableSentry = process.env.NODE_ENV === 'production' || process.env.ENABLE_SENTRY === 'true';
+
+  // Safe integration addition
+  if (sentry && shouldEnableSentry) {
+    try {
+      integrations.unshift(sentry());
+      console.log('✅ Sentry integration enabled successfully');
+    } catch (error) {
+      console.warn('⚠️ Failed to configure Sentry integration:', error.message);
+      console.warn('⚠️ Continuing without Sentry');
+    }
+  }
+  ```
+- **Files Affected**:
+  - `/astro.config.mjs` (conditional Sentry loading)
+  - `/sentry.server.config.js` (server-side configuration)
+  - `/sentry.client.config.js` (client-side configuration with session replay)
+  - `/src/pages/api/test-error.js` (testing endpoint)
+- **Configuration**:
+  - **DSN**: Production Sentry project configured
+  - **Environment**: Automatic detection based on NODE_ENV
+  - **Debug**: Enabled in development, disabled in production
+  - **Session Replay**: 10% sampling in production for performance monitoring
+- **Testing Endpoint**: `/api/test-error` - Intentionally throws errors for Sentry testing
+- **Production Verification**: ✅ Confirmed working on https://www.edgeviewfinance.com.au/api/test-error
+- **Status**: Successfully deployed and verified in production
+- **Verified**: 2025-09-16
+- **Attempts Before Success**: 5
+- **Security**: No credentials hardcoded - all configuration through environment variables
+
+---
+
 ### 🚀 Deployment Issues
 
 #### Node.js Runtime Incompatibility
@@ -370,7 +426,8 @@ rm -rf .astro dist node_modules/.cache
 
 | Date | Issue | Solution | Verified By |
 |------|-------|----------|-------------|
-| 2025-09-13 | Nav dropdowns not bold | Added !important to font-weight | Development Team |
+| 2025-09-16 | Sentry error tracking | Re-implemented with error handling | Development Team |
+| 2025-09-14 | Newsletter functionality | Fixed env vars and import paths | Development Team |
 | 2025-09-13 | Nav dropdowns not bold | Added !important to font-weight | Development Team |
 | 2025-09-13 | Value stack spacing | Reduced padding values | Development Team |
 | 2025-09-13 | Hero whitespace | Adjusted top padding | Development Team |
