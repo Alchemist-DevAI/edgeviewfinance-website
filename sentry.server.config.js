@@ -15,4 +15,7 @@ Sentry.init({
     }
     return event;
   },
+  // Additional Sentry configuration for production
+  debug: process.env.NODE_ENV === 'development',
+  release: process.env.VERCEL_GIT_COMMIT_SHA || 'unknown',
 });

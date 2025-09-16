@@ -18,6 +18,17 @@ adapter: vercel({
 })
 ```
 
+## Recent Issue Fix - Sentry Integration (2025-09-16)
+**RESOLVED**: HTTP 500 error caused by Sentry integration
+- **Problem**: Deployment FGb7zw3Qx failed due to Sentry initialization errors
+- **Root Cause**: Incorrect Sentry server config using `@sentry/node` instead of `@sentry/astro`
+- **Solution**:
+  1. Fixed Vercel adapter import path to use `/serverless` subpath
+  2. Updated Sentry server config to use `@sentry/astro` imports
+  3. Temporarily disabled Sentry integration to restore service
+- **Status**: Website restored to full functionality
+- **Next Steps**: Re-enable Sentry with proper error handling once site is stable
+
 ## Pre-Deployment Checklist
 - [ ] **Local Testing**
   - [ ] Run `npm run dev` and test all pages
