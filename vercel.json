@@ -1,0 +1,5 @@
+{
+  "buildCommand": "npm run build:fast",
+  "installCommand": "npm install",
+  "framework": null
+}
