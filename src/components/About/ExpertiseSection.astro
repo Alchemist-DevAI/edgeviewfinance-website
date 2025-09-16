@@ -1,0 +1,176 @@
+---
+import { getEntryBySlug } from "astro:content";
+
+const ExpertiseData = await getEntryBySlug("aboutPage", "expertise");
+const { header, subheading, description, stats, financeTypes } = ExpertiseData?.data;
+---
+
+<section class="expertise-section">
+  <div class="container-default">
+    <!-- Section Header -->
+    <div class="section-header text-center mb-16">
+      <h2 class="font-InstrumentSans text-4xl lg:text-5xl font-bold text-[#1C2C3B] mb-6">
+        {header}
+      </h2>
+      <div class="subheading text-xl lg:text-2xl font-medium text-[#f97316] mb-6">
+        {subheading}
+      </div>
+      <div class="description text-lg text-gray-600 max-w-4xl mx-auto font-InstrumentSans leading-relaxed">
+        {description}
+      </div>
+    </div>
+
+    <!-- Statistics Cards Grid -->
+    <div class="stats-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+      {stats.map((stat) => (
+        <div class="stat-card bg-white p-6 lg:p-8 text-center border-3 border-gray-200 transition-all duration-300 hover:border-[#f97316] hover:transform hover:-translate-y-1 hover:shadow-xl relative overflow-hidden">
+          <!-- Orange top border -->
+          <div class="absolute top-0 left-0 right-0 h-1 bg-[#f97316]"></div>
+          
+          <!-- Stat Number -->
+          <div class="stat-number text-5xl font-bold text-[#f97316] leading-none mb-3 font-InstrumentSans">
+            {stat.number}
+          </div>
+          
+          <!-- Stat Label -->
+          <div class="stat-label text-lg font-semibold text-[#1C2C3B] uppercase tracking-wide mb-4 leading-tight font-InstrumentSans">
+            {stat.label.split('\n').map((line, index) => (
+              <>
+                {line}
+                {index < stat.label.split('\n').length - 1 && <br />}
+              </>
+            ))}
+          </div>
+          
+          <!-- Stat Description -->
+          <p class="stat-description text-sm text-gray-600 leading-relaxed font-InstrumentSans">
+            {stat.description}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Finance Types Section -->
+    <div class="finance-types">
+      <h3 class="text-2xl font-semibold text-[#1C2C3B] mb-8 text-center font-InstrumentSans">
+        Complete Finance Solutions We Arrange:
+      </h3>
+      
+      <div class="finance-grid grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Residential Finance -->
+        <div class="finance-category">
+          <h4 class="text-xl font-semibold text-[#f97316] mb-6 font-InstrumentSans">
+            {financeTypes.residential.title}
+          </h4>
+          <div class="space-y-4">
+            {financeTypes.residential.items.map((item) => (
+              <div class="finance-item bg-white p-4 border-l-4 border-[#f97316] flex items-start gap-4">
+                <div class="finance-item-icon text-[#f97316] text-xl mt-1">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <div class="finance-item-content">
+                  <h5 class="text-lg font-semibold text-[#1C2C3B] mb-2 font-InstrumentSans">
+                    {item.title}
+                  </h5>
+                  <p class="text-sm text-gray-600 leading-relaxed font-InstrumentSans">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Commercial Finance -->
+        <div class="finance-category">
+          <h4 class="text-xl font-semibold text-[#f97316] mb-6 font-InstrumentSans">
+            {financeTypes.commercial.title}
+          </h4>
+          <div class="space-y-4">
+            {financeTypes.commercial.items.map((item) => (
+              <div class="finance-item bg-white p-4 border-l-4 border-[#f97316] flex items-start gap-4">
+                <div class="finance-item-icon text-[#f97316] text-xl mt-1">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <div class="finance-item-content">
+                  <h5 class="text-lg font-semibold text-[#1C2C3B] mb-2 font-InstrumentSans">
+                    {item.title}
+                  </h5>
+                  <p class="text-sm text-gray-600 leading-relaxed font-InstrumentSans">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.expertise-section {
+  padding: 8rem 1rem;
+  background: #F3F4F6;
+}
+
+.container-default {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .expertise-section {
+    padding: 4rem 1rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .finance-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .section-header h2 {
+    font-size: 1.875rem;
+  }
+  
+  .subheading {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+  }
+  
+  .finance-item {
+    padding: 1rem;
+  }
+}
+
+/* Focus states for accessibility */
+.stat-card:focus-within,
+.finance-item:focus-within {
+  outline: 3px solid #f97316;
+  outline-offset: 2px;
+}
+
+/* Ensure no border radius (sharp corners) */
+* {
+  border-radius: 0 !important;
+}
+</style>

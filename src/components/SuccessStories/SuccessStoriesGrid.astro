@@ -1,0 +1,227 @@
+---
+// Success stories data
+const stories = [
+  {
+    id: 1,
+    category: "equipment",
+    title: "Brisbane Plumbing Contractor",
+    subtitle: "Equipment Finance Success",
+    amount: "$125,000",
+    purpose: "Service Vehicle Fleet Expansion",
+    challenge: "Growing plumbing business needed to upgrade aging fleet of 5 service vehicles but traditional banks wanted property security.",
+    solution: "Secured asset finance with the vehicles as sole security. Structured payments to align with business cash flow cycles.",
+    outcome: "New reliable fleet reduced maintenance costs by 40% and enabled taking on 3 additional contracts worth $500K annually.",
+    testimonial: "Dan understood our industry's cash flow patterns and structured a deal that actually worked for our business.",
+    clientName: "Mark Thompson",
+    clientRole: "Director",
+    icon: "🔧"
+  },
+  {
+    id: 2,
+    category: "property",
+    title: "Gold Coast Electrical Services",
+    subtitle: "Commercial Property Finance",
+    amount: "$850,000",
+    purpose: "Workshop & Office Premises",
+    challenge: "Electrical contractor paying $8,000/month rent wanted to purchase their own premises but banks required 30% deposit.",
+    solution: "Structured 80% LVR commercial property loan using business assets and strong trading history instead of residential security.",
+    outcome: "Monthly repayments $1,500 less than rent. Building equity of $15K per month instead of paying landlord.",
+    testimonial: "Finally owning our premises has transformed our business. Dan made it happen when banks said no.",
+    clientName: "Sarah Chen",
+    clientRole: "Managing Director",
+    icon: "⚡"
+  },
+  {
+    id: 3,
+    category: "working-capital",
+    title: "Sunshine Coast Builder",
+    subtitle: "Working Capital Solution",
+    amount: "$200,000",
+    purpose: "Large Project Cash Flow",
+    challenge: "Won $2M government contract but needed working capital for materials and wages during 90-day payment terms.",
+    solution: "Invoice financing facility against the government contract, providing immediate access to 80% of invoice value.",
+    outcome: "Completed project on time, maintained all subcontractor relationships, and secured two additional government contracts.",
+    testimonial: "The invoice financing saved our biggest opportunity. Dan's speed and understanding were incredible.",
+    clientName: "James Mitchell",
+    clientRole: "Owner",
+    icon: "🏗️"
+  },
+  {
+    id: 4,
+    category: "equipment",
+    title: "Toowoomba Landscaping",
+    subtitle: "Excavator Finance",
+    amount: "$180,000",
+    purpose: "Excavator & Attachments",
+    challenge: "Landscaping business needed excavator for expansion into commercial projects but had limited deposit available.",
+    solution: "Structured low-doc equipment finance with 10% deposit and balloon payment to reduce monthly commitments.",
+    outcome: "Secured 3 commercial contracts within 2 months, generating additional $300K revenue in first year.",
+    testimonial: "Dan found a lender who understood equipment finance. The process was smooth and fast.",
+    clientName: "Tony Rodriguez",
+    clientRole: "Founder",
+    icon: "🌿"
+  },
+  {
+    id: 5,
+    category: "acquisition",
+    title: "Brisbane HVAC Company",
+    subtitle: "Business Acquisition",
+    amount: "$450,000",
+    purpose: "Competitor Acquisition",
+    challenge: "HVAC contractor opportunity to acquire competitor's business and client base but needed funding within 30 days.",
+    solution: "Combined business loan with equipment finance for acquired assets. Structured using combined business cash flows.",
+    outcome: "Doubled revenue overnight, retained all existing staff, achieved ROI within 18 months of acquisition.",
+    testimonial: "Dan worked around the clock to meet our tight deadline. His expertise in business acquisitions was invaluable.",
+    clientName: "Michael O'Brien",
+    clientRole: "CEO",
+    icon: "❄️"
+  },
+  {
+    id: 6,
+    category: "property",
+    title: "Cairns Marine Services",
+    subtitle: "Industrial Property",
+    amount: "$1.2M",
+    purpose: "Waterfront Workshop Facility",
+    challenge: "Marine services company needed specialized waterfront property but banks were hesitant about marine industry.",
+    solution: "Packaged deal with specialized marine industry lender, using business contracts and equipment as additional security.",
+    outcome: "Secured prime waterfront location, expanded services to include larger vessels, increased revenue by 60%.",
+    testimonial: "Dan's network found a lender who actually understood marine businesses. Game-changing for us.",
+    clientName: "Captain David Wilson",
+    clientRole: "Director",
+    icon: "⚓"
+  }
+];
+---
+
+<section class="success-stories-grid">
+  <div class="container-default">
+    <div class="stories-grid grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+      {stories.map((story) => (
+        <article class="story-card bg-white border-2 border-gray-200 hover:border-[#f97316] transition-all duration-300 hover:shadow-xl" data-category={story.category}>
+          <!-- Card Header -->
+          <div class="card-header bg-[#1C2C3B] text-white p-6">
+            <div class="flex items-start justify-between mb-4">
+              <span class="story-icon text-3xl">{story.icon}</span>
+              <span class="amount-badge bg-[#f97316] text-white px-3 py-1 text-sm font-bold font-InstrumentSans">
+                {story.amount}
+              </span>
+            </div>
+            <h3 class="story-title text-xl font-bold mb-2 font-InstrumentSans">
+              {story.title}
+            </h3>
+            <p class="story-subtitle text-sm text-gray-300 font-InstrumentSans">
+              {story.subtitle}
+            </p>
+          </div>
+          
+          <!-- Card Body -->
+          <div class="card-body p-6">
+            <!-- Purpose -->
+            <div class="purpose mb-4">
+              <h4 class="text-sm font-semibold text-[#f97316] mb-1 font-InstrumentSans">PURPOSE</h4>
+              <p class="text-sm text-gray-700 font-InstrumentSans">{story.purpose}</p>
+            </div>
+            
+            <!-- Challenge -->
+            <div class="challenge mb-4">
+              <h4 class="text-sm font-semibold text-[#f97316] mb-1 font-InstrumentSans">CHALLENGE</h4>
+              <p class="text-sm text-gray-600 font-InstrumentSans">{story.challenge}</p>
+            </div>
+            
+            <!-- Solution -->
+            <div class="solution mb-4">
+              <h4 class="text-sm font-semibold text-[#f97316] mb-1 font-InstrumentSans">SOLUTION</h4>
+              <p class="text-sm text-gray-600 font-InstrumentSans">{story.solution}</p>
+            </div>
+            
+            <!-- Outcome -->
+            <div class="outcome mb-6">
+              <h4 class="text-sm font-semibold text-[#f97316] mb-1 font-InstrumentSans">OUTCOME</h4>
+              <p class="text-sm text-gray-700 font-semibold font-InstrumentSans">{story.outcome}</p>
+            </div>
+            
+            <!-- Testimonial -->
+            <div class="testimonial border-t border-gray-200 pt-4">
+              <blockquote class="text-sm italic text-gray-600 mb-3 font-InstrumentSans">
+                "{story.testimonial}"
+              </blockquote>
+              <div class="client-info">
+                <p class="text-sm font-semibold text-[#1C2C3B] font-InstrumentSans">{story.clientName}</p>
+                <p class="text-xs text-gray-500 font-InstrumentSans">{story.clientRole}</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+    
+    <!-- CTA Section -->
+    <div class="cta-section text-center mt-12">
+      <h3 class="text-2xl font-bold text-[#1C2C3B] mb-4 font-InstrumentSans">
+        Ready to Write Your Success Story?
+      </h3>
+      <p class="text-lg text-gray-600 mb-6 font-InstrumentSans">
+        Join 100+ Queensland trades businesses who've secured the funding they need
+      </p>
+      <a 
+        href="/contact" 
+        class="inline-block bg-[#f97316] text-white px-8 py-4 font-semibold hover:bg-[#ea580c] transition-colors duration-300 font-InstrumentSans"
+      >
+        Start Your Application Today
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+.success-stories-grid {
+  padding: 4rem 1rem 6rem;
+  background: #F9FAFB;
+}
+
+.container-default {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Ensure no border radius (sharp corners) */
+* {
+  border-radius: 0 !important;
+}
+
+/* Story card hover effect */
+.story-card {
+  transform: translateY(0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.story-card:hover {
+  transform: translateY(-4px);
+}
+
+@media (max-width: 1024px) {
+  .stories-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .success-stories-grid {
+    padding: 3rem 1rem 4rem;
+  }
+  
+  .card-header,
+  .card-body {
+    padding: 1.5rem;
+  }
+  
+  .cta-section h3 {
+    font-size: 1.5rem;
+  }
+  
+  .cta-section p {
+    font-size: 1rem;
+  }
+}
+</style>

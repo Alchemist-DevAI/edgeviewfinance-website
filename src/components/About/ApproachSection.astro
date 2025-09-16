@@ -1,0 +1,123 @@
+---
+import { getEntryBySlug } from "astro:content";
+
+const ApproachData = await getEntryBySlug("aboutPage", "approach");
+const { header, subheading, processSteps, differentiators } = ApproachData?.data;
+---
+
+<section class="approach-section">
+  <div class="container-default">
+    <!-- Section Header -->
+    <div class="section-header text-center mb-16">
+      <h2 class="font-InstrumentSans text-4xl lg:text-5xl font-bold text-[#1C2C3B] mb-6">
+        {header}
+      </h2>
+      <div class="subheading text-xl lg:text-2xl font-medium text-[#f97316] mb-4">
+        {subheading}
+      </div>
+    </div>
+
+    <!-- Process Steps Grid -->
+    <div class="process-grid grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+      {processSteps.map((step) => (
+        <div class="process-step bg-gray-100 p-6 lg:p-8 text-center border-2 border-gray-200 transition-all duration-300 hover:bg-white hover:border-[#f97316] hover:transform hover:-translate-y-1 hover:shadow-xl relative">
+          <!-- Step Number -->
+          <div class="step-number absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-[#f97316] text-white flex items-center justify-center font-bold text-lg">
+            {step.step}
+          </div>
+          
+          <!-- Step Title -->
+          <h3 class="step-title text-xl font-semibold text-[#1C2C3B] uppercase tracking-wide mb-4 mt-6 font-InstrumentSans">
+            {step.title}
+          </h3>
+          
+          <!-- Step Description -->
+          <p class="step-description text-base text-gray-600 leading-relaxed font-InstrumentSans">
+            {step.description}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Differentiators Section -->
+    <div class="differentiators bg-white p-8 border-2 border-[#f97316]">
+      <h3 class="text-2xl font-semibold text-[#1C2C3B] mb-8 text-center font-InstrumentSans">
+        {differentiators.title}
+      </h3>
+      
+      <ul class="differentiators-list grid grid-cols-1 md:grid-cols-2 gap-4 list-none p-0">
+        {differentiators.items.map((item) => (
+          <li class="flex items-center gap-4 p-3 bg-orange-50">
+            <span class="text-[#f97316] font-bold text-lg">✓</span>
+            <span class="text-base text-gray-600 font-InstrumentSans">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+.approach-section {
+  padding: 8rem 1rem;
+  background: #FFFFFF;
+}
+
+.container-default {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.step-number {
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .approach-section {
+    padding: 4rem 1rem;
+  }
+  
+  .process-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .differentiators-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-header h2 {
+    font-size: 1.875rem;
+  }
+  
+  .subheading {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .process-step {
+    padding: 1.5rem 1rem;
+  }
+  
+  .differentiators {
+    padding: 1.5rem;
+  }
+}
+
+/* Focus states for accessibility */
+.process-step:focus-within,
+.differentiators:focus-within {
+  outline: 3px solid #f97316;
+  outline-offset: 2px;
+}
+
+/* Ensure no border radius (sharp corners) except for step numbers */
+.approach-section * {
+  border-radius: 0 !important;
+}
+
+.step-number {
+  border-radius: 50% !important;
+}
+</style>

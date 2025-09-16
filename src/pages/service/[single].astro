@@ -1,0 +1,53 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layout/Layout.astro";
+import { slug } from "github-slugger";
+import FaqSection from "../../components/Index/FaqSection.astro";
+import BreadCumb from "../../components/ui/BreadCumb.astro";
+import { Image } from "astro:assets";
+export async function getStaticPaths() {
+  var Services = await getCollection("services");
+  Services = Services.filter((Service) => Service.slug.startsWith("service-"));
+  return Services.map((service: any) => {
+    return {
+      params: { single: slug(service?.data?.title) },
+      props: { service },
+    };
+  });
+}
+const { service } = Astro.props;
+const { title, image } = service.data;
+const { Content } = await service.render();
+---
+
+<Layout title={title}>
+  <main class='main-wrapper relative overflow-hidden'>
+    <BreadCumb>
+      <h1 class='breadcrumb-title'>Service Details</h1>
+      <ul class='breadcrumb-nav'>
+        <li><a href='/'>Home</a></li>
+        <li><a href='/services'>Services</a></li>
+        <li>{title}</li>
+      </ul>
+    </BreadCumb>
+    <section class='section-service-details'>
+      <div class='py-12 lg:py-16'>
+        <div class='container-default'>
+          <div class='mx-auto max-w-[1080px]'>
+            <Image
+              src={image}
+              alt='service-main-img'
+              height={1000}
+              width={1000}
+              class='mb-6 h-auto w-full rounded-[10px]'
+            />
+            <div class='rich-text'>
+              <Content />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <FaqSection />
+  </main>
+</Layout>

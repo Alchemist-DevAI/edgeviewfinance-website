@@ -1,0 +1,118 @@
+---
+import { Image } from "astro:assets";
+import { type CollectionEntry } from "astro:content";
+import "../../css/blog-cards.css";
+
+interface Props {
+  post: CollectionEntry<"blogs">;
+  variant?: "default" | "featured";
+}
+
+const { post, variant = "default" } = Astro.props;
+
+const {
+  title,
+  shortDescription,
+  category,
+  date,
+  readTime,
+  image,
+  featured = false,
+  author
+} = post.data;
+
+const articleSlug = post.slug;
+const isFeatured = variant === "featured" || featured;
+const publishDate = new Date(date).toLocaleDateString('en-AU', { 
+  year: 'numeric', 
+  month: 'short', 
+  day: 'numeric' 
+});
+
+// Truncate description to a reasonable length
+const maxLength = isFeatured ? 300 : 110;
+const truncatedDescription = shortDescription.length > maxLength 
+  ? shortDescription.substring(0, maxLength - 3) + '...' 
+  : shortDescription;
+
+// Convert category to slug format for filtering
+const categorySlug = category.toLowerCase().replace(/\s+/g, '-');
+---
+
+<article 
+  class={`evf-blog-card group transition-all duration-300 ${isFeatured ? 'evf-blog-card--featured' : 'evf-blog-card--default'}`}
+  data-category={categorySlug}
+>
+  <a href={`/blog/${articleSlug}`} class="evf-blog-card__link">
+    <div class={`evf-blog-card__image-container ${isFeatured ? 'evf-blog-card__image-container--featured' : ''}`}>
+      <Image
+        src={image}
+        alt={title}
+        width={isFeatured ? 800 : 600}
+        height={isFeatured ? 350 : 250}
+        class="evf-blog-card__image"
+        loading={isFeatured ? 'eager' : 'lazy'}
+        format="webp"
+      />
+    </div>
+  </a>
+  
+  <div class="evf-blog-card__content">
+    <!-- Category Badge -->
+    <div class="evf-blog-card__category">
+      <span class="evf-blog-card__category-badge evf-blog-card__category-badge--primary">
+        {category}
+      </span>
+      {isFeatured && (
+        <span class="evf-blog-card__category-badge evf-blog-card__category-badge--featured">
+          Featured
+        </span>
+      )}
+    </div>
+
+    <!-- Article Title -->
+    <h3 class={`evf-blog-card__title ${isFeatured ? 'evf-blog-card__title--featured' : ''}`}>
+      <a href={`/blog/${articleSlug}`} class="evf-blog-card__title-link">
+        {title}
+      </a>
+    </h3>
+
+    <!-- Excerpt -->
+    <p class={`evf-blog-card__excerpt ${isFeatured ? 'evf-blog-card__excerpt--featured' : ''}`}>
+      {truncatedDescription}
+    </p>
+
+    <!-- Meta Information -->
+    <div class="evf-blog-card__meta">
+      <div class="evf-blog-card__meta-left">
+        {author && (
+          <div class="evf-blog-card__author">
+            <Image
+              src={author.img}
+              alt={author.name}
+              width={24}
+              height={24}
+              class="evf-blog-card__author-image"
+            />
+            <span class="evf-blog-card__author-name">{author.name}</span>
+          </div>
+        )}
+        <div class="evf-blog-card__date">
+          <svg class="evf-blog-card__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          </svg>
+          <span>{publishDate}</span>
+        </div>
+      </div>
+      
+      {readTime && (
+        <div class="evf-blog-card__read-time">
+          <svg class="evf-blog-card__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          <span>{readTime}</span>
+        </div>
+      )}
+    </div>
+  </div>
+</article>

@@ -1,0 +1,53 @@
+{
+  "name": "agency11",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev --port 4002 --host 0.0.0.0",
+    "start": "astro dev",
+    "build": "astro build",
+    "build:fast": "astro build",
+    "preview": "astro preview --host",
+    "astro": "astro",
+    "perf:mobile": "lighthouse https://www.edgeviewfinance.com.au --form-factor=mobile --view",
+    "perf:desktop": "lighthouse https://www.edgeviewfinance.com.au --form-factor=desktop --view",
+    "perf:mobile:json": "lighthouse https://www.edgeviewfinance.com.au --form-factor=mobile --output=json --output-path=./performance-reports/mobile.json",
+    "perf:desktop:json": "lighthouse https://www.edgeviewfinance.com.au --form-factor=desktop --output=json --output-path=./performance-reports/desktop.json",
+    "perf:test": "node performance-test.js",
+    "perf:daily": "npm run perf:test",
+    "perf:weekly": "npm run perf:test",
+    "perf:pre-deploy": "npm run perf:test -- --strict"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.0",
+    "@astrojs/mdx": "^4.3.5",
+    "@astrojs/react": "^4.3.1",
+    "@astrojs/sitemap": "^3.5.1",
+    "@astrojs/tailwind": "^6.0.2",
+    "@astrojs/vercel": "^8.2.7",
+    "@fontsource/cabin": "^5.0.18",
+    "@fontsource/instrument-sans": "^5.2.6",
+    "@fontsource/inter": "^5.0.18",
+    "@fontsource/plus-jakarta-sans": "^5.0.20",
+    "@fontsource/public-sans": "^5.0.18",
+    "@fortawesome/fontawesome-free": "^6.5.2",
+    "@supabase/supabase-js": "^2.57.0",
+    "@types/react": "^18.2.79",
+    "@types/react-dom": "^18.2.25",
+    "astro": "^5.13.0",
+    "dotenv": "^17.2.2",
+    "github-slugger": "^2.0.0",
+    "jos-animation": "^0.9.2",
+    "playwright": "^1.55.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-toastify": "^10.0.5",
+    "resend": "^6.0.2",
+    "swiper": "^11.1.1",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "googleapis": "^159.0.0",
+    "tailwindcss": "^3.4.3"
+  }
+}

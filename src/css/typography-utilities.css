@@ -1,0 +1,382 @@
+/* ============================================
+   TYPOGRAPHY UTILITIES - EDGEVIEW FINANCE
+   Based on MASTER-DESIGN.md specifications
+   ============================================ */
+
+/* ============================================
+   HEADING UTILITY CLASSES
+   ============================================ */
+
+/* Hero Heading - Primary H1 for hero sections */
+.heading-hero {
+  font-size: var(--h1-size-mobile) !important;   /* 28px mobile */
+  font-weight: var(--font-weight-normal) !important;
+  letter-spacing: var(--letter-spacing-tight) !important;
+  line-height: var(--line-height-tight) !important;
+  font-family: var(--font-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+@media (min-width: 640px) {
+  .heading-hero { font-size: 2rem !important; } /* 32px */
+}
+
+@media (min-width: 768px) {
+  .heading-hero { font-size: 2.5rem !important; } /* 40px */
+}
+
+@media (min-width: 1024px) {
+  .heading-hero { font-size: var(--h1-size-desktop) !important; } /* 48px */
+}
+
+/* Section Heading - H1 for section headers */
+.heading-section {
+  font-size: var(--h1-size-mobile) !important;   /* 28px mobile */
+  font-weight: var(--font-weight-normal) !important;
+  letter-spacing: var(--letter-spacing-tight) !important;
+  line-height: var(--line-height-tight) !important;
+  font-family: var(--font-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+@media (min-width: 1024px) {
+  .heading-section { font-size: var(--h1-size-desktop) !important; } /* 48px */
+}
+
+/* Subheading - H2 for section subheadings */
+.subheading {
+  font-size: var(--h2-size-mobile) !important;   /* 18px mobile */
+  font-weight: var(--font-weight-medium) !important;
+  color: var(--text-secondary) !important;
+  font-family: var(--font-primary) !important;
+  line-height: var(--line-height-normal) !important;
+}
+
+@media (min-width: 640px) {
+  .subheading { font-size: 1.25rem !important; } /* 20px */
+}
+
+@media (min-width: 768px) {
+  .subheading { font-size: 1.375rem !important; } /* 22px */
+}
+
+@media (min-width: 1024px) {
+  .subheading { font-size: var(--h2-size-desktop) !important; } /* 24px */
+}
+
+/* Card Heading - H3 for card titles */
+.heading-card {
+  font-size: var(--h3-size-mobile) !important;   /* 16px mobile */
+  font-weight: var(--font-weight-semibold) !important;
+  font-family: var(--font-primary) !important;
+  color: var(--text-primary) !important;
+  line-height: var(--line-height-snug) !important;
+}
+
+@media (min-width: 640px) {
+  .heading-card { font-size: 1.125rem !important; } /* 18px */
+}
+
+@media (min-width: 768px) {
+  .heading-card { font-size: 1.25rem !important; } /* 20px */
+}
+
+@media (min-width: 1024px) {
+  .heading-card { font-size: var(--h3-size-desktop) !important; } /* 24px */
+}
+
+/* Small Heading - H4 for smaller section headers */
+.heading-small {
+  font-size: var(--h4-size-mobile) !important;   /* 14px mobile */
+  font-weight: var(--font-weight-semibold) !important;
+  font-family: var(--font-primary) !important;
+  color: var(--text-primary) !important;
+  line-height: var(--line-height-snug) !important;
+}
+
+@media (min-width: 640px) {
+  .heading-small { font-size: 0.875rem !important; } /* 14px */
+}
+
+@media (min-width: 768px) {
+  .heading-small { font-size: 1rem !important; } /* 16px */
+}
+
+@media (min-width: 1024px) {
+  .heading-small { font-size: var(--h4-size-desktop) !important; } /* 18px */
+}
+
+/* ============================================
+   BODY TEXT UTILITY CLASSES
+   ============================================ */
+
+/* Body Text - Primary paragraph text */
+.text-body {
+  font-size: var(--p-size-mobile) !important;    /* 14px mobile */
+  font-weight: var(--font-weight-normal) !important;
+  font-family: var(--font-primary) !important;
+  color: var(--text-primary) !important;
+  line-height: var(--line-height-normal) !important;
+}
+
+@media (min-width: 1024px) {
+  .text-body { font-size: var(--p-size-desktop) !important; } /* 16px */
+}
+
+/* Description Text - Secondary/muted text */
+.text-description {
+  font-size: var(--p-size-mobile) !important;    /* 14px mobile */
+  font-weight: var(--font-weight-normal) !important;
+  font-family: var(--font-primary) !important;
+  color: var(--text-secondary) !important;
+  line-height: var(--line-height-normal) !important;
+}
+
+@media (min-width: 768px) {
+  .text-description { font-size: 1rem !important; } /* 16px */
+}
+
+@media (min-width: 1024px) {
+  .text-description { font-size: var(--p-size-desktop) !important; } /* 16px */
+}
+
+/* Small Text - Captions, footnotes, etc. */
+.text-small {
+  font-size: var(--text-sm) !important;          /* 14px */
+  font-weight: var(--font-weight-normal) !important;
+  font-family: var(--font-primary) !important;
+  color: var(--text-muted) !important;
+  line-height: var(--line-height-normal) !important;
+}
+
+/* Large Text - Emphasis text */
+.text-large {
+  font-size: var(--text-lg) !important;          /* 18px */
+  font-weight: var(--font-weight-normal) !important;
+  font-family: var(--font-primary) !important;
+  color: var(--text-primary) !important;
+  line-height: var(--line-height-normal) !important;
+}
+
+/* ============================================
+   SPECIFIC SIZE UTILITY CLASSES
+   These replace common text-[XXpx] Tailwind utilities
+   ============================================ */
+
+/* Large display text - replaces text-[64px], text-[70px] */
+.text-display-lg {
+  font-size: 4rem !important;                    /* 64px */
+  font-weight: var(--font-weight-bold) !important;
+  font-family: var(--font-primary) !important;
+  line-height: var(--line-height-tight) !important;
+}
+
+@media (max-width: 768px) {
+  .text-display-lg { font-size: 2.5rem !important; } /* 40px mobile */
+}
+
+/* Medium display text - replaces text-[56px] */
+.text-display-md {
+  font-size: 3.5rem !important;                  /* 56px */
+  font-weight: var(--font-weight-bold) !important;
+  font-family: var(--font-primary) !important;
+  line-height: var(--line-height-tight) !important;
+}
+
+@media (max-width: 768px) {
+  .text-display-md { font-size: 2rem !important; } /* 32px mobile */
+}
+
+/* Hero text - replaces text-[48px] */
+.text-hero {
+  font-size: 3rem !important;                    /* 48px */
+  font-weight: var(--font-weight-normal) !important;
+  font-family: var(--font-primary) !important;
+  line-height: var(--line-height-tight) !important;
+  letter-spacing: var(--letter-spacing-tight) !important;
+}
+
+@media (max-width: 768px) {
+  .text-hero { font-size: 1.75rem !important; } /* 28px mobile */
+}
+
+/* Contact hero text - replaces text-[42px] */
+.text-contact-hero {
+  font-size: 2.625rem !important;                /* 42px */
+  font-weight: var(--font-weight-normal) !important;
+  font-family: var(--font-primary) !important;
+  line-height: var(--line-height-tight) !important;
+}
+
+@media (max-width: 768px) {
+  .text-contact-hero { font-size: 1.75rem !important; } /* 28px mobile */
+}
+
+/* Large service text - replaces text-[32px] */
+.text-service-lg {
+  font-size: 2rem !important;                    /* 32px */
+  font-weight: var(--font-weight-semibold) !important;
+  font-family: var(--font-primary) !important;
+  line-height: var(--line-height-snug) !important;
+}
+
+@media (max-width: 768px) {
+  .text-service-lg { font-size: 1.5rem !important; } /* 24px mobile */
+}
+
+/* Service text - replaces text-[26px] */
+.text-service-md {
+  font-size: 1.625rem !important;                /* 26px */
+  font-weight: var(--font-weight-semibold) !important;
+  font-family: var(--font-primary) !important;
+  line-height: var(--line-height-snug) !important;
+}
+
+@media (max-width: 768px) {
+  .text-service-md { font-size: 1.25rem !important; } /* 20px mobile */
+}
+
+/* Service small text - replaces text-[22px] */
+.text-service-sm {
+  font-size: 1.375rem !important;                /* 22px */
+  font-weight: var(--font-weight-medium) !important;
+  font-family: var(--font-primary) !important;
+  line-height: var(--line-height-snug) !important;
+}
+
+@media (max-width: 768px) {
+  .text-service-sm { font-size: 1.125rem !important; } /* 18px mobile */
+}
+
+/* ============================================
+   BRAND COLOR TEXT UTILITIES
+   ============================================ */
+
+/* Brand orange text */
+.text-brand-orange {
+  color: var(--brand-orange-primary) !important;
+}
+
+/* Brand blue text */
+.text-brand-blue {
+  color: var(--brand-blue-primary) !important;
+}
+
+/* Secondary text color */
+.text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+/* Muted text color */
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+/* Light text color */
+.text-light {
+  color: var(--text-light) !important;
+}
+
+/* White text */
+.text-white {
+  color: var(--text-inverse) !important;
+}
+
+/* ============================================
+   BUTTON TEXT UTILITIES
+   ============================================ */
+
+/* Button text sizing */
+.btn-text {
+  font-size: var(--text-base) !important;        /* 16px */
+  font-weight: var(--font-weight-medium) !important;
+  font-family: var(--font-primary) !important;
+  line-height: var(--line-height-snug) !important;
+}
+
+.btn-text-sm {
+  font-size: var(--text-sm) !important;          /* 14px */
+  font-weight: var(--font-weight-medium) !important;
+  font-family: var(--font-primary) !important;
+  line-height: var(--line-height-snug) !important;
+}
+
+.btn-text-lg {
+  font-size: var(--text-lg) !important;          /* 18px */
+  font-weight: var(--font-weight-medium) !important;
+  font-family: var(--font-primary) !important;
+  line-height: var(--line-height-snug) !important;
+}
+
+/* ============================================
+   NAVIGATION TEXT UTILITIES
+   ============================================ */
+
+/* Navigation link text */
+.nav-text {
+  font-size: var(--text-base) !important;        /* 16px */
+  font-weight: var(--font-weight-medium) !important;
+  font-family: var(--font-primary) !important;
+  line-height: var(--line-height-snug) !important;
+  transition: var(--transition-nav) !important;
+}
+
+.nav-text:hover {
+  color: var(--brand-orange-primary) !important;
+}
+
+/* Mobile navigation text */
+.nav-text-mobile {
+  font-size: var(--text-sm) !important;          /* 14px */
+  font-weight: var(--font-weight-medium) !important;
+  font-family: var(--font-primary) !important;
+  line-height: var(--line-height-snug) !important;
+}
+
+@media (min-width: 480px) {
+  .nav-text-mobile { font-size: 15px !important; }
+}
+
+@media (min-width: 640px) {
+  .nav-text-mobile { font-size: var(--text-base) !important; }
+}
+
+/* ============================================
+   FORM TEXT UTILITIES
+   ============================================ */
+
+/* Form label text */
+.form-label {
+  font-size: var(--text-sm) !important;          /* 14px */
+  font-weight: var(--font-weight-medium) !important;
+  font-family: var(--font-primary) !important;
+  color: var(--text-primary) !important;
+  line-height: var(--line-height-snug) !important;
+}
+
+/* Form input text */
+.form-input {
+  font-size: var(--text-base) !important;        /* 16px */
+  font-weight: var(--font-weight-normal) !important;
+  font-family: var(--font-primary) !important;
+  color: var(--text-primary) !important;
+  line-height: var(--line-height-snug) !important;
+}
+
+/* Form help text */
+.form-help {
+  font-size: var(--text-sm) !important;          /* 14px */
+  font-weight: var(--font-weight-normal) !important;
+  font-family: var(--font-primary) !important;
+  color: var(--text-muted) !important;
+  line-height: var(--line-height-normal) !important;
+}
+
+/* Form error text */
+.form-error {
+  font-size: var(--text-sm) !important;          /* 14px */
+  font-weight: var(--font-weight-medium) !important;
+  font-family: var(--font-primary) !important;
+  color: #ef4444 !important;                     /* red-500 */
+  line-height: var(--line-height-snug) !important;
+}

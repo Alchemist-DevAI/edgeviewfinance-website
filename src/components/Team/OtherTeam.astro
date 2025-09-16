@@ -1,0 +1,57 @@
+---
+import { getEntryBySlug } from "astro:content";
+import Button from "../ui/Button.astro";
+import Heading from "../ui/Heading.astro";
+import { Image } from "astro:assets";
+const OtherTeamData = await getEntryBySlug("aboutPage", "team");
+const {
+  data: { members, header },
+} = OtherTeamData;
+---
+
+<section class='section-team mt-10'>
+  <div class='section-space-bottom'>
+    <div class='container-default'>
+      <Heading MaxWidth='max-w-[636px]' heading={header} />
+      <div class='grid gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4'>
+        {
+          members.slice(6).map(({ name, post, socialLinks, image }: any) => (
+            <div
+              class='jos flex flex-col items-center justify-center rounded-[10px] bg-white p-5 text-center shadow-[0_4px_80px_0_rgba(0,0,0,0.08)]'
+              data-jos_animation='flip-left'>
+              <Image
+                src={image}
+                alt='team-img-5'
+                width='266'
+                height='250'
+                class='h-auto w-full rounded-[10px] lg:w-auto'
+              />
+              <div class='mb-4 mt-6'>
+                <div class='mb-1 text-xl font-semibold text-ColorBlack'>
+                  {name}
+                </div>
+                <span class='block text-opacity-80'>{post}</span>
+              </div>
+
+              <div class='flex flex-wrap gap-[10px] xl:gap-4'>
+                {socialLinks?.slice(0, 4)?.map(({ icon, link }: any) => (
+                  <a
+                    href={link}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    class='flex h-[35px] w-[35px] items-center justify-center rounded-[50%] bg-ColorBlack bg-opacity-5 text-sm text-ColorBlack transition-all duration-300 hover:bg-ColorBlack hover:bg-opacity-100 hover:text-white'
+                    aria-label='twitter'>
+                    <i class={`fa-brands ${icon}`} />
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      <div class='flex justify-center mt-10'>
+        <Button link='/contact' text='Want to join us?' />
+      </div>
+    </div>
+  </div>
+</section>

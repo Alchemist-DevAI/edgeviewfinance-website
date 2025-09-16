@@ -1,0 +1,21 @@
+---
+const { link, text, css } = Astro.props;
+---
+
+<a
+  href={link}
+  class=`btn-primary inline-flex items-center justify-center bg-[#FF9E10] hover:bg-[#E6890E] text-white px-8 py-4 text-lg font-semibold transition-all duration-300 font-["Instrument_Sans"] ${css}`
+  ><span>{text}</span></a
+>
+
+<style>
+  .btn-primary {
+    border-radius: 0;
+    border: 2px solid #FF9E10;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    box-shadow: 0 4px 12px rgba(255, 158, 16, 0.3);
+  }
+</style>

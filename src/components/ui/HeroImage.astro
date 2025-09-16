@@ -1,0 +1,23 @@
+---
+import { Image } from "astro:assets";
+
+const { img, videoLink } = Astro.props;
+---
+
+<Image
+  src={img}
+  alt='hero image'
+  width='600'
+  height='579'
+  class='h-auto w-full'
+/>
+<a
+  data-fslightbox='gallery'
+  href={videoLink}
+  class='group group absolute flex h-[100px] w-[100px] items-center justify-center rounded-[50%] bg-white text-ColorLime'
+  aria-label='video-play'>
+  <span
+    class='text-2xl transition-all duration-300 ease-linear group-hover:scale-110'
+    ><i class='fa-solid fa-play'></i></span
+  >
+</a>

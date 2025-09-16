@@ -1,0 +1,92 @@
+---
+var Services = await getCollection("services");
+Services = Services.filter((Service) => Service.slug.startsWith("service-"));
+const IndexData = await getEntryBySlug("services", "index");
+import { getEntryBySlug } from "astro:content";
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import { slug } from "github-slugger";
+const { indexheader, description } = IndexData.data;
+---
+
+<section class='section-service'>
+  <div class='relative z-10 bg-white'>
+    <div class='section-space'>
+      <div class='container-default'>
+        <div class='mb-[60px] xl:mb-20'>
+          <div
+            class='mx-auto flex max-w-[700px] flex-col items-center justify-center'>
+            <h2
+              class='mb-5 text-center font-InstrumentSans text-[32px] font-semibold leading-[1.25] text-ColorBlack'>
+              {indexheader}
+            </h2>
+
+            <p class='text-center text-ColorBlack/80'>
+              {description}
+            </p>
+          </div>
+        </div>
+        <div
+          class='grid gap-x-8 gap-y-6 lg:grid-cols-2 xl:gap-x-[100px] xxl:gap-x-[146px]'>
+          <div>
+            {
+              Services?.slice(0, Services.length / 2).map(
+                ({ data: { title } }, index) => (
+                  <div
+                    class='border-b border-ColorBlack/10 py-6 first:pt-0 lg:last:border-none lg:last:pb-0'>
+                    <a
+                      href={`/service/${slug(title)}`}
+                      class='flex items-center justify-between gap-5 font-InstrumentSans text-[22px] font-semibold leading-[1.23] text-ColorBlack transition-all duration-300 hover:text-ColorBlue xl:text-2xl xxl:text-[26px]'>
+                      {index + 1}. {title}
+                      <span class='inline-block -rotate-[30deg] text-2xl'>
+                        <i class='fa fa-arrow-right' />
+                      </span>
+                    </a>
+                  </div>
+                )
+              )
+            }
+          </div>
+          <div>
+            {
+              Services?.slice(Services.length / 2, Services.length).map(
+                ({ data: { title } }, index) => (
+                  <div
+                    class='border-b border-ColorBlack/10 py-6 first:pt-0 lg:last:border-none lg:last:pb-0'>
+                    <a
+                      href={`/service/${slug(title)}`}
+                      class='flex items-center justify-between gap-5 font-InstrumentSans text-[22px] font-semibold leading-[1.23] text-ColorBlack transition-all duration-300 hover:text-ColorBlue xl:text-2xl xxl:text-[26px]'>
+                      {index + Services?.slice(0, Services.length / 2).length}.{" "}
+                      {title}
+                      <span class='inline-block -rotate-[30deg] text-2xl'>
+                        <i class='fa fa-arrow-right' />
+                      </span>
+                    </a>
+                  </div>
+                )
+              )
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class='absolute top-[100px] -z-10 hidden xxl:left-[44px] xxl:inline-block'>
+      <Image
+        src='/assets/img/elements/home-8-dot-shape-2.svg'
+        alt='home-8-dot-shape-2'
+        width='332'
+        height='244'
+      />
+    </div>
+    <div class='absolute left-0 top-0 -z-10 w-full'>
+      <Image
+        src='/assets/img/elements/arc-shape-black.png'
+        alt='arc-shape-black'
+        width='1600'
+        height='94'
+        class='w-full'
+      />
+    </div>
+  </div>
+</section>

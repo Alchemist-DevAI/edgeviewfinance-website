@@ -1,0 +1,98 @@
+---
+// QuickNavigation.astro - Section Jump Navigation Component
+// Purpose: Sticky navigation for quick section access
+interface Props {
+  sections: Array<{
+    id: string;
+    title: string;
+    number: number;
+  }>;
+}
+
+const { sections } = Astro.props;
+---
+
+<div class="quick-nav-container sticky top-24 z-40 mb-8">
+  <div class="bg-white border-2 border-gray-200 rounded-lg shadow-lg p-6">
+    <div class="flex items-center gap-2 mb-4">
+      <svg class="w-5 h-5 text-[#FF9E10]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+      <h3 class="text-lg font-bold text-[#1C2C3B]">Quick Navigation</h3>
+    </div>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
+      {sections.map((section) => (
+        <a 
+          href={`#section-${section.id}`}
+          class="nav-link flex items-center gap-2 px-3 py-2 text-sm text-[#1C2C3B] hover:text-[#FF9E10] hover:bg-orange-50 rounded-md transition-all duration-200 group"
+          data-section={section.id}
+        >
+          <span class="w-6 h-6 bg-gray-100 group-hover:bg-[#FF9E10] group-hover:text-white text-xs font-bold rounded-full flex items-center justify-center transition-all duration-200">
+            {section.number}
+          </span>
+          <span class="font-medium truncate">{section.title}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .nav-link.active {
+    @apply bg-orange-100 text-[#FF9E10];
+  }
+  
+  .nav-link.active span:first-child {
+    @apply bg-[#FF9E10] text-white;
+  }
+</style>
+
+<script>
+  // Intersection Observer for active section highlighting
+  document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('[id^="section-"]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionId = entry.target.id.replace('section-', '');
+            
+            // Remove active class from all links
+            navLinks.forEach((link) => link.classList.remove('active'));
+            
+            // Add active class to current section link
+            const activeLink = document.querySelector(`[data-section="${sectionId}"]`);
+            if (activeLink) {
+              activeLink.classList.add('active');
+            }
+          }
+        });
+      },
+      {
+        rootMargin: '-20% 0px -70% 0px',
+        threshold: 0.1
+      }
+    );
+    
+    sections.forEach((section) => observer.observe(section));
+    
+    // Smooth scroll for navigation links
+    navLinks.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  });
+</script>

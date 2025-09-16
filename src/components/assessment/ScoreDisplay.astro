@@ -1,0 +1,81 @@
+---
+export interface Props {
+  score: number;
+  maxScore: number;
+  category: 'elite' | 'professional' | 'nearly-ready' | 'foundation' | 'support';
+  animated?: boolean;
+}
+
+const { score, maxScore, category, animated = true } = Astro.props;
+
+const colors = {
+  'elite': '#22C55E',
+  'professional': '#3B82F6',
+  'nearly-ready': '#F59E0B',
+  'foundation': '#F97316',
+  'support': '#EF4444'
+};
+
+const color = colors[category];
+const percentage = (score / maxScore) * 100;
+const circumference = 2 * Math.PI * 88; // radius = 88
+const strokeDasharray = `${(percentage / 100) * circumference} ${circumference}`;
+---
+
+<div class="text-center py-12">
+  <div class="relative inline-flex items-center justify-center">
+    <svg class="w-48 h-48 transform -rotate-90" viewBox="0 0 192 192">
+      <!-- Background circle -->
+      <circle
+        cx="96"
+        cy="96"
+        r="88"
+        stroke="#E5E7EB"
+        stroke-width="12"
+        fill="none"
+      />
+      <!-- Progress circle -->
+      <circle
+        cx="96"
+        cy="96"
+        r="88"
+        stroke={color}
+        stroke-width="12"
+        fill="none"
+        stroke-dasharray={strokeDasharray}
+        stroke-linecap="round"
+        class={animated ? "animate-draw-circle" : ""}
+      />
+    </svg>
+    <div class="absolute">
+      <div class="text-4xl sm:text-5xl font-bold text-gray-900" style={`color: ${color}`}>
+        {score}
+      </div>
+      <div class="text-sm text-gray-500">out of {maxScore}</div>
+    </div>
+  </div>
+  
+  <!-- Score breakdown indicator -->
+  <div class="mt-6 text-sm text-gray-600">
+    <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium" 
+         style={`background-color: ${color}20; color: ${color}`}>
+      {percentage.toFixed(0)}% Finance Ready
+    </div>
+  </div>
+</div>
+
+<style>
+  @keyframes draw-circle {
+    from {
+      stroke-dasharray: 0 553;
+    }
+    to {
+      stroke-dasharray: var(--final-dasharray);
+    }
+  }
+  
+  .animate-draw-circle {
+    --final-dasharray: attr(stroke-dasharray);
+    animation: draw-circle 2s ease-out forwards;
+  }
+</style>

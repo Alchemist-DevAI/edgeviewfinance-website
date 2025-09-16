@@ -1,0 +1,25 @@
+---
+import { Image } from "astro:assets";
+
+const { data } = Astro.props;
+---
+
+<div class='swiper brand-slider'>
+  <div class='swiper-wrapper'>
+    {
+      data?.map((image: string) => {
+        return (
+          <div class='swiper-slide'>
+            <Image
+              src={image}
+              alt='brand-5'
+              width='186'
+              height='46'
+              class='h-auto w-fit'
+            />
+          </div>
+        );
+      })
+    }
+  </div>
+</div>

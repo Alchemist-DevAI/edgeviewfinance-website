@@ -1,0 +1,137 @@
+---
+export interface Props {
+  level: 'elite' | 'professional' | 'nearly-ready' | 'foundation' | 'support';
+  score: number;
+  displayName: string;
+  congratsMessage: string;
+  mainCopy: string;
+  industryBenchmark: string;
+  ctaText: string;
+  ctaSubtext: string;
+}
+
+const { 
+  level, 
+  score, 
+  displayName, 
+  congratsMessage, 
+  mainCopy, 
+  industryBenchmark,
+  ctaText,
+  ctaSubtext 
+} = Astro.props;
+
+const colors = {
+  'elite': '#22C55E',
+  'professional': '#3B82F6',
+  'nearly-ready': '#F59E0B',
+  'foundation': '#F97316',
+  'support': '#EF4444'
+};
+
+const color = colors[level];
+---
+
+<div class="bg-white border-2 shadow-lg p-6 sm:p-8 max-w-4xl mx-auto" 
+     style={`border-color: ${color}`}>
+  
+  <!-- Header Section -->
+  <div class="text-center mb-8">
+    <div class="text-lg sm:text-xl font-bold mb-2" style={`color: ${color}`}>
+      {displayName}
+    </div>
+    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">
+      {congratsMessage}
+    </h2>
+  </div>
+
+  <!-- Main Content -->
+  <div class="space-y-6 text-gray-700 text-base sm:text-lg leading-relaxed">
+    <p>{mainCopy}</p>
+    
+    <div class="bg-gray-50 p-6 border-l-4" style={`border-left-color: ${color}`}>
+      <div class="flex items-start">
+        <svg class="w-6 h-6 mt-1 mr-3 flex-shrink-0" style={`color: ${color}`} fill="currentColor" viewBox="0 0 24 24">
+          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <div>
+          <h3 class="font-semibold text-gray-900 mb-2">Industry Benchmark</h3>
+          <p class="text-gray-700">{industryBenchmark}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Section -->
+  <div class="bg-gray-50 p-6 sm:p-8 mt-8 text-center">
+    <h3 class="text-xl font-semibold text-gray-900 mb-4">
+      Ready for Your Next Step?
+    </h3>
+    <button
+      id="results-cta-btn"
+      class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white transition-all duration-300 hover:shadow-lg transform hover:scale-105"
+      style={`background: linear-gradient(135deg, ${color}, ${color}dd)`}
+    >
+      {ctaText}
+      <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+      </svg>
+    </button>
+    <p class="text-sm text-gray-600 mt-3">
+      {ctaSubtext}
+    </p>
+  </div>
+
+  <!-- Score Breakdown -->
+  <div class="mt-8 pt-6 border-t border-gray-200">
+    <h3 class="text-lg font-semibold text-gray-900 mb-4">
+      Your Assessment Breakdown
+    </h3>
+    <p class="text-sm text-gray-600 mb-4">
+      See exactly where you scored in each critical area
+    </p>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+      <div class="text-center p-3 bg-gray-50">
+        <div class="text-xs text-gray-500 mb-1">Financial Management</div>
+        <div class="w-8 h-8 mx-auto bg-gray-200 rounded-full flex items-center justify-center">
+          <span class="text-xs font-semibold">?</span>
+        </div>
+      </div>
+      <div class="text-center p-3 bg-gray-50">
+        <div class="text-xs text-gray-500 mb-1">Revenue Profile</div>
+        <div class="w-8 h-8 mx-auto bg-gray-200 rounded-full flex items-center justify-center">
+          <span class="text-xs font-semibold">?</span>
+        </div>
+      </div>
+      <div class="text-center p-3 bg-gray-50">
+        <div class="text-xs text-gray-500 mb-1">Financial Position</div>
+        <div class="w-8 h-8 mx-auto bg-gray-200 rounded-full flex items-center justify-center">
+          <span class="text-xs font-semibold">?</span>
+        </div>
+      </div>
+      <div class="text-center p-3 bg-gray-50">
+        <div class="text-xs text-gray-500 mb-1">Documentation</div>
+        <div class="w-8 h-8 mx-auto bg-gray-200 rounded-full flex items-center justify-center">
+          <span class="text-xs font-semibold">?</span>
+        </div>
+      </div>
+      <div class="text-center p-3 bg-gray-50">
+        <div class="text-xs text-gray-500 mb-1">Experience</div>
+        <div class="w-8 h-8 mx-auto bg-gray-200 rounded-full flex items-center justify-center">
+          <span class="text-xs font-semibold">?</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Handle CTA button click
+  document.getElementById('results-cta-btn')?.addEventListener('click', () => {
+    // Scroll to lead capture form
+    document.getElementById('lead-capture')?.scrollIntoView({ 
+      behavior: 'smooth' 
+    });
+  });
+</script>

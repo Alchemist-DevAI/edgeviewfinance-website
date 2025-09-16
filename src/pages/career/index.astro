@@ -1,0 +1,42 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layout/Layout.astro";
+import CarrerSection from "../../components/functional/CarrerSection";
+import Brand from "../../components/Index/Brand.astro";
+import Button from "../../components/ui/Button.astro";
+import BreadCumb from "../../components/ui/BreadCumb.astro";
+var CareerData = await getCollection("career");
+CareerData = CareerData.filter((CareerSingle) =>
+  CareerSingle.slug.startsWith("career-")
+);
+var Categories: any = [];
+CareerData?.map(({ data: { category } }: any) => Categories.push(category));
+const uniqueCategories: any = new Set(Categories);
+---
+
+<Layout title='Career'>
+  <main class='main-wrapper relative overflow-hidden'>
+    <BreadCumb>
+      <h1 class='breadcrumb-title'>Careers</h1>
+      <ul class='breadcrumb-nav'>
+        <li><a href='/'>Home</a></li>
+        <li>Careers</li>
+      </ul>
+    </BreadCumb>
+    <div class='section-careers'>
+      <CarrerSection
+        client:only="react"
+        CareerData={CareerData}
+        uniqueCategories={uniqueCategories}
+      />
+      <div class='flex justify-center'>
+        <Button
+          text="Can't find your role ? Contact Us"
+          css='inline-block'
+          link='/contact'
+        />
+      </div>
+      <Brand />
+    </div>
+  </main>
+</Layout>

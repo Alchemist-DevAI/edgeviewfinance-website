@@ -1,0 +1,45 @@
+---
+import { getEntryBySlug } from "astro:content";
+
+const FactsData = await getEntryBySlug("IndexPage", "facts");
+const { header, experienceYears, customers, projectsCompleted } =
+  FactsData?.data;
+---
+
+<section class='section-fact bg-gray-50 py-16'>
+  <div class='container-default'>
+    <div class='text-center mb-12'>
+      <h2 class='font-InstrumentSans text-3xl lg:text-4xl font-bold text-[#1C2C3B]'>
+        WHY TRADE BUSINESSES TRUST EDGEVIEW FINANCE
+      </h2>
+    </div>
+    <div class='max-w-5xl mx-auto'>
+      <div class='grid grid-cols-1 md:grid-cols-3 gap-8'>
+        <div class='text-center relative md:after:absolute md:after:right-0 md:after:top-1/2 md:after:h-16 md:after:w-0.5 md:after:-translate-y-1/2 md:after:bg-[#FF9E10] last:after:hidden'>
+          <div class='font-InstrumentSans text-5xl lg:text-6xl font-bold text-[#FF9E10] mb-2'>
+            20+
+          </div>
+          <div class='text-gray-600 text-sm lg:text-base font-medium uppercase tracking-wider'>
+            Years Banking<br/>Experience
+          </div>
+        </div>
+        <div class='text-center relative md:after:absolute md:after:right-0 md:after:top-1/2 md:after:h-16 md:after:w-0.5 md:after:-translate-y-1/2 md:after:bg-[#FF9E10] last:after:hidden'>
+          <div class='font-InstrumentSans text-5xl lg:text-6xl font-bold text-[#FF9E10] mb-2'>
+            100+
+          </div>
+          <div class='text-gray-600 text-sm lg:text-base font-medium uppercase tracking-wider'>
+            Businesses<br/>Funded
+          </div>
+        </div>
+        <div class='text-center'>
+          <div class='font-InstrumentSans text-5xl lg:text-6xl font-bold text-[#FF9E10] mb-2'>
+            $500M+
+          </div>
+          <div class='text-gray-600 text-sm lg:text-base font-medium uppercase tracking-wider'>
+            In Finance<br/>Settled
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

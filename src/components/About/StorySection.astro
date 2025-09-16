@@ -1,0 +1,114 @@
+---
+import { Image } from "astro:assets";
+import { getEntryBySlug } from "astro:content";
+
+const StoryData = await getEntryBySlug("aboutPage", "story");
+const { header, subheading, image, points } = StoryData?.data;
+const content = StoryData?.body;
+---
+
+<section class="story-section">
+  <div class="container-default">
+    <!-- Section Header -->
+    <div class="section-header text-center mb-16">
+      <h2 class="font-InstrumentSans text-4xl lg:text-5xl font-bold text-[#1C2C3B] mb-6">
+        {header}
+      </h2>
+      <div class="subheading text-xl lg:text-2xl font-medium text-[#f97316] mb-4">
+        {subheading}
+      </div>
+    </div>
+
+    <!-- Story Content Grid -->
+    <div class="story-container grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center">
+      <!-- Story Content - 60% width -->
+      <div class="lg:col-span-3 order-2 lg:order-1">
+        <div class="story-content text-base leading-relaxed text-gray-600 font-InstrumentSans">
+          <!-- First paragraph emphasized -->
+          <div class="text-lg font-medium text-[#1C2C3B] mb-6 leading-relaxed">
+            {content.split('\n\n')[0]}
+          </div>
+          
+          <!-- Remaining paragraphs -->
+          {content.split('\n\n').slice(1).map((paragraph) => (
+            <p class="mb-6 last:mb-0">{paragraph}</p>
+          ))}
+        </div>
+
+        <!-- Key Points -->
+        {points && (
+          <ul class="key-points list-none p-0 mt-8">
+            {points.map((point) => (
+              <li class="flex items-start gap-4 mb-4 p-4 bg-gray-100 border-l-4 border-[#f97316]">
+                <span class="text-[#f97316] font-bold text-lg flex-shrink-0">✓</span>
+                <span class="text-base text-gray-600 font-InstrumentSans">{point}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      <!-- Story Image - 40% width -->
+      <div class="lg:col-span-2 order-1 lg:order-2">
+        <div class="story-image relative overflow-hidden">
+          {image && (
+            <Image
+              src={image}
+              alt="Queensland Trades Business"
+              width="500"
+              height="400"
+              class="w-full h-96 object-cover border-4 border-gray-200"
+            />
+          )}
+          <!-- Orange accent overlay -->
+          <div class="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-br from-transparent via-transparent to-orange-500 opacity-10 pointer-events-none"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.story-section {
+  padding: 8rem 1rem;
+  background: #FFFFFF;
+}
+
+.container-default {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .story-section {
+    padding: 4rem 1rem;
+  }
+  
+  .story-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .section-header h2 {
+    font-size: 1.875rem;
+  }
+  
+  .subheading {
+    font-size: 1.125rem;
+  }
+  
+  .story-image {
+    margin-bottom: 2rem;
+  }
+}
+
+/* Focus states for accessibility */
+.story-section:focus-within {
+  outline: none;
+}
+
+/* Ensure no border radius (sharp corners) */
+* {
+  border-radius: 0 !important;
+}
+</style>

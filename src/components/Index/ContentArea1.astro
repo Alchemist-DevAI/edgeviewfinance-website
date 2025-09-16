@@ -1,0 +1,78 @@
+---
+import { Image } from "astro:assets";
+import { getEntryBySlug } from "astro:content";
+const ContentData = await getEntryBySlug("IndexPage", "content-1");
+const { header, image, button, process } = ContentData?.data;
+const { Content } = await ContentData.render();
+---
+
+<div class='grid items-center gap-10 md:grid-cols-5 lg:gap-24'>
+  <!-- Content Area - 60% -->
+  <div class='jos order-1 md:order-2 md:col-span-3' data-jos_animation='fade-right'>
+    <div>
+      <div class='mb-5'>
+        <h2
+          class='font-InstrumentSans text-display-md font-bold leading-[1.14] text-[#121212] lg:text-left'>
+          {header}
+        </h2>
+      </div>
+    </div>
+    <Content />
+    
+    <!-- Timeline Process Cards -->
+    <div class='mt-8 space-y-6'>
+      <div class='relative'>
+        {process && process.map((step, index) => (
+          <div class='relative flex items-start mb-8 last:mb-0'>
+            <!-- Orange Progress Line (only show between steps) -->
+            {index < process.length - 1 && (
+              <div class='absolute left-6 top-12 w-0.5 h-20 bg-[#FF9E10] z-0'></div>
+            )}
+            
+            <!-- Step Content -->
+            <div class='flex items-start space-x-4 relative z-10'>
+              <!-- Orange Step Number Circle -->
+              <div class='flex-shrink-0 w-12 h-12 bg-[#FF9E10] text-white font-bold text-lg flex items-center justify-center border-4 border-white shadow-lg'>
+                {step.step}
+              </div>
+              
+              <!-- Card Content -->
+              <div class='flex-1 bg-white border border-gray-200 p-6 shadow-sm'>
+                <div class='flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3'>
+                  <h3 class='font-InstrumentSans text-xl font-bold text-[#121212] mb-2 sm:mb-0'>
+                    {step.title}
+                  </h3>
+                  <span class='inline-block bg-[#FF9E10] text-white px-3 py-1 text-sm font-medium self-start sm:self-auto'>
+                    {step.duration}
+                  </span>
+                </div>
+                <p class='text-gray-700 leading-relaxed'>
+                  {step.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+    
+    <div class='mt-8 lg:mt-[50px]'>
+      <a
+        href={button?.link}
+        class='btn is-lime is-large btn-animation group inline-block rounded-[3px]'
+        ><span>{button?.text}</span></a
+      >
+    </div>
+  </div>
+  
+  <!-- Image Area - 40% -->
+  <div class='jos order-2 md:order-1 md:col-span-2' data-jos_animation='fade-left'>
+    <Image
+      src={image}
+      alt='Strategic finance consultation for Queensland trade businesses'
+      width='523'
+      height='450'
+      class='h-auto w-full rounded-[10px]'
+    />
+  </div>
+</div>

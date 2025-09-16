@@ -1,0 +1,29 @@
+---
+import { Image } from "astro:assets";
+
+const { img1, img2, img3 } = Astro.props;
+---
+
+<div class='my-[30px] grid gap-6 sm:grid-cols-3'>
+  <Image
+    src={img1}
+    alt='blog-inner-img-1'
+    width='250'
+    height='213'
+    class='h-auto w-auto'
+  />
+  <Image
+    src={img2}
+    alt='blog-inner-img-2'
+    width='250'
+    height='213'
+    class='h-auto w-auto'
+  />
+  <Image
+    src={img3}
+    alt='blog-inner-img-3'
+    width='250'
+    height='213'
+    class='h-auto w-auto'
+  />
+</div>

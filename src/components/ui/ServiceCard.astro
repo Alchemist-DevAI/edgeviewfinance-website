@@ -1,0 +1,49 @@
+---
+import { Image } from "astro:assets";
+import { slug } from "github-slugger";
+
+const { icon, title, description } = Astro.props;
+---
+
+<div class='jos' data-jos_delay='0'>
+  <div
+    class='group rounded-[10px] border border-[#E6E6E6] bg-white p-8 transition-all duration-300 ease-in-out hover:border-ColorOffWhite hover:bg-ColorOffWhite lg:p-10 h-full'>
+    <div class='flex flex-col gap-x-10 gap-y-6 sm:gap-y-8 lg:flex-row'>
+      <div
+        class='relative mx-auto flex w-16 items-center justify-center lg:w-[98px]'>
+        <Image
+          src={icon}
+          alt='icon-service'
+          width='98'
+          height='100'
+          class='opcity-100 h-auto w-full transition-all duration-300 ease-in-out group-hover:opacity-0'
+        />
+        <Image
+          src={icon}
+          alt='icon-service'
+          width='98'
+          height='100'
+          class='absolute h-auto w-full opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100'
+        />
+      </div>
+      <div class='flex-1 text-center lg:text-left'>
+        <div
+          class='mb-4 text-xl font-semibold leading-[1.33] -tracking-[0.5px] text-ColorBlack lg:text-2xl'>
+          {title}
+        </div>
+        <p class='mb-5 line-clamp-2 text-ColorBlack/80'>
+          {description}
+        </p>
+        <a
+          href={`/service/${slug(title)}`}
+          class='inline-flex items-center gap-x-2 text-base font-bold text-ColorBlack group-hover:text-ColorLime'>
+          Find out more
+          <span
+            class='transition-all duration-300 ease-in-out group-hover:translate-x-2'>
+            <i class='fa-solid fa-arrow-right'></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

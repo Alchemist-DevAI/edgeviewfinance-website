@@ -1,0 +1,199 @@
+/* Page-Specific Typography Overrides for Card Components */
+/* Fixes overly aggressive global h3 styles from global-overrides.css */
+
+/* ============================================
+   SERVICE GRID - Homepage Service Cards
+   ============================================ */
+.section-services h3,
+.service-grid-container h3 {
+  /* Override global h3 to respect original text-2xl sizing */
+  font-size: 1.5rem !important; /* 24px - text-2xl */
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+}
+
+@media (min-width: 768px) {
+  .section-services h3,
+  .service-grid-container h3 {
+    font-size: 1.5rem !important; /* 24px - maintain text-2xl */
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-services h3,
+  .service-grid-container h3 {
+    font-size: 1.5rem !important; /* 24px - maintain text-2xl */
+  }
+}
+
+/* ============================================
+   VALUE STACK SECTION - Homepage
+   ============================================ */
+.value-stack-section h3,
+.value-point h3 {
+  font-size: 1.25rem !important; /* 20px */
+  font-weight: 600 !important;
+}
+
+@media (min-width: 1024px) {
+  .value-stack-section h3,
+  .value-point h3 {
+    font-size: 1.5rem !important; /* 24px */
+  }
+}
+
+/* ============================================
+   TESTIMONIAL CARDS
+   ============================================ */
+.testimonial-card h3,
+.section-testimonials h3 {
+  font-size: 1.125rem !important; /* 18px */
+  font-weight: 600 !important;
+}
+
+@media (min-width: 1024px) {
+  .testimonial-card h3,
+  .section-testimonials h3 {
+    font-size: 1.25rem !important; /* 20px */
+  }
+}
+
+/* ============================================
+   VIDEO SECTION
+   ============================================ */
+.section-video h3,
+.video-content h3 {
+  font-size: 1.25rem !important; /* 20px */
+  font-weight: 600 !important;
+}
+
+@media (min-width: 1024px) {
+  .section-video h3,
+  .video-content h3 {
+    font-size: 1.5rem !important; /* 24px */
+  }
+}
+
+/* ============================================
+   ASSESSMENT PAGE COMPONENTS
+   ============================================ */
+.assessment-form h3,
+.result-card h3,
+.lead-capture-form h3 {
+  font-size: 1.125rem !important; /* 18px */
+  font-weight: 600 !important;
+}
+
+@media (min-width: 1024px) {
+  .assessment-form h3,
+  .result-card h3,
+  .lead-capture-form h3 {
+    font-size: 1.25rem !important; /* 20px */
+  }
+}
+
+/* ============================================
+   QUICK NAVIGATION
+   ============================================ */
+.quick-navigation h3 {
+  font-size: 1rem !important; /* 16px */
+  font-weight: 600 !important;
+}
+
+@media (min-width: 1024px) {
+  .quick-navigation h3 {
+    font-size: 1.125rem !important; /* 18px */
+  }
+}
+
+/* ============================================
+   CONTENT AREA SECTIONS
+   ============================================ */
+.content-area h3 {
+  font-size: 1.25rem !important; /* 20px */
+  font-weight: 600 !important;
+}
+
+@media (min-width: 1024px) {
+  .content-area h3 {
+    font-size: 1.5rem !important; /* 24px */
+  }
+}
+
+/* ============================================
+   BLOG SIDEBAR COMPONENTS
+   ============================================ */
+.blog-aside h3,
+.blog-sidebar h3 {
+  font-size: 1.125rem !important; /* 18px */
+  font-weight: 600 !important;
+  margin-bottom: 1rem !important;
+}
+
+/* ============================================
+   AUTHOR BIO
+   ============================================ */
+.author-bio h3 {
+  font-size: 1.125rem !important; /* 18px */
+  font-weight: 600 !important;
+}
+
+@media (min-width: 1024px) {
+  .author-bio h3 {
+    font-size: 1.25rem !important; /* 20px */
+  }
+}
+
+/* ============================================
+   GENERAL CARD COMPONENTS
+   ============================================ */
+/* Apply to any component with card-like structure */
+.card h3,
+[class*="card"] h3,
+.box h3,
+[class*="box"] h3 {
+  /* Respect the original component sizing, not global overrides */
+  font-size: inherit !important;
+}
+
+/* For components that use text-lg class on h3 */
+h3.text-lg {
+  font-size: 1.125rem !important; /* 18px */
+}
+
+/* For components that use text-xl class on h3 */
+h3.text-xl {
+  font-size: 1.25rem !important; /* 20px */
+}
+
+/* For components that use text-2xl class on h3 */
+h3.text-2xl {
+  font-size: 1.5rem !important; /* 24px */
+}
+
+/* For components that use text-3xl class on h3 */
+h3.text-3xl {
+  font-size: 1.875rem !important; /* 30px */
+}
+
+/* ============================================
+   RESPONSIVE UTILITY CLASSES
+   ============================================ */
+/* Ensure lg: prefix classes work properly */
+@media (min-width: 1024px) {
+  h3.lg\:text-lg {
+    font-size: 1.125rem !important; /* 18px */
+  }
+  
+  h3.lg\:text-xl {
+    font-size: 1.25rem !important; /* 20px */
+  }
+  
+  h3.lg\:text-2xl {
+    font-size: 1.5rem !important; /* 24px */
+  }
+  
+  h3.lg\:text-3xl {
+    font-size: 1.875rem !important; /* 30px */
+  }
+}

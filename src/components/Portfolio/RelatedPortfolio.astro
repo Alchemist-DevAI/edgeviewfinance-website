@@ -1,0 +1,43 @@
+---
+import PortfolioCard from "../ui/PortfolioCard.astro";
+const { Relatedportfolios, relatedProjectsText } = Astro.props;
+---
+
+<section class='related-portfolio-section'>
+  <div class='section-space'>
+    <div class='container-default'>
+      <div class='mx-auto max-w-[1076px]'>
+        <div class='jos flex flex-wrap items-center justify-between gap-8'>
+          <div class='mb-5'>
+            <h2>Related Project:</h2>
+          </div>
+        </div>
+        <p class='jos max-w-[856px]'>
+          {relatedProjectsText}
+        </p>
+        <div class='grid gap-8 sm:grid-cols-2'>
+          {
+            Relatedportfolios[0] && (
+              <PortfolioCard
+                image={Relatedportfolios[0]?.data.image}
+                title={Relatedportfolios[0]?.data.title}
+                type={Relatedportfolios[0]?.data.type}
+                category={Relatedportfolios[0]?.data.category}
+              />
+            )
+          }
+          {
+            Relatedportfolios[1] && (
+              <PortfolioCard
+                image={Relatedportfolios[1]?.data.image}
+                title={Relatedportfolios[1]?.data.title}
+                type={Relatedportfolios[1]?.data.type}
+                category={Relatedportfolios[1]?.data.category}
+              />
+            )
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

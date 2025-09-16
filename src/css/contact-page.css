@@ -1,0 +1,106 @@
+/* Contact Page Typography Overrides */
+
+/* Contact Methods Section - Three Card Layout */
+.section-contact-methods h3 {
+  /* Override aggressive global h3 styles */
+  font-size: 1.125rem !important; /* 18px at base - matches text-lg */
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+}
+
+@media (min-width: 1024px) {
+  .section-contact-methods h3 {
+    font-size: 1.25rem !important; /* 20px on desktop - matches lg:text-xl */
+  }
+}
+
+/* Contact Methods Card Specific Styles */
+.section-contact-methods .bg-white h3 {
+  margin-bottom: 0.75rem !important;
+}
+
+.section-contact-methods h4 {
+  font-size: 0.875rem !important; /* 14px */
+  font-weight: 600 !important;
+  margin-bottom: 0.75rem !important;
+}
+
+/* Ensure phone and email links maintain proper size */
+.section-contact-methods a.text-lg {
+  font-size: 1.125rem !important; /* 18px */
+}
+
+/* Response Guarantee Section */
+.section-response-guarantee h3 {
+  font-size: 1.125rem !important; /* 18px at base */
+  font-weight: 700 !important;
+}
+
+@media (min-width: 1024px) {
+  .section-response-guarantee h3 {
+    font-size: 1.25rem !important; /* 20px on desktop */
+  }
+}
+
+/* Business Info Section */
+.section-business-info h3 {
+  font-size: 1.125rem !important; /* 18px at base */
+  font-weight: 700 !important;
+}
+
+@media (min-width: 1024px) {
+  .section-business-info h3 {
+    font-size: 1.25rem !important; /* 20px on desktop */
+  }
+}
+
+/* Trust Credentials Section */
+.section-trust-credentials h3 {
+  font-size: 1.125rem !important; /* 18px at base */
+  font-weight: 700 !important;
+}
+
+@media (min-width: 1024px) {
+  .section-trust-credentials h3 {
+    font-size: 1.25rem !important; /* 20px on desktop */
+  }
+}
+
+/* FAQ Section */
+.section-contact-faq h3 {
+  font-size: 1.125rem !important; /* 18px at base */
+  font-weight: 600 !important;
+}
+
+@media (min-width: 1024px) {
+  .section-contact-faq h3 {
+    font-size: 1.25rem !important; /* 20px on desktop */
+  }
+}
+
+/* Contact Form Section */
+.section-contact-form h3 {
+  font-size: 1.125rem !important; /* 18px at base */
+  font-weight: 700 !important;
+}
+
+@media (min-width: 1024px) {
+  .section-contact-form h3 {
+    font-size: 1.25rem !important; /* 20px on desktop */
+  }
+}
+
+/* Override any section description text that might be too large */
+.section-contact-methods p.description,
+.section-response-guarantee p.description,
+.section-business-info p.description {
+  font-size: 1rem !important; /* 16px at base */
+}
+
+@media (min-width: 1024px) {
+  .section-contact-methods p.description,
+  .section-response-guarantee p.description,
+  .section-business-info p.description {
+    font-size: 1.125rem !important; /* 18px on desktop */
+  }
+}

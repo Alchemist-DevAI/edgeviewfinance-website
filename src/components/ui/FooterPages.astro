@@ -1,0 +1,15 @@
+---
+const { data } = Astro.props;
+---
+
+{
+  data.map((page: any) => (
+    <li>
+      <a
+        href={page.link}
+        class='hover:opcity-100 underline-offset-4 opacity-80 transition-all duration-300 ease-linear hover:underline'>
+        {page.name}
+      </a>
+    </li>
+  ))
+}

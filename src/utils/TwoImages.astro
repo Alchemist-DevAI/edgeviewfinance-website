@@ -1,0 +1,22 @@
+---
+import { Image } from "astro:assets";
+
+const { img1, img2 } = Astro.props;
+---
+
+<div class='my-6 grid grid-cols-1 md:grid-cols-2 gap-5'>
+  <Image
+    src={img1}
+    alt='service-inner-1-img'
+    width='532'
+    height='355'
+    class='w-full h-auto rounded-[10px]'
+  />
+  <Image
+    src={img2}
+    alt='service-inner-2-img'
+    width='532'
+    height='355'
+    class='w-full h-auto rounded-[10px]'
+  />
+</div>

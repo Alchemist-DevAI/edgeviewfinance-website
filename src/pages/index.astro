@@ -1,0 +1,40 @@
+---
+import { getEntryBySlug } from "astro:content";
+import Layout from "../layout/Layout.astro";
+import HeroSection from "../components/Index/HeroSection.astro";
+import ValueStackSection from "../components/Index/ValueStackSection.astro";
+import ServiceGrid from "../components/Index/ServiceGrid.astro";
+import ProcessSection from "../components/Index/ProcessSection.astro";
+import LenderLogos from "../components/Index/LenderLogos.astro";
+import Facts from "../components/Index/Facts.astro";
+import CredibilityMatrix from "../components/Index/CredibilityMatrix.astro";
+import ContentArea from "../components/Index/ContentSection.astro";
+import ContentSectionTwo from "../components/Index/ContentSectionTwo.astro";
+import VideoSection from "../components/Index/VideoSection.astro";
+import PortfolioSlider from "../components/Portfolio/PortfolioSlider.astro";
+import BlogSection from "../components/Index/BlogSection.astro";
+import NewsLetter from "../components/Index/NewsLetter.astro";
+import TestimonialSection from "../components/Index/TestimonialSection.astro";
+const HeroSectionData = await getEntryBySlug("IndexPage", "hero");
+const ValueStackData = await getEntryBySlug("IndexPage", "value-stack");
+const {
+  data: { sliderText },
+} = await getEntryBySlug("portfolio", "index");
+---
+
+<Layout title='Home Page'>
+  <main class='main-wrapper relative overflow-hidden'>
+    <HeroSection HeroSectionData={HeroSectionData} />
+    <ValueStackSection ValueStackData={ValueStackData} />
+    <ContentArea />
+    <Facts />
+    <ProcessSection />
+    <LenderLogos />
+    <ServiceGrid />
+    <TestimonialSection />
+    <CredibilityMatrix />
+    <VideoSection />
+    <BlogSection />
+  </main>
+  <NewsLetter />
+</Layout>

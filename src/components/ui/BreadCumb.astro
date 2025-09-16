@@ -1,0 +1,29 @@
+---
+import { Image } from "astro:assets";
+---
+
+<section class='section-breadcrumb'>
+  <div class='breadcrumb-wrapper'>
+    <div class='container-default'>
+      <div class='breadcrumb-block'>
+        <slot />
+      </div>
+    </div>
+    <div class='absolute left-0 md1:top-0 bottom-0 -z-[1]'>
+      <Image
+        src='/assets/img/elements/breadcrumb-shape-1.svg'
+        alt='hero-shape-1'
+        width='291'
+        height='380'
+      />
+    </div>
+    <div class='absolute bottom-0 right-0 -z-[1]'>
+      <Image
+        src='/assets/img/elements/breadcrumb-shape-2.svg'
+        alt='hero-shape-2'
+        width='291'
+        height='380'
+      />
+    </div>
+  </div>
+</section>

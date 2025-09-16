@@ -1,0 +1,48 @@
+---
+import { Image } from "astro:assets";
+import Button from "../ui/Button.astro";
+import FaqCard from "../ui/FaqCard.astro";
+import Header from "../ui/Heading.astro";
+import { getEntryBySlug } from "astro:content";
+const QNA = await getEntryBySlug("IndexPage", "qna");
+const { content, header, button } = QNA.data;
+---
+
+<section class='section-faq'>
+  <div class='relative z-10 overflow-hidden'>
+    <div class='py-12 lg:py-16'>
+      <div class='container-default'>
+        <Header heading={header} MaxWidth='max-w-[625px]' />
+        <div class='jos'>
+          <ul
+            class='mx-auto max-w-[1076px] rounded-[10px] border border-ColorBlack'>
+            {
+              content.map(({ Q, A }: any, index: number) => (
+                <FaqCard Q={Q} A={A} index={index} />
+              ))
+            }
+          </ul>
+          <div class='jos mt-8 flex justify-center xl:mt-10'>
+            <Button link={button?.link} text={button?.text} />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='absolute left-0 top-0 -z-10'>
+      <Image
+        src='/assets/img/elements/faq-1-shape-1.svg'
+        alt='service-section-shape'
+        width='390'
+        height='507'
+      />
+    </div>
+    <div class='absolute bottom-0 right-0 -z-10'>
+      <Image
+        src='/assets/img/elements/faq-1-shape-2.svg'
+        alt='service-section-shape'
+        width='467'
+        height='609'
+      />
+    </div>
+  </div>
+</section>

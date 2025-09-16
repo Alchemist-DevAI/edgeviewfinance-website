@@ -1,0 +1,143 @@
+---
+import { Image } from "astro:assets";
+---
+
+<section class="section-credibility bg-gray-50 py-8">
+  <div class="container-default mx-auto max-w-7xl px-6">
+    <div class="max-w-5xl mx-auto">
+      
+      <!-- Dan Peters Section with Photo -->
+      <div class="bg-white shadow-lg border-l-4 border-[#f97316] overflow-hidden">
+        <div class="grid md:grid-cols-2 gap-0">
+          <!-- Photo Section -->
+          <div class="relative">
+            <Image
+              src="/assets/images/dan-peters-headshot.jpg"
+              alt="Dan Peters - Strategic Finance Advisor"
+              width={600}
+              height={600}
+              loading="lazy"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+              <div class="text-white">
+                <h3 class="font-InstrumentSans text-3xl font-bold mb-2 text-white">
+                  DAN PETERS
+                </h3>
+                <p class="text-lg font-semibold">
+                  Your Strategic Finance Advisor
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Content Section -->
+          <div class="p-5 lg:p-6 flex flex-col justify-center">
+            <div class="mb-6">
+              <div class="inline-flex items-center bg-[#f97316] bg-opacity-10 text-[#f97316] px-4 py-2 font-semibold text-sm uppercase tracking-wide mb-4">
+                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+                Trusted Advisor
+              </div>
+              
+              <h4 class="font-InstrumentSans text-2xl font-bold text-[#1C2C3B] mb-4">
+                Why Queensland Businesses Trust Dan
+              </h4>
+              
+              <ul class="space-y-3 text-gray-600 font-InstrumentSans">
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span><strong>20+ Years Banking Experience</strong> - Former business banking manager who knows how lenders think</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span><strong>MBA in Finance</strong> - Strategic thinking for complex business structures</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span><strong>GC Leaders Industry Expert</strong> - Recognised leader in Gold Coast business community</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span><strong>10+ Years MFAA Member</strong> - Committed to ethical finance practices</span>
+                </li>
+              </ul>
+            </div>
+            
+            <!-- CTA -->
+            <div>
+              <a
+                href="#contact"
+                class="inline-flex items-center justify-center bg-[#f97316] text-white px-8 py-4 font-bold transition-all duration-300 hover:bg-[#ea580c] hover:shadow-lg font-InstrumentSans"
+              >
+                Book Strategic Finance Discovery Call
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Credential Badges - Now Below -->
+      <div class="mt-12">
+        <div class="text-center mb-8">
+          <h4 class="font-InstrumentSans text-xl font-semibold text-gray-600">
+            Professional Credentials & Industry Recognition
+          </h4>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 bg-white p-8 shadow-md">
+          <!-- GC Leaders Badge -->
+          <div class="flex items-center justify-center p-4">
+            <Image
+              src="/assets/images/gc-leaders-badge.jpg"
+              alt="GC Leaders Industry Expert"
+              width={120}
+              height={120}
+              loading="lazy"
+              class="h-20 w-auto"
+            />
+          </div>
+          
+          <!-- 10 Year MFAA Badge -->
+          <div class="flex items-center justify-center p-4">
+            <Image
+              src="/assets/images/10-year-badge.png"
+              alt="10+ Years MFAA Member"
+              width={120}
+              height={120}
+              loading="lazy"
+              class="h-20 w-auto"
+            />
+          </div>
+          
+          <!-- Australian Credit Licence -->
+          <div class="flex items-center justify-center p-4">
+            <div class="text-center px-4 py-3">
+              <div class="text-[#1C2C3B] font-bold text-lg mb-1">ACL Responsible Manager</div>
+            </div>
+          </div>
+          
+          <!-- MBA Qualification -->
+          <div class="flex items-center justify-center p-4">
+            <div class="text-center px-4 py-3">
+              <div class="text-[#1C2C3B] font-bold text-lg mb-1">Executive MBA Finance</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>

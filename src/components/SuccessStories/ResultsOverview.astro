@@ -1,0 +1,57 @@
+---
+// Results overview metrics
+const metrics = [
+  { value: "100+", label: "Queensland Businesses Funded" },
+  { value: "$500M+", label: "Total Finance Secured" },
+  { value: "24hr", label: "Average Response Time" },
+  { value: "98%", label: "Approval Success Rate" }
+];
+---
+
+<section class="results-overview">
+  <div class="container-default">
+    <div class="metrics-grid grid grid-cols-2 lg:grid-cols-4 gap-6">
+      {metrics.map((metric) => (
+        <div class="metric-card bg-white p-6 text-center border-t-4 border-[#f97316] shadow-md hover:shadow-xl transition-shadow duration-300">
+          <div class="metric-value text-3xl lg:text-4xl font-bold text-[#f97316] mb-2 font-InstrumentSans">
+            {metric.value}
+          </div>
+          <div class="metric-label text-sm lg:text-base text-gray-600 font-InstrumentSans">
+            {metric.label}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+.results-overview {
+  padding: 4rem 1rem;
+  background: #FFFFFF;
+}
+
+.container-default {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Ensure no border radius (sharp corners) */
+* {
+  border-radius: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .results-overview {
+    padding: 3rem 1rem;
+  }
+  
+  .metric-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .metric-value {
+    font-size: 1.875rem;
+  }
+}
+</style>

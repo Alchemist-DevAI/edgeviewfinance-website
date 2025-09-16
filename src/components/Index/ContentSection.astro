@@ -1,0 +1,20 @@
+---
+import { Image } from "astro:assets";
+import ContentArea1 from "./ContentArea1.astro";
+import ContentArea2 from "./ContentArea2.astro";
+---
+
+<section class='section-content'>
+  <div class='relative z-10'>
+    <ContentArea2 />
+    <div
+      class='absolute hidden xl:inline-block right-[60px] top-1/3 -z-10 rotate-[29deg]'>
+      <Image
+        src='/assets/img/elements/home-8-dot-shape.svg'
+        alt='home-8-dot-shape'
+        width='126'
+        height='275'
+      />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,69 @@
+---
+import { Image } from "astro:assets";
+import { getEntryBySlug } from "astro:content";
+const ContentArea3 = await getEntryBySlug("IndexPage", "content-3");
+const { header, description, button } = ContentArea3?.data;
+---
+
+<section class='section-content bg-gray-50'>
+  <div class='section-space py-20'>
+    <div class='container-default mx-auto max-w-7xl px-6'>
+      <div class='flex flex-col gap-y-20 lg:gap-y-[100px] xl:gap-y-[120px]'>
+        <div
+          class='grid items-center gap-10 md:grid-cols-2 lg:gap-24 xl:gap-60'>
+          <div class='jos' data-jos_animation='fade-right'>
+            <div>
+              <div class='mb-5'>
+                <h2
+                  class='font-InstrumentSans text-display-md font-semibold leading-[1.14] text-[#1C2C3B] lg:text-left'>
+                  {header}
+                </h2>
+              </div>
+            </div>
+            <p class='mb-5 text-lg text-[#4B5563] font-InstrumentSans'>
+              {description}
+            </p>
+            <div class='mt-8 lg:mt-[50px]'>
+              <a
+                href={button?.link}
+                class='btn-primary inline-flex items-center justify-center bg-[#f97316] hover:bg-[#ea580c] text-white px-8 py-4 text-lg font-semibold transition-all duration-300 font-["Instrument_Sans"]'
+                ><span>{button?.text}</span></a
+              >
+            </div>
+          </div>
+          <div class='jos' data-jos_animation='fade-left'>
+            <Image
+              src='/assets/img/th-8/content-img-3.png'
+              alt='content-img-3'
+              width='636'
+              height='501'
+              loading='lazy'
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div
+  class='absolute -z-10 hidden xl:left-10 xl:top-[52%] xl:inline-block xxl:left-[90px] xxl:top-[45%]'>
+  <Image
+    src='/assets/img/elements/home-8-dot-shape-3.svg'
+    alt='home-8-dot-shape-3'
+    width='209'
+    height='297'
+    loading='lazy'
+  />
+</div>
+
+<style>
+  .btn-primary {
+    border-radius: 0;
+    border: 2px solid #f97316;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+  }
+</style>

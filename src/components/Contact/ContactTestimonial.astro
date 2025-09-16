@@ -1,0 +1,68 @@
+---
+import { getEntryBySlug } from "astro:content";
+import ContactForm from "../functional/ContactForm";
+import { Image } from "astro:assets";
+const {
+  data: { web3AccessKey },
+} = await getEntryBySlug("site", "meta");
+const ContactDetails = await getEntryBySlug("contact", "index");
+const { header, description, client } = ContactDetails?.data;
+---
+<section class='section-contact'>
+    <div class='section-space-bottom'>
+      <div class='container-custom has-container-custom'>
+        <div
+          class='grid gap-[60px] lg:grid-cols-[0.85fr_1fr] lg:gap-20 xl:gap-[100px] xxl:gap-[134px]'>
+          <div class='jos' data-jos_animation='flip-left' data-jos_delay='0'>
+            <div>
+              <div class='mb-5'>
+                <h2>{header}</h2>
+              </div>
+              <p>
+                {description}
+              </p>
+              <div
+                class='my-7 h-px w-full bg-ColorBlack opacity-10 xl:my-10 xxl:my-14'>
+              </div>
+              <div
+                class='jos'
+                data-jos_animation='flip-left'
+                data-jos_delay='0'>
+                <div
+                  class='mb-[25px] flex justify-center gap-1 text-[#FFC947] lg:justify-start'>
+                  <span><i class='fa-sharp fa-solid fa-star'></i></span>
+                  <span><i class='fa-sharp fa-solid fa-star'></i></span>
+                  <span><i class='fa-sharp fa-solid fa-star'></i></span>
+                  <span><i class='fa-sharp fa-solid fa-star'></i></span>
+                  <span><i class='fa-sharp fa-solid fa-star'></i></span>
+                </div>
+                <blockquote class='mb-6 font-semibold italic text-opacity-80'>
+                  {client?.testimonial}
+                </blockquote>
+                <div class='flex flex-col items-center gap-4 lg:flex-row'>
+                  <Image
+                    src={client?.image}
+                    alt='about-hero-user-blockquote-img-2'
+                    width='60'
+                    height='60'
+                    class='mx-auto h-[60px] w-[60px] rounded-[50%] lg:mx-0'
+                  />
+                  <div>
+                    <span class='block font-semibold text-ColorBlack'
+                      >{client?.name}</span
+                    >
+                    <span class='text-sm text-opacity-80'>{client?.post}</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class='jos xm:p-10 rounded-[10px] border border-ColorBlack/50 bg-ColorOffWhite p-[30px]'>
+            <ContactForm client:only="react" header={false} web3AccessKey={web3AccessKey}/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

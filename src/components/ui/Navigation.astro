@@ -1,0 +1,641 @@
+---
+import { getEntryBySlug } from "astro:content";
+
+const Header = await getEntryBySlug("site", "header");
+console.log("Header data:", JSON.stringify(Header?.data, null, 2));
+---
+
+<ul class='site-menu-main'>
+  {
+    Header &&
+      Header.data.links.map((navItem: any, index: number) => {
+        if (!navItem?.dropdown) {
+          return (
+            <li class='nav-item'>
+              <a href={navItem?.link} class='nav-link-item' aria-label={navItem?.text} title={navItem?.text}>
+                <span class="nav-text">{navItem?.text}</span>
+              </a>
+            </li>
+          );
+        } else {
+          // Check if the parent nav item has a valid link
+          const hasValidLink = navItem?.link && navItem.link !== '#' && navItem.link !== '' && !navItem.link.startsWith('javascript:');
+          
+          return (
+            <li class='nav-item nav-item-has-children'>
+              {hasValidLink ? (
+                // If there's a valid link, keep separate link and button
+                <div class='nav-link-wrapper'>
+                  <a href={navItem.link} class='nav-link-item nav-main-link' aria-label={navItem?.text || 'Menu'} title={navItem?.text || 'Menu'}>
+                    <span class="nav-text">{navItem?.text || 'Menu'}</span>
+                  </a>
+                  <button 
+                    type='button' 
+                    class='dropdown-toggle-btn' 
+                    data-dropdown-toggle={`submenu-${index}`} 
+                    aria-expanded='false' 
+                    aria-controls={`submenu-${index}`}
+                    aria-haspopup="true"
+                    aria-label={`Toggle ${navItem?.text || 'Menu'} submenu`}
+                  >
+                    <svg class="dropdown-arrow inline-block w-3 h-3 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                  </button>
+                </div>
+              ) : (
+                // If no valid link, combine into a single button
+                <button 
+                  type='button' 
+                  class='nav-link-wrapper nav-dropdown-btn-combined' 
+                  data-dropdown-toggle={`submenu-${index}`} 
+                  aria-expanded='false' 
+                  aria-controls={`submenu-${index}`}
+                  aria-haspopup="true"
+                  aria-label={`${navItem?.text || 'Menu'} menu`}
+                  title={`${navItem?.text || 'Menu'} menu`}
+                >
+                  <span class="nav-text">{navItem?.text || 'Menu'}</span>
+                  <svg class="dropdown-arrow inline-block w-3 h-3 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                  </svg>
+                </button>
+              )}
+              <ul class='sub-menu' id={`submenu-${index}`}>
+                {navItem.sublinks.map((subItem: any) => (
+                  <li class='sub-menu--item'>
+                    <a href={subItem.link} class='nav-link-item nav-sub-link'>
+                      {subItem.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          );
+        }
+      })
+  }
+</ul>
+
+<style>
+  /* Mobile Navigation Styles */
+  @media (max-width: 1023px) {
+    .site-menu-main {
+      flex-direction: column;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-item {
+      width: 100%;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .nav-item:last-child {
+      border-bottom: none;
+    }
+
+    .nav-link-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .nav-dropdown-btn-combined {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      color: #1C2C3B !important;
+      font-weight: 700 !important;
+      text-decoration: none;
+      font-size: 14px !important;
+      padding: 16px 0;
+      gap: 0.5rem;
+    }
+
+    @media (min-width: 480px) {
+      .nav-dropdown-btn-combined {
+        font-size: 15px !important;
+      }
+    }
+    
+    @media (min-width: 640px) {
+      .nav-dropdown-btn-combined {
+        font-size: 16px !important;
+      }
+    }
+
+    .nav-dropdown-btn-combined:hover {
+      color: #FF9E10 !important;
+    }
+
+    .nav-dropdown-btn-combined:focus {
+      outline: 2px solid #FF9E10;
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    .nav-link-item, .nav-main-link {
+      display: flex;
+      align-items: center;
+      padding: 16px 0;
+      color: #1C2C3B !important;
+      font-weight: 700 !important;
+      text-decoration: none;
+      font-size: 14px !important;
+      flex: 1;
+    }
+    
+    @media (min-width: 480px) {
+      .nav-link-item, .nav-main-link {
+        font-size: 15px !important;
+      }
+    }
+    
+    @media (min-width: 640px) {
+      .nav-link-item, .nav-main-link {
+        font-size: 16px !important;
+      }
+    }
+
+    .nav-link-item:hover, .nav-main-link:hover {
+      color: #FF9E10 !important;
+    }
+
+    .dropdown-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 16px 8px;
+      color: #1C2C3B;
+      transition: color 0.3s ease;
+    }
+
+    .dropdown-toggle-btn:hover {
+      color: #FF9E10;
+    }
+
+    .nav-text {
+      display: inline-block;
+      font-weight: inherit;
+      color: inherit;
+    }
+
+    .nav-item-has-children.active .dropdown-arrow {
+      transform: rotate(180deg);
+    }
+
+    .sub-menu {
+      display: none;
+      padding-left: 0;
+      margin-top: 0;
+      background: #f8f9fa;
+      border-radius: 8px;
+      margin-top: 8px;
+      position: static !important;
+      box-shadow: none !important;
+      border: none !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
+    }
+
+    .sub-menu.active {
+      display: block;
+    }
+
+    .sub-menu--item {
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-sub-link {
+      display: block;
+      padding: 12px 20px;
+      color: #666 !important;
+      text-decoration: none !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      transition: all 0.3s ease;
+    }
+
+    .nav-sub-link:hover {
+      color: #FF9E10 !important;
+      background: #fff;
+    }
+  }
+
+  /* Desktop Navigation Styles */
+  @media (min-width: 1024px) {
+    .site-menu-main {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    @media (min-width: 1200px) {
+      .site-menu-main {
+        gap: 1.5rem;
+      }
+    }
+
+    @media (min-width: 1400px) {
+      .site-menu-main {
+        gap: 2rem;
+      }
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link-wrapper {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .nav-dropdown-btn-combined {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      color: #1C2C3B;
+      font-weight: 700 !important;
+      text-decoration: none;
+      font-size: 14px;
+      padding: 8px 0;
+      gap: 0.25rem;
+      white-space: nowrap;
+      transition: color 0.3s ease;
+    }
+
+    @media (min-width: 1200px) {
+      .nav-dropdown-btn-combined {
+        font-size: 15px;
+      }
+    }
+
+    @media (min-width: 1400px) {
+      .nav-dropdown-btn-combined {
+        font-size: 16px;
+      }
+    }
+
+    .nav-dropdown-btn-combined:hover {
+      color: #FF9E10;
+    }
+
+    .nav-dropdown-btn-combined:focus {
+      outline: 2px solid var(--brand-orange-primary);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    .nav-link-item, .nav-main-link {
+      padding: 8px 0;
+      color: #1C2C3B;
+      text-decoration: none;
+      font-weight: 700 !important;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      transition: color 0.3s ease;
+      white-space: nowrap;
+    }
+
+    @media (min-width: 1200px) {
+      .nav-link-item, .nav-main-link {
+        font-size: 15px;
+      }
+    }
+
+    @media (min-width: 1400px) {
+      .nav-link-item, .nav-main-link {
+        font-size: 16px;
+      }
+    }
+
+    .nav-link-item:hover, .nav-main-link:hover {
+      color: #FF9E10;
+    }
+
+    .dropdown-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 8px 4px;
+      color: #1C2C3B;
+      transition: color 0.3s ease;
+    }
+
+    .dropdown-toggle-btn:hover {
+      color: #FF9E10;
+    }
+
+    .dropdown-toggle-btn:focus {
+      outline: 2px solid var(--brand-orange-primary);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    .dropdown-arrow {
+      margin-left: 0;
+    }
+
+    .nav-text {
+      display: inline-block;
+      font-weight: inherit;
+      color: inherit;
+    }
+
+    .sub-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e9ecef;
+      padding: 12px 0;
+      min-width: 250px;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+    }
+
+    .nav-item-has-children:hover .sub-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .sub-menu--item {
+      padding: 0;
+    }
+
+    .nav-sub-link {
+      display: block;
+      padding: 12px 20px;
+      color: #666;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 400;
+      transition: all 0.3s ease;
+    }
+
+    .nav-sub-link:hover {
+      color: #FF9E10;
+      background: #f8f9fa;
+    }
+  }
+
+  /* CRITICAL: Force navigation text visibility with maximum specificity */
+  .nav-text {
+    /* Reset any potential hiding */
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    clip: auto !important;
+    clip-path: none !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    
+    /* Ensure visibility */
+    visibility: visible !important;
+    display: inline-block !important;
+    opacity: 1 !important;
+    
+    /* Ensure text is visible */
+    font-size: inherit !important;
+    line-height: inherit !important;
+    letter-spacing: inherit !important;
+    text-indent: 0 !important;
+    text-decoration: none !important;
+    text-transform: none !important;
+    color: inherit !important;
+    font-weight: 700 !important; /* FORCE BOLD TEXT */
+    background: transparent !important;
+    -webkit-text-fill-color: currentColor !important;
+    text-fill-color: currentColor !important;
+  }
+  
+  /* Apply to all contexts */
+  .nav-link-wrapper .nav-text,
+  .nav-dropdown-btn-combined .nav-text,
+  button.nav-link-item .nav-text,
+  .dropdown-toggle-btn .nav-text,
+  .nav-link-item .nav-text,
+  a .nav-text,
+  button .nav-text {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    visibility: visible !important;
+    display: inline-block !important;
+    opacity: 1 !important;
+    color: inherit !important;
+    font-weight: 700 !important; /* FORCE BOLD TEXT IN ALL CONTEXTS */
+    -webkit-text-fill-color: currentColor !important;
+  }
+
+  /* Ensure button elements display properly */
+  .nav-dropdown-btn-combined,
+  button.nav-link-item,
+  .dropdown-toggle-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 0.25rem !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+
+  /* COMPREHENSIVE BOLD TEXT ENFORCEMENT - Target all navigation elements */
+  .site-menu-main .nav-item .nav-text,
+  .site-menu-main .nav-link-item,
+  .site-menu-main .nav-main-link,
+  .site-menu-main .nav-dropdown-btn-combined,
+  .site-menu-main button,
+  .site-menu-main a,
+  nav.menu-block .nav-text,
+  nav.menu-block .nav-link-item,
+  nav.menu-block .nav-main-link,
+  nav.menu-block .nav-dropdown-btn-combined,
+  nav.menu-block button,
+  nav.menu-block a,
+  .mobile-menu-block .nav-text,
+  .mobile-menu-block .nav-link-item,
+  .mobile-menu-block .nav-main-link,
+  .mobile-menu-block .nav-dropdown-btn-combined,
+  .mobile-menu-block button[class*="nav"],
+  .mobile-menu-block a[class*="nav"] {
+    font-weight: 700 !important;
+  }
+
+  /* Ensure main menu items in desktop view are bold */
+  @media (min-width: 1024px) {
+    .site-menu-main > .nav-item > .nav-link-item,
+    .site-menu-main > .nav-item > .nav-dropdown-btn-combined,
+    .site-menu-main > .nav-item > .nav-link-wrapper > .nav-link-item,
+    .site-menu-main > .nav-item > .nav-link-wrapper > .nav-main-link,
+    .site-menu-main > .nav-item .nav-text {
+      font-weight: 700 !important;
+    }
+  }
+
+  /* Ensure mobile menu items are bold */
+  @media (max-width: 1023px) {
+    .mobile-menu-content .nav-item .nav-link-item,
+    .mobile-menu-content .nav-item .nav-dropdown-btn-combined,
+    .mobile-menu-content .nav-item .nav-main-link,
+    .mobile-menu-content .nav-item .nav-text,
+    .mobile-menu-block .nav-text,
+    .mobile-menu-block .nav-link-item,
+    .mobile-menu-block .nav-main-link,
+    .mobile-menu-block .nav-dropdown-btn-combined {
+      font-weight: 700 !important;
+    }
+  }
+
+  /* Header spacing fix */
+  :global(.site-header) {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+  }
+
+  @media (min-width: 768px) {
+    :global(.site-header) {
+      padding-top: 1rem !important;
+      padding-bottom: 1rem !important;
+    }
+  }
+
+  /* Ensure proper main content spacing */
+  :global(.main-wrapper) {
+    padding-top: 70px !important;
+  }
+
+  @media (min-width: 768px) {
+    :global(.main-wrapper) {
+      padding-top: 80px !important;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    :global(.main-wrapper) {
+      padding-top: 90px !important;
+    }
+  }
+</style>
+
+<script>
+  // Mobile dropdown functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('Navigation.astro dropdown init');
+    
+    // Setup dropdowns initially
+    setupDropdowns();
+
+    // Re-setup on resize
+    window.addEventListener('resize', () => {
+      setupDropdowns();
+    });
+
+    function setupDropdowns() {
+      // Target both dropdown toggle buttons and combined buttons
+      const dropdownTriggers = document.querySelectorAll('.dropdown-toggle-btn, .nav-dropdown-btn-combined');
+      
+      console.log('Found dropdown triggers:', dropdownTriggers.length);
+      
+      dropdownTriggers.forEach(trigger => {
+        // Use data attribute to track if we've already added listener
+        if (trigger.dataset.listenerAdded === 'true') return;
+        trigger.dataset.listenerAdded = 'true';
+        
+        // Add click listener directly without cloning
+        trigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Dropdown clicked');
+            
+            const navItem = trigger.closest('.nav-item-has-children');
+            const submenu = navItem.querySelector('.sub-menu');
+            const arrow = trigger.querySelector('.dropdown-arrow');
+            
+            // Only handle clicks on mobile or in mobile menu
+            const isMobile = window.innerWidth < 1024;
+            const isInMobileMenu = navItem.closest('.mobile-menu-block');
+            
+            if (isMobile || isInMobileMenu) {
+              // Toggle active state
+              navItem.classList.toggle('active');
+              
+              // Update aria-expanded attribute
+              const isExpanded = navItem.classList.contains('active');
+              trigger.setAttribute('aria-expanded', isExpanded.toString());
+              
+              // Toggle submenu visibility
+              if (submenu) {
+                submenu.classList.toggle('active');
+                console.log('Submenu toggled, active:', submenu.classList.contains('active'));
+                
+                // Submenu is now active - no additional styling needed
+              }
+              
+              // Rotate arrow
+              if (arrow) {
+                if (navItem.classList.contains('active')) {
+                  arrow.style.transform = 'rotate(180deg)';
+                } else {
+                  arrow.style.transform = 'rotate(0deg)';
+                }
+              }
+              
+              // Close other open dropdowns
+              const allNavItems = document.querySelectorAll('.nav-item-has-children');
+              allNavItems.forEach(item => {
+                if (item !== navItem) {
+                  item.classList.remove('active');
+                  // Check for both button types
+                  const otherTrigger = item.querySelector('.dropdown-toggle-btn, .nav-dropdown-btn-combined');
+                  if (otherTrigger) {
+                    otherTrigger.setAttribute('aria-expanded', 'false');
+                  }
+                  const otherSubmenu = item.querySelector('.sub-menu');
+                  if (otherSubmenu) {
+                    otherSubmenu.classList.remove('active');
+                  }
+                  const otherArrow = item.querySelector('.dropdown-arrow');
+                  if (otherArrow) {
+                    otherArrow.style.transform = 'rotate(0deg)';
+                  }
+                }
+              });
+            }
+        });
+      });
+    }
+  });
+</script>

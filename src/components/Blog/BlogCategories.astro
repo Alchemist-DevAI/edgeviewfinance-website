@@ -1,0 +1,67 @@
+---
+interface CategoryItem {
+  name: string;
+  slug: string;
+  count?: number;
+}
+
+interface Props {
+  categories: CategoryItem[];
+  activeCategory?: string;
+}
+
+const { categories, activeCategory = 'all' } = Astro.props;
+
+// Define generic finance categories as fallback
+const defaultCategories: CategoryItem[] = [
+  { name: 'All Articles', slug: 'all' },
+  { name: 'Equipment Finance', slug: 'equipment-finance' },
+  { name: 'Commercial Property', slug: 'commercial-property' },
+  { name: 'Working Capital', slug: 'working-capital' },
+  { name: 'Business Growth', slug: 'business-growth' },
+  { name: 'Finance Applications', slug: 'finance-applications' }
+];
+
+// Use provided categories or fall back to default categories
+const displayCategories = categories.length > 0 ? categories : defaultCategories;
+---
+
+<div class='w-full overflow-x-auto'>
+  <div class='flex flex-wrap justify-center lg:justify-end items-center gap-2 min-w-min'>
+    <span class='text-ColorBlack font-InstrumentSans font-semibold text-sm mr-2 whitespace-nowrap'>Filter by Topic:</span>
+    {displayCategories.map(({ name, slug, count }) => (
+    <button
+      data-category={slug}
+      class={`category-btn px-4 py-2 text-sm font-bold font-InstrumentSans whitespace-nowrap transition-all duration-300 border-2 ${
+        activeCategory === slug
+          ? 'bg-[#f97316] text-white border-[#f97316] shadow-md'
+          : 'bg-white text-ColorBlack border-gray-300 hover:bg-[#f97316] hover:text-white hover:border-[#f97316]'
+      }`}
+    >
+      {name}
+      {count !== undefined && (
+        <span class='ml-2 text-xs opacity-75'>({count})</span>
+      )}
+    </button>
+    ))}
+  </div>
+</div>
+
+<style>
+  .category-btn {
+    /* Sharp corners enforced by global CSS */
+    transition: all 0.3s ease;
+  }
+
+  .category-btn.active {
+    background-color: #f97316 !important;
+    color: white !important;
+    border-color: #f97316 !important;
+  }
+
+  @media (max-width: 768px) {
+    .flex-wrap {
+      justify-content: center;
+    }
+  }
+</style>

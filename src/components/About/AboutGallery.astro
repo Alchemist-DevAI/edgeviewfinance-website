@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+import { getEntryBySlug } from "astro:content";
+
+const GalleryImages = await getEntryBySlug("aboutPage", "gallery");
+const { images } = GalleryImages?.data;
+---
+
+<div class='section-about-gallery'>
+  <div class='section-space'>
+    <div class='container-default'>
+      <div class='grid gap-x-6 gap-y-10 sm:grid-cols-3'>
+        {
+          images?.map((image: string) => {
+            return (
+              <div class='jos' data-jos_animation='fade-up' data-jos_delay='0'>
+                <Image
+                  src={image}
+                  alt='about-gallery-img-1'
+                  width='416'
+                  height='286'
+                  class='rounded-lg'
+                />
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </div>
+</div>

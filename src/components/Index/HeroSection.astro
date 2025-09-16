@@ -1,0 +1,78 @@
+---
+import { Image } from "astro:assets";
+
+const { HeroSectionData } = Astro.props;
+const { header, subheading, bodyText, trustIndicator, buttonPrimary, heroImage } = HeroSectionData?.data || {};
+---
+
+<section class='section-hero'>
+  <div class='relative z-10 overflow-hidden'>
+    <div class='pb-8 lg:pb-12'>
+      <div class='container-default relative z-10'>
+        <!-- Two Column Layout: 60% text left, 40% image right -->
+        <div class='grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center'>
+          <!-- Text Content - 60% width on desktop -->
+          <div class='lg:col-span-3 text-center lg:text-left order-2 lg:order-1'>
+            <h1 class='mb-6 font-InstrumentSans text-hero font-bold leading-[1.2] text-ColorBlack'>
+              {header.split('\n').map((line, index) => (
+                <>
+                  {line}
+                  {index < header.split('\n').length - 1 && <br style="margin-bottom: 0.5rem;" />}
+                </>
+              ))}
+            </h1>
+            
+            <h2 class='mb-6 text-xl lg:text-2xl font-semibold text-gray-700 font-InstrumentSans'>
+              {subheading}
+            </h2>
+            
+            <p class='mb-6 text-lg text-gray-600 font-InstrumentSans leading-relaxed'>
+              {bodyText}
+            </p>
+            
+            <div class='mb-8'>
+              <div class='inline-flex items-center gap-2 bg-[#f97316] bg-opacity-10 px-4 py-2'>
+                <svg class='w-5 h-5 text-[#f97316]' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                  <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'></path>
+                </svg>
+                <span class='text-sm font-semibold text-[#1C2C3B] font-InstrumentSans'>
+                  {trustIndicator}
+                </span>
+              </div>
+            </div>
+            
+            <div class='flex flex-col items-center lg:items-start'>
+              <a
+                href={buttonPrimary?.link || '/finance-ready-assessment'}
+                class='bg-[#f97316] text-white px-8 py-4 font-bold transition-all duration-300 inline-block hover:bg-[#ea580c] hover:shadow-lg mb-3'
+              >
+                <span>{buttonPrimary?.text || 'CHECK MY READINESS SCORE'}</span>
+              </a>
+              <p class='text-sm text-gray-500 font-InstrumentSans text-center lg:text-left'>
+                (Complete the Finance Readiness Assessment in 30 secs. No Personal Details Required.)
+              </p>
+            </div>
+          </div>
+          
+          <!-- Hero Image - 40% width on desktop -->
+          <div class='lg:col-span-2 order-1 lg:order-2'>
+            <div class='relative'>
+              {heroImage && (
+                <Image
+                  src={heroImage}
+                  alt='Queensland Trades Business Owner'
+                  width='400'
+                  height='400'
+                  loading='eager'
+                  fetchpriority='high'
+                  class='w-full h-auto object-cover shadow-2xl max-h-[500px] object-top'
+                  sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw'
+                />
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

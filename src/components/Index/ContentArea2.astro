@@ -1,0 +1,241 @@
+---
+import { Image } from "astro:assets";
+import { getEntryBySlug } from "astro:content";
+const ContentData = await getEntryBySlug("IndexPage", "content-2");
+const { header, image, points, description } = ContentData?.data;
+
+// Professional cost impact data with specific dollar amounts
+const costImpacts = [
+  {
+    title: "LOST REVENUE",
+    description: "Missing out on high-value contracts due to inadequate finance positioning",
+    impact: "$15,000+",
+    timeframe: "per missed contract",
+    icon: "M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1H5C3.9 1 3 1.9 3 3V21C3 22.1 3.9 23 5 23H19C20.1 23 21 22.1 21 21V9ZM19 19H5V3H15V9H19V19Z"
+  },
+  {
+    title: "WASTED TIME",
+    description: "Hours spent managing multiple finance relationships without strategic coordination",
+    impact: "20+ hours",
+    timeframe: "per month",
+    icon: "M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"
+  },
+  {
+    title: "POOR STRUCTURING",
+    description: "Suboptimal finance arrangements costing more than necessary in interest and fees",
+    impact: "$8,500+",
+    timeframe: "per deal",
+    icon: "M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"
+  },
+  {
+    title: "STRESS & UNCERTAINTY",
+    description: "Leadership time consumed on finance issues instead of business growth",
+    impact: "15+ hours",
+    timeframe: "per week",
+    icon: "M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2ZM13,17H11V15H13V17ZM13,13H11V7H13V13Z"
+  },
+  {
+    title: "COMPETITIVE DISADVANTAGE",
+    description: "Competitors winning deals with better finance positioning and faster approvals",
+    impact: "$25,000+",
+    timeframe: "per lost opportunity",
+    icon: "M12,2A2,2 0 0,1 14,4C14,4.74 13.6,5.39 13,5.73V7H14A7,7 0 0,1 21,14H22A1,1 0 0,1 23,15V18A1,1 0 0,1 22,19H21V20A2,2 0 0,1 19,22H5A2,2 0 0,1 3,20V19H2A1,1 0 0,1 1,18V15A1,1 0 0,1 2,14H3A7,7 0 0,1 10,7H11V5.73C10.4,5.39 10,4.74 10,4A2,2 0 0,1 12,2Z"
+  }
+];
+---
+
+<!-- PROFESSIONAL PROBLEM AMPLIFICATION SECTION -->
+<div class='problem-amplification relative overflow-hidden bg-gray-50 py-20 lg:py-24'>
+  <!-- Subtle gradient overlay -->
+  <div class='absolute inset-0 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50'></div>
+  
+  <!-- Subtle accent pattern -->
+  <div class='absolute inset-0 opacity-[0.02]'>
+    <div class='absolute top-0 left-0 w-full h-full bg-[url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23DC2626" fill-opacity="0.4"%3E%3Ccircle cx="30" cy="30" r="1.5"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")]'></div>
+  </div>
+  
+  <div class='container-default relative z-10'>
+    <!-- Professional Header Section -->
+    <div class='text-center mb-16'>
+      <div class='inline-flex items-center bg-red-50 text-red-700 px-6 py-3  font-semibold text-sm uppercase tracking-wide mb-8 border border-red-200'>
+        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+        </svg>
+        Critical Business Impact
+      </div>
+      
+      <h2 class='font-InstrumentSans text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-6 leading-tight'>
+        {header}
+      </h2>
+      
+      <div class='bg-white p-6 max-w-2xl mx-auto shadow-lg border-b-2 border-red-600'>
+        <p class='text-lg lg:text-xl text-gray-700 font-medium leading-relaxed'>
+          {description}
+        </p>
+      </div>
+    </div>
+    
+    <!-- Professional Cost Impact Cards -->
+    <div class='mb-16'>
+      <h3 class='text-center text-gray-900 text-2xl lg:text-3xl font-bold mb-4'>
+        The Hidden Costs of Inadequate Finance Strategy
+      </h3>
+      <p class='text-center text-gray-600 text-lg mb-12 max-w-2xl mx-auto'>
+        For established Queensland trade businesses, every day without proper finance coordination costs real money and opportunities.
+      </p>
+      
+      <!-- 2-2-1 Grid Layout -->
+      <div class='space-y-8'>
+        <!-- First Row: 2 Cards -->
+        <div class='grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto'>
+          {costImpacts.slice(0, 2).map((cost) => (
+            <div class='group bg-white p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-gray-300'>
+              <!-- Professional SVG Icon -->
+              <div class='w-12 h-12 bg-red-100 flex items-center justify-center mb-6 group-hover:bg-red-200 transition-colors'>
+                <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                  <path d={cost.icon} />
+                </svg>
+              </div>
+              
+              <h4 class='font-InstrumentSans font-bold text-xl text-gray-900 mb-3'>
+                {cost.title}
+              </h4>
+              
+              <p class='text-gray-600 mb-4 leading-relaxed'>
+                {cost.description}
+              </p>
+              
+              <div class='flex items-center justify-between pt-4 border-t border-gray-100'>
+                <div>
+                  <div class='text-2xl font-bold text-[#f97316]'>{cost.impact}</div>
+                  <div class='text-sm text-gray-500'>{cost.timeframe}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        <!-- Second Row: 2 Cards -->
+        <div class='grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto'>
+          {costImpacts.slice(2, 4).map((cost) => (
+            <div class='group bg-white p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-gray-300'>
+              <!-- Professional SVG Icon -->
+              <div class='w-12 h-12 bg-red-100 flex items-center justify-center mb-6 group-hover:bg-red-200 transition-colors'>
+                <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                  <path d={cost.icon} />
+                </svg>
+              </div>
+              
+              <h4 class='font-InstrumentSans font-bold text-xl text-gray-900 mb-3'>
+                {cost.title}
+              </h4>
+              
+              <p class='text-gray-600 mb-4 leading-relaxed'>
+                {cost.description}
+              </p>
+              
+              <div class='flex items-center justify-between pt-4 border-t border-gray-100'>
+                <div>
+                  <div class='text-2xl font-bold text-[#f97316]'>{cost.impact}</div>
+                  <div class='text-sm text-gray-500'>{cost.timeframe}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        <!-- Third Row: 1 Card Centered -->
+        <div class='flex justify-center'>
+          <div class='w-full max-w-md'>
+            {costImpacts.slice(4, 5).map((cost) => (
+              <div class='group bg-white p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-gray-300'>
+                <!-- Professional SVG Icon -->
+                <div class='w-12 h-12 bg-red-100 flex items-center justify-center mb-6 group-hover:bg-red-200 transition-colors'>
+                  <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d={cost.icon} />
+                  </svg>
+                </div>
+                
+                <h4 class='font-InstrumentSans font-bold text-xl text-gray-900 mb-3'>
+                  {cost.title}
+                </h4>
+                
+                <p class='text-gray-600 mb-4 leading-relaxed'>
+                  {cost.description}
+                </p>
+                
+                <div class='flex items-center justify-between pt-4 border-t border-gray-100'>
+                  <div>
+                    <div class='text-2xl font-bold text-[#f97316]'>{cost.impact}</div>
+                    <div class='text-sm text-gray-500'>{cost.timeframe}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Professional Total Cost Impact -->
+    <div class='bg-white p-4 lg:p-5 text-center shadow-xl border-l-4 border-red-600 mb-8 max-w-4xl mx-auto'>
+      <div class='inline-flex items-center bg-red-600 text-white px-6 py-2  font-bold text-sm uppercase tracking-wide mb-4'>
+        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+        </svg>
+        Total Annual Impact
+      </div>
+      
+      <h3 class='text-gray-900 text-xl lg:text-2xl font-bold mb-6'>
+        Cost of Inadequate Finance Strategy
+      </h3>
+      
+      <!-- Professional Dollar Amount Display -->
+      <div class='mb-6'>
+        <div class='text-2xl lg:text-3xl font-bold text-red-600 leading-none mb-2'>
+          $50,000+
+        </div>
+        <div class='text-lg lg:text-xl font-semibold text-gray-600'>
+          per quarter in lost opportunities
+        </div>
+      </div>
+      
+      <!-- Professional Impact Statement -->
+      <div class='bg-gray-50 p-4'>
+        <p class='text-gray-700 text-lg font-medium mb-2'>
+          That's over <span class='text-[#f97316] font-bold text-xl'>$200,000 annually</span> in preventable losses
+        </p>
+        <p class='text-gray-600'>
+          While your competitors secure better deals with strategic finance partnerships
+        </p>
+      </div>
+    </div>
+    
+    <!-- Professional Action CTA -->
+    <div class='text-center'>
+      <div class='mb-6'>
+        <p class='text-gray-700 text-lg font-medium mb-2'>
+          Don't let another quarter pass without strategic finance coordination
+        </p>
+        <p class='text-gray-600'>
+          Get a complimentary assessment of your current finance positioning
+        </p>
+      </div>
+      
+      <a
+        href='/finance-ready-assessment'
+        class='inline-flex items-center justify-center bg-gradient-to-r from-[#f97316] to-[#ea580c] text-white font-bold text-lg px-10 py-4  hover:from-[#ea580c] hover:to-[#dc2626] transition-all duration-300 shadow-lg hover:shadow-xl '
+      >
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        Take Finance Ready Assessment
+      </a>
+      
+      <p class='text-gray-500 text-sm mt-4 max-w-lg mx-auto'>
+        Free consultation • No obligation • Strategic insights you can implement immediately
+      </p>
+    </div>
+  </div>
+</div>
+

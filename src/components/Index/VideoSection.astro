@@ -1,0 +1,105 @@
+---
+import { getEntryBySlug } from "astro:content";
+const VideoData = await getEntryBySlug("IndexPage", "videosection");
+const { header, description, guarantees, disclaimer } = VideoData?.data;
+---
+
+<section class="section-video bg-gray-50 py-12">
+  <div class="container-default mx-auto max-w-7xl px-6">
+    
+    <!-- Section Header -->
+    <div class="text-center mb-10">
+      <h2 class="text-4xl lg:text-5xl font-semibold text-[#1C2C3B] mb-4 font-['Instrument_Sans']">
+        {header}
+      </h2>
+      <p class="text-xl text-[#4B5563] font-['Instrument_Sans'] max-w-3xl mx-auto">
+        {description}
+      </p>
+    </div>
+
+    <!-- Guarantees Grid -->
+    <div class="max-w-6xl mx-auto">
+      <!-- Top Row - 2 items centered -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 max-w-4xl mx-auto">
+        {guarantees?.slice(0, 2).map((guarantee, index) => (
+          <div class="bg-white p-6 shadow-lg border-l-4 border-l-[#f97316] hover:shadow-xl transition-all duration-300">
+            <div class="flex items-start mb-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-[#f97316] flex items-center justify-center mr-4">
+                <span class="text-white font-bold text-xl font-['Instrument_Sans']">{index + 1}</span>
+              </div>
+              <h3 class="text-xl font-semibold text-[#1C2C3B] font-['Instrument_Sans'] flex-grow">
+                {guarantee.title}
+              </h3>
+            </div>
+            <p class="text-[#4B5563] font-['Instrument_Sans'] leading-relaxed">
+              {guarantee.description}
+            </p>
+          </div>
+        ))}
+      </div>
+      
+      <!-- Bottom Row - 3 items -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        {guarantees?.slice(2, 5).map((guarantee, index) => (
+          <div class="bg-white p-6 shadow-lg border-l-4 border-l-[#f97316] hover:shadow-xl transition-all duration-300">
+            <div class="flex items-start mb-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-[#f97316] flex items-center justify-center mr-4">
+                <span class="text-white font-bold text-xl font-['Instrument_Sans']">{index + 3}</span>
+              </div>
+              <h3 class="text-xl font-semibold text-[#1C2C3B] font-['Instrument_Sans'] flex-grow">
+                {guarantee.title}
+              </h3>
+            </div>
+            <p class="text-[#4B5563] font-['Instrument_Sans'] leading-relaxed">
+              {guarantee.description}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Trust Statement -->
+      <div class="bg-white p-6 shadow-lg text-center">
+        <div class="flex items-center justify-center mb-6">
+          <svg class="w-16 h-16 text-[#22C55E]" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-semibold text-[#1C2C3B] mb-4 font-['Instrument_Sans']">
+          Our Commitment to Your Success
+        </h3>
+        <p class="text-lg text-[#4B5563] font-['Instrument_Sans'] mb-6 max-w-3xl mx-auto">
+          These aren't just promises - they're the foundation of how we operate. 
+          Every client receives the same level of expertise, transparency, and dedication.
+        </p>
+        {disclaimer && (
+          <p class="text-sm text-[#6B7280] font-['Instrument_Sans'] italic">
+            {disclaimer}
+          </p>
+        )}
+      </div>
+
+      <!-- CTA Section -->
+      <div class="text-center mt-8">
+        <p class="text-lg text-[#4B5563] font-['Instrument_Sans'] mb-6">
+          Ready to experience the difference of working with true finance professionals?
+        </p>
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center bg-[#f97316] hover:bg-[#ea580c] text-white px-8 py-4 font-semibold transition-all duration-300 font-['Instrument_Sans'] border-2 border-[#f97316]"
+        >
+          Book Strategic Finance Discovery Call
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .section-video h3 {
+    line-height: 1.2;
+  }
+</style>

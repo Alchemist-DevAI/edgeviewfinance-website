@@ -1,0 +1,136 @@
+---
+// Team Section Component for About Page
+// Based on Phase 4 design specifications
+
+// Team data from copy document
+const teamMembers = [
+  {
+    name: "Dan Peters",
+    title: "Principal & Director",
+    image: "/assets/img/team/dan-peters-headshot.jpg", // Placeholder - needs professional headshot
+    bio: "Dan brings over 20 years of finance industry experience, having worked with hundreds of businesses across every sector from construction and manufacturing to retail and hospitality. This broad exposure to diverse industries and thousands of financing scenarios has created unique insights that Dan now brings specifically to trades businesses.\n\nLicensed under ACL 459287, Dan specialises in both residential property investment finance and commercial business funding, helping Queensland trades businesses unlock opportunities and navigate finance strategically. His cross-industry experience means he can see solutions and opportunities that others miss, whether you're looking at business expansion or wealth building through property investment.\n\nDan maintains direct relationships with 40+ specialist lenders and is actively involved in the Queensland business community."
+  }
+  // Additional team members can be added here when available
+];
+
+const teamValues = [
+  "Deep industry expertise and specialisation",
+  "Commitment to transparent, honest communication", 
+  "Results-focused approach to client service",
+  "Ongoing professional development and training",
+  "Strong relationships with lenders and industry partners",
+  "Genuine care for client success and business growth"
+];
+---
+
+<section class="team-section">
+  <div class="container-default">
+    <!-- Section Header -->
+    <div class="section-header text-center mb-12">
+      <h2 class="font-InstrumentSans text-4xl lg:text-5xl font-bold text-[#1C2C3B] mb-6">
+        Meet The Team
+      </h2>
+      <div class="subheading text-xl lg:text-2xl font-medium text-[#f97316] mb-4">
+        The Experienced Professionals Behind Your Success
+      </div>
+    </div>
+
+    <!-- Team Members Grid -->
+    <div class="team-grid grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+      {teamMembers.map((member) => (
+        <div class="team-member bg-white p-8 text-center border-3 border-gray-200 transition-all duration-300 hover:border-[#f97316] hover:transform hover:-translate-y-1 hover:shadow-xl relative overflow-hidden">
+          <!-- Orange top border -->
+          <div class="absolute top-0 left-0 right-0 h-1 bg-[#f97316]"></div>
+          
+          <!-- Team Photo -->
+          <div class="team-photo w-36 h-36 mx-auto mb-6 overflow-hidden border-4 border-[#f97316]">
+            <img 
+              src={member.image} 
+              alt={`${member.name}, ${member.title}`}
+              width="150"
+              height="150"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          
+          <!-- Team Info -->
+          <h3 class="team-name text-2xl font-bold text-[#1C2C3B] mb-2 font-InstrumentSans">
+            {member.name}
+          </h3>
+          <div class="team-title text-lg font-medium text-[#f97316] mb-6 font-InstrumentSans">
+            {member.title}
+          </div>
+          
+          <!-- Team Bio -->
+          <div class="team-bio text-base text-gray-600 leading-relaxed text-left font-InstrumentSans">
+            {member.bio.split('\n\n').map((paragraph) => (
+              <p class="mb-4 last:mb-0">{paragraph}</p>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Team Values Section -->
+    <div class="team-values text-center">
+      <h3 class="text-2xl font-semibold text-[#1C2C3B] mb-8 font-InstrumentSans">
+        Our Team Values
+      </h3>
+      <div class="values-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {teamValues.map((value) => (
+          <div class="value-item p-4 bg-orange-50 border-l-4 border-[#f97316]">
+            <p class="text-base text-gray-600 m-0 font-InstrumentSans">
+              {value}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.team-section {
+  padding: 8rem 1rem;
+  background: #F3F4F6;
+}
+
+.container-default {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .team-section {
+    padding: 4rem 1rem;
+  }
+  
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-header h2 {
+    font-size: 1.875rem;
+  }
+  
+  .subheading {
+    font-size: 1.125rem;
+  }
+}
+
+/* Focus states for accessibility */
+.team-member:focus-within {
+  outline: 3px solid #f97316;
+  outline-offset: 2px;
+}
+
+/* Ensure no border radius (sharp corners) */
+* {
+  border-radius: 0 !important;
+}
+</style>

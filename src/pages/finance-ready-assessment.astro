@@ -1,0 +1,1461 @@
+---
+import Layout from "../layout/Layout.astro";
+import ProgressBar from "../components/assessment/ProgressBar.astro";
+import AssessmentQuestion from "../components/assessment/AssessmentQuestion.astro";
+import ScoreDisplay from "../components/assessment/ScoreDisplay.astro";
+import ResultCard from "../components/assessment/ResultCard.astro";
+import LeadCaptureForm from "../components/assessment/LeadCaptureForm.astro";
+import ValueStack from "../components/assessment/ValueStack.astro";
+
+// Assessment questions data
+const questions = [
+  {
+    number: 1,
+    text: "How current are your business financial records?",
+    options: [
+      {
+        value: "A",
+        label: "Fully Current",
+        description: "Management accounts updated monthly, cash flow monitored, BAS and tax returns up to date"
+      },
+      {
+        value: "B", 
+        label: "Mostly Current",
+        description: "Quarterly BAS up to date, last financial year completed, some management reporting"
+      },
+      {
+        value: "C",
+        label: "Basic Compliance", 
+        description: "Tax returns lodged, BAS generally current, annual accounts only"
+      },
+      {
+        value: "D",
+        label: "Behind",
+        description: "Outstanding obligations, incomplete records, rely on accountant for everything"
+      }
+    ]
+  },
+  {
+    number: 2,
+    text: "What's your annual business turnover?",
+    options: [
+      {
+        value: "A",
+        label: "$10M+",
+        description: "Established business, multiple revenue streams, professional financial management"
+      },
+      {
+        value: "B",
+        label: "$3M - $10M",
+        description: "Growing business, solid revenue base, structured operations"
+      },
+      {
+        value: "C", 
+        label: "$1M - $3M",
+        description: "Owner working in business, established but growing, key person dependency"
+      },
+      {
+        value: "D",
+        label: "Under $1M",
+        description: "Owner is key person, limited debt history, may need alternative lending"
+      }
+    ]
+  },
+  {
+    number: 3,
+    text: "How well do you know your current financial position?",
+    options: [
+      {
+        value: "A",
+        label: "Complete Visibility",
+        description: "All contracts accessible, commitment schedule maintained, security position clear, asset register current"
+      },
+      {
+        value: "B",
+        label: "Good Understanding", 
+        description: "Know major assets and debts, most documentation available, some detail gaps"
+      },
+      {
+        value: "C",
+        label: "Basic Knowledge",
+        description: "General position awareness, would need to gather information, unsure of some details"
+      },
+      {
+        value: "D",
+        label: "Limited Visibility",
+        description: "Unclear on total obligations, no central records, would need significant work"
+      }
+    ]
+  },
+  {
+    number: 4,
+    text: "If a lender asked today, could you provide these documents?",
+    isChecklist: true,
+    checklistItems: [
+      "Last 2 years' financial statements",
+      "Year to Date Profit & Loss and Balance Sheet",
+      "Commitment Schedule (list of all debts & repayment details)",
+      "Statement of Position (list of assets and debts)",
+      "6 months' bank statements (all accounts)",
+      "Current lease agreement(s)",
+      "ATO portal access/tax account statements",
+      "Aged debtors/creditors reports",
+      "Current insurance policies"
+    ]
+  },
+  {
+    number: 5,
+    text: "When did you last apply for business finance?",
+    options: [
+      {
+        value: "A",
+        label: "Currently Active",
+        description: "Applied in last 6 months, know current requirements, understand the process"
+      },
+      {
+        value: "B",
+        label: "Recent Experience",
+        description: "Within last 2 years, some process understanding, may need requirement updates"
+      },
+      {
+        value: "C",
+        label: "Some Time Ago",
+        description: "2-5 years ago, requirements have likely changed, market has evolved"
+      },
+      {
+        value: "D", 
+        label: "Never/Very Long Ago",
+        description: "No recent experience, unaware of current requirements, need full guidance"
+      }
+    ]
+  }
+];
+---
+
+<Layout title="Finance Ready Assessment | Edgeview Finance">
+  <!-- Add body compensation for fixed header -->
+  <div class="pt-20"></div>
+  
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-b from-white to-gray-50 py-16 sm:py-20">
+    <div class="container-default">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-8">
+          <!-- Eyebrow -->
+          <div class="flex items-center text-sm font-medium text-orange-500 uppercase tracking-wider">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+            </svg>
+            Professional Finance Assessment
+          </div>
+          
+          <!-- Main Headline -->
+          <h1 class="mb-6 font-InstrumentSans text-hero font-bold leading-[1.2] text-ColorBlack">
+            Is Your Business Really Finance-Ready?
+          </h1>
+          
+          <!-- Subheadline -->
+          <p class="text-xl text-gray-600 leading-relaxed">
+            Most businesses think they're ready for finance... until they apply. Take our 3-minute assessment to discover where you really stand and what gaps could delay your application or force you to accept worse terms.
+          </p>
+          
+          <!-- Social Proof Strip -->
+          <div class="space-y-3 text-sm text-gray-600">
+            <div class="flex items-center">
+              <svg class="w-4 h-4 mr-2 text-orange-500" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              From the team that's secured $500M+ in business finance
+            </div>
+            <div class="flex items-center">
+              <svg class="w-4 h-4 mr-2 text-orange-500" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              20+ years helping Australian trades businesses access funding
+            </div>
+            <div class="flex items-center">
+              <svg class="w-4 h-4 mr-2 text-orange-500" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              Assessment based on 100+ real finance applications
+            </div>
+            <div class="flex items-center">
+              <svg class="w-4 h-4 mr-2 text-orange-500" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              Trusted by trades businesses across East Coast Australia
+            </div>
+          </div>
+          
+          <!-- Primary CTA -->
+          <div class="space-y-3">
+            <a
+              href="/finance-ready-assessment/start"
+              class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-orange-500 to-orange-600 hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+            >
+              Start My Finance Ready Assessment Now
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+            <p class="text-sm text-gray-500">
+              (Only takes 3 minutes)
+            </p>
+          </div>
+          
+          <!-- Trust Indicator -->
+          <p class="text-sm font-medium text-gray-700 bg-gray-100 p-4 border-l-4 border-orange-500">
+            Professional assessment from Australia's most experienced trades business finance team
+          </p>
+        </div>
+        
+        <!-- Visual Element -->
+        <div class="hidden lg:block">
+          <div class="relative">
+            <!-- Placeholder for assessment dashboard mockup -->
+            <div class="bg-white p-8 shadow-2xl border">
+              <div class="space-y-6">
+                <div class="flex items-center justify-between">
+                  <h3 class="font-semibold text-gray-900">Finance Readiness Score</h3>
+                  <span class="text-xs bg-green-100 text-green-800 px-2 py-1 font-medium">PROFESSIONAL</span>
+                </div>
+                <div class="relative">
+                  <svg class="w-32 h-32 mx-auto transform -rotate-90">
+                    <circle cx="64" cy="64" r="56" stroke="#E5E7EB" stroke-width="8" fill="none"/>
+                    <circle cx="64" cy="64" r="56" stroke="#3B82F6" stroke-width="8" fill="none" 
+                            stroke-dasharray="264 88" stroke-linecap="round"/>
+                  </svg>
+                  <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="text-center">
+                      <div class="text-2xl font-bold text-blue-600">38</div>
+                      <div class="text-xs text-gray-500">out of 50</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-xs text-gray-600 text-center">
+                  Sample assessment result - your score may vary
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Stack Section -->
+  <section class="py-16 bg-white">
+    <div class="container-default">
+      <ValueStack />
+    </div>
+  </section>
+
+  <!-- Problem Amplification Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container-default max-w-4xl mx-auto text-center">
+      <div class="space-y-8">
+        <div>
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            Most Businesses Think They're Finance Ready...
+          </h2>
+          <p class="text-2xl font-bold text-orange-600">
+            Until Reality Hits
+          </p>
+        </div>
+        
+        <!-- Pain Points Grid -->
+        <div class="grid sm:grid-cols-2 gap-6 text-left">
+          <div class="bg-white p-6 border-l-4 border-red-400">
+            <h3 class="font-semibold text-gray-900 mb-2">
+              Many applications face unexpected delays
+            </h3>
+            <p class="text-sm text-gray-600">
+              Costing businesses critical opportunities
+            </p>
+          </div>
+          <div class="bg-white p-6 border-l-4 border-red-400">
+            <h3 class="font-semibold text-gray-900 mb-2">
+              Multiple rounds of back-and-forth requests
+            </h3>
+            <p class="text-sm text-gray-600">
+              When documentation isn't properly prepared
+            </p>
+          </div>
+          <div class="bg-white p-6 border-l-4 border-red-400">
+            <h3 class="font-semibold text-gray-900 mb-2">
+              Unprepared businesses often accept higher rates
+            </h3>
+            <p class="text-sm text-gray-600">
+              Poor positioning costs thousands
+            </p>
+          </div>
+          <div class="bg-white p-6 border-l-4 border-red-400">
+            <h3 class="font-semibold text-gray-900 mb-2">
+              Applications can be declined due to presentation issues
+            </h3>
+            <p class="text-sm text-gray-600">
+              Even when fundamentals are strong
+            </p>
+          </div>
+        </div>
+        
+        <!-- Contrast Statement -->
+        <div class="bg-white p-8 border-2 border-green-500">
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">
+            But Smart Trades Business Owners Know Exactly Where They Stand
+          </h3>
+          <p class="text-lg text-gray-700">
+            They understand that finance applications are complex strategic events, not simple forms. They prepare professionally, present strategically, and secure better terms faster.
+          </p>
+        </div>
+        
+        <!-- Bridge Copy -->
+        <div class="space-y-4">
+          <p class="text-xl font-semibold text-gray-900">
+            The question is: Which group do you belong to?
+          </p>
+          <p class="text-lg text-gray-600">
+            Find out in the next 3 minutes...
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Assessment Preview Section -->
+  <section class="py-16 bg-white">
+    <div class="container-default max-w-4xl mx-auto text-center">
+      <div class="space-y-8">
+        <div>
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            Simple 3-Step Process to Know Where You Stand
+          </h2>
+          <p class="text-lg text-gray-600">
+            Used by 100+ trades businesses
+          </p>
+        </div>
+        
+        <!-- Steps Grid -->
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-orange-100 text-orange-600 font-bold text-2xl flex items-center justify-center mx-auto mb-4">
+              1
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">
+              Answer 5 Strategic Questions
+            </h3>
+            <p class="font-medium text-gray-600 mb-2">(3 minutes)</p>
+            <p class="text-sm text-gray-600">
+              Quick questions about your financial position, documentation, and experience. No sensitive information required.
+            </p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-16 h-16 bg-orange-100 text-orange-600 font-bold text-2xl flex items-center justify-center mx-auto mb-4">
+              2
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">
+              Get Your Readiness Score
+            </h3>
+            <p class="font-medium text-gray-600 mb-2">(Instant results)</p>
+            <p class="text-sm text-gray-600">
+              Professional scoring from 0-50 points with detailed breakdown showing exactly where you stand.
+            </p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-16 h-16 bg-orange-100 text-orange-600 font-bold text-2xl flex items-center justify-center mx-auto mb-4">
+              3
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">
+              Access Your Report & Strategy
+            </h3>
+            <p class="font-medium text-gray-600 mb-2">(Optional consultation)</p>
+            <p class="text-sm text-gray-600">
+              Detailed PDF report plus optional 15-minute consultation with our finance specialists.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Final CTA -->
+        <div class="space-y-3">
+          <a
+            href="/finance-ready-assessment/start"
+            class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-orange-500 to-orange-600 hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+          >
+            Start My Finance Ready Assessment Now
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+          <p class="text-sm text-gray-500">
+            Free - No Obligation - 3 Minutes
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Assessment Interface -->
+  <section id="assessment-interface" class="py-16 bg-gray-50" style="display: none;">
+    <div class="container-default max-w-3xl mx-auto">
+      <!-- Progress Bar Container -->
+      <div id="progress-container">
+        <!-- Will be populated by JavaScript -->
+      </div>
+      
+      <!-- Question Container -->
+      <div id="question-container">
+        <!-- Will be populated by JavaScript -->
+      </div>
+      
+      <!-- Navigation Buttons -->
+      <div class="flex justify-between mt-8">
+        <button
+          id="prev-btn" 
+          class="inline-flex items-center px-6 py-3 text-gray-600 hover:text-gray-800 transition-colors"
+          style="display: none;"
+        >
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          Back
+        </button>
+        <div class="flex-1"></div>
+        <button
+          id="next-btn"
+          class="inline-flex items-center px-8 py-3 bg-orange-500 text-white font-semibold hover:bg-orange-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          disabled
+        >
+          <span id="next-btn-text">Next Question</span>
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Loading State -->
+      <div id="calculating-results" class="text-center py-16" style="display: none;">
+        <div class="inline-flex items-center">
+          <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-500 mr-3"></div>
+          <span class="text-lg text-gray-700">Calculating Your Score...</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results Display Section -->
+  <section id="results-section" class="py-16 bg-white" style="display: none;">
+    <div class="container-default max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          Your Finance Readiness Assessment Results
+        </h2>
+        <p class="text-lg text-gray-600">
+          Based on 100+ real trades business applications
+        </p>
+      </div>
+      
+      <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+        <!-- Score Display -->
+        <div id="score-display-container" class="w-full min-h-[350px] flex items-center justify-center">
+          <!-- Will be populated by JavaScript -->
+        </div>
+        
+        <!-- Result Card -->
+        <div id="result-card-container" class="w-full">
+          <!-- Will be populated by JavaScript -->
+        </div>
+      </div>
+      
+      <!-- Recommendations Section -->
+      <div class="mt-16">
+        <div class="text-center mb-12">
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">
+            Your Strategic Next Steps
+          </h3>
+          <p class="text-lg text-gray-600">
+            Based on your specific assessment results
+          </p>
+        </div>
+        
+        <div id="recommendations-container">
+          <!-- Will be populated by JavaScript -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lead Capture Section -->
+  <section id="lead-capture-section" class="py-16 bg-gray-50" style="display: none;">
+    <div class="container-default">
+      <div id="lead-capture-container">
+        <!-- Will be populated by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Authority Matrix Section -->
+  <section class="py-16 bg-white">
+    <div class="container-default">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">
+          From the Team That's Secured $500M+ for Australian Trades Businesses
+        </h2>
+        <p class="text-lg text-gray-600">
+          Professional finance guidance from proven specialists
+        </p>
+      </div>
+      
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Track Record -->
+        <div class="text-center p-6 bg-gray-50">
+          <svg class="w-12 h-12 text-orange-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+          </svg>
+          <h3 class="font-semibold text-gray-900 mb-3">Proven Results</h3>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>$500M+ in business finance secured</li>
+            <li>100+ successful applications managed</li>
+            <li>20+ years of market experience</li>
+            <li>Established relationships with 25+ lenders</li>
+          </ul>
+        </div>
+        
+        <!-- Professional Qualifications -->
+        <div class="text-center p-6 bg-gray-50">
+          <svg class="w-12 h-12 text-orange-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+          </svg>
+          <h3 class="font-semibold text-gray-900 mb-3">Professional Qualifications</h3>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>MFAA Member - Mortgage & Finance Association</li>
+            <li>ASIC Licensed Credit Representatives</li>
+            <li>Ongoing professional development programs</li>
+            <li>Specialised business finance qualifications</li>
+          </ul>
+        </div>
+        
+        <!-- Client Outcomes -->
+        <div class="text-center p-6 bg-gray-50">
+          <svg class="w-12 h-12 text-orange-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+          </svg>
+          <h3 class="font-semibold text-gray-900 mb-3">Client Outcomes</h3>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>Faster approval times for prepared businesses</li>
+            <li>High first-application approval rate</li>
+            <li>Exceptional client satisfaction</li>
+            <li>Long-term strategic relationships built</li>
+          </ul>
+        </div>
+        
+        <!-- Trades Specialists -->
+        <div class="text-center p-6 bg-gray-50">
+          <svg class="w-12 h-12 text-orange-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+          </svg>
+          <h3 class="font-semibold text-gray-900 mb-3">Trades Business Specialists</h3>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>Industry-specific market knowledge and relationships</li>
+            <li>Understanding of trades business landscape</li>
+            <li>Established lender networks across Australia</li>
+            <li>Proven methodology developed over 20+ years</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<!-- Assessment Logic Script -->
+<script>
+  import { supabase, calculateScore, getReadinessLevel, getReadinessLevelDisplayName, getScoreColor } from '../lib/supabase.js';
+
+  // Assessment state
+  let assessmentState = {
+    currentQuestion: 1,
+    answers: {},
+    score: 0,
+    level: '',
+    completed: false,
+    started: false
+  };
+
+  // Result content by level
+  const resultContent = {
+    'elite': {
+      congratsMessage: "Outstanding! You're in the top 10% of trades businesses for finance readiness.",
+      mainCopy: "Your business demonstrates exceptional financial management and documentation standards. You're perfectly positioned to strategically plan your finance requirements for the next 12 months, aligning funding decisions with your business strategy and forecasted cash flow position. With your level of preparation, we can map out optimal timing for equipment purchases, working capital injections, and growth investments - removing surprises and ensuring you access finance on your terms, not when you're desperate.",
+      industryBenchmark: "You scored higher than most businesses at the assessment stage. This level of readiness typically results in streamlined approvals and better terms.",
+      ctaText: "Book Elite Strategy Session",
+      ctaSubtext: "Priority consultation slots for elite-ready businesses"
+    },
+    'professional': {
+      congratsMessage: "Excellent! You're well-prepared with minor optimisation opportunities available.",
+      mainCopy: "You have strong fundamentals with some areas that could be enhanced to join the elite 10%. Your business shows good financial management and reasonable documentation systems. With focused optimisation, you could achieve even better terms and streamlined approvals.",
+      industryBenchmark: "You're in the professional category where strategic optimisation delivers significant value.",
+      ctaText: "Get My Optimisation Plan",
+      ctaSubtext: "Join businesses that secure better terms faster"
+    },
+    'nearly-ready': {
+      congratsMessage: "Good foundation! You're ahead of most businesses with some key gaps to address.",
+      mainCopy: "You have solid fundamentals but several gaps that could trigger information requests during applications. These back-and-forth requests often cause frustration and can impact your negotiating position. The good news is these gaps are strategic and addressable with the right guidance.",
+      industryBenchmark: "You're in the range where professional guidance delivers maximum value.",
+      ctaText: "Get My Strategic Gap Analysis",
+      ctaSubtext: "Don't let gaps delay your next opportunity"
+    },
+    'foundation': {
+      congratsMessage: "Several areas need attention before applying for traditional finance.",
+      mainCopy: "Your business would benefit from systematic preparation before engaging with mainstream lenders. This isn't uncommon - many successful businesses start here. The key is building the right foundation systematically rather than applying prematurely and facing potential declines.",
+      industryBenchmark: "With structured preparation, most businesses move to professional readiness within 3-6 months.",
+      ctaText: "Get My Foundation Roadmap",
+      ctaSubtext: "Most businesses achieve professional readiness in 3-6 months"
+    },
+    'support': {
+      congratsMessage: "Let us help you build a strong finance foundation.",
+      mainCopy: "Your business would benefit significantly from strategic finance preparation. Currently, you're in a reactive position which limits options if finance is needed urgently. This often leads to accepting alternative finance at higher costs or missing opportunities entirely.",
+      industryBenchmark: "Our most successful client transformations start exactly where you are today. With structured guidance, we can build your finance foundation systematically.",
+      ctaText: "Book Foundation Strategy Session",
+      ctaSubtext: "Every successful business starts somewhere - let's start your transformation"
+    }
+  };
+
+  // Questions data (moved from Astro frontmatter for client-side access)
+  const questions = [
+    {
+      number: 1,
+      text: "How current are your business financial records?",
+      options: [
+        {
+          value: "A",
+          label: "Fully Current",
+          description: "Management accounts updated monthly, cash flow monitored, BAS and tax returns up to date"
+        },
+        {
+          value: "B", 
+          label: "Mostly Current",
+          description: "Quarterly BAS up to date, last financial year completed, some management reporting"
+        },
+        {
+          value: "C",
+          label: "Basic Compliance", 
+          description: "Tax returns lodged, BAS generally current, annual accounts only"
+        },
+        {
+          value: "D",
+          label: "Behind",
+          description: "Outstanding obligations, incomplete records, rely on accountant for everything"
+        }
+      ]
+    },
+    {
+      number: 2,
+      text: "What's your annual business turnover?",
+      options: [
+        {
+          value: "A",
+          label: "$10M+",
+          description: "Established business, multiple revenue streams, professional financial management"
+        },
+        {
+          value: "B",
+          label: "$3M - $10M",
+          description: "Growing business, solid revenue base, structured operations"
+        },
+        {
+          value: "C", 
+          label: "$1M - $3M",
+          description: "Owner working in business, established but growing, key person dependency"
+        },
+        {
+          value: "D",
+          label: "Under $1M",
+          description: "Owner is key person, limited debt history, may need alternative lending"
+        }
+      ]
+    },
+    {
+      number: 3,
+      text: "How well do you know your current financial position?",
+      options: [
+        {
+          value: "A",
+          label: "Complete Visibility",
+          description: "All contracts accessible, commitment schedule maintained, security position clear, asset register current"
+        },
+        {
+          value: "B",
+          label: "Good Understanding", 
+          description: "Know major assets and debts, most documentation available, some detail gaps"
+        },
+        {
+          value: "C",
+          label: "Basic Knowledge",
+          description: "General position awareness, would need to gather information, unsure of some details"
+        },
+        {
+          value: "D",
+          label: "Limited Visibility",
+          description: "Unclear on total obligations, no central records, would need significant work"
+        }
+      ]
+    },
+    {
+      number: 4,
+      text: "If a lender asked today, could you provide these documents?",
+      isChecklist: true,
+      checklistItems: [
+        "Last 2 years' financial statements",
+        "Year to Date Profit & Loss and Balance Sheet",
+        "Commitment Schedule (list of all debts & repayment details)",
+        "Statement of Position (list of assets and debts)",
+        "6 months' bank statements (all accounts)",
+        "Current lease agreement(s)",
+        "ATO portal access/tax account statements",
+        "Aged debtors/creditors reports",
+        "Current insurance policies"
+      ]
+    },
+    {
+      number: 5,
+      text: "When did you last apply for business finance?",
+      options: [
+        {
+          value: "A",
+          label: "Currently Active",
+          description: "Applied in last 6 months, know current requirements, understand the process"
+        },
+        {
+          value: "B",
+          label: "Recent Experience",
+          description: "Within last 2 years, some process understanding, may need requirement updates"
+        },
+        {
+          value: "C",
+          label: "Some Time Ago",
+          description: "2-5 years ago, requirements have likely changed, market has evolved"
+        },
+        {
+          value: "D", 
+          label: "Never/Very Long Ago",
+          description: "No recent experience, unaware of current requirements, need full guidance"
+        }
+      ]
+    }
+  ];
+
+  // Initialize assessment when page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    setupEventListeners();
+  });
+
+  function setupEventListeners() {
+    // Hero CTA buttons - navigate to start page
+    document.getElementById('hero-cta-btn')?.addEventListener('click', () => {
+      window.location.href = '/finance-ready-assessment/start';
+    });
+    document.getElementById('assessment-start-btn')?.addEventListener('click', () => {
+      window.location.href = '/finance-ready-assessment/start';
+    });
+    
+    // Navigation buttons
+    document.getElementById('next-btn')?.addEventListener('click', nextQuestion);
+    document.getElementById('prev-btn')?.addEventListener('click', previousQuestion);
+    
+    // Listen for checklist updates
+    document.addEventListener('checklistUpdated', function(e) {
+      assessmentState.answers['q4'] = e.detail.count;
+      updateNextButton();
+    });
+  }
+
+  function startAssessment() {
+    assessmentState.started = true;
+    assessmentState.currentQuestion = 1;
+    
+    // Show assessment interface
+    document.getElementById('assessment-interface').style.display = 'block';
+    
+    // Scroll to assessment
+    document.getElementById('assessment-interface').scrollIntoView({ 
+      behavior: 'smooth' 
+    });
+    
+    // Render first question
+    renderQuestion();
+  }
+
+  function renderQuestion() {
+    const question = questions[assessmentState.currentQuestion - 1];
+    const percentage = ((assessmentState.currentQuestion - 1) / 5) * 100;
+    
+    // Update progress bar
+    document.getElementById('progress-container').innerHTML = `
+      <div class="mb-8">
+        <div class="flex justify-between text-sm text-gray-600 mb-2">
+          <span>Question ${assessmentState.currentQuestion} of 5</span>
+          <span>${percentage.toFixed(0)}% complete</span>
+        </div>
+        <div class="h-2 bg-gray-200">
+          <div class="h-full bg-orange-500 transition-all duration-300" style="width: ${percentage}%"></div>
+        </div>
+        <div class="mt-2 text-xs text-gray-500 text-center">
+          Less than ${Math.ceil((5 - assessmentState.currentQuestion) * 0.5)} minute${Math.ceil((5 - assessmentState.currentQuestion) * 0.5) !== 1 ? 's' : ''} remaining
+        </div>
+      </div>
+    `;
+    
+    // Render question
+    if (question.isChecklist) {
+      renderChecklistQuestion(question);
+    } else {
+      renderRadioQuestion(question);
+    }
+    
+    // Update navigation buttons
+    updateNavigationButtons();
+  }
+
+  function renderRadioQuestion(question) {
+    const selectedValue = assessmentState.answers[`q${question.number}`];
+    
+    const optionsHTML = question.options.map(option => `
+      <label class="block cursor-pointer group">
+        <div class="border-2 p-5 transition-all hover:transform hover:translate-x-1 ${
+          selectedValue === option.value 
+            ? 'border-orange-500 bg-orange-50' 
+            : 'border-gray-200 hover:border-orange-500 hover:bg-orange-50'
+        }">
+          <div class="flex items-start">
+            <input
+              type="radio"
+              name="question-${question.number}"
+              value="${option.value}"
+              ${selectedValue === option.value ? 'checked' : ''}
+              class="mt-1 h-4 w-4 text-orange-500 focus:ring-orange-500 border-gray-300"
+              onchange="handleAnswerChange('q${question.number}', '${option.value}')"
+            />
+            <div class="ml-3 flex-1">
+              <div class="font-medium text-gray-700">${option.label}</div>
+              <div class="text-sm text-gray-500 mt-1">${option.description}</div>
+            </div>
+            ${selectedValue === option.value ? `
+              <svg class="w-6 h-6 text-orange-500 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            ` : ''}
+          </div>
+        </div>
+      </label>
+    `).join('');
+    
+    document.getElementById('question-container').innerHTML = `
+      <div class="bg-white border border-gray-200 shadow-sm p-8 sm:p-12">
+        <div class="text-sm font-medium text-orange-500 uppercase tracking-wider">
+          QUESTION ${question.number} OF 5
+        </div>
+        <h2 class="text-xl sm:text-2xl font-semibold text-gray-900 mt-4 mb-8">
+          ${question.text}
+        </h2>
+        <div class="space-y-4">
+          ${optionsHTML}
+        </div>
+        ${renderTrustIndicators()}
+      </div>
+    `;
+  }
+
+  function renderChecklistQuestion(question) {
+    const checkedCount = assessmentState.answers[`q${question.number}`] || 0;
+    
+    const itemsHTML = question.checklistItems.map((item, index) => `
+      <label class="flex items-start cursor-pointer group">
+        <input
+          type="checkbox"
+          name="checklist-item"
+          value="${index}"
+          class="mt-1 h-5 w-5 text-orange-500 border-gray-300 focus:ring-orange-500"
+          onchange="updateChecklistCount()"
+        />
+        <span class="ml-3 text-gray-700 group-hover:text-gray-900">${item}</span>
+      </label>
+    `).join('');
+    
+    document.getElementById('question-container').innerHTML = `
+      <div class="bg-white border border-gray-200 shadow-sm p-8 sm:p-12">
+        <div class="text-sm font-medium text-orange-500 uppercase tracking-wider">
+          QUESTION ${question.number} OF 5
+        </div>
+        <h2 class="text-xl sm:text-2xl font-semibold text-gray-900 mt-4 mb-8">
+          ${question.text}
+        </h2>
+        <p class="text-base text-gray-700 mb-6">
+          Tick all items you could provide within 24 hours:
+        </p>
+        <div class="space-y-3 mb-8">
+          ${itemsHTML}
+        </div>
+        <div class="text-sm text-gray-500 mb-6">
+          Items checked: <span id="checked-count">${checkedCount}</span> / ${question.checklistItems.length}
+        </div>
+        ${renderTrustIndicators()}
+      </div>
+    `;
+  }
+
+  function renderTrustIndicators() {
+    return `
+      <div class="mt-8 flex flex-wrap gap-6 text-xs text-gray-500">
+        <div class="flex items-center">
+          <svg class="w-4 h-4 mr-2 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-9a2 2 0 00-2-2H6a2 2 0 00-2 2v9a2 2 0 002 2zm10-12V6a4 4 0 00-8 0v3h8z"></path>
+          </svg>
+          Secure & Confidential Assessment
+        </div>
+        <div class="flex items-center">
+          <svg class="w-4 h-4 mr-2 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          Takes 3 minutes on average
+        </div>
+        <div class="flex items-center">
+          <svg class="w-4 h-4 mr-2 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+          </svg>
+          Used by 100+ businesses
+        </div>
+        <div class="flex items-center">
+          <svg class="w-4 h-4 mr-2 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+          </svg>
+          No sensitive information required
+        </div>
+      </div>
+    `;
+  }
+
+  function updateNavigationButtons() {
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const nextBtnText = document.getElementById('next-btn-text');
+    
+    // Show/hide previous button
+    if (assessmentState.currentQuestion > 1) {
+      prevBtn.style.display = 'inline-flex';
+    } else {
+      prevBtn.style.display = 'none';
+    }
+    
+    // Update next button
+    if (assessmentState.currentQuestion === 5) {
+      nextBtnText.textContent = 'Get My Results';
+    } else {
+      nextBtnText.textContent = 'Next Question';
+    }
+    
+    updateNextButton();
+  }
+
+  function updateNextButton() {
+    const nextBtn = document.getElementById('next-btn');
+    const currentAnswer = assessmentState.answers[`q${assessmentState.currentQuestion}`];
+    
+    if (currentAnswer !== undefined) {
+      nextBtn.disabled = false;
+    } else {
+      nextBtn.disabled = true;
+    }
+  }
+
+  // Global functions for inline event handlers
+  window.handleAnswerChange = function(questionKey, value) {
+    assessmentState.answers[questionKey] = value;
+    updateNextButton();
+  };
+
+  window.updateChecklistCount = function() {
+    const checkboxes = document.querySelectorAll('input[name="checklist-item"]:checked');
+    const count = checkboxes.length;
+    document.getElementById('checked-count').textContent = count;
+    
+    assessmentState.answers[`q${assessmentState.currentQuestion}`] = count;
+    updateNextButton();
+  };
+
+  function nextQuestion() {
+    if (assessmentState.currentQuestion < 5) {
+      assessmentState.currentQuestion++;
+      renderQuestion();
+    } else {
+      calculateResults();
+    }
+  }
+
+  function previousQuestion() {
+    if (assessmentState.currentQuestion > 1) {
+      assessmentState.currentQuestion--;
+      renderQuestion();
+    }
+  }
+
+  function calculateResults() {
+    // Show loading state
+    document.getElementById('question-container').style.display = 'none';
+    document.getElementById('calculating-results').style.display = 'block';
+    
+    // Calculate score after delay for UX
+    setTimeout(() => {
+      assessmentState.score = calculateScore(assessmentState.answers);
+      assessmentState.level = getReadinessLevel(assessmentState.score);
+      assessmentState.completed = true;
+      
+      // Store in session storage for lead capture form
+      sessionStorage.setItem('assessmentData', JSON.stringify({
+        ...assessmentState.answers,
+        score: assessmentState.score,
+        level: assessmentState.level
+      }));
+      
+      // Hide assessment interface and show results
+      document.getElementById('assessment-interface').style.display = 'none';
+      showResults();
+    }, 2000);
+  }
+
+  function showResults() {
+    const content = resultContent[assessmentState.level];
+    const displayName = getReadinessLevelDisplayName(assessmentState.level);
+    const color = getScoreColor(assessmentState.level);
+    
+    // Show results section
+    document.getElementById('results-section').style.display = 'block';
+    
+    // Render score display
+    document.getElementById('score-display-container').innerHTML = renderScoreDisplay();
+    
+    // Render result card
+    document.getElementById('result-card-container').innerHTML = renderResultCard(content, displayName);
+    
+    // Render recommendations
+    document.getElementById('recommendations-container').innerHTML = renderRecommendations();
+    
+    // Show lead capture section
+    document.getElementById('lead-capture-section').style.display = 'block';
+    document.getElementById('lead-capture-container').innerHTML = renderLeadCapture();
+    
+    // Scroll to results
+    document.getElementById('results-section').scrollIntoView({ 
+      behavior: 'smooth' 
+    });
+  }
+
+  function renderScoreDisplay() {
+    const color = getScoreColor(assessmentState.level);
+    const percentage = (assessmentState.score / 50) * 100;
+    const circumference = 2 * Math.PI * 88;
+    const strokeDasharray = `${(percentage / 100) * circumference} ${circumference}`;
+    
+    return `
+      <div class="text-center py-4 sm:py-8 lg:py-12 w-full">
+        <div class="relative inline-flex items-center justify-center max-w-full">
+          <svg class="w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 transform -rotate-90 max-w-full" viewBox="0 0 192 192">
+            <circle cx="96" cy="96" r="88" stroke="#E5E7EB" stroke-width="12" fill="none"/>
+            <circle cx="96" cy="96" r="88" stroke="${color}" stroke-width="12" fill="none" 
+                    stroke-dasharray="${strokeDasharray}" stroke-linecap="round" class="animate-draw-circle"/>
+          </svg>
+          <div class="absolute inset-0 flex flex-col items-center justify-center">
+            <div class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-none" style="color: ${color}">
+              ${assessmentState.score}
+            </div>
+            <div class="text-xs sm:text-sm text-gray-500 mt-1">out of 50</div>
+          </div>
+        </div>
+        <div class="mt-4 sm:mt-6 text-sm text-gray-600">
+          <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium" 
+               style="background-color: ${color}20; color: ${color}">
+            ${percentage.toFixed(0)}% Finance Ready
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderResultCard(content, displayName) {
+    const color = getScoreColor(assessmentState.level);
+    
+    return `
+      <div class="bg-white border-2 shadow-lg p-6 sm:p-8" style="border-color: ${color}">
+        <div class="text-center mb-8">
+          <div class="text-lg sm:text-xl font-bold mb-2" style="color: ${color}">
+            ${displayName}
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">
+            ${content.congratsMessage}
+          </h2>
+        </div>
+        <div class="space-y-6 text-gray-700 text-base sm:text-lg leading-relaxed">
+          <p>${content.mainCopy}</p>
+          <div class="bg-gray-50 p-6 border-l-4" style="border-left-color: ${color}">
+            <div class="flex items-start">
+              <svg class="w-6 h-6 mt-1 mr-3 flex-shrink-0" style="color: ${color}" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-2">Industry Benchmark</h3>
+                <p class="text-gray-700">${content.industryBenchmark}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-50 p-6 sm:p-8 mt-8 text-center">
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">Ready for Your Next Step?</h3>
+          <button class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white transition-all duration-300 hover:shadow-lg transform hover:scale-105"
+                  style="background: linear-gradient(135deg, ${color}, ${color}dd)"
+                  onclick="document.getElementById('lead-capture').scrollIntoView({ behavior: 'smooth' })">
+            ${content.ctaText}
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </button>
+          <p class="text-sm text-gray-600 mt-3">${content.ctaSubtext}</p>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderRecommendations() {
+    return `
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center p-6 bg-gray-50">
+          <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-gray-900 mb-2">Download Your Report</h3>
+          <p class="text-sm text-gray-600 mb-4">Get your personalised Finance Ready checklist and detailed analysis.</p>
+          <button class="text-orange-600 hover:text-orange-700 text-sm font-medium"
+                  onclick="document.getElementById('lead-capture').scrollIntoView({ behavior: 'smooth' })">
+            Access Report →
+          </button>
+        </div>
+        
+        <div class="text-center p-6 bg-gray-50">
+          <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-gray-900 mb-2">Lending Playbook</h3>
+          <p class="text-sm text-gray-600 mb-4">Insider guide to Australia's best trades lending options and qualification requirements.</p>
+          <button class="text-orange-600 hover:text-orange-700 text-sm font-medium"
+                  onclick="document.getElementById('lead-capture').scrollIntoView({ behavior: 'smooth' })">
+            Get Playbook →
+          </button>
+        </div>
+        
+        <div class="text-center p-6 bg-gray-50">
+          <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-gray-900 mb-2">Strategy Session</h3>
+          <p class="text-sm text-gray-600 mb-4">15-minute consultation with our finance specialists to discuss your specific situation.</p>
+          <button class="text-orange-600 hover:text-orange-700 text-sm font-medium"
+                  onclick="document.getElementById('lead-capture').scrollIntoView({ behavior: 'smooth' })">
+            Book Session →
+          </button>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderLeadCapture() {
+    const levelDisplayName = getReadinessLevelDisplayName(assessmentState.level);
+    
+    return `
+      <div id="lead-capture" class="bg-white border-2 border-orange-500 p-6 sm:p-8 max-w-2xl mx-auto">
+        <div class="text-center mb-8">
+          <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+            Get Your Complete Finance Ready Package
+          </h3>
+          <p class="text-gray-600 text-lg">
+            Detailed report plus exclusive resources - $1,035 value
+          </p>
+          <div class="inline-flex items-center px-4 py-2 bg-orange-100 text-orange-800 text-sm font-medium mt-4">
+            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Your Score: ${assessmentState.score}/50 - ${levelDisplayName}
+          </div>
+        </div>
+
+        <!-- Value Stack Reminder -->
+        <div class="bg-gray-50 p-6 mb-8">
+          <h4 class="font-semibold text-gray-900 mb-4">Here's everything in your complete package:</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+            <div class="flex items-start">
+              <svg class="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>Personalised Finance Readiness Report (PDF)</span>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>Custom Action Checklist for Your Score Level</span>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>Finance Ready Lending Playbook</span>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>Business Debt Servicing Calculator (Excel)</span>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>7-Day Email Course: Days to Finance Ready</span>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>Application Timeline Template</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <form id="lead-capture-form" class="space-y-6">
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+              Email Address *
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="your@email.com"
+              class="w-full px-4 py-3 border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 focus:ring-opacity-20 transition-colors"
+            />
+          </div>
+          
+          <div>
+            <label for="business_name" class="block text-sm font-medium text-gray-700 mb-2">
+              Business Name
+            </label>
+            <input
+              type="text"
+              id="business_name"
+              name="business_name"
+              placeholder="Your Business Pty Ltd"
+              class="w-full px-4 py-3 border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 focus:ring-opacity-20 transition-colors"
+            />
+          </div>
+          
+          <div>
+            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">
+              Phone Number
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="0400 000 000"
+              class="w-full px-4 py-3 border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 focus:ring-opacity-20 transition-colors"
+            />
+          </div>
+
+          <!-- Loading state -->
+          <div id="form-loading" class="hidden text-center py-4">
+            <div class="inline-flex items-center">
+              <div class="animate-spin rounded-full h-4 w-4 border-b-2 border-orange-500 mr-2"></div>
+              <span class="text-gray-600">Sending your package...</span>
+            </div>
+          </div>
+
+          <!-- Error state -->
+          <div id="form-error" class="hidden bg-red-50 border border-red-200 p-4 text-red-700 text-sm">
+            <p>There was an error sending your package. Please try again or contact us directly.</p>
+          </div>
+        
+          <button
+            type="submit"
+            id="submit-btn"
+            class="w-full py-4 px-6 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold text-lg hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300"
+          >
+            Send My $1,035 Package Now
+          </button>
+          
+          <p class="text-xs text-gray-500 text-center">
+            Instant access - check your email in 2 minutes
+          </p>
+        </form>
+        
+        <!-- Privacy Notice -->
+        <div class="mt-6 pt-6 border-t border-gray-200">
+          <div class="flex flex-wrap gap-4 justify-center text-xs text-gray-500">
+            <div class="flex items-center">
+              <svg class="w-4 h-4 mr-1 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 15v2m-6 4h12a2 2 0 002-2v-9a2 2 0 00-2-2H6a2 2 0 00-2 2v9a2 2 0 002 2zm10-12V6a4 4 0 00-8 0v3h8z"/>
+              </svg>
+              Your information is 100% secure and confidential
+            </div>
+            <div class="flex items-center">
+              <svg class="w-4 h-4 mr-1 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              We respect your privacy - never shared with third parties
+            </div>
+            <div class="flex items-center">
+              <svg class="w-4 h-4 mr-1 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+              Unsubscribe anytime with one click
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+</script>
+
+<style>
+  @keyframes draw-circle {
+    from {
+      stroke-dasharray: 0 553;
+    }
+    to {
+      stroke-dasharray: var(--stroke-dasharray);
+    }
+  }
+  
+  .animate-draw-circle {
+    animation: draw-circle 2s ease-out forwards;
+  }
+  
+  /* Custom styles for the assessment */
+  .container-default {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  @media (min-width: 640px) {
+    .container-default {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container-default {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  /* Responsive Design Fixes for Mobile */
+  @media (max-width: 640px) {
+    .container-default {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    .text-3xl {
+      font-size: 1.875rem !important;
+      line-height: 2.25rem !important;
+    }
+    
+    .text-4xl {
+      font-size: 2.25rem !important;
+      line-height: 2.5rem !important;
+    }
+    
+    .gap-12 {
+      gap: 2rem !important;
+    }
+    
+    .py-16 {
+      padding-top: 3rem !important;
+      padding-bottom: 3rem !important;
+    }
+    
+    .mb-12 {
+      margin-bottom: 2rem !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .container-default {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
+    
+    .text-2xl {
+      font-size: 1.5rem !important;
+      line-height: 2rem !important;
+    }
+    
+    .text-3xl {
+      font-size: 1.75rem !important;
+      line-height: 2rem !important;
+    }
+    
+    .py-16 {
+      padding-top: 2rem !important;
+      padding-bottom: 2rem !important;
+    }
+    
+    .mb-12 {
+      margin-bottom: 1.5rem !important;
+    }
+  }
+
+  /* Score display responsive improvements */
+  #score-display-container {
+    overflow: visible !important;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #result-card-container {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  /* Fix grid responsiveness */
+  @media (max-width: 1023px) {
+    .lg\\:grid-cols-2 {
+      grid-template-columns: 1fr !important;
+      gap: 2rem !important;
+    }
+  }
+
+  /* Ensure proper text scaling and prevent overflow */
+  .max-w-full {
+    max-width: 100% !important;
+  }
+  
+  .overflow-hidden {
+    overflow: hidden !important;
+  }
+</style>
+</Layout>

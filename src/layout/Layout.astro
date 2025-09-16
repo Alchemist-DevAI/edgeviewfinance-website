@@ -1,0 +1,102 @@
+---
+// CSS Import Order - Optimized Cascade Hierarchy
+// 1. External Dependencies (Foundation)
+import "jos-animation/dist/jos.css";
+import "@fontsource/instrument-sans/400.css";
+import "@fontsource/instrument-sans/500.css";
+import "@fontsource/instrument-sans/600.css";
+import "@fontsource/instrument-sans/700.css";
+import "@fortawesome/fontawesome-free/css/all.css";
+
+// 2. Framework Base Layer
+import "../css/tailwind.css";
+
+// 3. Design Token Layer
+import "../css/variables.css";
+
+// 3.5. Font Optimization Layer (for performance)
+import "../css/font-optimization.css";
+
+// 4. Utility Layer
+import "../css/typography-utilities.css";
+
+// 5. Component Layer
+import "../css/menu.css";
+import "../css/custom.css";
+
+// 6. Override Layer (most specific last)
+import "../css/global-overrides.css";
+import "../css/page-specific-overrides.css";
+import "../css/hero-section.css";
+
+// 7. Component Imports
+import Header from "../components/ui/Header.astro";
+import Footer from "../components/ui/Footer.astro";
+import GoogleAnalytics from "../components/analytics/GoogleAnalytics.astro";
+import { getEntryBySlug } from "astro:content";
+const { title } = Astro.props;
+const MetaData = await getEntryBySlug("site", "meta");
+const { siteName, description, favicon } = MetaData?.data;
+---
+
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>{siteName}{" "} | {" "}{title}</title>
+    <meta
+      name='description'
+      content={description ? description : "Agency11 Theme"}
+    />
+    <link rel='icon' href={favicon || "/favicon.webp"} />
+    <!-- Preload critical hero image for LCP optimization -->
+    {Astro.url.pathname === '/' && (
+      <link rel='preload' as='image' href='/assets/images/hero-tradie-optimized.webp' fetchpriority='high' />
+    )}
+
+    <!-- Critical CSS inlined for LCP -->
+    <style>
+      /* Critical CSS for Above-the-Fold Content */
+      .font-InstrumentSans{font-family:'Instrument Sans',system-ui,-apple-system,sans-serif}.text-hero{font-size:1.75rem;line-height:1.2}@media (min-width:1024px){.text-hero{font-size:3rem}}.container-default{width:100%;max-width:1200px;margin:0 auto;padding:0 1rem}@media (min-width:1024px){.container-default{padding:0 2rem}}.grid{display:grid}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:1024px){.lg\:grid-cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}.lg\:col-span-3{grid-column:span 3/span 3}.lg\:col-span-2{grid-column:span 2/span 2}}.gap-8{gap:2rem}@media (min-width:1024px){.lg\:gap-12{gap:3rem}}.text-ColorBlack{color:#1f2937}.bg-\[#f97316\]{background-color:#f97316}.text-white{color:#ffffff}.hover\:bg-\[#ea580c\]:hover{background-color:#ea580c}.mb-6{margin-bottom:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-4{padding-top:1rem;padding-bottom:1rem}.font-bold{font-weight:700}.w-full{width:100%}.h-auto{height:auto}.relative{position:relative}.z-10{z-index:10}.section-hero{background-color:#FDFBF9;padding-top:2rem;padding-bottom:2rem}@media (min-width:1024px){.section-hero{padding-top:4rem;padding-bottom:4rem}}
+    </style>
+
+    <!-- Force mobile menu submenu styling -->
+    <link rel='stylesheet' href='/assets/css/mobile-menu-fix.css' />
+    <!-- Calendly widget styling -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <!-- Google Analytics GA4 - Optimized Component -->
+    <GoogleAnalytics />
+  </head>
+  <body>
+    <div class=`page-wrapper relative z-[1] ${Astro.url.pathname==='/'?'bg-[#FDFBF9]':'bg-white'}`>
+      <Header />
+      <slot />
+      <Footer />
+    </div>
+  </body>
+</html>
+
+<script src='/assets/js/menu.js' is:inline></script>
+<script src='/assets/js/countdown.js' is:inline></script>
+<script src='/assets/js/counterup.js' is:inline></script>
+<script src='/assets/js/main.js' is:inline></script>
+<!-- Calendly widget script -->
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<!-- Analytics Initialization -->
+<script type="module" src="/src/scripts/analytics-init.js"></script>
+<!-- JOS animations disabled for static display -->
+<!-- <script>
+  import JOS from "jos-animation";
+  JOS.init({
+    passive: false,
+    once: true,
+    animation: "fade-up",
+    timingFunction: "ease",
+    threshold: 0,
+    delay: 0.5,
+    duration: 0.7,
+    scrollDirection: "down",
+    rootMargin: "0% 0% 15% 0%",
+  });
+</script> -->

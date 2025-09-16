@@ -1,0 +1,155 @@
+---
+import Layout from '../layout/Layout.astro';
+import SuccessStoryModal from '../components/functional/SuccessStoryModal.jsx';
+
+// Page metadata
+const title = "Success Stories | Commercial Finance Results | Edgeview Finance";
+const description = "Real success stories from 100+ businesses. See how we've helped secure over $500M+ in commercial finance across equipment, property, and working capital.";
+const keywords = "commercial finance success stories, business funding results, equipment finance case studies, commercial property finance Brisbane";
+
+// Real success stories data - approved case studies only
+const successStories = [
+  {
+    id: 1,
+    title: "Commercial Property Purchase",
+    business: "High-Access Property Maintenance Business",
+    amount: "$670,000",
+    type: "Commercial Property",
+    location: "Gold Coast, QLD",
+    industry: "Specialised Trade Services",
+    challenge: "After three successful years of trading, this specialised high-access property maintenance business had reached a critical growth juncture. Operating from the owner's home had become untenable - equipment and stock storage were overwhelming the domestic space, and the business needed a professional premises to support continued expansion. The business owner faced a strategic decision: commit to ongoing rental payments to a landlord or leverage the equity built in his home to acquire a commercial property.",
+    solution: "Edgeview Finance structured a comprehensive $670,000 commercial property purchase facility that addressed both immediate operational needs and long-term strategic objectives. The finance solution utilised multiple security elements including the commercial property being purchased, supporting residential equity, corporate guarantee, and personal guarantees to achieve 100% finance with no cash deposit required while optimising the interest rate.",
+    process: "Edgeview Finance's systematic approach ensured smooth execution from initial consultation through to settlement in just 44 calendar days. As an existing residential client, comprehensive client information was already available, minimising documentation requests. The team conducted thorough borrowing capacity analysis, worked directly with the client's accountant, selected a major bank lender that could maximise borrowing capacity, and maintained consistent communication throughout to ensure timely settlement.",
+    result: "The commercial property purchase delivered immediate operational transformation by successfully relocating all equipment and stock to professional premises, eliminating space constraints. Monthly loan repayments were structured lower than equivalent rental payments while building equity. The business established a professional presence, maintained $1M+ annual revenue capacity, and created additional income streams by subletting unused factory space to accelerate loan repayment.",
+    terms: [
+      "100% finance with no deposit required", 
+      "Competitive commercial lending rate", 
+      "25-year loan term", 
+      "Principal and interest repayments"
+    ],
+    metrics: [
+      { value: "100%", label: "Finance with no deposit" },
+      { value: "44 days", label: "Settlement timeframe" },
+      { value: "$670K", label: "Total facility" }
+    ],
+    testimonial: "Working with Edgeview Finance made what could have been a complex process surprisingly straightforward. They understood our business needs from day one and structured a solution that not only solved our immediate space problem but positioned us for long-term growth. The fact that our loan repayments are actually lower than what we would have paid in rent, while we're building equity in our own asset, made this decision easy. The team's professionalism and their existing relationship with our accountant meant minimal time requirements from us. We're now generating additional income by subletting part of the space, which is accelerating our loan repayment even further.",
+    clientName: "Business Owner",
+    keywords: ["commercial property finance", "Gold Coast business loan", "rope access services", "100% commercial finance", "trade business property"],
+    category: "Property Purchase",
+    featured: true,
+    publishDate: "2025-01-03"
+  }
+];
+---
+
+<Layout title={title} description={description} keywords={keywords}>
+  <main class="main-wrapper relative overflow-hidden">
+    
+    <!-- Hero Section -->
+    <section class="hero-section py-24 bg-white">
+      <div class="container-default max-w-6xl mx-auto px-4">
+        <div class="text-center">
+          <div class="text-lg font-medium text-[#f97316] mb-4">Proven Results</div>
+          <h1 class="font-InstrumentSans text-5xl lg:text-6xl font-bold text-[#1C2C3B] mb-6">
+            Real Success Stories From Business Clients
+          </h1>
+          <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
+            See how we've helped businesses like yours secure over $500M+ in commercial & business finance. From equipment loans to property acquisitions, these are their stories.
+          </p>
+          <div class="flex flex-col items-center">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-3">
+              <a 
+                href="/finance-ready-assessment" 
+                class="inline-block bg-[#f97316] text-white font-medium px-8 py-4 text-center transition-colors duration-300 hover:bg-orange-600"
+              >
+                Take Finance Ready Assessment
+              </a>
+              <a 
+                href="#stories" 
+                class="inline-block border-2 border-[#1C2C3B] text-[#1C2C3B] font-medium px-8 py-4 text-center transition-colors duration-300 hover:bg-[#1C2C3B] hover:text-white"
+              >
+                Browse Success Stories
+              </a>
+            </div>
+            <div class="text-sm text-gray-500 text-center">
+              (Complete the Finance Readiness Assessment in 30 secs. No Personal Details Required.)
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Overview -->
+    <section class="results-overview py-16 bg-gray-50">
+      <div class="container-default max-w-6xl mx-auto px-4">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+          <div>
+            <div class="text-3xl lg:text-4xl font-bold text-[#1C2C3B] mb-2">100+</div>
+            <div class="text-gray-600">Businesses Funded</div>
+          </div>
+          <div>
+            <div class="text-3xl lg:text-4xl font-bold text-[#1C2C3B] mb-2">$500M+</div>
+            <div class="text-gray-600">Total Finance Arranged</div>
+          </div>
+          <div>
+            <div class="text-3xl lg:text-4xl font-bold text-[#1C2C3B] mb-2">98%</div>
+            <div class="text-gray-600">Client Satisfaction Rate</div>
+          </div>
+          <div>
+            <div class="text-3xl lg:text-4xl font-bold text-[#1C2C3B] mb-2">20+</div>
+            <div class="text-gray-600">Years Experience</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Success Stories Grid -->
+    <section id="stories" class="success-stories py-16 bg-white">
+      <div class="container-default max-w-6xl mx-auto px-4">
+        <h2 class="font-InstrumentSans text-4xl font-bold text-[#1C2C3B] mb-12 text-center">
+          Recent Success Stories
+        </h2>
+        
+        <SuccessStoryModal stories={successStories} client:load />
+
+        <div class="text-center mt-12">
+          <p class="text-gray-600 mb-6">
+            Ready to write your own success story?
+          </p>
+          <a 
+            href="/finance-ready-assessment" 
+            class="inline-block bg-[#f97316] text-white font-medium px-8 py-4 transition-colors duration-300 hover:bg-orange-600"
+          >
+            Take Finance Ready Assessment
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Layout>
+
+<style>
+/* Ensure no border radius (sharp corners) */
+* {
+  border-radius: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+  
+  .results-overview {
+    padding: 3rem 1rem;
+  }
+  
+  .success-stories {
+    padding: 3rem 1rem;
+  }
+  
+  .story-card {
+    padding: 1.5rem;
+  }
+}
+</style>

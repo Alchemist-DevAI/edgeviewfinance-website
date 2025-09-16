@@ -1,0 +1,328 @@
+---
+// Contact Page - Edgeview Finance
+// Implements the MASTER-ARCHITECTURE-DOCUMENT v5.0 PUBLISH READY specifications
+// All 10 sections as specified in the architecture document
+
+import Layout from "../layout/Layout.astro";
+import ContactHero from "../components/Contact/ContactHero.astro";
+import ContactMethods from "../components/Contact/ContactMethods.astro";
+import ResponseGuarantee from "../components/Contact/ResponseGuarantee.astro";
+import ContactForm from "../components/Contact/ContactForm.astro";
+import BusinessInfo from "../components/Contact/BusinessInfo.astro";
+import ContactFAQ from "../components/Contact/ContactFAQ.astro";
+import TrustCredentials from "../components/Contact/TrustCredentials.astro";
+import "../css/contact-page.css";
+---
+
+<Layout 
+  title='Contact Us - Get Your Business Finance Sorted Today | Edgeview Finance'
+  description='Get answers to your business finance questions today. Call 1300 280 895 to speak directly with Dan Peters. Same-day response guaranteed. Queensland commercial finance specialist.'
+>
+  <main class='main-wrapper relative overflow-hidden'>
+    
+    <!-- Section 2: HERO SECTION - NEW COMPONENT -->
+    <!-- White background with dark text, matching homepage design -->
+    <ContactHero />
+    
+    <!-- Section 3: CONTACT METHODS OVERVIEW - NEW COMPONENT -->
+    <!-- Three-card layout with professional design matching homepage -->
+    <ContactMethods />
+    
+    <!-- Section 4: RESPONSE GUARANTEE - NEW COMPONENT -->
+    <!-- Response time guarantees and what to prepare section -->
+    <ResponseGuarantee />
+    
+    <!-- Section 5: CONTACT FORM - NEW COMPONENT -->
+    <!-- Comprehensive finance assessment form -->
+    <ContactForm />
+    
+    <!-- Section 6: BUSINESS INFORMATION & HOURS - NEW COMPONENT -->
+    <!-- Contact details, business hours, and location information -->
+    <BusinessInfo />
+    
+    <!-- Section 7: TRUST & CREDENTIALS - NEW COMPONENT -->
+    <!-- Professional credentials and compliance information -->
+    <TrustCredentials />
+    
+    <!-- Section 8: FAQ SECTION - NEW COMPONENT -->
+    <!-- Accordion-style frequently asked questions -->
+    <ContactFAQ />
+    
+  </main>
+</Layout>
+
+<style>
+/* Global contact page styles */
+:root {
+  /* Brand Colors - Exact match with homepage */
+  --color-primary: #f97316;
+  --color-dark: #1C2C3B;
+  --color-success: #22C55E;
+  --color-gray-50: #F9FAFB;
+  --color-gray-600: #4B5563;
+}
+
+/* Ensure consistent sharp corners throughout - matching homepage */
+* {
+  border-radius: 0 !important;
+}
+
+/* Ensure buttons have consistent sharp styling */
+.btn,
+.btn-primary,
+.btn-secondary,
+button[type="submit"],
+a[class*="bg-"] {
+  border-radius: 0 !important;
+}
+
+/* Smooth scroll behavior for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus states for accessibility */
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Click-to-call styling for mobile */
+@media (max-width: 768px) {
+  a[href^="tel:"] {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  a[href^="tel:"]:hover {
+    color: #ea580c;
+  }
+}
+
+/* Form validation styling */
+.error {
+  border-color: #ef4444 !important;
+}
+
+.error-message {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Loading state for form submission */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Animation for smooth interactions */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ensure proper spacing for contact page sections */
+.section-hero,
+.section-contact-methods,
+.section-response-guarantee,
+.section-contact-form,
+.section-business-info,
+.section-contact-faq,
+.section-trust-credentials {
+  position: relative;
+}
+
+/* Mobile-first responsive design improvements */
+@media (max-width: 640px) {
+  .container-default {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Ensure buttons are touch-friendly */
+  button,
+  a.btn-primary,
+  .btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Stack form elements on mobile */
+  .grid {
+    gap: 1rem;
+  }
+}
+
+/* Print styles for accessibility */
+@media print {
+  .section-contact-form,
+  .section-cta {
+    display: none;
+  }
+  
+  a[href^="tel:"]::after {
+    content: " (" attr(href) ")";
+  }
+  
+  a[href^="mailto:"]::after {
+    content: " (" attr(href) ")";
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .bg-gray-50 {
+    background-color: #ffffff;
+  }
+  
+  .text-gray-600 {
+    color: #000000;
+  }
+  
+  .border-gray-300 {
+    border-color: #000000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+</style>
+
+<!-- Structured Data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Edgeview Finance",
+  "image": "https://edgeviewfinance.com.au/assets/images/edgeview-finance-logo.png",
+  "@id": "https://edgeviewfinance.com.au/contact",
+  "url": "https://edgeviewfinance.com.au",
+  "telephone": "1300280895",
+  "email": "financeteam@edgeviewfinance.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "PO BOX 9122",
+    "addressLocality": "GCMC",
+    "addressRegion": "QLD",
+    "postalCode": "9726",
+    "addressCountry": "AU"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -27.9704,
+    "longitude": 153.4256
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "08:30",
+      "closes": "17:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00",
+      "closes": "13:00"
+    }
+  ],
+  "serviceArea": {
+    "@type": "State",
+    "name": "Queensland"
+  },
+  "sameAs": [
+    "https://au.linkedin.com/company/edgeview-finance",
+    "https://www.facebook.com/EdgeviewFinance/"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "1300280895",
+    "email": "financeteam@edgeviewfinance.com.au",
+    "contactType": "customer service",
+    "availableLanguage": "en-AU",
+    "serviceType": "Commercial Finance Brokerage"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "100+"
+  },
+  "priceRange": "Free Consultation",
+  "paymentAccepted": "All major finance options",
+  "currenciesAccepted": "AUD"
+}
+</script>
+
+<!-- Analytics and tracking -->
+<script>
+// Contact page analytics tracking
+document.addEventListener('DOMContentLoaded', function() {
+  // Track phone click events
+  const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+  phoneLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      // Analytics tracking code would go here
+      console.log('Phone CTA clicked:', this.href);
+    });
+  });
+  
+  // Track email click events
+  const emailLinks = document.querySelectorAll('a[href^="mailto:"]');
+  emailLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      // Analytics tracking code would go here
+      console.log('Email CTA clicked:', this.href);
+    });
+  });
+  
+  // Track form interactions
+  const form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', function() {
+      // Analytics tracking code would go here
+      console.log('Contact form submitted');
+    });
+  }
+  
+  // Track FAQ interactions
+  const faqQuestions = document.querySelectorAll('.faq-question');
+  faqQuestions.forEach(question => {
+    question.addEventListener('click', function() {
+      const questionText = this.querySelector('span').textContent;
+      // Analytics tracking code would go here
+      console.log('FAQ opened:', questionText);
+    });
+  });
+});
+</script>
