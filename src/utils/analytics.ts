@@ -1,6 +1,7 @@
 /**
- * Google Analytics 4 Utility Functions
+ * Analytics Utility Functions
  * Enhanced tracking for Edgeview Finance website
+ * Includes GA4, Microsoft Clarity, UTM tracking, and call tracking
  */
 
 // Type definitions for GA4 events
@@ -26,9 +27,185 @@ interface GAEcommerce {
   items: GAEcommerceItem[];
 }
 
+// UTM Parameter interface
+interface UTMParameters {
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+  utm_term?: string;
+  utm_content?: string;
+  gclid?: string;
+  fbclid?: string;
+}
+
+// Call tracking configuration
+interface CallTrackingConfig {
+  default: string;
+  sources: {
+    [key: string]: string;
+  };
+}
+
 // Check if Google Analytics is available
 const isGAAvailable = (): boolean => {
   return typeof window !== 'undefined' && typeof window.gtag === 'function';
+};
+
+// Check if Microsoft Clarity is available
+const isClarityAvailable = (): boolean => {
+  return typeof window !== 'undefined' && typeof window.clarity === 'function';
+};
+
+// UTM Parameter Tracking
+export const utmTracking = {
+  // Extract UTM parameters from URL
+  getUTMParameters(): UTMParameters {
+    if (typeof window === 'undefined') return {};
+
+    const urlParams = new URLSearchParams(window.location.search);
+    return {
+      utm_source: urlParams.get('utm_source') || undefined,
+      utm_medium: urlParams.get('utm_medium') || undefined,
+      utm_campaign: urlParams.get('utm_campaign') || undefined,
+      utm_term: urlParams.get('utm_term') || undefined,
+      utm_content: urlParams.get('utm_content') || undefined,
+      gclid: urlParams.get('gclid') || undefined,
+      fbclid: urlParams.get('fbclid') || undefined,
+    };
+  },
+
+  // Store UTM parameters in sessionStorage for attribution
+  storeUTMParameters(): void {
+    if (typeof window === 'undefined') return;
+
+    const utmParams = this.getUTMParameters();
+    const hasUTMParams = Object.values(utmParams).some(value => value !== undefined);
+
+    if (hasUTMParams) {
+      sessionStorage.setItem('utm_attribution', JSON.stringify(utmParams));
+      sessionStorage.setItem('utm_timestamp', Date.now().toString());
+    }
+  },
+
+  // Get stored UTM parameters for attribution
+  getStoredUTMParameters(): UTMParameters | null {
+    if (typeof window === 'undefined') return null;
+
+    const storedUTM = sessionStorage.getItem('utm_attribution');
+    return storedUTM ? JSON.parse(storedUTM) : null;
+  },
+
+  // Get traffic source based on referrer and UTM
+  getTrafficSource(): string {
+    if (typeof window === 'undefined') return 'direct';
+
+    const utmParams = this.getStoredUTMParameters() || this.getUTMParameters();
+
+    // Check UTM source first
+    if (utmParams.utm_source) {
+      return utmParams.utm_source.toLowerCase();
+    }
+
+    // Check Google Ads
+    if (utmParams.gclid) {
+      return 'google_ads';
+    }
+
+    // Check Facebook Ads
+    if (utmParams.fbclid) {
+      return 'facebook_ads';
+    }
+
+    // Check referrer
+    const referrer = document.referrer.toLowerCase();
+    if (referrer.includes('google')) return 'google_organic';
+    if (referrer.includes('facebook')) return 'facebook_organic';
+    if (referrer.includes('linkedin')) return 'linkedin';
+    if (referrer.includes('twitter') || referrer.includes('t.co')) return 'twitter';
+    if (referrer.includes('youtube')) return 'youtube';
+    if (referrer.includes('bing')) return 'bing';
+    if (referrer && !referrer.includes(window.location.hostname)) return 'referral';
+
+    return 'direct';
+  }
+};
+
+// Call Tracking Configuration
+const callTrackingConfig: CallTrackingConfig = {
+  default: '1300 280 895', // Default phone number
+  sources: {
+    'google_ads': '1300 280 895', // Same number for now - can be updated with tracking numbers later
+    'facebook_ads': '1300 280 895', // Same number for now - can be updated with tracking numbers later
+    'google_organic': '1300 280 895', // Same number for now - can be updated with tracking numbers later
+    'referral': '1300 280 895', // Same number for now - can be updated with tracking numbers later
+  }
+};
+
+// Call Tracking Functions
+export const callTracking = {
+  // Get appropriate phone number based on traffic source
+  getTrackingNumber(): string {
+    const source = utmTracking.getTrafficSource();
+    return callTrackingConfig.sources[source] || callTrackingConfig.default;
+  },
+
+  // Update all phone numbers on the page
+  updatePhoneNumbers(): void {
+    if (typeof window === 'undefined') return;
+
+    const trackingNumber = this.getTrackingNumber();
+    const source = utmTracking.getTrafficSource();
+
+    // Update all phone number elements
+    document.querySelectorAll('[data-phone="dynamic"]').forEach((element) => {
+      if (element instanceof HTMLElement) {
+        element.textContent = trackingNumber;
+      }
+      if (element instanceof HTMLAnchorElement && element.href.startsWith('tel:')) {
+        element.href = `tel:${trackingNumber.replace(/[^\d]/g, '')}`;
+      }
+    });
+
+    // Track the phone number assignment
+    if (isGAAvailable()) {
+      trackEvent('phone_number_assigned', {
+        event_category: 'call_tracking',
+        event_label: source,
+        custom_parameters: {
+          tracking_number: trackingNumber,
+          traffic_source: source
+        }
+      });
+    }
+  },
+
+  // Track phone click with source attribution
+  trackPhoneClick(phoneNumber: string): void {
+    const source = utmTracking.getTrafficSource();
+    const utmParams = utmTracking.getStoredUTMParameters();
+
+    if (isGAAvailable()) {
+      trackEvent('phone_click_with_source', {
+        event_category: 'lead_generation',
+        event_label: 'phone_click',
+        custom_parameters: {
+          phone_number: phoneNumber,
+          traffic_source: source,
+          utm_source: utmParams?.utm_source,
+          utm_medium: utmParams?.utm_medium,
+          utm_campaign: utmParams?.utm_campaign
+        }
+      });
+    }
+
+    // Track in Clarity if available
+    if (isClarityAvailable()) {
+      window.clarity('event', 'phone_click', {
+        phone_number: phoneNumber,
+        traffic_source: source
+      });
+    }
+  }
 };
 
 // Generic event tracking
@@ -148,11 +325,11 @@ export const trackFinanceEvents = {
   })
 };
 
-// Scroll tracking for engagement
+// Enhanced scroll tracking for engagement
 export const initScrollTracking = (): void => {
   if (!isGAAvailable()) return;
 
-  let scrollPoints = [25, 50, 75, 90];
+  let scrollPoints = [25, 50, 75, 100]; // Updated to include 100%
   let scrollTracked: number[] = [];
 
   const trackScroll = () => {
@@ -165,11 +342,27 @@ export const initScrollTracking = (): void => {
     scrollPoints.forEach(point => {
       if (scrollPercent >= point && !scrollTracked.includes(point)) {
         scrollTracked.push(point);
+
+        const utmParams = utmTracking.getStoredUTMParameters();
+
         trackEvent('scroll_depth', {
           event_category: 'engagement',
           event_label: `${point}%`,
-          value: point
+          value: point,
+          custom_parameters: {
+            traffic_source: utmTracking.getTrafficSource(),
+            utm_source: utmParams?.utm_source,
+            utm_campaign: utmParams?.utm_campaign
+          }
         });
+
+        // Track in Clarity if available
+        if (isClarityAvailable()) {
+          window.clarity('event', 'scroll_depth', {
+            percentage: point,
+            traffic_source: utmTracking.getTrafficSource()
+          });
+        }
       }
     });
   };
@@ -236,20 +429,42 @@ export const trackPerformance = (): void => {
 export const initAnalytics = (): void => {
   if (typeof window === 'undefined') return;
 
+  // Store UTM parameters on page load
+  utmTracking.storeUTMParameters();
+
+  // Initialize call tracking
+  callTracking.updatePhoneNumbers();
+
   // Initialize scroll tracking
   initScrollTracking();
-  
+
   // Initialize performance tracking
   trackPerformance();
-  
-  // Track initial page load
+
+  // Track initial page load with attribution
   window.addEventListener('load', () => {
+    const utmParams = utmTracking.getStoredUTMParameters();
+
     trackEvent('page_load_complete', {
       event_category: 'performance',
-      value: Math.round(performance.now())
+      value: Math.round(performance.now()),
+      custom_parameters: {
+        traffic_source: utmTracking.getTrafficSource(),
+        utm_source: utmParams?.utm_source,
+        utm_medium: utmParams?.utm_medium,
+        utm_campaign: utmParams?.utm_campaign
+      }
     });
+
+    // Track page view with attribution in Clarity
+    if (isClarityAvailable()) {
+      window.clarity('set', 'traffic_source', utmTracking.getTrafficSource());
+      if (utmParams?.utm_campaign) {
+        window.clarity('set', 'utm_campaign', utmParams.utm_campaign);
+      }
+    }
   });
 };
 
 // Export types for use in components
-export type { GAEvent, GAEcommerceItem, GAEcommerce };
+export type { GAEvent, GAEcommerceItem, GAEcommerce, UTMParameters, CallTrackingConfig };

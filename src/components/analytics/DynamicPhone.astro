@@ -1,0 +1,44 @@
+---
+/**
+ * Dynamic Phone Number Component
+ * Displays different phone numbers based on traffic source for call tracking
+ */
+
+export interface Props {
+  defaultNumber?: string;
+  class?: string;
+  href?: boolean;
+  label?: string;
+}
+
+const {
+  defaultNumber = "(07) 3102 2154",
+  class: className = "",
+  href = false,
+  label = ""
+} = Astro.props;
+---
+
+{href ? (
+  <a
+    href={`tel:${defaultNumber.replace(/[^0-9]/g, '')}`}
+    class={className}
+    data-phone="dynamic"
+    data-default-number={defaultNumber}
+  >
+    {label ? label : defaultNumber}
+  </a>
+) : (
+  <span
+    class={className}
+    data-phone="dynamic"
+    data-default-number={defaultNumber}
+  >
+    {label ? label : defaultNumber}
+  </span>
+)}
+
+<script>
+  // This script will run on the client side to update phone numbers
+  // The actual number replacement happens in analytics-init.js via callTracking.updatePhoneNumbers()
+</script>

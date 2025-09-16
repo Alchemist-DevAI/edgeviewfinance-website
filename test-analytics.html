@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Test - Edgeview Finance</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2rem; }
+        .test-section { margin: 2rem 0; padding: 1rem; border: 1px solid #ccc; }
+        .phone-number { font-size: 1.2rem; font-weight: bold; color: #f97316; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Analytics Implementation Test</h1>
+
+    <div class="test-section">
+        <h2>1. UTM Parameter Detection</h2>
+        <p>Current URL: <span id="current-url"></span></p>
+        <p>Traffic Source: <span id="traffic-source"></span></p>
+        <p>UTM Parameters: <span id="utm-params"></span></p>
+    </div>
+
+    <div class="test-section">
+        <h2>2. Dynamic Phone Number</h2>
+        <p>Phone: <span class="phone-number" data-phone="dynamic">(07) 3102 2154</span></p>
+        <p>Call Link: <a href="tel:0731022154" data-phone="dynamic">(07) 3102 2154</a></p>
+    </div>
+
+    <div class="test-section">
+        <h2>3. Scroll Tracking</h2>
+        <p>Scroll down to test depth tracking (25%, 50%, 75%, 100%)</p>
+        <div style="height: 200vh; background: linear-gradient(to bottom, #f97316, #ea580c);">
+            <p style="padding: 2rem; color: white;">Scroll to the bottom...</p>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>4. Test Links</h2>
+        <p><a href="?utm_source=google&utm_campaign=test">Test Google Source</a></p>
+        <p><a href="?utm_source=facebook&utm_campaign=social">Test Facebook Source</a></p>
+        <p><a href="?gclid=test123">Test Google Ads</a></p>
+        <p><a href="?fbclid=test456">Test Facebook Ads</a></p>
+    </div>
+
+    <script type="module">
+        // Import analytics utilities
+        import { utmTracking, callTracking, initAnalytics } from './src/utils/analytics.ts';
+
+        // Initialize analytics
+        document.addEventListener('DOMContentLoaded', () => {
+            // Test UTM tracking
+            updateTestDisplay();
+
+            // Initialize analytics (this will update phone numbers)
+            initAnalytics();
+
+            // Update display after a brief delay to show phone number changes
+            setTimeout(updateTestDisplay, 500);
+        });
+
+        function updateTestDisplay() {
+            // Update URL display
+            document.getElementById('current-url').textContent = window.location.href;
+
+            // Update traffic source
+            const source = utmTracking.getTrafficSource();
+            document.getElementById('traffic-source').textContent = source;
+
+            // Update UTM parameters
+            const params = utmTracking.getUTMParameters();
+            document.getElementById('utm-params').textContent = JSON.stringify(params, null, 2);
+
+            console.log('Analytics Test Data:', {
+                trafficSource: source,
+                utmParams: params,
+                trackingNumber: callTracking.getTrackingNumber(),
+                storedUTM: utmTracking.getStoredUTMParameters()
+            });
+        }
+
+        // Test phone click tracking
+        document.addEventListener('click', (event) => {
+            const target = event.target.closest('a[href^="tel:"]');
+            if (target) {
+                const phoneNumber = target.href.replace('tel:', '');
+                console.log('Phone click tracked:', phoneNumber);
+
+                // This would normally call callTracking.trackPhoneClick(phoneNumber)
+                // but for testing we'll just log it
+            }
+        });
+    </script>
+</body>
+</html>

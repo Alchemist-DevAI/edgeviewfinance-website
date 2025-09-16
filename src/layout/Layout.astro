@@ -33,6 +33,7 @@ import "../css/hero-section.css";
 import Header from "../components/ui/Header.astro";
 import Footer from "../components/ui/Footer.astro";
 import GoogleAnalytics from "../components/analytics/GoogleAnalytics.astro";
+import MicrosoftClarity from "../components/analytics/MicrosoftClarity.astro";
 import { getEntryBySlug } from "astro:content";
 const { title } = Astro.props;
 const MetaData = await getEntryBySlug("site", "meta");
@@ -67,6 +68,8 @@ const { siteName, description, favicon } = MetaData?.data;
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <!-- Google Analytics GA4 - Optimized Component -->
     <GoogleAnalytics />
+    <!-- Microsoft Clarity - Heatmaps and Session Recording -->
+    <MicrosoftClarity />
   </head>
   <body>
     <div class=`page-wrapper relative z-[1] ${Astro.url.pathname==='/'?'bg-[#FDFBF9]':'bg-white'}`>
