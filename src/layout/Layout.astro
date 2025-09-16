@@ -51,6 +51,34 @@ const { siteName, description, favicon } = MetaData?.data;
       content={description ? description : "Agency11 Theme"}
     />
     <link rel='icon' href={favicon || "/favicon.webp"} />
+
+    <!-- International Targeting for Australia -->
+    <link rel="alternate" hreflang="en-au" href={Astro.url.href} />
+    <link rel="alternate" hreflang="en" href={Astro.url.href} />
+    <link rel="alternate" hreflang="x-default" href={Astro.url.href} />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={`${siteName} | ${title}`} />
+    <meta property="og:description" content={description || "Professional business advisory services in Australia"} />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content="en_AU" />
+    <meta property="og:image" content={`${Astro.site}assets/img/edgeview-finance-og-image.jpg`} />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${siteName} | ${title}`} />
+    <meta name="twitter:description" content={description || "Professional business advisory services in Australia"} />
+    <meta name="twitter:image" content={`${Astro.site}assets/img/edgeview-finance-og-image.jpg`} />
+
+    <!-- Geographic Targeting -->
+    <meta name="geo.region" content="AU" />
+    <meta name="geo.country" content="Australia" />
+    <meta name="geo.placename" content="Australia" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={Astro.url.href} />
     <!-- Preload critical hero image for LCP optimization -->
     {Astro.url.pathname === '/' && (
       <link rel='preload' as='image' href='/assets/images/hero-tradie-optimized.webp' fetchpriority='high' />

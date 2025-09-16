@@ -4,6 +4,7 @@ import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import vercel from "@astrojs/vercel";
+import sentry from "@sentry/astro";
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,7 +15,18 @@ export default defineConfig({
     speedInsights: { enabled: true },
     runtime: 'nodejs20.x'
   }),
-  integrations: [tailwind(), mdx(), react(), sitemap()],
+  integrations: [
+    sentry({
+      sourceMapsUploadOptions: {
+        project: "edgeview-finance-website",
+        authToken: process.env.SENTRY_AUTH_TOKEN,
+      },
+    }),
+    tailwind(),
+    mdx(),
+    react(),
+    sitemap()
+  ],
   server: {
     port: 4002,
     host: '0.0.0.0'  // Changed from 127.0.0.1 to allow access from Windows host
