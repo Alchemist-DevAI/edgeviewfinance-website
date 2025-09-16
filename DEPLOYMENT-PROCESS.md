@@ -18,16 +18,21 @@ adapter: vercel({
 })
 ```
 
-## Recent Issue Fix - Sentry Integration (2025-09-16)
-**RESOLVED**: HTTP 500 error caused by Sentry integration
-- **Problem**: Deployment FGb7zw3Qx failed due to Sentry initialization errors
-- **Root Cause**: Incorrect Sentry server config using `@sentry/node` instead of `@sentry/astro`
-- **Solution**:
-  1. Fixed Vercel adapter import path to use `/serverless` subpath
-  2. Updated Sentry server config to use `@sentry/astro` imports
-  3. Temporarily disabled Sentry integration to restore service
-- **Status**: Website restored to full functionality
-- **Next Steps**: Re-enable Sentry with proper error handling once site is stable
+## Sentry Error Tracking Integration (2025-09-16)
+**COMPLETED**: Robust Sentry error tracking now active
+- **Implementation**:
+  1. Client config: `sentry.client.config.js` with session replay and performance monitoring
+  2. Server config: `sentry.server.config.js` with proper @sentry/astro imports
+  3. Astro config: Graceful Sentry loading with fallback if module fails
+  4. Test page: `/test-sentry` for error tracking verification
+- **Features**:
+  - Environment-based configuration (production only by default)
+  - Session replay (10% sample rate in production, 100% on errors)
+  - Performance monitoring with 100% trace sample rate
+  - Git commit SHA tracking for release versions
+  - Robust error handling prevents deployment failures
+- **Verification**: ✅ All systems operational, error tracking confirmed active
+- **Test URL**: https://www.edgeviewfinance.com.au/test-sentry
 
 ## Pre-Deployment Checklist
 - [ ] **Local Testing**
@@ -184,6 +189,7 @@ Keep track of deployments for reference:
 
 | Date | Time | Changes | Status | Notes |
 |------|------|---------|--------|-------|
+| 2025-09-16 | 18:59 | Sentry error tracking re-deployment | Success | Verified Sentry integration: client/server configs, test page functional, error tracking active |
 | 2025-09-16 | 15:42 | Fixed case sensitivity imports | Success | Fixed blog component import paths, resolved deployment errors |
 | 2025-09-16 | 14:36 | Enhanced analytics tracking | Success | Microsoft Clarity, UTM tracking, call tracking (1300 280 895), scroll depth tracking |
 | 2025-09-13 | 21:30 | Comprehensive docs + fixes | Success | Upgraded to Astro v5, fixed all build issues |
