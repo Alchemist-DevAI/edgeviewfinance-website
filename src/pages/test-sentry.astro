@@ -1,0 +1,85 @@
+---
+import Layout from '../layout/Layout.astro';
+---
+
+<Layout title="Sentry Test - Edgeview Finance">
+  <div class="container mx-auto px-4 py-16">
+    <h1 class="text-3xl font-bold mb-8">Sentry Error Tracking Test</h1>
+
+    <div class="space-y-4">
+      <p class="text-gray-600">Click the buttons below to test Sentry error tracking:</p>
+
+      <div class="space-x-4">
+        <button
+          id="error-button"
+          class="bg-red-600 text-white px-6 py-3 rounded hover:bg-red-700"
+        >
+          Throw Test Error
+        </button>
+
+        <button
+          id="warning-button"
+          class="bg-yellow-600 text-white px-6 py-3 rounded hover:bg-yellow-700"
+        >
+          Log Warning
+        </button>
+
+        <button
+          id="api-error-button"
+          class="bg-purple-600 text-white px-6 py-3 rounded hover:bg-purple-700"
+        >
+          Test API Error
+        </button>
+      </div>
+
+      <div id="result" class="mt-4 p-4 rounded hidden"></div>
+    </div>
+  </div>
+
+  <script>
+    const resultDiv = document.querySelector('#result') as HTMLDivElement;
+
+    function showResult(message: string, isError: boolean = false) {
+      if (resultDiv) {
+        resultDiv.textContent = message;
+        resultDiv.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800');
+        if (isError) {
+          resultDiv.classList.add('bg-red-100', 'text-red-800');
+        } else {
+          resultDiv.classList.add('bg-green-100', 'text-green-800');
+        }
+      }
+    }
+
+    // Test throwing an error
+    document.querySelector("#error-button")?.addEventListener("click", () => {
+      try {
+        throw new Error('This is a test error from Edgeview Finance website');
+      } catch (e) {
+        console.error(e);
+        showResult('Error thrown and sent to Sentry! Check your Sentry dashboard.', true);
+        // Re-throw to ensure Sentry catches it
+        throw e;
+      }
+    });
+
+    // Test logging a warning
+    document.querySelector("#warning-button")?.addEventListener("click", () => {
+      console.warn('This is a test warning from Edgeview Finance website');
+      showResult('Warning logged! This may not appear in Sentry unless configured for warnings.');
+    });
+
+    // Test API error
+    document.querySelector("#api-error-button")?.addEventListener("click", async () => {
+      try {
+        const response = await fetch('/api/test-error');
+        if (!response.ok) {
+          throw new Error(`API Error: ${response.status} ${response.statusText}`);
+        }
+      } catch (e) {
+        console.error('API Test Error:', e);
+        showResult('API error sent to Sentry! Check your dashboard.', true);
+      }
+    });
+  </script>
+</Layout>
