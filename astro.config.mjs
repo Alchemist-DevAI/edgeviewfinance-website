@@ -3,8 +3,8 @@ import tailwind from "@astrojs/tailwind";
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
-import vercel from "@astrojs/vercel";
-import sentry from "@sentry/astro";
+import vercel from "@astrojs/vercel/serverless";
+// import sentry from "@sentry/astro"; // Temporarily disabled to fix 500 error
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,16 +16,7 @@ export default defineConfig({
     runtime: 'nodejs20.x'
   }),
   integrations: [
-    sentry({
-      sourceMapsUploadOptions: {
-        project: "javascript",
-        org: "edgeview-finance",
-        authToken: process.env.SENTRY_AUTH_TOKEN,
-      },
-      dsn: "https://3002f70b9e6ddd7e45b0638c0ae5c7a6@o4510027874172928.ingest.us.sentry.io/4510027902287872",
-      environment: process.env.NODE_ENV || 'production',
-      tracesSampleRate: 1.0,
-    }),
+    // Sentry temporarily disabled to fix 500 error
     tailwind(),
     mdx(),
     react(),
