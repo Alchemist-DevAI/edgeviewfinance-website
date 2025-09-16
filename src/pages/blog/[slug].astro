@@ -1,0 +1,544 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import Layout from "../../layout/Layout.astro";
+import AuthorBio from "../../components/Blog/AuthorBio.astro";
+import NewsletterSignup from "../../components/Blog/NewsletterSignup.astro";
+import BlogCard from "../../components/Blog/BlogCard.astro";
+import { Image } from "astro:assets";
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("blogs");
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug }, 
+    props: { entry },
+  }));
+}
+
+type Props = {
+  entry: CollectionEntry<"blogs">;
+};
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+// Get all blogs for sidebar and related articles
+const allBlogs = await getCollection("blogs");
+const recentBlogs = allBlogs
+  .filter(blog => blog.slug !== entry.slug)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 3);
+
+const relatedBlogs = allBlogs
+  .filter(blog => 
+    blog.slug !== entry.slug && 
+    blog.data.category === entry.data.category
+  )
+  .slice(0, 3);
+
+// SEO metadata
+const pageTitle = entry.data.seoTitle || `${entry.data.title} | Edgeview Finance`;
+const pageDescription = entry.data.seoDescription || entry.data.shortDescription;
+const publishedDate = new Date(entry.data.date).toISOString();
+const modifiedDate = new Date().toISOString();
+---
+
+<Layout 
+  title={pageTitle} 
+  description={pageDescription}
+  canonicalURL={`https://edgeviewfinance.com.au/blog/${entry.slug}`}
+>
+  <!-- Structured Data for Article -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": entry.data.title,
+    "description": pageDescription,
+    "image": `https://edgeviewfinance.com.au${entry.data.image}`,
+    "author": {
+      "@type": "Person",
+      "name": entry.data.author?.name || "Dan Peters",
+      "url": "https://edgeviewfinance.com.au/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Edgeview Finance",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://edgeviewfinance.com.au/assets/img/logo.png"
+      }
+    },
+    "datePublished": publishedDate,
+    "dateModified": modifiedDate,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://edgeviewfinance.com.au/blog/${entry.slug}`
+    }
+  })} />
+
+  <!-- Article Header with Full-Width Banner -->
+  <article class="blog-article">
+    <!-- Hero Banner with Image -->
+    {entry.data.image && (
+      <div class="hero-banner relative w-full h-[400px] lg:h-[500px] bg-gray-900 overflow-hidden">
+        <Image
+          src={entry.data.image}
+          alt={entry.data.title}
+          width={1920}
+          height={500}
+          class="w-full h-full object-cover opacity-40"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-8 lg:p-12">
+          <div class="max-w-7xl mx-auto">
+            <div>
+              <time class="text-sm text-white/90">
+                {new Date(entry.data.date).toLocaleDateString('en-AU', { 
+                  year: 'numeric', 
+                  month: 'long', 
+                  day: 'numeric' 
+                })}
+              </time>
+              <h1 class="text-3xl lg:text-5xl font-bold mt-2 mb-4 text-white">
+                {entry.data.title}
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    )}
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb bg-[#F8F9FA] py-3 px-8 border-b border-gray-200">
+      <div class="max-w-7xl mx-auto">
+        <ol class="flex items-center space-x-2 text-sm text-gray-600">
+          <li>
+            <a href="/" class="text-[#f97316] hover:text-[#e8890e] transition-colors">Home</a>
+          </li>
+          <li class="flex items-center">
+            <svg class="w-3 h-3 text-gray-400 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+            <a href="/blog" class="text-[#f97316] hover:text-[#e8890e] transition-colors">Blog</a>
+          </li>
+          <li class="flex items-center">
+            <svg class="w-3 h-3 text-gray-400 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+            <span class="text-gray-900 font-medium truncate max-w-[200px] lg:max-w-none">{entry.data.title}</span>
+          </li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- Main Content Area with Sidebar -->
+    <div class="bg-white">
+      <div class="max-w-7xl mx-auto px-4 lg:px-8 py-8 lg:py-12">
+        <div class="lg:grid lg:grid-cols-3 lg:gap-12">
+          <!-- Article Content -->
+          <main class="lg:col-span-2">
+            <!-- Article Meta -->
+            <div class="article-meta flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-6 pb-6 border-b border-gray-200">
+              <div class="flex items-center gap-2">
+                <span class="inline-block bg-[#f97316] text-white px-3 py-1 text-xs font-semibold uppercase">
+                  {entry.data.category}
+                </span>
+              </div>
+              
+              {entry.data.readTime && (
+                <div class="flex items-center gap-1">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <span>{entry.data.readTime}</span>
+                </div>
+              )}
+              
+              <div class="flex items-center gap-2">
+                {entry.data.author?.img && (
+                  <Image
+                    src={entry.data.author.img}
+                    alt={entry.data.author.name}
+                    width={24}
+                    height={24}
+                    class="w-6 h-6 rounded-full object-cover"
+                  />
+                )}
+                <span>By {entry.data.author?.name || "Dan Peters"}</span>
+              </div>
+            </div>
+
+            <!-- Article Body -->
+            <div class="prose prose-lg max-w-none prose-headings:text-[#1C2C3B] prose-headings:font-bold prose-h2:text-2xl prose-h3:text-xl prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-[#f97316] prose-a:underline prose-a:hover:text-[#e8890e] prose-strong:text-[#1C2C3B] prose-ul:text-gray-700 prose-ol:text-gray-700 prose-li:marker:text-gray-600 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:my-2">
+              <Content />
+            </div>
+
+            <!-- Tags -->
+            {entry.data.tags && entry.data.tags.length > 0 && (
+              <div class="article-tags mt-8 pt-6 border-t border-gray-200">
+                <h3 class="text-sm font-semibold text-gray-900 mb-3">Tags:</h3>
+                <div class="flex flex-wrap gap-2">
+                  {entry.data.tags.map(tag => (
+                    <span class="inline-block bg-gray-100 text-gray-700 px-3 py-1 text-sm border border-gray-300 hover:bg-gray-50 transition-colors">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+          </main>
+
+          <!-- Sidebar -->
+          <aside class="mt-12 lg:mt-0">
+            <!-- Most Recent Articles -->
+            <div class="sticky top-24">
+              <h3 class="text-lg font-bold text-[#1C2C3B] mb-6 pb-2 border-b-2 border-[#f97316]">
+                Most recent articles
+              </h3>
+              
+              <div class="space-y-6">
+                {recentBlogs.map((blog, index) => (
+                    <article class="flex gap-4 group">
+                      <div class="flex-shrink-0 text-2xl font-bold text-gray-300">
+                        {index + 1}
+                      </div>
+                      <div class="flex-1">
+                        {blog.data.image && (
+                          <a href={`/blog/${blog.slug}`} class="block mb-3 overflow-hidden">
+                            <Image
+                              src={blog.data.image}
+                              alt={blog.data.title}
+                              width={300}
+                              height={180}
+                              class="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
+                          </a>
+                        )}
+                        <h4 class="font-semibold text-sm text-[#1C2C3B] mb-2 leading-tight">
+                          <a href={`/blog/${blog.slug}`} class="hover:text-[#f97316] transition-colors">
+                            {blog.data.title}
+                          </a>
+                        </h4>
+                        <p class="text-xs text-gray-600 line-clamp-2">
+                          {blog.data.shortDescription}
+                        </p>
+                      </div>
+                    </article>
+                  ))}
+              </div>
+
+              <!-- Newsletter CTA -->
+              <div class="mt-8 p-6 bg-gray-50 border border-gray-200">
+                <h3 class="font-bold text-lg mb-2 text-[#1C2C3B] text-center">Get More Finance Insider Insights</h3>
+                <p class="text-sm mb-4 text-gray-600 text-center">Join hundreds of business owners getting weekly finance strategies delivered to their inbox</p>
+                <form class="sidebar-newsletter-form space-y-3">
+                  <input 
+                    type="email" 
+                    placeholder="Enter your email address"
+                    class="sidebar-newsletter-input w-full px-4 py-2 border border-gray-300 text-sm focus:outline-none focus:border-[#f97316] transition-colors"
+                    required
+                  />
+                  <button 
+                    type="submit"
+                    class="sidebar-newsletter-button w-full bg-white text-[#f97316] px-4 py-2 text-sm font-semibold border-2 border-[#f97316] hover:bg-[#f97316] hover:text-white transition-colors"
+                  >
+                    Get Finance Insider Insights
+                  </button>
+                </form>
+                <div class="mt-4 flex flex-col gap-1 text-xs text-gray-500 text-center">
+                  <span>✓ No spam, ever</span>
+                  <span>✓ Unsubscribe anytime</span>
+                  <span>✓ Trades focused</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social Sharing -->
+    <section class="social-sharing bg-[#F8F9FA] py-8 px-8 border-y border-gray-200">
+      <div class="max-w-4xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="text-center md:text-left">
+            <h3 class="text-lg font-semibold text-[#1C2C3B] mb-2">
+              Found this helpful?
+            </h3>
+            <p class="text-gray-600">
+              Share this article with other trades business owners who could benefit.
+            </p>
+          </div>
+          
+          <div class="flex items-center gap-4">
+            <button
+              onclick={`window.open('https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://edgeviewfinance.com.au/blog/${entry.slug}`)}', '_blank', 'width=600,height=400')`}
+              class="share-btn bg-[#0077B5] text-white px-6 py-3 hover:bg-[#005885] transition-colors duration-300 inline-flex items-center gap-2"
+              aria-label="Share on LinkedIn"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+              LinkedIn
+            </button>
+            
+            <button
+              onclick={`navigator.share ? navigator.share({title: '${entry.data.title}', url: '${`https://edgeviewfinance.com.au/blog/${entry.slug}`}'}) : alert('Sharing not supported')`}
+              class="share-btn bg-[#1C2C3B] text-white px-6 py-3 hover:bg-[#0F1419] transition-colors duration-300 inline-flex items-center gap-2"
+              aria-label="Share article"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+              </svg>
+              Share
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Author Bio -->
+    <AuthorBio showCTA={true} />
+
+    <!-- Newsletter Signup -->
+    <NewsletterSignup 
+      title="Get More Finance Insider Insights"
+      subtitle="Join hundreds of business owners getting weekly finance strategies delivered to their inbox"
+      variant="compact"
+      showBenefits={false}
+    />
+
+    <!-- Related Articles -->
+    {relatedBlogs.length > 0 && (
+      <section class="related-articles bg-white py-16 px-8">
+        <div class="max-w-6xl mx-auto">
+          <div class="mb-12 text-center">
+            <h2 class="text-2xl lg:text-3xl font-bold text-[#1C2C3B] mb-4">
+              Related Articles
+            </h2>
+            <p class="text-gray-600 text-lg">
+              More insights to help grow your trades business.
+            </p>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {relatedBlogs.map(blog => (
+              <BlogCard post={blog} />
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Back to Blog -->
+    <section class="back-to-blog bg-[#F8F9FA] py-8 px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <a 
+          href="/blog"
+          class="inline-flex items-center gap-2 bg-transparent text-[#f97316] px-8 py-3 font-semibold border-2 border-[#f97316] hover:bg-[#f97316] hover:text-white transition-all duration-300"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          Back to All Articles
+        </a>
+      </div>
+    </section>
+  </article>
+</Layout>
+
+<style>
+  /* Article-specific styles */
+  .article-title {
+    line-height: 1.2;
+  }
+  
+  .article-meta {
+    border-bottom: 1px solid #E5E7EB;
+    padding-bottom: 2rem;
+  }
+  
+  .article-image img {
+    /* Sharp corners - no border-radius */
+  }
+  
+  .share-btn {
+    /* Sharp corners - no border-radius */
+  }
+  
+  /* Custom prose styles for better readability */
+  .prose {
+    color: #374151;
+    line-height: 1.7;
+  }
+  
+  .prose h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #1C2C3B;
+    padding-bottom: 0.5rem;
+  }
+  
+  .prose h3 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: #1C2C3B;
+  }
+  
+  .prose p {
+    margin-bottom: 1.5rem;
+  }
+  
+  .prose ul, .prose ol {
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+  }
+  
+  .prose li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .prose blockquote {
+    border-left: 4px solid #1C2C3B;
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    background-color: #FFF7ED;
+    padding: 1.5rem;
+  }
+  
+  .prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+  }
+  
+  .prose th,
+  .prose td {
+    border: 1px solid #E5E7EB;
+    padding: 0.75rem;
+    text-align: left;
+  }
+  
+  .prose th {
+    background-color: #F8F9FA;
+    font-weight: 600;
+    color: #1C2C3B;
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .article-title {
+      font-size: 2rem;
+    }
+    
+    .article-meta {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    
+    .social-sharing .flex {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .share-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  
+  /* Newsletter styling overrides for blog posts */
+  .newsletter-section .newsletter-button {
+    background-color: transparent !important;
+    color: #6B7280 !important;
+    border: 2px solid #D1D5DB !important;
+  }
+  
+  .newsletter-section .newsletter-button:hover {
+    background-color: #F9FAFB !important;
+    color: #374151 !important;
+    border-color: #9CA3AF !important;
+  }
+  
+  .newsletter-section .newsletter-input:focus {
+    border-color: #9CA3AF !important;
+  }
+
+  /* Print styles */
+  @media print {
+    .social-sharing,
+    .back-to-blog,
+    nav.breadcrumb {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Handle sidebar newsletter form
+    const sidebarForm = document.querySelector('.sidebar-newsletter-form') as HTMLFormElement;
+    
+    if (sidebarForm) {
+      sidebarForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const emailInput = this.querySelector('.sidebar-newsletter-input') as HTMLInputElement;
+        const submitButton = this.querySelector('.sidebar-newsletter-button') as HTMLButtonElement;
+        
+        if (!emailInput || !submitButton) return;
+        
+        const email = emailInput.value.trim();
+        
+        if (!email) {
+          alert('Please enter your email address.');
+          return;
+        }
+        
+        // Simple email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          alert('Please enter a valid email address.');
+          return;
+        }
+        
+        // Disable button and show loading state
+        const originalText = submitButton.textContent;
+        submitButton.disabled = true;
+        submitButton.textContent = 'Subscribing...';
+        
+        // Get the current page path for source tracking
+        const currentPath = window.location.pathname;
+        
+        try {
+          const response = await fetch('/api/newsletter-subscribe', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              email: email,
+              source: currentPath + ' (sidebar)'
+            })
+          });
+
+          const result = await response.json();
+
+          if (result.success) {
+            alert('Thank you for subscribing! You\'ll receive your first newsletter soon.');
+            emailInput.value = '';
+          } else {
+            alert(result.error || 'Something went wrong. Please try again.');
+          }
+        } catch (error) {
+          console.error('Newsletter subscription error:', error);
+          alert('Unable to subscribe at this time. Please try again later.');
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = originalText;
+        }
+      });
+    }
+  });
+</script>
