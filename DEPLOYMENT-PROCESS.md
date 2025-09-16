@@ -85,6 +85,15 @@ These MUST be set in Vercel project settings:
 
 ## Common Issues & Solutions
 
+### NEW: Issue: Case Sensitivity in Component Imports
+**Cause**: Import paths using lowercase 'blog/' when directory is 'Blog/' (capital B)
+**Solution**:
+1. Check for imports like `../components/blog/Component.astro`
+2. Correct to `../components/Blog/Component.astro` (capital B)
+3. Common files affected: blog.astro, [slug].astro
+4. Error: "Could not resolve BlogCategories.astro" or similar
+5. Verified: 2025-09-16
+
 ### NEW: Issue: Node.js Runtime Compatibility
 **Cause**: Vercel no longer supports nodejs18.x runtime
 **Solution**: 
@@ -164,6 +173,8 @@ Keep track of deployments for reference:
 
 | Date | Time | Changes | Status | Notes |
 |------|------|---------|--------|-------|
+| 2025-09-16 | 15:42 | Fixed case sensitivity imports | Success | Fixed blog component import paths, resolved deployment errors |
+| 2025-09-16 | 14:36 | Enhanced analytics tracking | Success | Microsoft Clarity, UTM tracking, call tracking (1300 280 895), scroll depth tracking |
 | 2025-09-13 | 21:30 | Comprehensive docs + fixes | Success | Upgraded to Astro v5, fixed all build issues |
 | 2025-09-13 | 21:00 | Dependency upgrades | Success | Resolved nodejs runtime and package conflicts |
 | 2025-09-13 | 20:30 | TypeScript error fix | Success | Used build:fast to skip TS checking |
