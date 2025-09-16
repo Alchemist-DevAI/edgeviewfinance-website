@@ -1,0 +1,18 @@
+
+> agency11@0.0.1 dev
+> astro dev --port 4002 --host 0.0.0.0
+
+10:05:40 [build] Waiting for integration "@astrojs/tailwind", hook "astro:config:setup"...
+10:05:40 [types] Generated 39ms
+10:05:41 [vite] Port 4002 is in use, trying another one...
+10:05:41 [vite] Port 4003 is in use, trying another one...
+10:05:41 [vite] Port 4004 is in use, trying another one...
+
+ astro  v4.16.19 ready in 36005 ms
+
+┃ Local    http://localhost:4005/
+┃ Network  http://10.255.255.254:4005/
+           http://192.168.193.116:4005/
+
+10:07:43 watching for file changes...
+12:02:12 [watch] test-nav-structure.html

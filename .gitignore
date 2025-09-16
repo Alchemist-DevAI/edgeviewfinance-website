@@ -1,6 +1,5 @@
 # Dependencies
 node_modules/
-.pnpm-debug.log*
 
 # Build outputs
 dist/
@@ -9,27 +8,34 @@ dist/
 # Environment variables
 .env
 .env.local
-.env.production.local
+.env.production
 .env.*.local
-
-# macOS-specific files
-.DS_Store
-
-# Vercel deployment artifacts
-.vercel/
 
 # IDE
 .vscode/
 .idea/
+*.swp
+*.swo
+*~
+.DS_Store
 
 # Logs
-*.log
 npm-debug.log*
-server.log
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# Test coverage
+# Vercel
+.vercel
+
+# Testing
 coverage/
+.nyc_output/
+test-results/
+tests/
+scripts/
 
-# Temporary files
-*.tmp
-*.temp
+# Documentation
+docs/
+DEPLOYMENT-CHECKLIST.md
+SEO-IMPLEMENTATION-GUIDE.md
