@@ -1,7 +1,7 @@
 ---
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 
-const ExpertiseData = await getEntryBySlug("aboutPage", "expertise");
+const ExpertiseData = await getEntry({ collection: "aboutPage", id: "expertise" });
 const { header, subheading, description, stats, financeTypes } = ExpertiseData?.data;
 ---
 

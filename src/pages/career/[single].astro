@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import Layout from "../../layout/Layout.astro";
 import { slug } from "github-slugger";
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 import ContactForm from "../../components/functional/ContactForm";
 import BreadCumb from "../../components/ui/BreadCumb.astro";
 export async function getStaticPaths() {
@@ -16,12 +16,12 @@ export async function getStaticPaths() {
 }
 const {
   data: { web3AccessKey },
-} = await getEntryBySlug("site", "meta");
+} = await getEntry({ collection: "site", id: "meta" });
 const { careerSingle } = Astro.props;
 const { position, salaryRange, type, description, location } =
   careerSingle.data;
 const { Content } = await careerSingle.render();
-const ContactDetail = await getEntryBySlug("contact", "index");
+const ContactDetail = await getEntry({ collection: "contact", id: "index" });
 const { mail, phone, address } = ContactDetail?.data;
 ---
 

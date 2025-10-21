@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import { getEntryBySlug } from "astro:content";
-const ContentArea3 = await getEntryBySlug("IndexPage", "content-3");
+import { getEntry } from "astro:content";
+const ContentArea3 = await getEntry({ collection: "IndexPage", id: "content-3" });
 const { header, description, button } = ContentArea3?.data;
 ---
 

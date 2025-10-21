@@ -1,8 +1,8 @@
 ---
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 import SwiperComponent from "../functional/Swiper";
 
-const BrandData = await getEntryBySlug("IndexPage", "brand");
+const BrandData = await getEntry({ collection: "IndexPage", id: "brand" });
 const { images } = BrandData?.data;
 const { marginBottom } = Astro.props;
 ---

@@ -1,6 +1,6 @@
 ---
-import { getEntryBySlug } from "astro:content";
-const Testimonial = await getEntryBySlug("IndexPage", "testimonial");
+import { getEntry } from "astro:content";
+const Testimonial = await getEntry({ collection: "IndexPage", id: "testimonial" });
 import TestimonialSwiper from "../functional/TestimonialSwiper";
 const { testimonials, Header, description, button } = Testimonial.data;
 ---

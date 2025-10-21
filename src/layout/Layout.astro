@@ -34,9 +34,9 @@ import Header from "../components/ui/Header.astro";
 import Footer from "../components/ui/Footer.astro";
 import GoogleAnalytics from "../components/analytics/GoogleAnalytics.astro";
 import MicrosoftClarity from "../components/analytics/MicrosoftClarity.astro";
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 const { title } = Astro.props;
-const MetaData = await getEntryBySlug("site", "meta");
+const MetaData = await getEntry({ collection: "site", id: "meta" });
 const { siteName, description, favicon } = MetaData?.data;
 ---
 
@@ -50,7 +50,15 @@ const { siteName, description, favicon } = MetaData?.data;
       name='description'
       content={description ? description : "Agency11 Theme"}
     />
-    <link rel='icon' href={favicon || "/favicon.webp"} />
+    <!-- Favicon Support for All Browsers -->
+    <link rel='icon' type='image/x-icon' href='/favicon.ico' />
+    <link rel='icon' type='image/png' sizes='16x16' href='/favicon.png' />
+    <link rel='icon' type='image/png' sizes='32x32' href='/favicon.png' />
+    <link rel='icon' type='image/png' sizes='192x192' href='/android-chrome-192x192.png' />
+    <link rel='icon' type='image/png' sizes='512x512' href='/android-chrome-512x512.png' />
+    <link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png' />
+    <link rel='icon' type='image/webp' href={favicon || "/favicon.webp"} />
+    <link rel='manifest' href='/site.webmanifest' />
 
     <!-- International Targeting for Australia -->
     <link rel="alternate" hreflang="en-au" href={Astro.url.href} />

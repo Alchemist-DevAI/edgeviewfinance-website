@@ -1,7 +1,7 @@
 ---
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 
-const FactsData = await getEntryBySlug("IndexPage", "facts");
+const FactsData = await getEntry({ collection: "IndexPage", id: "facts" });
 const { header, experienceYears, customers, projectsCompleted } =
   FactsData?.data;
 ---

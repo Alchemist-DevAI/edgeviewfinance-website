@@ -1,8 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 
-const GalleryImages = await getEntryBySlug("aboutPage", "gallery");
+const GalleryImages = await getEntry({ collection: "aboutPage", id: "gallery" });
 const { images } = GalleryImages?.data;
 ---
 

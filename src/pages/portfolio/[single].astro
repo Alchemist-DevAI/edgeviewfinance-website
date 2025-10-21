@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import Layout from "../../layout/Layout.astro";
 import { slug } from "github-slugger";
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 import PortfolioSlider from "../../components/Portfolio/PortfolioSlider.astro";
 import RelatedPortfolio from "../../components/Portfolio/RelatedPortfolio.astro";
 import BreadCumb from "../../components/ui/BreadCumb.astro";
@@ -29,7 +29,7 @@ const { title, image, category, client, duration, websiteLink } =
 const { Content } = await portfolioData?.render();
 const {
   data: { sliderText, relatedProjectsText },
-} = await getEntryBySlug("portfolio", "index");
+} = await getEntry({ collection: "portfolio", id: "index" });
 const Relatedportfolio = portfolio
   .filter(
     (portfolioFilter) =>

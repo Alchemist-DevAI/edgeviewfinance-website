@@ -1,9 +1,9 @@
 ---
 import { Image } from "astro:assets";
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 import { getCollection } from "astro:content";
 import { slug } from "github-slugger";
-const blogHeader = await getEntryBySlug("IndexPage", "blogs");
+const blogHeader = await getEntry({ collection: "IndexPage", id: "blogs" });
 const blogs = await getCollection("blogs");
 const { header, description } = blogHeader?.data;
 ---

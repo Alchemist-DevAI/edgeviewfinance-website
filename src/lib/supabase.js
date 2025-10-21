@@ -1,9 +1,19 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL || 'https://paduvnvocacqnmlfuvyn.supabase.co'
-const supabaseAnonKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBhZHV2bnZvY2FjcW5tbGZ1dnluIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQzNTAxNDQsImV4cCI6MjA2OTkyNjE0NH0.GVla_jyPO1tWuQvLm9MscVNH4PC1HWiYx0Ej4xbTauE'
+// Ensure we always have valid URLs even if env vars are empty or undefined
+const supabaseUrl = (import.meta.env.PUBLIC_SUPABASE_URL || '').trim() || 'https://paduvnvocacqnmlfuvyn.supabase.co'
+const supabaseAnonKey = (import.meta.env.PUBLIC_SUPABASE_ANON_KEY || '').trim() || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBhZHV2bnZvY2FjcW5tbGZ1dnluIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQzNTAxNDQsImV4cCI6MjA2OTkyNjE0NH0.GVla_jyPO1tWuQvLm9MscVNH4PC1HWiYx0Ej4xbTauE'
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+// Validate URL format before creating client
+let validatedUrl = supabaseUrl;
+try {
+  new URL(validatedUrl);
+} catch (e) {
+  console.error('Invalid Supabase URL:', validatedUrl);
+  validatedUrl = 'https://paduvnvocacqnmlfuvyn.supabase.co';
+}
+
+export const supabase = createClient(validatedUrl, supabaseAnonKey)
 
 // Assessment scoring logic
 export function calculateScore(answers) {

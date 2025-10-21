@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import { getEntryBySlug } from "astro:content";
-const ContentData = await getEntryBySlug("IndexPage", "content-2");
+import { getEntry } from "astro:content";
+const ContentData = await getEntry({ collection: "IndexPage", id: "content-2" });
 const { header, image, points, description } = ContentData?.data;
 
 // Professional cost impact data with specific dollar amounts

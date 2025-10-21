@@ -1,13 +1,13 @@
 ---
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 import Layout from "../layout/Layout.astro";
 import ComingSoonForm from "../components/functional/ComingSoonForm";
 import Logo from "../components/ui/Logo.astro";
-const ComingSoonData = await getEntryBySlug("comingSoon", "index");
+const ComingSoonData = await getEntry({ collection: "comingSoon", id: "index" });
 const { title, form, description } = ComingSoonData.data;
 const {
   data: { web3AccessKey },
-} = await getEntryBySlug("site", "meta");
+} = await getEntry({ collection: "site", id: "meta" });
 ---
 
 <Layout title='Coming Soon'>

@@ -1,7 +1,7 @@
 ---
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 
-const ApproachData = await getEntryBySlug("aboutPage", "approach");
+const ApproachData = await getEntry({ collection: "aboutPage", id: "approach" });
 const { header, subheading, processSteps, differentiators } = ApproachData?.data;
 ---
 

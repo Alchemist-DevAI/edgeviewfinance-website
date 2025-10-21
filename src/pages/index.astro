@@ -1,5 +1,5 @@
 ---
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 import Layout from "../layout/Layout.astro";
 import HeroSection from "../components/Index/HeroSection.astro";
 import ValueStackSection from "../components/Index/ValueStackSection.astro";
@@ -15,11 +15,11 @@ import PortfolioSlider from "../components/Portfolio/PortfolioSlider.astro";
 import BlogSection from "../components/Index/BlogSection.astro";
 import NewsLetter from "../components/Index/NewsLetter.astro";
 import TestimonialSection from "../components/Index/TestimonialSection.astro";
-const HeroSectionData = await getEntryBySlug("IndexPage", "hero");
-const ValueStackData = await getEntryBySlug("IndexPage", "value-stack");
+const HeroSectionData = await getEntry({ collection: "IndexPage", id: "hero" });
+const ValueStackData = await getEntry({ collection: "IndexPage", id: "value-stack" });
 const {
   data: { sliderText },
-} = await getEntryBySlug("portfolio", "index");
+} = await getEntry({ collection: "portfolio", id: "index" });
 ---
 
 <Layout title='Home Page'>

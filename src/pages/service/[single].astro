@@ -16,6 +16,12 @@ export async function getStaticPaths() {
   });
 }
 const { service } = Astro.props;
+
+// Handle case where service is undefined (404)
+if (!service) {
+  return Astro.redirect("/404");
+}
+
 const { title, image } = service.data;
 const { Content } = await service.render();
 ---

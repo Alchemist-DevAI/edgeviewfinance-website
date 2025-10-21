@@ -1,6 +1,6 @@
 ---
-import { getEntryBySlug } from "astro:content";
-const CtaData = await getEntryBySlug("IndexPage", "cta");
+import { getEntry } from "astro:content";
+const CtaData = await getEntry({ collection: "IndexPage", id: "cta" });
 const { title, description, buttonPrimary, buttonSecondary } = CtaData?.data;
 ---
 

@@ -19,6 +19,12 @@ type Props = {
 };
 
 const { entry } = Astro.props;
+
+// Handle case where entry is undefined (404)
+if (!entry) {
+  return Astro.redirect("/404");
+}
+
 const { Content } = await entry.render();
 
 // Get all blogs for sidebar and related articles

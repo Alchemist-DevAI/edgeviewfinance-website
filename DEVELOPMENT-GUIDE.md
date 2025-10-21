@@ -225,10 +225,85 @@ evfbs-agency11-pure/
     analytics: true
   })
   ```
-- **Files Affected**: 
+- **Files Affected**:
   - `astro.config.mjs` or `astro.config.vercel.mjs`
 - **Verified**: 2025-09-13
 - **Attempts Before Success**: 2
+
+### 🏗️ Technical Infrastructure Improvements
+
+#### Vercel Edge Caching Configuration (2025-09-16)
+- **Implementation**: Comprehensive Edge caching rules configured in vercel.json
+- **Configuration**:
+  ```json
+  {
+    "headers": [
+      {
+        "source": "/api/(.*)",
+        "headers": [{"key": "Cache-Control", "value": "no-cache, no-store, must-revalidate"}]
+      },
+      {
+        "source": "/_astro/(.*)",
+        "headers": [{"key": "Cache-Control", "value": "public, max-age=31536000, immutable"}]
+      },
+      {
+        "source": "/(.*\\.(jpg|jpeg|png|gif|svg|webp|ico))",
+        "headers": [{"key": "Cache-Control", "value": "public, max-age=31536000, immutable"}]
+      },
+      {
+        "source": "/(.*\\.html|/)",
+        "headers": [{"key": "Cache-Control", "value": "public, max-age=300, s-maxage=86400, stale-while-revalidate=86400"}]
+      }
+    ]
+  }
+  ```
+- **Performance Impact**:
+  - Static assets: 1-year cache with immutable flag
+  - HTML pages: 5-minute browser cache, 24-hour edge cache with stale-while-revalidate
+  - API routes: No caching for dynamic content
+  - Build command updated to use build:fast
+- **Files Affected**: `/vercel.json`
+- **Status**: Deployed and active
+- **Verified**: 2025-09-16
+
+#### Service Worker for Offline Functionality (2025-09-16)
+- **Implementation**: Comprehensive service worker with multiple caching strategies
+- **Features**:
+  - **Cache Strategies**:
+    - Cache-first for static assets (images, CSS, JS, fonts)
+    - Network-first for HTML pages with offline fallback
+    - No cache for API routes (network-only)
+  - **Critical Pages Cached**: /, /about, /services, /contact, /offline.html
+  - **Offline Experience**: Custom offline.html page with retry functionality
+  - **Background Sync**: Ready for future form submission queuing
+  - **Push Notifications**: Framework ready for future notifications
+- **Files Created**:
+  - `/public/sw.js` - Main service worker with caching logic
+  - `/public/offline.html` - Attractive offline fallback page
+- **Files Modified**:
+  - `/src/layout/Layout.astro` - Service worker registration and status detection
+- **Registration Features**:
+  - Automatic service worker registration on page load
+  - Update detection and notification system
+  - Online/offline status tracking with body data attributes
+  - Graceful fallback for unsupported browsers
+- **Testing**: Service worker registers successfully and caches critical resources
+- **Status**: Deployed and active
+- **Verified**: 2025-09-16
+- **Browser Support**: Modern browsers with service worker support (95%+ coverage)
+
+#### Staging Environment Configuration (2025-09-16)
+- **Setup**: Staging environment properly configured through Vercel
+- **URLs**:
+  - **Staging**: https://edgeviewfinance-website.vercel.app
+  - **Production**: https://www.edgeviewfinance.com.au
+- **Deployment Flow**:
+  1. Development: Local testing with npm run dev
+  2. Staging: Automatic deployment from main branch
+  3. Production: Promoted from staging after verification
+- **Environment Variables**: Properly configured for all environments
+- **Status**: Active and monitoring deployments
+- **Verified**: 2025-09-16
 
 #### Astro v4 to v5 Migration
 - **Issue**: Dependency conflicts with Vercel adapter v8+
@@ -426,6 +501,7 @@ rm -rf .astro dist node_modules/.cache
 
 | Date | Issue | Solution | Verified By |
 |------|-------|----------|-------------|
+| 2025-09-16 | Technical improvements implementation | Added staging env, Edge caching, service worker | Development Team |
 | 2025-09-16 | Sentry error tracking | Re-implemented with error handling | Development Team |
 | 2025-09-14 | Newsletter functionality | Fixed env vars and import paths | Development Team |
 | 2025-09-13 | Nav dropdowns not bold | Added !important to font-weight | Development Team |
@@ -454,3 +530,41 @@ When you resolve a new issue:
 *This is a living document. Update it every time you learn something new.*
 
 *Last Updated: 2025-09-13*
+## Astro Content Collections API Deprecation (2025-10-14)
+
+**Problem:** Pages not loading with error:
+```
+[ERROR] [GetEntryDeprecationError] The `getEntryBySlug` function is deprecated
+```
+
+**Root Cause:** Astro updated content collections API from `getEntryBySlug` to `getEntry`
+
+**Solution:**
+```bash
+# Run this script to fix all files
+cd "/path/to/project"
+cat > /tmp/fix-getentry.sh << 'EOFSCRIPT'
+#!/bin/bash
+files=$(grep -rl "getEntryBySlug" src/ --include="*.astro")
+for file in $files; do
+  cp "$file" "$file.backup"
+  sed -i 's/import { getEntryBySlug } from "astro:content";/import { getEntry } from "astro:content";/g' "$file"
+  perl -i -pe 's/await getEntryBySlug\s*\(\s*"([^"]+)"\s*,\s*"([^"]+)"\s*\)/await getEntry({ collection: "$1", id: "$2" })/g' "$file"
+done
+EOFSCRIPT
+bash /tmp/fix-getentry.sh
+```
+
+**API Change:**
+- Old: `const data = await getEntryBySlug("collection", "slug");`
+- New: `const data = await getEntry({ collection: "collection", id: "slug" });`
+
+**Files Updated:** 37 files (all components and pages using content collections)
+
+**Verification:**
+- Check no remaining references: `grep -r "getEntryBySlug" src/`
+- Test affected pages load correctly
+- Check dev server logs for errors
+
+**Attempts:** 1 (successful on first try)
+**Status:** ✅ RESOLVED

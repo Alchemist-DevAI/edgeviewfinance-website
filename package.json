@@ -20,7 +20,11 @@
     "monitor:uptime": "node scripts/uptime-server.js",
     "monitor:uptime:once": "node scripts/uptime-server.js --once",
     "monitor:gsc": "node scripts/google-search-console-setup.js",
-    "sentry:sourcemaps": "sentry-cli sourcemaps inject ./dist && sentry-cli sourcemaps upload ./dist"
+    "sentry:sourcemaps": "sentry-cli sourcemaps inject ./dist && sentry-cli sourcemaps upload ./dist",
+    "mcp:playwright:init": "node scripts/mcp-playwright-init.js init",
+    "mcp:playwright:status": "node scripts/mcp-playwright-init.js status",
+    "mcp:playwright:shutdown": "node scripts/mcp-playwright-init.js shutdown",
+    "mcp:playwright:cleanup": "node scripts/mcp-playwright-init.js cleanup"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.0",
@@ -54,6 +58,7 @@
     "typescript": "^5.4.5"
   },
   "devDependencies": {
+    "@playwright/mcp": "^0.0.37",
     "@sentry/cli": "^2.53.0",
     "googleapis": "^159.0.0",
     "node-fetch": "^3.3.2",

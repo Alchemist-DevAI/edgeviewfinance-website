@@ -1,9 +1,9 @@
 ---
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 import Button from "../ui/Button.astro";
 import Heading from "../ui/Heading.astro";
 import { Image } from "astro:assets";
-const OtherTeamData = await getEntryBySlug("aboutPage", "team");
+const OtherTeamData = await getEntry({ collection: "aboutPage", id: "team" });
 const {
   data: { members, header },
 } = OtherTeamData;

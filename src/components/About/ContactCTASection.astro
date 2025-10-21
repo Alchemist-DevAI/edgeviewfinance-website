@@ -1,7 +1,7 @@
 ---
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 
-const ContactCTAData = await getEntryBySlug("aboutPage", "contact-cta");
+const ContactCTAData = await getEntry({ collection: "aboutPage", id: "contact-cta" });
 const { header, subheading, description, benefits, contactInfo, responsePromise } = ContactCTAData?.data;
 ---
 

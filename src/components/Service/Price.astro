@@ -1,10 +1,10 @@
 ---
 import { Image } from "astro:assets";
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 import { getCollection } from "astro:content";
 var PricingData = await getCollection("Pricing");
 PricingData = PricingData.filter((data) => data.slug.startsWith("plan-"));
-const IndexData = await getEntryBySlug("Pricing", "index");
+const IndexData = await getEntry({ collection: "Pricing", id: "index" });
 const {
   header,
   description,

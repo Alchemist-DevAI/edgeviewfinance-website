@@ -1,9 +1,9 @@
 ---
 import { Image } from "astro:assets";
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 
 const { link, css, logo } = Astro.props;
-const MetaData = await getEntryBySlug("site", "meta");
+const MetaData = await getEntry({ collection: "site", id: "meta" });
 ---
 
 <a href={link} class={css} aria-label="Edgeview Finance - Home">

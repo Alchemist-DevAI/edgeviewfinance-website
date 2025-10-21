@@ -70,25 +70,13 @@
       ]
     },
     {
-      "source": "/(.*\\.(jpg|jpeg|png|gif|svg|webp|ico))",
-      "headers": [
+      "source": "/(.*)",
+      "has": [
         {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
+          "type": "query",
+          "key": "v"
         }
-      ]
-    },
-    {
-      "source": "/(.*\\.(css|js))",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/(.*\\.(woff|woff2|ttf|eot))",
+      ],
       "headers": [
         {
           "key": "Cache-Control",

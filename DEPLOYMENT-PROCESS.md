@@ -189,6 +189,7 @@ Keep track of deployments for reference:
 
 | Date | Time | Changes | Status | Notes |
 |------|------|---------|--------|-------|
+| 2025-09-16 | 19:25 | Technical improvements: Edge caching, service worker, staging | Success | Comprehensive performance and offline improvements deployed |
 | 2025-09-16 | 18:59 | Sentry error tracking re-deployment | Success | Verified Sentry integration: client/server configs, test page functional, error tracking active |
 | 2025-09-16 | 15:42 | Fixed case sensitivity imports | Success | Fixed blog component import paths, resolved deployment errors |
 | 2025-09-16 | 14:36 | Enhanced analytics tracking | Success | Microsoft Clarity, UTM tracking, call tracking (1300 280 895), scroll depth tracking |

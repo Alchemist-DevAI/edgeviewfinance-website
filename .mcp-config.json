@@ -1,0 +1,17 @@
+{
+  "_comment": "MCP configuration deprecated - Use direct tools instead",
+  "_direct_tools": {
+    "location": "/mnt/c/GitHub Repos/evfbs-v2-supabase/4-development-infrastructure/tools/",
+    "browser": "node browser.js",
+    "google": "node google-sheets.js",
+    "clickup": "node clickup.js",
+    "reason": "Cloud MCP cannot access local .env files and has persistent browser lock issues"
+  },
+  "_legacy_mcp": {
+    "playwright": {
+      "status": "deprecated",
+      "replacement": "browser.js",
+      "issue": "Browser lock conflicts, session persistence"
+    }
+  }
+}

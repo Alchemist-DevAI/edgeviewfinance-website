@@ -1,8 +1,8 @@
 ---
 var Services = await getCollection("services");
 Services = Services.filter((Service) => Service.slug.startsWith("service-"));
-const IndexData = await getEntryBySlug("services", "index");
-import { getEntryBySlug } from "astro:content";
+const IndexData = await getEntry({ collection: "services", id: "index" });
+import { getEntry } from "astro:content";
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import { slug } from "github-slugger";

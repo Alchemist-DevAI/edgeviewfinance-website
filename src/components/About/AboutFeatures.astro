@@ -1,7 +1,7 @@
 ---
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 
-const FeaturesData = await getEntryBySlug("aboutPage", "features");
+const FeaturesData = await getEntry({ collection: "aboutPage", id: "features" });
 const { header, features } = FeaturesData?.data;
 import Header from "../ui/Heading.astro";
 import { Image } from "astro:assets";

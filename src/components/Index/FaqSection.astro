@@ -3,8 +3,8 @@ import { Image } from "astro:assets";
 import Button from "../ui/Button.astro";
 import FaqCard from "../ui/FaqCard.astro";
 import Header from "../ui/Heading.astro";
-import { getEntryBySlug } from "astro:content";
-const QNA = await getEntryBySlug("IndexPage", "qna");
+import { getEntry } from "astro:content";
+const QNA = await getEntry({ collection: "IndexPage", id: "qna" });
 const { content, header, button } = QNA.data;
 ---
 

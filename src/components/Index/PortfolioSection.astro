@@ -1,5 +1,5 @@
 ---
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 import { getCollection } from "astro:content";
 var portfolio = await getCollection("portfolio");
 portfolio = portfolio.filter((portfolioSingle) =>
@@ -10,7 +10,7 @@ import Button from "../ui/Button.astro";
 import { Image } from "astro:assets";
 const {
   data: { indexHeader, button },
-} = await getEntryBySlug("portfolio", "index");
+} = await getEntry({ collection: "portfolio", id: "index" });
 ---
 
 <section class='section-portfolio'>

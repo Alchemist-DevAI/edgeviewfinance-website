@@ -1,7 +1,7 @@
 ---
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 
-const TestimonialData = await getEntryBySlug("aboutPage", "about-testimonials");
+const TestimonialData = await getEntry({ collection: "aboutPage", id: "about-testimonials" });
 const { header, subheading, testimonials = [], results = { title: '', items: [] } } = TestimonialData?.data || {};
 
 <section class="about-testimonial-section">

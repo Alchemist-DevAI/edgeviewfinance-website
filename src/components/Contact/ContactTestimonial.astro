@@ -1,11 +1,11 @@
 ---
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 import ContactForm from "../functional/ContactForm";
 import { Image } from "astro:assets";
 const {
   data: { web3AccessKey },
-} = await getEntryBySlug("site", "meta");
-const ContactDetails = await getEntryBySlug("contact", "index");
+} = await getEntry({ collection: "site", id: "meta" });
+const ContactDetails = await getEntry({ collection: "contact", id: "index" });
 const { header, description, client } = ContactDetails?.data;
 ---
 <section class='section-contact'>

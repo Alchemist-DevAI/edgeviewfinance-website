@@ -1,6 +1,6 @@
 ---
-import { getEntryBySlug } from "astro:content";
-const VideoData = await getEntryBySlug("IndexPage", "videosection");
+import { getEntry } from "astro:content";
+const VideoData = await getEntry({ collection: "IndexPage", id: "videosection" });
 const { header, description, guarantees, disclaimer } = VideoData?.data;
 ---
 

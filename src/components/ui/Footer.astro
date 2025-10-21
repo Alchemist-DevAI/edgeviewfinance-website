@@ -1,7 +1,7 @@
 ---
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 import { Image } from "astro:assets";
-const FooterData = await getEntryBySlug("site", "footer");
+const FooterData = await getEntry({ collection: "site", id: "footer" });
 const {
   logo,
   description,
