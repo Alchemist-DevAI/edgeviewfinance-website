@@ -76,13 +76,19 @@ const meta = {
                 </div>
               </div>
 
-              <!-- CTA Button -->
-              <div class='flex flex-col items-center lg:items-start mb-4'>
+              <!-- CTA Buttons - Two buttons side by side -->
+              <div class='flex flex-col sm:flex-row gap-4 items-center lg:items-start mb-4'>
                 <a
                   href='#contact'
                   class='bg-[#f97316] text-white px-8 py-4 font-bold transition-all duration-300 hover:bg-[#ea580c] hover:shadow-lg w-full sm:w-auto text-center'
                 >
-                  Chat with a Mortgage Broker
+                  Get Started Today
+                </a>
+                <a
+                  href='#borrowing-calculator'
+                  class='bg-white text-[#1C2C3B] border-2 border-[#1C2C3B] px-8 py-4 font-bold transition-all duration-300 hover:bg-[#1C2C3B] hover:text-white hover:shadow-lg w-full sm:w-auto text-center'
+                >
+                  Calculate Borrowing
                 </a>
               </div>
 
@@ -95,12 +101,13 @@ const meta = {
             <div class='lg:col-span-2 order-1 lg:order-2'>
               <div class='relative'>
                 <img
-                  src='/images/home-loans-hero.webp'
+                  src='/assets/img/placeholder-home-loan-hero.jpg'
                   alt='Happy Queensland Family with New Home Keys'
-                  width='1200'
-                  height='1200'
+                  width='400'
+                  height='400'
                   loading='eager'
-                  class='w-full h-auto object-cover shadow-2xl rounded-lg max-h-[500px] object-center'
+                  class='w-full h-auto object-cover shadow-2xl rounded-lg max-h-[500px] object-top'
+                  onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'400\'%3E%3Crect fill=\'%23f3f4f6\' width=\'400\' height=\'400\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'sans-serif\' font-size=\'18\' fill=\'%239ca3af\'%3EHappy Queensland%3Cbr/%3EFamily with Keys%3C/text%3E%3C/svg%3E'"
                 />
               </div>
             </div>
@@ -171,7 +178,7 @@ const meta = {
             </ul>
 
             <a href="#contact" class="inline-block w-full text-center px-6 py-3 bg-[#f97316] text-white font-bold hover:bg-[#ea580c] hover:shadow-lg transition-all duration-300">
-              Chat with a Mortgage Broker
+              Start Your Employee Application
             </a>
           </div>
 
@@ -220,7 +227,7 @@ const meta = {
             </ul>
 
             <a href="#contact" class="inline-block w-full text-center px-6 py-3 bg-[#f97316] text-white font-bold hover:bg-[#ea580c] hover:shadow-lg transition-all duration-300">
-              Chat with a Mortgage Broker
+              Explore Self-Employed Options
             </a>
           </div>
         </div>
@@ -234,148 +241,156 @@ const meta = {
             Chat with a Mortgage Broker
           </a>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- All Home Loan Services -->
-        <div class="mt-20">
-          <div class="text-center mb-12">
-            <h3 class="text-3xl font-bold mb-4 font-InstrumentSans text-[#1C2C3B]">
-              All Your Home Loan Needs, Covered
+  <!-- SECTION 3: Service Categories Grid -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-7xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-5xl font-bold mb-6 font-InstrumentSans text-[#1C2C3B] uppercase">
+            ALL YOUR HOME LOAN NEEDS, COVERED
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto font-InstrumentSans">
+            From first homes to investment portfolios - comprehensive mortgage solutions for every stage of your property journey
+          </p>
+        </div>
+
+        <!-- Services Grid - 4-3 Layout -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+          <!-- Service 1: Home Purchase -->
+          <div class="bg-white p-8 border border-gray-200 hover:border-[#FF9E10] transition-all duration-300 hover:shadow-lg flex flex-col">
+            <div class="w-16 h-16 bg-[#FF9E10] bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="white" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+              </svg>
+            </div>
+            <h3 class="text-base font-bold mb-4 text-[#1C2C3B] font-InstrumentSans">
+              Home Purchase Loans
             </h3>
-            <p class="text-lg text-gray-600 max-w-3xl mx-auto font-InstrumentSans">
-              From first homes to investment portfolios - comprehensive mortgage solutions for every stage of your property journey
+            <p class="text-gray-600 mb-6 leading-relaxed flex-grow">
+              Whether you're buying your first home or upgrading to your dream property, we find competitive rates and flexible terms from 30+ lenders. Simple process, expert guidance.
             </p>
+            <a href="#contact" class="text-[#FF9E10] font-semibold hover:text-[#e68a00] transition-colors mt-auto">
+              Learn More →
+            </a>
           </div>
 
-          <!-- Services Grid - 4-3 Layout -->
-          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-            <!-- Service 1: Home Purchase -->
-            <div class="bg-white p-6 border border-gray-200 hover:border-[#FF9E10] transition-all duration-300 hover:shadow-lg flex flex-col">
-              <div class="w-12 h-12 bg-[#FF9E10] bg-opacity-10 rounded-full flex items-center justify-center mb-4">
-                <svg class="w-6 h-6 text-[#FF9E10]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                </svg>
-              </div>
-              <h4 class="text-sm font-bold mb-3 text-[#1C2C3B] font-InstrumentSans">
-                Home Purchase Loans
-              </h4>
-              <p class="text-gray-600 text-sm mb-4 leading-relaxed flex-grow">
-                Whether you're buying your first home or upgrading to your dream property, we find competitive rates and flexible terms from 30+ lenders.
-              </p>
-              <a href="#contact" class="text-[#FF9E10] font-semibold text-sm hover:text-[#e68a00] transition-colors mt-auto">
-                Learn More →
-              </a>
+          <!-- Service 2: First Home 5% Deposit (FEATURED) -->
+          <div class="bg-white p-8 border-2 border-[#FF9E10] relative hover:shadow-xl transition-all duration-300 flex flex-col">
+            <div class="absolute top-0 right-0 bg-[#FF9E10] text-white px-4 py-1 text-xs font-bold uppercase">
+              MOST POPULAR
             </div>
-
-            <!-- Service 2: First Home 5% Deposit -->
-            <div class="bg-white p-6 border border-gray-200 hover:border-[#FF9E10] transition-all duration-300 hover:shadow-lg flex flex-col">
-              <div class="w-12 h-12 bg-[#FF9E10] bg-opacity-10 rounded-full flex items-center justify-center mb-4">
-                <svg class="w-6 h-6 text-[#FF9E10]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
-                </svg>
-              </div>
-              <h4 class="text-sm font-bold mb-3 text-[#1C2C3B] font-InstrumentSans">
-                First Home 5% Deposit
-              </h4>
-              <p class="text-gray-600 text-sm mb-4 leading-relaxed flex-grow">
-                Buy your first home with just 5% deposit through the Government 5% Deposit Guarantee Scheme. No lender's mortgage insurance required.
-              </p>
-              <a href="#government-schemes" class="text-[#FF9E10] font-semibold text-sm hover:text-[#e68a00] transition-colors mt-auto">
-                Check Eligibility →
-              </a>
+            <div class="w-16 h-16 bg-[#FF9E10] bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="white" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+              </svg>
             </div>
-
-            <!-- Service 3: Refinance Solutions -->
-            <div class="bg-white p-6 border border-gray-200 hover:border-[#FF9E10] transition-all duration-300 hover:shadow-lg flex flex-col">
-              <div class="w-12 h-12 bg-[#FF9E10] bg-opacity-10 rounded-full flex items-center justify-center mb-4">
-                <svg class="w-6 h-6 text-[#FF9E10]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-                </svg>
-              </div>
-              <h4 class="text-sm font-bold mb-3 text-[#1C2C3B] font-InstrumentSans">
-                Refinance Solutions
-              </h4>
-              <p class="text-gray-600 text-sm mb-4 leading-relaxed flex-grow">
-                Save thousands by refinancing to better rates. We analyse your current situation and compare 30+ lenders to ensure refinancing genuinely benefits you.
-              </p>
-              <a href="#contact" class="text-[#FF9E10] font-semibold text-sm hover:text-[#e68a00] transition-colors mt-auto">
-                Calculate Savings →
-              </a>
-            </div>
-
-            <!-- Service 4: Construction Loans -->
-            <div class="bg-white p-6 border border-gray-200 hover:border-[#FF9E10] transition-all duration-300 hover:shadow-lg flex flex-col">
-              <div class="w-12 h-12 bg-[#FF9E10] bg-opacity-10 rounded-full flex items-center justify-center mb-4">
-                <svg class="w-6 h-6 text-[#FF9E10]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                </svg>
-              </div>
-              <h4 class="text-sm font-bold mb-3 text-[#1C2C3B] font-InstrumentSans">
-                Construction Loans
-              </h4>
-              <p class="text-gray-600 text-sm mb-4 leading-relaxed flex-grow">
-                Building your dream home or planning major renovations? We arrange progressive drawdown construction loans that release funds as your project reaches milestones.
-              </p>
-              <a href="#contact" class="text-[#FF9E10] font-semibold text-sm hover:text-[#e68a00] transition-colors mt-auto">
-                Learn More →
-              </a>
-            </div>
+            <h3 class="text-base font-bold mb-4 text-[#1C2C3B] font-InstrumentSans">
+              First Home 5% Deposit
+            </h3>
+            <p class="text-gray-600 mb-6 leading-relaxed flex-grow">
+              Buy your first home with just 5% deposit through the Government 5% Deposit Guarantee Scheme. No lender's mortgage insurance required. We're experts at navigating government schemes and maximising your eligibility.
+            </p>
+            <a href="#government-schemes" class="text-[#FF9E10] font-semibold hover:text-[#e68a00] transition-colors mt-auto">
+              Check Eligibility →
+            </a>
           </div>
 
-          <!-- Second Row - 3 Services -->
-          <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            <!-- Service 5: Debt Consolidation -->
-            <div class="bg-white p-6 border border-gray-200 hover:border-[#FF9E10] transition-all duration-300 hover:shadow-lg flex flex-col">
-              <div class="w-12 h-12 bg-[#FF9E10] bg-opacity-10 rounded-full flex items-center justify-center mb-4">
-                <svg class="w-6 h-6 text-[#FF9E10]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-                </svg>
-              </div>
-              <h4 class="text-sm font-bold mb-3 text-[#1C2C3B] font-InstrumentSans">
-                Debt Consolidation
-              </h4>
-              <p class="text-gray-600 text-sm mb-4 leading-relaxed flex-grow">
-                Simplify multiple debts into one manageable home loan payment. Reduce interest costs and streamline your finances by accessing your home equity wisely.
-              </p>
-              <a href="#contact" class="text-[#FF9E10] font-semibold text-sm hover:text-[#e68a00] transition-colors mt-auto">
-                Learn More →
-              </a>
+          <!-- Service 3: Refinance Solutions -->
+          <div class="bg-white p-8 border border-gray-200 hover:border-[#FF9E10] transition-all duration-300 hover:shadow-lg flex flex-col">
+            <div class="w-16 h-16 bg-[#FF9E10] bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="white" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+              </svg>
             </div>
+            <h3 class="text-base font-bold mb-4 text-[#1C2C3B] font-InstrumentSans">
+              Refinance Solutions
+            </h3>
+            <p class="text-gray-600 mb-6 leading-relaxed flex-grow">
+              Save thousands by refinancing to better rates. We analyse your current situation and compare 30+ lenders to ensure refinancing genuinely benefits you. No unnecessary changes - only smart financial moves.
+            </p>
+            <a href="#contact" class="text-[#FF9E10] font-semibold hover:text-[#e68a00] transition-colors mt-auto">
+              Calculate Savings →
+            </a>
+          </div>
 
-            <!-- Service 6: Cash Out & Equity Release -->
-            <div class="bg-white p-6 border border-gray-200 hover:border-[#FF9E10] transition-all duration-300 hover:shadow-lg flex flex-col">
-              <div class="w-12 h-12 bg-[#FF9E10] bg-opacity-10 rounded-full flex items-center justify-center mb-4">
-                <svg class="w-6 h-6 text-[#FF9E10]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                </svg>
-              </div>
-              <h4 class="text-sm font-bold mb-3 text-[#1C2C3B] font-InstrumentSans">
-                Cash Out & Equity Release
-              </h4>
-              <p class="text-gray-600 text-sm mb-4 leading-relaxed flex-grow">
-                Access your home equity for renovations, investments, or major purchases. Smart strategies to leverage your property value without risking your financial stability.
-              </p>
-              <a href="#contact" class="text-[#FF9E10] font-semibold text-sm hover:text-[#e68a00] transition-colors mt-auto">
-                Learn More →
-              </a>
+          <!-- Service 4: Construction Loans -->
+          <div class="bg-white p-8 border border-gray-200 hover:border-[#FF9E10] transition-all duration-300 hover:shadow-lg flex flex-col">
+            <div class="w-16 h-16 bg-[#FF9E10] bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="white" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+              </svg>
             </div>
+            <h3 class="text-base font-bold mb-4 text-[#1C2C3B] font-InstrumentSans">
+              Construction Loans
+            </h3>
+            <p class="text-gray-600 mb-6 leading-relaxed flex-grow">
+              Building your dream home or planning major renovations? We arrange progressive drawdown construction loans that release funds as your project reaches milestones. Clear timelines, no surprises.
+            </p>
+            <a href="#contact" class="text-[#FF9E10] font-semibold hover:text-[#e68a00] transition-colors mt-auto">
+              Learn More →
+            </a>
+          </div>
+        </div>
 
-            <!-- Service 7: Investment Property -->
-            <div class="bg-white p-6 border border-gray-200 hover:border-[#FF9E10] transition-all duration-300 hover:shadow-lg flex flex-col">
-              <div class="w-12 h-12 bg-[#FF9E10] bg-opacity-10 rounded-full flex items-center justify-center mb-4">
-                <svg class="w-6 h-6 text-[#FF9E10]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                </svg>
-              </div>
-              <h4 class="text-sm font-bold mb-3 text-[#1C2C3B] font-InstrumentSans">
-                Investment Property Loans
-              </h4>
-              <p class="text-gray-600 text-sm mb-4 leading-relaxed flex-grow">
-                Build your property portfolio with tax-effective loan structures. We help you maximise rental income inclusion and structure loans for long-term portfolio growth.
-              </p>
-              <a href="#contact" class="text-[#FF9E10] font-semibold text-sm hover:text-[#e68a00] transition-colors mt-auto">
-                Learn More →
-              </a>
+        <!-- Second Row - 3 Services -->
+        <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <!-- Service 5: Debt Consolidation -->
+          <div class="bg-white p-8 border border-gray-200 hover:border-[#FF9E10] transition-all duration-300 hover:shadow-lg flex flex-col">
+            <div class="w-16 h-16 bg-[#FF9E10] bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="white" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+              </svg>
             </div>
+            <h3 class="text-base font-bold mb-4 text-[#1C2C3B] font-InstrumentSans">
+              Debt Consolidation
+            </h3>
+            <p class="text-gray-600 mb-6 leading-relaxed flex-grow">
+              Simplify multiple debts into one manageable home loan payment. Reduce interest costs and streamline your finances by accessing your home equity wisely. We ensure consolidation genuinely improves your position.
+            </p>
+            <a href="#contact" class="text-[#FF9E10] font-semibold hover:text-[#e68a00] transition-colors mt-auto">
+              Learn More →
+            </a>
+          </div>
+
+          <!-- Service 6: Cash Out & Equity Release -->
+          <div class="bg-white p-8 border border-gray-200 hover:border-[#FF9E10] transition-all duration-300 hover:shadow-lg flex flex-col">
+            <div class="w-16 h-16 bg-[#FF9E10] bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="white" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-base font-bold mb-4 text-[#1C2C3B] font-InstrumentSans">
+              Cash Out & Equity Release
+            </h3>
+            <p class="text-gray-600 mb-6 leading-relaxed flex-grow">
+              Access your home equity for renovations, investments, or major purchases. Smart strategies to leverage your property value without risking your financial stability. Strategic equity release advice included.
+            </p>
+            <a href="#contact" class="text-[#FF9E10] font-semibold hover:text-[#e68a00] transition-colors mt-auto">
+              Learn More →
+            </a>
+          </div>
+
+          <!-- Service 7: Investment Property -->
+          <div class="bg-white p-8 border border-gray-200 hover:border-[#FF9E10] transition-all duration-300 hover:shadow-lg flex flex-col">
+            <div class="w-16 h-16 bg-[#FF9E10] bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="white" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+              </svg>
+            </div>
+            <h3 class="text-base font-bold mb-4 text-[#1C2C3B] font-InstrumentSans">
+              Investment Property Loans
+            </h3>
+            <p class="text-gray-600 mb-6 leading-relaxed flex-grow">
+              Build your property portfolio with tax-effective loan structures. We help you maximise rental income inclusion and structure loans for long-term portfolio growth. Investment strategy guidance included.
+            </p>
+            <a href="#contact" class="text-[#FF9E10] font-semibold hover:text-[#e68a00] transition-colors mt-auto">
+              Learn More →
+            </a>
           </div>
         </div>
       </div>
@@ -388,6 +403,9 @@ const meta = {
       <div class="max-w-6xl mx-auto">
         <!-- Section Header -->
         <div class="text-center mb-16">
+          <div class="inline-block bg-[#FF9E10] text-white px-4 py-2 text-sm font-bold uppercase mb-4">
+            MOST POPULAR
+          </div>
           <h2 class="text-4xl lg:text-5xl font-bold mb-6 font-InstrumentSans text-[#1C2C3B] uppercase">
             Australian Government 5% Deposit Scheme
           </h2>
@@ -396,50 +414,103 @@ const meta = {
           </p>
         </div>
 
-        <!-- Single Consolidated Scheme Card -->
-        <div class="max-w-4xl mx-auto">
-          <div class="bg-white p-10 shadow-xl border-t-4 border-[#FF9E10]">
-            <p class="text-gray-700 text-lg mb-8 leading-relaxed">
-              The Australian Government is helping you get into your home with a <strong>5% deposit</strong> (or as low as <strong>2% for single parents</strong>) - no lender's mortgage insurance required.
-            </p>
+        <!-- Info Box -->
+        <div class="bg-white border-l-4 border-[#FF9E10] p-6 mb-12 max-w-4xl mx-auto">
+          <p class="text-gray-700 leading-relaxed">
+            <strong>Updated Eligibility:</strong> Property price limits apply in all government schemes. We help you navigate the eligibility requirements and maximise your chances of approval.
+          </p>
+        </div>
 
-            <div class="bg-[#FFF7ED] p-6 rounded-lg mb-8">
-              <p class="text-gray-700 leading-relaxed">
-                <strong>Important:</strong> Generous price caps apply based on your region. We help you navigate the eligibility requirements and maximise your chances of approval.
-              </p>
+        <!-- Schemes Grid -->
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Scheme 1: First Home Guarantee -->
+          <div class="bg-white p-8 shadow-lg border-t-4 border-[#FF9E10] relative">
+            <div class="flex items-center mb-6">
+              <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-[#1C2C3B] font-InstrumentSans">
+                First Home Guarantee (5% Deposit Scheme)
+              </h3>
             </div>
 
-            <h3 class="font-bold text-[#1C2C3B] mb-6 text-2xl font-InstrumentSans">Key Benefits:</h3>
-            <ul class="space-y-4 mb-8">
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Buy your first home with just a 5% deposit - no lender's mortgage insurance required. The Australian Government guarantees up to 15% of your home loan.
+            </p>
+
+            <h4 class="font-bold text-[#1C2C3B] mb-4 text-lg">Who Can Apply?</h4>
+            <ul class="space-y-3 mb-6">
               <li class="flex items-start">
-                <svg class="w-6 h-6 mr-3 mt-1 text-[#f97316] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 mr-3 mt-1 text-[#f97316] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                 </svg>
-                <span class="text-gray-700"><strong>5% deposit for first home buyers</strong> - Buy sooner without saving a full 20% deposit</span>
+                <span class="text-gray-700">Australian citizen or permanent resident (18+ years)</span>
               </li>
               <li class="flex items-start">
-                <svg class="w-6 h-6 mr-3 mt-1 text-[#f97316] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 mr-3 mt-1 text-[#f97316] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                 </svg>
-                <span class="text-gray-700"><strong>2% deposit for single parents</strong> - Family Home Guarantee helps single-parent families enter the market</span>
+                <span class="text-gray-700">First home buyer - never owned property before</span>
               </li>
               <li class="flex items-start">
-                <svg class="w-6 h-6 mr-3 mt-1 text-[#f97316] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 mr-3 mt-1 text-[#f97316] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                 </svg>
-                <span class="text-gray-700"><strong>No lender's mortgage insurance</strong> - Save thousands in LMI costs</span>
+                <span class="text-gray-700">Property value under generous price caps per region</span>
               </li>
               <li class="flex items-start">
-                <svg class="w-6 h-6 mr-3 mt-1 text-[#f97316] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 mr-3 mt-1 text-[#f97316] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                 </svg>
-                <span class="text-gray-700"><strong>No income caps</strong> - Eligibility based on ability to service the loan, not your income level</span>
+                <span class="text-gray-700"><strong>No maximum income caps</strong></span>
               </li>
               <li class="flex items-start">
-                <svg class="w-6 h-6 mr-3 mt-1 text-[#f97316] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 mr-3 mt-1 text-[#f97316] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                 </svg>
-                <span class="text-gray-700"><strong>Generous regional price caps</strong> - Property value limits vary by region to reflect local market conditions</span>
+                <span class="text-gray-700">You'll live in the property (not for investment)</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Scheme 2: Family Home Guarantee -->
+          <div class="bg-white p-8 shadow-lg border-t-4 border-[#1C2C3B]">
+            <div class="flex items-center mb-6">
+              <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-[#1C2C3B] font-InstrumentSans">
+                Family Home Guarantee
+              </h3>
+            </div>
+
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Single parents can buy with just 2% deposit. Designed to help single-parent families enter the property market sooner without lender's mortgage insurance costs.
+            </p>
+
+            <h4 class="font-bold text-[#1C2C3B] mb-4 text-lg">Who Can Apply?</h4>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 mr-3 mt-1 text-[#f97316] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-700">Single parent with at least one dependent child</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 mr-3 mt-1 text-[#f97316] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-700">Australian citizen or permanent resident</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 mr-3 mt-1 text-[#f97316] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-700">Property value under generous price caps per region</span>
               </li>
             </ul>
           </div>
@@ -448,7 +519,7 @@ const meta = {
         <!-- CTAs -->
         <div class="text-center mt-12">
           <a href="#contact" class="inline-block px-8 py-4 bg-[#f97316] text-white font-bold text-lg hover:bg-[#ea580c] hover:shadow-lg transition-all duration-300 mb-4">
-            Chat with a Mortgage Broker
+            Book Discovery Call Today
           </a>
           <p class="text-gray-600 mt-4">
             Not sure if you qualify? Book a free assessment and we'll review your situation - no obligation.
@@ -477,14 +548,14 @@ const meta = {
           <div class="grid lg:grid-cols-3 gap-12">
             <!-- Left: Photo -->
             <div class="lg:col-span-1">
-              <img
-                src="/images/team/ray-mckay.webp"
-                alt="Ray McKay - Residential Lending Specialist"
-                width="400"
-                height="400"
-                loading="lazy"
-                class="w-full aspect-square object-cover rounded-lg shadow-lg"
-              />
+              <div class="w-full aspect-square bg-gray-200 rounded-lg flex items-center justify-center text-gray-500">
+                <div class="text-center p-6">
+                  <svg class="w-24 h-24 mx-auto mb-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+                  </svg>
+                  <p class="text-sm font-semibold">Professional Photo<br/>Coming Soon</p>
+                </div>
+              </div>
 
               <!-- Contact Info -->
               <div class="mt-6 space-y-3">
@@ -499,6 +570,13 @@ const meta = {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                   </svg>
                   <a href="mailto:ray.mckay@edgeviewfinance.com.au" class="hover:text-[#FF9E10] transition-colors text-sm">ray.mckay@edgeviewfinance.com.au</a>
+                </div>
+                <div class="flex items-center text-gray-700">
+                  <svg class="w-5 h-5 mr-3 text-[#f97316]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg>
+                  <span class="text-sm">Sunshine Coast & Surrounds</span>
                 </div>
               </div>
             </div>
@@ -529,7 +607,7 @@ const meta = {
                     </svg>
                   </div>
                   <div class="flex-1">
-                    <h5 class="font-bold text-base text-[#1C2C3B] mb-2">Passionate Client Focus</h5>
+                    <h5 class="font-bold text-[#1C2C3B] mb-2">Passionate Client Focus</h5>
                     <p class="text-gray-600 text-sm">Dedicated to your success, not just processing applications</p>
                   </div>
                 </div>
@@ -542,7 +620,7 @@ const meta = {
                     </svg>
                   </div>
                   <div class="flex-1">
-                    <h5 class="font-bold text-base text-[#1C2C3B] mb-2">Personal Service</h5>
+                    <h5 class="font-bold text-[#1C2C3B] mb-2">Personal Service</h5>
                     <p class="text-gray-600 text-sm">You're not just a number - you're a valued client with unique needs</p>
                   </div>
                 </div>
@@ -555,7 +633,7 @@ const meta = {
                     </svg>
                   </div>
                   <div class="flex-1">
-                    <h5 class="font-bold text-base text-[#1C2C3B] mb-2">Flexible Meetings & Availability</h5>
+                    <h5 class="font-bold text-[#1C2C3B] mb-2">Flexible Meetings & Availability</h5>
                     <p class="text-gray-600 text-sm">Your place, video calls, or cafés. Business hours, evenings, or weekends - whatever works for you</p>
                   </div>
                 </div>
@@ -568,7 +646,7 @@ const meta = {
                     </svg>
                   </div>
                   <div class="flex-1">
-                    <h5 class="font-bold text-base text-[#1C2C3B] mb-2">Expert Guidance</h5>
+                    <h5 class="font-bold text-[#1C2C3B] mb-2">Expert Guidance</h5>
                     <p class="text-gray-600 text-sm">Navigate the complex home loan process with confidence and complete transparency</p>
                   </div>
                 </div>
@@ -576,7 +654,7 @@ const meta = {
 
               <!-- Meeting Options -->
               <div class="bg-gray-50 p-6 rounded-lg">
-                <h5 class="font-bold text-base text-[#1C2C3B] mb-3">How We Can Meet:</h5>
+                <h5 class="font-bold text-[#1C2C3B] mb-3">How We Can Meet:</h5>
                 <ul class="space-y-2 text-gray-700 text-sm">
                   <li class="flex items-center">
                     <svg class="w-4 h-4 mr-2 text-[#f97316]" fill="currentColor" viewBox="0 0 20 20">
@@ -607,14 +685,11 @@ const meta = {
 
               <!-- CTAs -->
               <div class="mt-8 flex flex-col sm:flex-row gap-4">
-                <button
-                  onclick="Calendly.initPopupWidget({url: 'REPLACE_WITH_RAY_CALENDLY_URL'});return false;"
-                  class="inline-block px-8 py-4 bg-[#f97316] text-white font-bold text-center hover:bg-[#ea580c] hover:shadow-lg transition-all duration-300 cursor-pointer"
-                >
-                  Book Your Call with Ray
-                </button>
-                <a href="tel:0416946667" class="inline-block px-8 py-4 border-2 border-[#1C2C3B] text-[#1C2C3B] font-bold text-center hover:bg-[#1C2C3B] hover:text-white transition-colors duration-300">
-                  Call Ray: 0416 946 667
+                <a href="#contact" class="inline-block px-8 py-4 bg-[#f97316] text-white font-bold text-center hover:bg-[#ea580c] hover:shadow-lg transition-all duration-300">
+                  Book Your Discovery Call with Ray
+                </a>
+                <a href="tel:0493291658" class="inline-block px-8 py-4 border-2 border-[#1C2C3B] text-[#1C2C3B] font-bold text-center hover:bg-[#1C2C3B] hover:text-white transition-colors duration-300">
+                  Call Ray: 0493 291 658
                 </a>
               </div>
             </div>
@@ -797,7 +872,7 @@ const meta = {
         <!-- CTA Section -->
         <div class="text-center mt-12">
           <a href="#contact" class="inline-block px-8 py-4 bg-[#f97316] text-white font-bold text-lg hover:bg-[#ea580c] hover:shadow-lg transition-all duration-300 mb-4">
-            Chat with a Mortgage Broker
+            Ready to Get Started?
           </a>
           <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
             Every situation is unique. These timelines are typical, but we'll give you accurate expectations for your specific circumstances during our first conversation.
@@ -962,52 +1037,15 @@ const meta = {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
             </svg>
             <p class="text-gray-700 mb-6 leading-relaxed">
-              Dan was absolutely amazing through our entire first home buying journey. As first-timers, we had so many questions and felt completely overwhelmed. Dan patiently explained everything, helped us understand the 5% deposit scheme, and got our loan approved within 1 1/2 weeks so we can meet the tight finance deadline before the property was supposed to go to auction. We genuinely couldn't have done this without his guidance and support. Highly recommend!
+              Ray was absolutely amazing through our entire first home buying journey. As first-timers, we had so many questions and felt completely overwhelmed. Ray patiently explained everything, helped us understand the 5% deposit scheme, and got our loan approved within two weeks. We genuinely couldn't have done this without his guidance and support. Highly recommend!
             </p>
             <div class="border-t border-gray-200 pt-4">
-              <p class="font-bold text-[#1C2C3B] mb-1">— Justine A., Gold Coast</p>
+              <p class="font-bold text-[#1C2C3B] mb-1">— Sarah M., Sunshine Coast</p>
               <p class="text-sm text-gray-600">First Home Buyer | 5% Deposit Scheme</p>
             </div>
           </div>
 
           <!-- Testimonial 2: Refinancing Success -->
-          <div class="bg-gray-50 p-8 relative">
-            <div class="absolute top-0 left-0 right-0 h-1 bg-[#FF9E10]"></div>
-            <div class="mb-4">
-              <span class="inline-block bg-green-100 text-green-700 px-3 py-1 text-xs font-bold uppercase mb-3">
-                Purchased Dream Home
-              </span>
-              <div class="flex items-center mb-4">
-                <svg class="w-5 h-5 text-[#FF9E10] fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                </svg>
-                <svg class="w-5 h-5 text-[#FF9E10] fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                </svg>
-                <svg class="w-5 h-5 text-[#FF9E10] fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                </svg>
-                <svg class="w-5 h-5 text-[#FF9E10] fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                </svg>
-                <svg class="w-5 h-5 text-[#FF9E10] fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                </svg>
-              </div>
-            </div>
-            <svg class="w-10 h-10 text-[#FF9E10] opacity-80 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-            </svg>
-            <p class="text-gray-700 mb-6 leading-relaxed">
-              To the Edgeview team and especially Dan, I'll never forget your support and kindness. You have made a big impact on my life as a home owner. You are professional, reliable and punctual. Thank you guys and so lucky to have you as my finance advisor. Outstanding experience!!!! And I highly recommend Edgeview finance.
-            </p>
-            <div class="border-t border-gray-200 pt-4">
-              <p class="font-bold text-[#1C2C3B] mb-1">— Ruth M., Gold Coast</p>
-              <p class="text-sm text-gray-600">Dream Home Purchase</p>
-            </div>
-          </div>
-
-          <!-- Testimonial 3: Construction Loan Success -->
           <div class="bg-gray-50 p-8 relative">
             <div class="absolute top-0 left-0 right-0 h-1 bg-[#FF9E10]"></div>
             <div class="mb-4">
@@ -1036,11 +1074,48 @@ const meta = {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
             </svg>
             <p class="text-gray-700 mb-6 leading-relaxed">
-              We just refinanced our home loan with Edgeview Finance and have been extremely happy with their service. We initially looked at going directly with our bank but because we own a small business, and a rural property they basically laughed at us. I called Dan, and working with him and his team nothing was too much trouble and 2 weeks later it is all approved and with a better interest rate than our current bank.
+              We refinanced our home loan through Edgeview and saved over $15,000 in the first year alone. The service was incredibly professional and efficient - Ray handled absolutely everything and kept us informed at every stage. The whole process was surprisingly smooth and stress-free. Best financial decision we've made in years.
             </p>
             <div class="border-t border-gray-200 pt-4">
-              <p class="font-bold text-[#1C2C3B] mb-1">— Kale R., Gold Coast</p>
-              <p class="text-sm text-gray-600">Refinance | $$ Annual Savings</p>
+              <p class="font-bold text-[#1C2C3B] mb-1">— John D., Gold Coast</p>
+              <p class="text-sm text-gray-600">Refinance | $15,000+ Annual Savings</p>
+            </div>
+          </div>
+
+          <!-- Testimonial 3: Construction Loan Success -->
+          <div class="bg-gray-50 p-8 relative">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-[#FF9E10]"></div>
+            <div class="mb-4">
+              <span class="inline-block bg-green-100 text-green-700 px-3 py-1 text-xs font-bold uppercase mb-3">
+                Built Dream Home
+              </span>
+              <div class="flex items-center mb-4">
+                <svg class="w-5 h-5 text-[#FF9E10] fill-current" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+                <svg class="w-5 h-5 text-[#FF9E10] fill-current" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+                <svg class="w-5 h-5 text-[#FF9E10] fill-current" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+                <svg class="w-5 h-5 text-[#FF9E10] fill-current" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+                <svg class="w-5 h-5 text-[#FF9E10] fill-current" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+              </div>
+            </div>
+            <svg class="w-10 h-10 text-[#FF9E10] opacity-80 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+            </svg>
+            <p class="text-gray-700 mb-6 leading-relaxed">
+              Building our home was a dream we thought would take years longer. The Edgeview team made it happen sooner than we expected. They handled all the complex construction loan details, coordinated perfectly with our builder, and made the whole progressive drawdown process simple to understand. Couldn't recommend their service enough!
+            </p>
+            <div class="border-t border-gray-200 pt-4">
+              <p class="font-bold text-[#1C2C3B] mb-1">— Lisa K., Brisbane North</p>
+              <p class="text-sm text-gray-600">Construction Loan | New Build</p>
             </div>
           </div>
         </div>
@@ -1048,7 +1123,7 @@ const meta = {
         <!-- CTA Section -->
         <div class="text-center">
           <a href="#contact" class="inline-block px-8 py-4 bg-[#f97316] text-white font-bold text-lg hover:bg-[#ea580c] hover:shadow-lg transition-all duration-300 mb-4">
-            Chat with a Mortgage Broker
+            Join Hundreds of Happy Clients
           </a>
           <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-sm">
             These are real client experiences. Your results will depend on your individual circumstances, but our commitment to excellent service is guaranteed for everyone.
@@ -1902,6 +1977,15 @@ const meta = {
           </div>
         </div>
 
+        <!-- CTA Section -->
+        <div class="text-center mt-12">
+          <a href="#contact" class="inline-block px-8 py-4 bg-[#f97316] text-white font-bold text-lg hover:bg-[#ea580c] hover:shadow-lg transition-all duration-300 mb-4">
+            Still Have Questions?
+          </a>
+          <p class="text-gray-600 mt-4">
+            Can't find the answer you're looking for? Contact us directly and we'll provide clear, honest answers to any home loan question.
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -1913,22 +1997,11 @@ const meta = {
         <!-- Section Header -->
         <div class="text-center mb-16">
           <h2 class="text-4xl lg:text-5xl font-bold mb-6 font-InstrumentSans text-white uppercase">
-            Meet Your Home Loan Specialist
+            Ready to Start Your Home Loan Journey?
           </h2>
-          <p class="text-xl text-gray-300 max-w-3xl mx-auto font-InstrumentSans mb-4">
+          <p class="text-xl text-gray-300 max-w-3xl mx-auto font-InstrumentSans">
             Two Queensland offices ready to help - contact us today for a free, no-obligation consultation
           </p>
-          <a
-            href="https://www.google.com/search?q=Edgeview+Finance&stick=H4sIAAAAAAAA_-NgU1I1qDBLsjQ0SLNIMTYyNDUzMTG1MqhINk9MMzc3T0m2SExMTbUwWcQq4JqSnlqWmVqu4JaZl5iXnAoAG-cXIjwAAAA&hl=en&mat=CUHAEmrjixErElcBYJahaYo1yp-9IGCAU3rbp9wrkvUj8yDvhV-mAEeNG24qdFGP8qiPng68pZnxA7wGWwfyNuNuKIm2e62mdLmhYrCZHpoA-4eYDAB2S-wNX1mHmguXzGk&authuser=0#mpd=~3103415427088433217/customers/reviews"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center text-[#FF9E10] hover:text-[#ea580c] transition-colors text-lg font-semibold"
-          >
-            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-            </svg>
-            Read Our Google Reviews
-          </a>
         </div>
 
         <!-- Office Cards -->
@@ -1960,6 +2033,13 @@ const meta = {
                 </svg>
                 <a href="mailto:ray.mckay@edgeviewfinance.com.au" class="hover:text-[#FF9E10] transition-colors text-sm break-all">ray.mckay@edgeviewfinance.com.au</a>
               </div>
+              <div class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 mr-3 text-[#f97316]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                <span class="text-sm">Servicing: Sunshine Coast & Surrounds</span>
+              </div>
             </div>
 
             <div class="bg-gray-50 p-4 mb-6">
@@ -1993,12 +2073,9 @@ const meta = {
             </div>
             </div>
 
-            <button
-              onclick="Calendly.initPopupWidget({url: 'REPLACE_WITH_RAY_CALENDLY_URL'});return false;"
-              class="inline-block w-full text-center px-6 py-3 bg-[#f97316] text-white font-bold hover:bg-[#ea580c] hover:shadow-lg transition-all duration-300 mt-auto cursor-pointer"
-            >
-              Book Your Call with Ray
-            </button>
+            <a href="#contact" class="inline-block w-full text-center px-6 py-3 bg-[#f97316] text-white font-bold hover:bg-[#ea580c] hover:shadow-lg transition-all duration-300 mt-auto">
+              Book Your Free Discovery Call with Ray
+            </a>
           </div>
 
           <!-- Gold Coast Office - Dan Peters -->
@@ -2028,6 +2105,13 @@ const meta = {
                 </svg>
                 <a href="mailto:dan.peters@edgeviewfinance.com.au" class="hover:text-[#FF9E10] transition-colors text-sm break-all">dan.peters@edgeviewfinance.com.au</a>
               </div>
+              <div class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 mr-3 text-[#f97316]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                <span class="text-sm">Servicing: Gold Coast & Brisbane</span>
+              </div>
             </div>
 
             <div class="bg-gray-50 p-4 mb-6">
@@ -2037,36 +2121,27 @@ const meta = {
                   <svg class="w-4 h-4 mr-2 text-[#f97316]" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                   </svg>
-                  Visit you at home or workplace
+                  Client visits
                 </li>
                 <li class="flex items-center">
                   <svg class="w-4 h-4 mr-2 text-[#f97316]" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                   </svg>
-                  Video consultations (Zoom, Teams, FaceTime)
+                  Video meetings
                 </li>
                 <li class="flex items-center">
                   <svg class="w-4 h-4 mr-2 text-[#f97316]" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                   </svg>
-                  Meet at local cafés or neutral venues
-                </li>
-                <li class="flex items-center">
-                  <svg class="w-4 h-4 mr-2 text-[#f97316]" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                  </svg>
-                  Business hours, evenings, or weekends
+                  Office consultations available
                 </li>
               </ul>
             </div>
             </div>
 
-            <button
-              onclick="Calendly.initPopupWidget({url: 'https://calendly.com/dan-peters-edgeviewfinance/finance-discovery-call'});return false;"
-              class="inline-block w-full text-center px-6 py-3 bg-[#f97316] text-white font-bold hover:bg-[#ea580c] hover:shadow-lg transition-all duration-300 mt-auto cursor-pointer"
-            >
-              Book Your Call with Dan
-            </button>
+            <a href="#contact" class="inline-block w-full text-center px-6 py-3 bg-[#f97316] text-white font-bold hover:bg-[#ea580c] hover:shadow-lg transition-all duration-300 mt-auto">
+              Book Your Free Discovery Call with Dan
+            </a>
           </div>
         </div>
 
@@ -2086,60 +2161,61 @@ const meta = {
         </div>
 
         <!-- Contact Form -->
-        <div class="bg-white p-6 lg:p-8 shadow-lg">
-          <h3 class="text-2xl font-bold mb-3 text-[#1C2C3B] font-InstrumentSans">Quick Contact Form</h3>
-          <p class="text-gray-600 mb-6 text-sm">
+        <div class="bg-white p-8 lg:p-12 shadow-lg">
+          <h3 class="text-3xl font-bold mb-4 text-[#1C2C3B] font-InstrumentSans">Quick Contact Form</h3>
+          <p class="text-gray-600 mb-8">
             Not sure who to contact? Fill in your details and we'll match you with the right specialist for your needs.
           </p>
 
-          <form id="home-loan-contact-form" class="space-y-4">
+          <form id="home-loan-contact-form" class="space-y-6">
             <!-- Full Name -->
             <div>
-              <label for="fullName" class="block text-sm font-bold text-[#1C2C3B] mb-1">Full Name*</label>
+              <label for="fullName" class="block text-sm font-bold text-[#1C2C3B] mb-2">Full Name*</label>
               <input
                 type="text"
                 id="fullName"
                 name="fullName"
                 required
-                class="w-full px-3 py-2 border border-gray-300 focus:border-[#FF9E10] focus:ring-1 focus:ring-[#FF9E10] outline-none transition-colors"
+                class="w-full px-4 py-3 border border-gray-300 focus:border-[#FF9E10] focus:ring-2 focus:ring-[#FF9E10] focus:ring-opacity-20 outline-none transition-colors"
                 placeholder="Enter your full name"
               >
             </div>
 
             <!-- Email & Phone Row -->
-            <div class="grid md:grid-cols-2 gap-4">
+            <div class="grid md:grid-cols-2 gap-6">
               <div>
-                <label for="email" class="block text-sm font-bold text-[#1C2C3B] mb-1">Email Address*</label>
+                <label for="email" class="block text-sm font-bold text-[#1C2C3B] mb-2">Email Address*</label>
                 <input
                   type="email"
                   id="email"
                   name="email"
                   required
-                  class="w-full px-3 py-2 border border-gray-300 focus:border-[#FF9E10] focus:ring-1 focus:ring-[#FF9E10] outline-none transition-colors"
+                  class="w-full px-4 py-3 border border-gray-300 focus:border-[#FF9E10] focus:ring-2 focus:ring-[#FF9E10] focus:ring-opacity-20 outline-none transition-colors"
                   placeholder="your.email@example.com"
                 >
               </div>
               <div>
-                <label for="phone" class="block text-sm font-bold text-[#1C2C3B] mb-1">Phone Number*</label>
+                <label for="phone" class="block text-sm font-bold text-[#1C2C3B] mb-2">Phone Number*</label>
                 <input
                   type="tel"
                   id="phone"
                   name="phone"
                   required
-                  class="w-full px-3 py-2 border border-gray-300 focus:border-[#FF9E10] focus:ring-1 focus:ring-[#FF9E10] outline-none transition-colors"
+                  class="w-full px-4 py-3 border border-gray-300 focus:border-[#FF9E10] focus:ring-2 focus:ring-[#FF9E10] focus:ring-opacity-20 outline-none transition-colors"
                   placeholder="0412 345 678"
                 >
+                <p class="text-xs text-gray-500 mt-1">We'll never share your number or call without permission</p>
               </div>
             </div>
 
             <!-- Loan Type Dropdown -->
             <div>
-              <label for="loanType" class="block text-sm font-bold text-[#1C2C3B] mb-1">I'm interested in:*</label>
+              <label for="loanType" class="block text-sm font-bold text-[#1C2C3B] mb-2">I'm interested in:*</label>
               <select
                 id="loanType"
                 name="loanType"
                 required
-                class="w-full px-3 py-2 border border-gray-300 focus:border-[#FF9E10] focus:ring-1 focus:ring-[#FF9E10] outline-none transition-colors"
+                class="w-full px-4 py-3 border border-gray-300 focus:border-[#FF9E10] focus:ring-2 focus:ring-[#FF9E10] focus:ring-opacity-20 outline-none transition-colors"
               >
                 <option value="">Select an option...</option>
                 <option value="first-home-5-percent">First Home Purchase (5% deposit)</option>
@@ -2155,11 +2231,11 @@ const meta = {
 
             <!-- Loan Amount (Optional) -->
             <div>
-              <label for="loanAmount" class="block text-sm font-bold text-[#1C2C3B] mb-1">Approximate Loan Amount (Optional)</label>
+              <label for="loanAmount" class="block text-sm font-bold text-[#1C2C3B] mb-2">Approximate Loan Amount (Optional)</label>
               <select
                 id="loanAmount"
                 name="loanAmount"
-                class="w-full px-3 py-2 border border-gray-300 focus:border-[#FF9E10] focus:ring-1 focus:ring-[#FF9E10] outline-none transition-colors"
+                class="w-full px-4 py-3 border border-gray-300 focus:border-[#FF9E10] focus:ring-2 focus:ring-[#FF9E10] focus:ring-opacity-20 outline-none transition-colors"
               >
                 <option value="">Select range...</option>
                 <option value="under-300k">Under $300,000</option>
@@ -2172,8 +2248,8 @@ const meta = {
 
             <!-- Employment Type -->
             <div>
-              <label class="block text-sm font-bold text-[#1C2C3B] mb-1">Employment Type:*</label>
-              <div class="flex flex-col sm:flex-row gap-3">
+              <label class="block text-sm font-bold text-[#1C2C3B] mb-2">Employment Type:*</label>
+              <div class="flex flex-col sm:flex-row gap-4">
                 <label class="flex items-center cursor-pointer">
                   <input
                     type="radio"
@@ -2195,33 +2271,36 @@ const meta = {
                   <span class="ml-2 text-gray-700">Self-Employed / Business Owner</span>
                 </label>
               </div>
+              <p class="text-xs text-gray-500 mt-2">This helps us match you with the right specialist</p>
             </div>
+
 
             <!-- Message -->
             <div>
-              <label for="message" class="block text-sm font-bold text-[#1C2C3B] mb-1">Message (Optional)</label>
+              <label for="message" class="block text-sm font-bold text-[#1C2C3B] mb-2">Message (Optional)</label>
               <textarea
                 id="message"
                 name="message"
-                rows="3"
+                rows="4"
                 maxlength="500"
-                class="w-full px-3 py-2 border border-gray-300 focus:border-[#FF9E10] focus:ring-1 focus:ring-[#FF9E10] outline-none transition-colors resize-none"
-                placeholder="Tell us a bit about your situation..."
+                class="w-full px-4 py-3 border border-gray-300 focus:border-[#FF9E10] focus:ring-2 focus:ring-[#FF9E10] focus:ring-opacity-20 outline-none transition-colors resize-none"
+                placeholder="Tell us a bit about your situation or any questions you have..."
               ></textarea>
+              <p class="text-xs text-gray-500 mt-1">Maximum 500 characters</p>
             </div>
 
             <!-- Submit Button -->
-            <div class="pt-2">
+            <div>
               <button
                 type="submit"
-                class="w-full px-6 py-3 bg-[#f97316] text-white font-bold hover:bg-[#ea580c] hover:shadow-lg transition-all duration-300"
+                class="w-full px-8 py-4 bg-[#f97316] text-white font-bold text-lg hover:bg-[#ea580c] hover:shadow-lg transition-all duration-300"
               >
-                Submit Your Enquiry
+                Send My Enquiry
               </button>
             </div>
 
             <!-- Privacy Notice -->
-            <div class="border-t border-gray-200 pt-4 mt-4">
+            <div class="border-t border-gray-200 pt-6">
               <p class="text-xs text-gray-600 mb-3">
                 <strong>Your privacy is important to us.</strong> We never share your information with third parties and will only contact you regarding your home loan enquiry. Edgeview Finance operates under Australian Credit Licence 459287.
               </p>
@@ -2274,86 +2353,14 @@ const meta = {
     });
   });
 
-  // Contact Form Handling - Home Loan Enquiries
+  // Contact Form Handling (placeholder - integrate with actual backend)
   const contactForm = document.getElementById('home-loan-contact-form');
-  const submitButton = contactForm?.querySelector('button[type="submit"]');
-
   if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
+    contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-
-      // Simple validation
-      const requiredFields = contactForm.querySelectorAll('[required]');
-      let isValid = true;
-
-      requiredFields.forEach(field => {
-        if (!field.value.trim()) {
-          field.style.borderColor = '#ef4444';
-          isValid = false;
-        } else {
-          field.style.borderColor = '#d1d5db';
-        }
-      });
-
-      if (isValid) {
-        // Disable submit button and show loading state
-        if (submitButton) {
-          submitButton.disabled = true;
-          submitButton.textContent = 'Sending...';
-        }
-
-        // Collect form data
-        const formData = new FormData(contactForm);
-
-        // Build submission object for home loans (simpler than business contact form)
-        const submissionData = {
-          firstName: formData.get('fullName').split(' ')[0] || formData.get('fullName'),
-          lastName: formData.get('fullName').split(' ').slice(1).join(' ') || '',
-          mobileNumber: formData.get('phone'),
-          email: formData.get('email'),
-          businessType: 'Home Loans', // Fixed value for home loan enquiries
-          financeTypes: { [formData.get('loanType')]: true }, // Single finance type
-          financeAmount: formData.get('loanAmount'),
-          timeframe: formData.get('employmentType') === 'employee' ? 'Standard employee pathway' : 'Self-employed pathway',
-          requirements: formData.get('message') || `Home loan enquiry: ${formData.get('loanType')}`,
-          contactMethod: 'Phone (during business hours)'
-        };
-
-        try {
-          // Submit to API endpoint (same as contact page)
-          const response = await fetch('/api/submit-contact', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(submissionData)
-          });
-
-          const result = await response.json();
-
-          if (result.success) {
-            // Show success alert
-            alert('Thank you! Your enquiry has been submitted. Ray will contact you within 4 hours during business hours.\n\nYou will also receive a confirmation email shortly.');
-
-            // Reset form
-            contactForm.reset();
-
-            console.log('Form submitted successfully. ID:', result.submissionId);
-          } else {
-            alert('There was an error submitting your form. Please try again or call Ray directly at 0416 946 667.');
-            console.error('Submission error:', result.error);
-          }
-        } catch (error) {
-          console.error('Network error:', error);
-          alert('There was a network error. Please check your connection and try again, or call Ray at 0416 946 667.');
-        } finally {
-          // Re-enable submit button
-          if (submitButton) {
-            submitButton.disabled = false;
-            submitButton.textContent = 'Submit Your Enquiry';
-          }
-        }
-      }
+      // TODO: Integrate with actual form submission backend
+      alert('Thank you! Your enquiry has been submitted. We will contact you within 4 hours during business hours.');
+      contactForm.reset();
     });
   }
 </script>

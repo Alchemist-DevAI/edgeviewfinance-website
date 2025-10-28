@@ -376,13 +376,13 @@ export const clientAutoResponseTemplate = (data) => {
               <div class="logo">
                 <img src="https://www.edgeviewfinance.com.au/images/edgeview-finance-logo.png" alt="Edgeview Finance" style="max-width: 250px; height: auto;">
               </div>
-              <p class="tagline">Strategic Finance Solutions for Queensland Businesses</p>
+              <p class="tagline">Queensland's Trusted Mortgage Brokers</p>
             </div>
             
             <div class="content">
               <h1>Thank you ${data.first_name}, we've received your enquiry!</h1>
               
-              <p>I'm Dan Peters, and I'll personally review your finance requirements to identify the best solutions for your business.</p>
+              <p>I'm Ray McKay, and I'll personally review your home loan requirements to identify the best solutions for your situation.</p>
               
               <div class="timeline">
                 <h2 style="margin-top: 0; color: #1C2C3B; font-size: 18px;">What happens next:</h2>
@@ -414,11 +414,11 @@ export const clientAutoResponseTemplate = (data) => {
 
               <div class="contact-box">
                 <strong>🚨 Need immediate assistance?</strong><br>
-                <p style="margin: 10px 0 5px 0;">Call me directly on <strong>1300 280 895</strong></p>
-                <p style="margin: 5px 0; font-size: 13px;">Available Monday-Friday 8:30am-5:30pm AEST</p>
+                <p style="margin: 10px 0 5px 0;">Call me directly on <strong>0416 946 667</strong></p>
+                <p style="margin: 5px 0; font-size: 13px;">Available Monday-Friday 9am-5pm, Saturday 9am-1pm AEST/AEDT</p>
               </div>
 
-              <p><strong>Your submission details:</strong></p>
+              <p><strong>Your Enquiry:</strong></p>
               <ul style="color: #6b7280; font-size: 14px;">
                 <li>Business Type: ${data.business_type || 'Not specified'}</li>
                 <li>Finance Amount: ${data.finance_amount || 'Not specified'}</li>
@@ -426,15 +426,15 @@ export const clientAutoResponseTemplate = (data) => {
               </ul>
 
               <p style="margin-top: 30px;">Kind regards,</p>
-              <p style="margin: 5px 0;"><strong>Dan Peters</strong><br>
-              Director & Senior Finance Broker<br>
+              <p style="margin: 5px 0;"><strong>Ray McKay</strong><br>
+              Mortgage Broker<br>
               Edgeview Finance</p>
             </div>
 
             <div class="footer">
-              <p>Edgeview Finance Pty Ltd | ABN 38 670 557 635</p>
-              <p>Credit Representative 552241 of QED Credit Services Pty Ltd<br>
-              Australian Credit Licence 387856</p>
+              <p>Edgeview Mortgages Pty Ltd Trading As Edgeview Finance | ABN 34 167 233 712</p>
+              <p>Credit Representative 570778 of Edgeview Mortgages Pty Ltd<br>
+              Australian Credit Licence 459287</p>
               <p><a href="https://edgeviewfinance.com.au" style="color: #f97316;">edgeviewfinance.com.au</a></p>
             </div>
           </div>
@@ -444,7 +444,7 @@ export const clientAutoResponseTemplate = (data) => {
     text: `
 Thank you ${data.first_name}, we've received your enquiry!
 
-I'm Dan Peters, and I'll personally review your finance requirements to identify the best solutions for your business.
+I'm Ray McKay, and I'll personally review your home loan requirements to identify the best solutions for your situation.
 
 WHAT HAPPENS NEXT:
 
@@ -455,27 +455,27 @@ WHAT HAPPENS NEXT:
    I'll call you within 4 business hours to discuss your specific needs
 
 3. Tailored Solutions
-   You'll receive preliminary options suited to your business situation
+   You'll receive preliminary options suited to your home loan situation
 
 Need immediate assistance?
-Call me directly on 1300 280 895
-Available Monday-Friday 8:30am-5:30pm AEST
+Call me directly on 0416 946 667
+Available Monday-Friday 9am-5pm, Saturday 9am-1pm AEST/AEDT
 
-Your submission details:
+Your Enquiry:
 - Business Type: ${data.business_type || 'Not specified'}
 - Finance Amount: ${data.finance_amount || 'Not specified'}
 - Timeframe: ${data.timeframe || 'Not specified'}
 
 Kind regards,
 
-Dan Peters
-Director & Senior Finance Broker
+Ray McKay
+Mortgage Broker
 Edgeview Finance
 
 ---
-Edgeview Finance Pty Ltd | ABN 38 670 557 635
-Credit Representative 552241 of QED Credit Services Pty Ltd
-Australian Credit Licence 387856
+Edgeview Mortgages Pty Ltd Trading As Edgeview Finance | ABN 34 167 233 712
+Credit Representative 570778 of Edgeview Mortgages Pty Ltd
+Australian Credit Licence 459287
 edgeviewfinance.com.au
     `
   };

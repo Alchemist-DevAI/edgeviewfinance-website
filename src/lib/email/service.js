@@ -35,7 +35,8 @@ export class EmailService {
       
       const { data, error } = await resend.emails.send({
         from: `Edgeview Finance <${DEFAULT_FROM}>`,
-        to: [DEFAULT_TO],
+        to: ['ray.mckay@edgeviewfinance.com.au'],
+        cc: ['dan.peters@edgeviewfinance.com.au'],
         subject: template.subject,
         html: template.html,
         text: template.text,
@@ -72,12 +73,12 @@ export class EmailService {
       const template = clientAutoResponseTemplate(formData);
       
       const { data, error } = await resend.emails.send({
-        from: `Dan Peters - Edgeview Finance <${DEFAULT_FROM}>`,
+        from: `Ray McKay - Edgeview Finance <${DEFAULT_FROM}>`,
         to: [formData.email],
         subject: template.subject,
         html: template.html,
         text: template.text,
-        reply_to: 'dan.peters@edgeviewfinance.com.au',
+        reply_to: 'ray.mckay@edgeviewfinance.com.au',
         headers: {
           'X-Priority': '3',
           'X-Mailer': 'Edgeview Finance Website'
