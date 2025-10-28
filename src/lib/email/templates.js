@@ -414,7 +414,7 @@ export const clientAutoResponseTemplate = (data) => {
 
               <div class="contact-box">
                 <strong>🚨 Need immediate assistance?</strong><br>
-                <p style="margin: 10px 0 5px 0;">Call me directly on <strong>0416 946 667</strong></p>
+                <p style="margin: 10px 0 5px 0;">Call me directly on <strong>0493 291 658</strong></p>
                 <p style="margin: 5px 0; font-size: 13px;">Available Monday-Friday 9am-5pm, Saturday 9am-1pm AEST/AEDT</p>
               </div>
 
@@ -458,7 +458,7 @@ WHAT HAPPENS NEXT:
    You'll receive preliminary options suited to your home loan situation
 
 Need immediate assistance?
-Call me directly on 0416 946 667
+Call me directly on 0493 291 658
 Available Monday-Friday 9am-5pm, Saturday 9am-1pm AEST/AEDT
 
 Your Enquiry:

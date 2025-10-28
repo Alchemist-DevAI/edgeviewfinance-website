@@ -1,0 +1,185 @@
+{
+  "$ref": "#/definitions/site",
+  "definitions": {
+    "site": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "logo": {
+          "type": "string"
+        },
+        "favicon": {
+          "type": "string"
+        },
+        "web3AccessKey": {
+          "type": "string"
+        },
+        "siteName": {
+          "type": "string"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "string"
+              },
+              "link": {
+                "type": "string"
+              },
+              "dropdown": {
+                "type": "boolean"
+              },
+              "sublinks": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "text": {
+                      "type": "string"
+                    },
+                    "link": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "text",
+                    "link"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "text",
+              "link"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "rightButton1": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string"
+            },
+            "link": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "text",
+            "link"
+          ],
+          "additionalProperties": false
+        },
+        "rightButton2": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string"
+            },
+            "link": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "text",
+            "link"
+          ],
+          "additionalProperties": false
+        },
+        "mail": {
+          "type": "string"
+        },
+        "PrimaryPages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "link": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "link"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "UtilityPages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "link": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "link"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "Resources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "link": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "link"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "socialLinks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "icon": {
+                "type": "string"
+              },
+              "link": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "icon",
+              "link"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
