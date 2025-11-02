@@ -1,0 +1,70 @@
+---
+interface Props {
+  number: string;
+  label: string;
+  source: string;
+  change?: string;
+  className?: string;
+}
+
+const { number, label, source, change, className = '' } = Astro.props;
+---
+
+<div class={`stat-box ${className}`}>
+  <div class="stat-number">{number}</div>
+  <div class="stat-label">{label}</div>
+  <div class="stat-source">{source}</div>
+  {change && <div class="stat-change">{change}</div>}
+</div>
+
+<style>
+  .stat-box {
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 0px;
+    padding: 24px;
+    text-align: center;
+    transition: border-color 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .stat-box:hover {
+    border-color: #D1D5DB;
+  }
+
+  .stat-number {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    color: #f97316;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #1C2C3B;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+    min-height: 32px;
+  }
+
+  .stat-source {
+    font-size: 12px;
+    color: #6B7280;
+    font-style: italic;
+    margin-bottom: 4px;
+  }
+
+  .stat-change {
+    font-size: 12px;
+    color: #6B7280;
+    margin-top: 4px;
+  }
+</style>

@@ -1,0 +1,93 @@
+---
+interface Props {
+  icon: string;
+  title: string;
+  descriptions: string[];
+  link: string;
+  linkText?: string;
+  className?: string;
+}
+
+const { icon, title, descriptions, link, linkText = 'Learn More →', className = '' } = Astro.props;
+
+// Tabler Icons
+const icons: Record<string, string> = {
+  Forklift: '<path d="M5 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path><path d="M14 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path><path d="M7 17l5 0"></path><path d="M3 17v-6h13v6"></path><path d="M5 11v-4h4"></path><path d="M9 11v-6h4l3 6"></path><path d="M22 15h-3v-10"></path><path d="M16 13l3 0"></path>',
+  CashBanknote: '<path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path><path d="M3 6m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"></path><path d="M18 12l.01 0"></path><path d="M6 12l.01 0"></path>',
+  Building: '<path d="M3 21l18 0"></path><path d="M9 8l1 0"></path><path d="M9 12l1 0"></path><path d="M9 16l1 0"></path><path d="M14 8l1 0"></path><path d="M14 12l1 0"></path><path d="M14 16l1 0"></path><path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16"></path>'
+};
+---
+
+<div class={`service-card ${className}`}>
+  <div class="service-card-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <Fragment set:html={icons[icon]} />
+    </svg>
+  </div>
+  <h3 class="service-card-title">{title}</h3>
+  {descriptions.map(desc => (
+    <p class="service-card-description">{desc}</p>
+  ))}
+  <a href={link} class="service-card-link">{linkText}</a>
+</div>
+
+<style>
+  .service-card {
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 0px;
+    padding: 32px;
+    text-align: left;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+  }
+
+  .service-card:hover {
+    border-color: #f97316;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.1);
+  }
+
+  .service-card-icon {
+    color: #f97316;
+    margin-bottom: 16px;
+  }
+
+  .service-card-title {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: #1C2C3B;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .service-card-description {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #333333;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    flex-grow: 1;
+  }
+
+  .service-card-description:last-of-type {
+    margin-bottom: 24px;
+  }
+
+  .service-card-link {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #f97316;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .service-card-link:hover {
+    color: #E6890E;
+    text-decoration: underline;
+  }
+</style>

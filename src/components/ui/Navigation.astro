@@ -2,7 +2,6 @@
 import { getEntry } from "astro:content";
 
 const Header = await getEntry({ collection: "site", id: "header" });
-console.log("Header data:", JSON.stringify(Header?.data, null, 2));
 ---
 
 <ul class='site-menu-main'>
@@ -553,8 +552,6 @@ console.log("Header data:", JSON.stringify(Header?.data, null, 2));
 <script>
   // Mobile dropdown functionality
   document.addEventListener('DOMContentLoaded', () => {
-    console.log('Navigation.astro dropdown init');
-    
     // Setup dropdowns initially
     setupDropdowns();
 
@@ -566,44 +563,38 @@ console.log("Header data:", JSON.stringify(Header?.data, null, 2));
     function setupDropdowns() {
       // Target both dropdown toggle buttons and combined buttons
       const dropdownTriggers = document.querySelectorAll('.dropdown-toggle-btn, .nav-dropdown-btn-combined');
-      
-      console.log('Found dropdown triggers:', dropdownTriggers.length);
-      
+
       dropdownTriggers.forEach(trigger => {
         // Use data attribute to track if we've already added listener
         if (trigger.dataset.listenerAdded === 'true') return;
         trigger.dataset.listenerAdded = 'true';
-        
+
         // Add click listener directly without cloning
         trigger.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            console.log('Dropdown clicked');
-            
+
             const navItem = trigger.closest('.nav-item-has-children');
             const submenu = navItem.querySelector('.sub-menu');
             const arrow = trigger.querySelector('.dropdown-arrow');
-            
+
             // Only handle clicks on mobile or in mobile menu
             const isMobile = window.innerWidth < 1024;
             const isInMobileMenu = navItem.closest('.mobile-menu-block');
-            
+
             if (isMobile || isInMobileMenu) {
               // Toggle active state
               navItem.classList.toggle('active');
-              
+
               // Update aria-expanded attribute
               const isExpanded = navItem.classList.contains('active');
               trigger.setAttribute('aria-expanded', isExpanded.toString());
-              
+
               // Toggle submenu visibility
               if (submenu) {
                 submenu.classList.toggle('active');
-                console.log('Submenu toggled, active:', submenu.classList.contains('active'));
-                
-                // Submenu is now active - no additional styling needed
               }
-              
+
               // Rotate arrow
               if (arrow) {
                 if (navItem.classList.contains('active')) {
@@ -612,7 +603,7 @@ console.log("Header data:", JSON.stringify(Header?.data, null, 2));
                   arrow.style.transform = 'rotate(0deg)';
                 }
               }
-              
+
               // Close other open dropdowns
               const allNavItems = document.querySelectorAll('.nav-item-has-children');
               allNavItems.forEach(item => {

@@ -133,7 +133,7 @@ const { siteName, description, favicon } = MetaData?.data;
         scope: '/'
       })
       .then(registration => {
-        console.log('[SW] Service worker registered successfully:', registration.scope);
+        // Service worker registered successfully
 
         // Check for updates
         registration.addEventListener('updatefound', () => {
@@ -141,7 +141,7 @@ const { siteName, description, favicon } = MetaData?.data;
           if (newWorker) {
             newWorker.addEventListener('statechange', () => {
               if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                console.log('[SW] New service worker available');
+                // New service worker available
                 // Optionally show update notification to user
               }
             });
@@ -149,14 +149,14 @@ const { siteName, description, favicon } = MetaData?.data;
         });
       })
       .catch(error => {
-        console.log('[SW] Service worker registration failed:', error);
+        // Service worker registration failed - silently fail
       });
     });
 
     // Listen for service worker messages
     navigator.serviceWorker.addEventListener('message', event => {
       if (event.data && event.data.type === 'CACHE_UPDATED') {
-        console.log('[SW] Cache updated:', event.data.url);
+        // Cache updated
       }
     });
 
@@ -164,14 +164,11 @@ const { siteName, description, favicon } = MetaData?.data;
     function updateOnlineStatus() {
       const status = navigator.onLine ? 'online' : 'offline';
       document.body.setAttribute('data-connection', status);
-      console.log('[SW] Connection status:', status);
     }
 
     window.addEventListener('online', updateOnlineStatus);
     window.addEventListener('offline', updateOnlineStatus);
     updateOnlineStatus(); // Initial status
-  } else {
-    console.log('[SW] Service workers are not supported in this browser');
   }
 </script>
 <!-- JOS animations disabled for static display -->

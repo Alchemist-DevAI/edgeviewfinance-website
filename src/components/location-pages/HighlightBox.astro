@@ -1,0 +1,96 @@
+---
+interface Props {
+  number: string;
+  title: string;
+  items: string[];
+  className?: string;
+}
+
+const { number, title, items, className = '' } = Astro.props;
+---
+
+<div class={`highlight-box ${className}`}>
+  <div class="highlight-number">{number}</div>
+  <div class="highlight-title">{title}</div>
+
+  <ul class="highlight-list">
+    {items.map(item => (
+      <li>{item}</li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .highlight-box {
+    background: #FFF7ED;
+    border: 2px solid #FFEDD5;
+    border-left: 4px solid #f97316;
+    border-radius: 0px;
+    padding: 32px;
+    max-width: 800px;
+    margin: 0 auto 32px;
+  }
+
+  .highlight-number {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    color: #f97316;
+    line-height: 1;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .highlight-title {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: #1C2C3B;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .highlight-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .highlight-list li {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #333333;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    padding-left: 24px;
+    position: relative;
+  }
+
+  .highlight-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #f97316;
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+  .highlight-list li:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .highlight-box {
+      padding: 24px;
+    }
+
+    .highlight-number {
+      font-size: 36px;
+    }
+
+    .highlight-title {
+      font-size: 16px;
+    }
+  }
+</style>
