@@ -1,0 +1,495 @@
+---
+import Layout from '../../layout/Layout.astro';
+import StatBox from '../../components/location-pages/StatBox.astro';
+import HighlightBox from '../../components/location-pages/HighlightBox.astro';
+import StatCard from '../../components/location-pages/StatCard.astro';
+import ServiceCard from '../../components/location-pages/ServiceCard.astro';
+
+const title = 'Business Loans Sunshine Coast | Edgeview Finance';
+const description = 'Expert business finance for Sunshine Coast enterprises. Equipment finance, working capital & commercial property loans. Local expertise, fast approvals. Call 1300 280 895';
+
+// StatBox data
+const statBox1Number = '$5 Billion';
+const statBox2Number = '20.3%';
+const statBox3Number = '$2.5 Billion';
+const statBox4Number = '25,000';
+
+// StatCard data
+const statCard1Number = '60';
+const statCard1Label = "Maroochydore CBD - Australia's newest greenfield CBD with $2.5B investment";
+const statCard2Number = '160K';
+const statCard3Number = '40%';
+const statCard3Label = 'Industrial Values - Sippy Downs & Coolum precincts since 2020';
+
+// HighlightBox data
+const highlightItems = [
+  'Marine-grade construction equipment',
+  'Healthcare equipment',
+  'Coastal environment expertise',
+  'Equipment finance solutions built for Queensland\'s coastal business conditions'
+];
+
+// ServiceCard descriptions
+const equipmentDescriptions = [
+  'Construction equipment, excavators, and trucks require marine-grade specifications for coastal Queensland conditions. Finance packages from $50,000 to $5 million cover earthmoving equipment, commercial vehicles, and specialised construction machinery.',
+  'Medical and healthcare equipment finance supports the region\'s booming health sector. Diagnostic machines, dental equipment, physiotherapy tools, and practice technology qualify for competitive rates.',
+  'Benefits: Fast approval (48-72 hours), flexible terms (3-7 years), competitive rates, and equipment retained as security only.'
+];
+
+const workingCapitalDescriptions = [
+  'Construction business cash flow varies dramatically between contract stages. We provide working capital from $20,000 to $2 million without property security, enabling businesses to cover payroll gaps, material purchases, and subcontractor payments during payment delays.',
+  'Healthcare practice expansion requires working capital for additional staff, marketing investment, and premises upgrades. Medical practices generate predictable revenue streams, qualifying for competitive unsecured working capital rates.',
+  'Benefits: Quick access (24-48 hours), no property security required, flexible repayment structures, and credit limits that grow with business performance.'
+];
+
+const propertyDescriptions = [
+  'Maroochydore CBD commercial property presents premium acquisition opportunities. We finance office purchases, medical centre acquisitions, and commercial strata purchases up to 80% loan-to-value ratio. CBD property values are appreciating 8-12% annually.',
+  'Medical centre acquisition finance enables healthcare professionals to own practice premises rather than lease. Owner-occupied medical property generates rental income from co-tenants while building long-term asset value.',
+  'Benefits: Competitive rates (from 5.99%), up to 80% LVR, flexible loan structures, and interest-only options for property investors.'
+];
+---
+
+<Layout title={title} description={description}>
+  <!-- Section 1: Hero -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1>Business Loans Sunshine Coast | Expert Commercial Finance Broker</h1>
+
+      <p>When your Sunshine Coast business needs commercial finance, Edgeview Finance delivers expert solutions tailored to Queensland's fastest-growing coastal region. We specialise in business loans for construction companies, trade businesses, and healthcare providers operating across the Sunshine Coast—from the Maroochydore CBD to Caloundra's thriving commercial districts.</p>
+
+      <p>Our business finance solutions include equipment finance for marine-grade construction machinery, working capital for expanding healthcare practices, and commercial property loans for the booming Maroochydore City Centre. With deep knowledge of the Sunshine Coast economy and access to over 40 national lenders, we secure competitive finance packages that traditional banks often miss.</p>
+
+      <p>Whether you're a plumber in Kawana needing corrosion-resistant equipment, a medical practice in Maroochydore requiring expansion capital, or a builder servicing the $2.5 billion CBD development, Edgeview Finance understands the unique opportunities and challenges of coastal Queensland business. We're not just commercial finance brokers—we're partners in your Sunshine Coast business growth.</p>
+
+      <div class="cta-container">
+        <a href="https://calendly.com/raym-evfbs/30min" class="cta-button">Book Your Free Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Economic Context -->
+  <section class="economic-section">
+    <div class="economic-content">
+      <h2>Business Finance on the Sunshine Coast</h2>
+
+      <p class="section-intro">The Sunshine Coast economy is experiencing unprecedented growth, creating exceptional opportunities for trade and service businesses across the region. With major infrastructure investments transforming the commercial landscape, the need for strategic business finance has never been greater.</p>
+
+      <div class="stat-box-grid">
+        <StatBox
+          number={statBox1Number}
+          label="Health Precinct"
+          source="Queensland Treasury, Sunshine Coast Council Economic Profile"
+          change="Australia's largest health infrastructure project"
+        />
+        <StatBox
+          number={statBox2Number}
+          label="Healthcare Employment"
+          source="Australian Bureau of Statistics, Regional Labour Force Data"
+          change="Nearly 1 in 5 workers by 2026"
+        />
+        <StatBox
+          number={statBox3Number}
+          label="CBD Investment"
+          source="Economic Development Queensland, Maroochydore PDA"
+          change="Maroochydore City Centre private investment"
+        />
+        <StatBox
+          number={statBox4Number}
+          label="CBD Workers"
+          source="Walker Corporation, Maroochydore City Centre Masterplan"
+          change="Daily workforce at full development"
+        />
+      </div>
+
+      <div class="context-paragraph">
+        <p>This economic transformation positions the Sunshine Coast as Queensland's premier growth region outside Brisbane. Trade businesses and healthcare services need agile business finance to capture market share during this infrastructure boom. Traditional banks often struggle to understand coastal market dynamics—Edgeview Finance doesn't.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Unique Opportunity -->
+  <section class="opportunity-section">
+    <div class="opportunity-content">
+      <h2>Sunshine Coast's Healthcare Boom & Coastal Construction Expertise</h2>
+
+      <p>Two sectors dominate Sunshine Coast business finance demand: healthcare infrastructure and coastal construction. Both industries require specialised finance solutions that account for regional growth patterns and environmental challenges.</p>
+
+      <h3>Healthcare Equipment Finance</h3>
+      <p>The $5 billion Sunshine Coast Health Precinct transformation creates unprecedented demand for medical equipment finance. General practices are expanding to accommodate population growth. Allied health providers need diagnostic equipment, physiotherapy tools, and practice fitout finance. Dental surgeries require technology upgrades to compete in a growing market. Aged care facilities need specialised medical equipment for expanding capacity.</p>
+
+      <p>Medical equipment finance on the Sunshine Coast differs from metropolitan markets. Practices often need faster deployment to capture market share in new residential areas. Equipment purchases must anticipate population growth—the region's healthcare demand is projected to increase 35% by 2030. Finance terms need flexibility for practices balancing expansion with uncertain patient volumes in developing suburbs.</p>
+
+      <h3>Coastal Construction & Trades Specialisation</h3>
+      <p>Construction represents 21.5% of Sunshine Coast businesses—significantly higher than Queensland's 17.0% average. The Maroochydore CBD development alone creates years of commercial construction work, from groundworks to fitout specialists. However, coastal construction demands specialised equipment finance solutions.</p>
+
+      <HighlightBox
+        number="⚙️"
+        title="Coastal Equipment Finance Specialists"
+        items={highlightItems}
+      />
+
+      <p>Marine-grade equipment resists salt corrosion better than standard machinery, essential for coastal construction projects. Excavators, trucks, and tools require protective coatings and corrosion-resistant materials. Finance terms must account for higher equipment costs and specialised maintenance requirements. Traditional lenders often don't understand why coastal equipment costs 15-20% more than Brisbane equivalents—Edgeview Finance does.</p>
+
+      <p>Trades businesses face similar challenges. Electricians need marine-grade conduit and fittings. Plumbers require corrosion-resistant pipes and fixtures. HVAC specialists need equipment rated for high-humidity coastal environments. Equipment finance for Sunshine Coast trades isn't just about purchasing machinery—it's about investing in assets that withstand Queensland's coastal conditions.</p>
+    </div>
+  </section>
+
+  <!-- Section 4: Geographic Focus -->
+  <section class="geographic-section">
+    <div class="geographic-content">
+      <h2>Maroochydore CBD & Industrial Precincts</h2>
+
+      <p class="section-intro">The Sunshine Coast's commercial geography is transforming, creating targeted finance opportunities across three key business zones.</p>
+
+      <div class="stat-card-grid">
+        <StatCard
+          icon="Building"
+          number={statCard1Number}
+          unit="Hectares"
+          label={statCard1Label}
+        />
+        <StatCard
+          icon="BuildingStore"
+          number={statCard2Number}
+          unit="sqm"
+          label="Commercial Space - 5 Star Green Star commercial and retail development"
+        />
+        <StatCard
+          icon="BuildingFactory"
+          number={statCard3Number}
+          unit="Growth"
+          label={statCard3Label}
+        />
+      </div>
+
+      <div class="geographic-descriptions">
+        <h3>Maroochydore City Centre: 60 Hectares</h3>
+        <p>Australia's newest greenfield CBD spans 60 hectares of prime coastal real estate. The $2.5 billion private investment includes 160,000 square metres of commercial and retail space, underground automated waste collection, WiFi-6 infrastructure, and the fastest data connectivity on Australia's east coast. Businesses relocating to Maroochydore require commercial property finance for office acquisition, fitout finance for 5 Star Green Star premises, and working capital for relocation logistics. The CBD creates opportunities for professional services, medical practices, and technology businesses requiring premium commercial space.</p>
+
+        <h3>Caloundra: South Coast Business Hub</h3>
+        <p>Caloundra serves as the Sunshine Coast's southern commercial gateway, with strong marine industry presence and growing commercial developments. The precinct attracts trade businesses servicing coastal developments, marine service providers, and healthcare practices serving the southern corridor to Brisbane. Commercial property values remain below Maroochydore levels, creating acquisition opportunities for businesses seeking coastal locations with Brisbane connectivity. Finance requirements include commercial property loans for business premises, equipment finance for marine trades, and working capital for inventory-dependent businesses.</p>
+
+        <h3>Industrial Precincts: Manufacturing & Logistics</h3>
+        <p>Sippy Downs and Coolum Industrial Estate provide manufacturing and logistics capacity for the region. These precincts house construction suppliers, trade warehouses, and manufacturing businesses servicing coastal development. Finance needs include warehouse acquisition loans, fitout finance for industrial premises, equipment finance for manufacturing machinery, and working capital for inventory management. Industrial property prices have increased 40% since 2020, driven by Brisbane's industrial land scarcity and Sunshine Coast population growth.</p>
+
+        <p>Each geographic zone presents distinct business finance opportunities. Edgeview Finance structures loan packages that account for location-specific market dynamics, from CBD premium positioning to industrial precinct cashflow patterns.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Finance Solutions -->
+  <section class="solutions-section">
+    <div class="solutions-content">
+      <h2>Finance Solutions for Sunshine Coast Trade Businesses</h2>
+
+      <p class="section-intro">Edgeview Finance delivers three core business finance solutions for Sunshine Coast construction, trades, and healthcare businesses.</p>
+
+      <div class="service-card-grid">
+        <ServiceCard
+          icon="Forklift"
+          title="Equipment Finance"
+          descriptions={equipmentDescriptions}
+          link="/equipment-finance"
+        />
+        <ServiceCard
+          icon="CashBanknote"
+          title="Working Capital Finance"
+          descriptions={workingCapitalDescriptions}
+          link="/working-capital-finance"
+        />
+        <ServiceCard
+          icon="Building"
+          title="Commercial Property Finance"
+          descriptions={propertyDescriptions}
+          link="/commercial-property-finance"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Service Area & Contact -->
+  <section class="contact-section">
+    <div class="contact-content">
+      <h2>Service Area: Sunshine Coast to Brisbane</h2>
+
+      <p>Edgeview Finance serves Sunshine Coast businesses across all commercial precincts—from Maroochydore CBD's commercial centre to Caloundra's southern business district, and throughout Kawana, Mooloolaba, and Nambour's established trade areas. Our service corridor extends from the Brisbane northern suburbs to the Sunshine Coast hinterland, ensuring comprehensive coverage for Queensland's fastest-growing commercial region.</p>
+
+      <p>As a local broker with national lender access, we combine regional market knowledge with competitive finance solutions from over 40 Australian lenders. We understand Maroochydore's commercial property dynamics, Caloundra's marine industry requirements, and the coastal construction sector's specialised equipment needs.</p>
+
+      <div class="contact-info">
+        <p><strong>Phone:</strong> <a href="tel:1300280895" class="contact-link">1300 280 895</a></p>
+        <p><strong>Email:</strong> <a href="mailto:enquiries@edgeviewfinance.com.au" class="contact-link">enquiries@edgeviewfinance.com.au</a></p>
+      </div>
+
+      <div class="cta-container">
+        <a href="https://calendly.com/raym-evfbs/30min" class="cta-button cta-button-light">Book Your Free Consultation</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Global Typography */
+  h1, h2, h3 {
+    font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: #1C2C3B;
+  }
+
+  h1 {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 16px;
+  }
+
+  p {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #333333;
+    margin-bottom: 16px;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    background-color: #ffffff;
+    padding: 80px 24px 60px;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Economic Section */
+  .economic-section {
+    background-color: #f8f9fa;
+    padding: 60px 24px;
+  }
+
+  .economic-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-intro {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    text-align: center;
+  }
+
+  .stat-box-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .context-paragraph {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* Opportunity Section */
+  .opportunity-section {
+    background-color: #ffffff;
+    padding: 60px 24px;
+  }
+
+  .opportunity-content {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  /* Geographic Section */
+  .geographic-section {
+    background-color: #f8f9fa;
+    padding: 60px 24px;
+  }
+
+  .geographic-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .stat-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .geographic-descriptions {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* Solutions Section */
+  .solutions-section {
+    background-color: #ffffff;
+    padding: 60px 24px;
+  }
+
+  .solutions-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .service-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  /* Contact Section */
+  .contact-section {
+    background-color: #1C2C3B;
+    color: #ffffff;
+    padding: 60px 24px;
+    text-align: center;
+  }
+
+  .contact-section h2 {
+    color: #ffffff;
+  }
+
+  .contact-section p {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .contact-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .contact-info {
+    margin: 32px 0;
+  }
+
+  .contact-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  .contact-link:hover {
+    color: #f97316;
+  }
+
+  /* CTA Buttons */
+  .cta-container {
+    margin-top: 32px;
+    text-align: center;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background-color: #f97316;
+    color: #ffffff;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 16px 32px;
+    border: none;
+    border-radius: 0px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background-color: #e56307;
+  }
+
+  .cta-button-light {
+    background-color: #f97316;
+  }
+
+  .cta-button-light:hover {
+    background-color: #ff8833;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 767px) {
+    h1 {
+      font-size: 36px;
+    }
+
+    h2 {
+      font-size: 28px;
+    }
+
+    h3 {
+      font-size: 20px;
+    }
+
+    .hero-section {
+      padding: 60px 20px 40px;
+    }
+
+    .economic-section,
+    .opportunity-section,
+    .geographic-section,
+    .solutions-section,
+    .contact-section {
+      padding: 40px 20px;
+    }
+
+    .stat-box-grid,
+    .stat-card-grid,
+    .service-card-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .cta-button {
+      width: 100%;
+      max-width: 400px;
+    }
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": "Edgeview Finance - Sunshine Coast",
+      "areaServed": {
+        "@type": "City",
+        "name": "Sunshine Coast",
+        "containedIn": "Queensland"
+      },
+      "telephone": "1300 280 895",
+      "email": "enquiries@edgeviewfinance.com.au"
+    },
+    {
+      "@type": "FinancialService",
+      "serviceType": "Business Finance",
+      "areaServed": "Sunshine Coast, Queensland"
+    }
+  ]
+}
+</script>

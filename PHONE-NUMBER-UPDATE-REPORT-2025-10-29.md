@@ -8,12 +8,19 @@ Updated Ray McKay's phone number from **0493 291 658** to **0493 296 143** acros
 ## Files Modified
 
 ### 1. /src/pages/home-loans.astro
-**Instances updated:** 5
+**Instances updated:** 8 (completed in 2 commits)
+
+**First Commit (Display Text):**
 - Line 495: Display text in hero contact section
 - Line 617: Call-to-action button text
 - Line 1955: Display text in footer contact section
 - Line 2343: Error message fallback
 - Line 2348: Network error message fallback
+
+**Second Commit (Tel: Links):**
+- Line 495: Tel: link in hero contact section
+- Line 617: Tel: link in CTA button
+- Line 1955: Tel: link in footer contact section
 
 ### 2. /src/lib/email/templates.js
 **Instances updated:** 2
@@ -21,16 +28,23 @@ Updated Ray McKay's phone number from **0493 291 658** to **0493 296 143** acros
 - Line 461: Plain text email template contact section
 
 ## Total Changes
-- **7 instances** updated across 2 files
+- **10 instances** updated across 2 files (8 in home-loans.astro, 2 in templates.js)
 - **Old number (0493 291 658):** Completely removed ✅
 - **New number (0493 296 143):** Now live ✅
 
 ## Deployment Details
 
 ### Commit Information
+**First Deployment (Display Text):**
 - **Commit Hash:** eb08e4e (development repo)
 - **Commit Hash:** 407347c5 (deployment repo)
 - **Commit Message:** "URGENT: Update Ray McKay phone number to 0493 296 143"
+
+**Second Deployment (Tel: Links Fix):**
+- **Commit Hash:** b06bb65 (development repo)
+- **Commit Hash:** 6a72de94 (deployment repo)
+- **Commit Message:** "Fix: Update tel: links to new phone number 0493296143"
+
 - **Branch:** main
 
 ### Deployment Status
@@ -71,11 +85,18 @@ All `tel:` links were also updated:
 - `tel:0493291658` → `tel:0493296143` (spaces removed for tel: format)
 
 ## Timeline
-- **10:04:36 AEST** - Changes committed to development repo
+**First Deployment (Display Text):**
+- **10:04:36 AEST** - Display text changes committed to development repo
 - **10:05:36 AEST** - Changes synced to deployment repo
 - **10:06:00 AEST** - Push to GitHub triggered Vercel deployment
-- **10:08:18 AEST** - Deployment completed and live
-- **10:38:18 AEST** - Verification completed (cache refreshed)
+- **10:08:18 AEST** - First deployment completed
+
+**Second Deployment (Tel: Links):**
+- **10:10:00 AEST** - Tel: link issue discovered during verification
+- **10:11:00 AEST** - Tel: links updated in development repo
+- **10:12:00 AEST** - Changes synced and pushed to deployment repo
+- **10:13:30 AEST** - Second deployment completed
+- **10:14:30 AEST** - Final verification completed - all instances confirmed ✅
 
 ## Confirmation
 ✅ **New temporary number (0493 296 143) is now LIVE on production**

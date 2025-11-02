@@ -25,6 +25,53 @@ evfbs-agency11-pure/
 
 ## Known Fixes Database
 
+### 🚀 Deployment - Location Pages
+
+#### Toowoomba Location Page Implementation
+- **Date**: 2025-11-02
+- **Page**: /locations/toowoomba
+- **Status**: ✅ Build Successful (ready for deployment)
+- **Components Used**: StatBox (4), HighlightBox (1), StatCard (3), ServiceCard (3)
+- **Word Count**: 1,417 words (target: 1,400)
+- **Implementation Time**: ~10 minutes (reused Gold Coast components)
+- **Build Result**: ✅ Successful on first attempt
+- **Issues**: None
+- **Key Success Factors**:
+  - Reused all 4 components from Gold Coast page
+  - Followed exact specifications from approved documents
+  - No console.log statements added
+  - Flat design maintained (0px border-radius)
+  - Correct contact info (enquiries@edgeviewfinance.com.au, 1300 280 895)
+- **Documentation**: See `/2-project-management/active-projects/edgeview_finance-website-development/pages/locations/toowoomba/05-implementation/IMPLEMENTATION-SUMMARY.md`
+- **Deployment Ready**: Yes (pending human review)
+
+#### Gold Coast Location Page Deployment
+- **Date**: 2025-11-02
+- **Page**: /locations/gold-coast
+- **Components**: StatBox, HighlightBox, StatCard, ServiceCard
+- **Configuration Changes**:
+  - Updated astro.config.mjs to use Vercel serverless adapter
+  - Changed `output` from 'static' to 'server'
+  - Added Vercel analytics and speed insights
+- **Deployment Process**:
+  1. Kill development server
+  2. Configure Vercel adapter in astro.config.mjs
+  3. Run `npm run build` to verify compilation
+  4. Sync files to /tmp/edgeviewfinance-website
+  5. Install dependencies with `npm install`
+  6. Commit with descriptive message
+  7. Push to GitHub main branch (triggers Vercel deployment)
+  8. Verify deployment on staging and production
+- **Production URL**: https://www.edgeviewfinance.com.au/locations/gold-coast
+- **Staging URL**: https://edgeviewfinance-website.vercel.app/locations/gold-coast
+- **Status**: ✅ Successfully deployed and verified
+- **Attempts Before Success**: 1 (smooth deployment)
+
+#### Location Page Template Proven
+The location page template (StatBox, HighlightBox, StatCard, ServiceCard) is now proven across 2 locations with 100% success rate. Template is ready for replication to additional Queensland locations (Brisbane, Ipswich, Sunshine Coast, etc.).
+
+---
+
 ### 🔧 Navigation Bar Issues
 
 #### Dropdown Menu Items Not Bold
@@ -93,6 +140,50 @@ evfbs-agency11-pure/
 - **Verified**: 2025-09-14
 - **Attempts Before Success**: 8
 - **Note**: Vercel deployment protection may require authentication for testing preview URLs
+
+---
+
+### 🐛 Debug Logging & Performance
+
+#### Console.log in Global Components Causes Extreme Slowdowns
+- **Issue**: Page loads taking 50+ seconds in development server
+- **Root Cause**: console.log statements in global components (Layout, Navigation, Header, Footer) execute on EVERY page render
+- **Symptoms**:
+  - Development server responds but pages take 40-50+ seconds to load
+  - Multiple identical log messages in console (14+ repetitions)
+  - Vite dependency optimization appears to hang
+- **Critical Components** (NEVER add console.log here):
+  - `/src/layout/Layout.astro` - Executes on every page
+  - `/src/components/ui/Navigation.astro` - Renders twice per page (desktop + mobile)
+  - `/src/components/ui/Header.astro` - Executes on every page
+  - `/src/components/ui/Footer.astro` - Executes on every page
+- **Solution**:
+  ```javascript
+  // ❌ NEVER do this in global components
+  console.log("Header data:", JSON.stringify(data, null, 2));
+
+  // ✅ Use conditional logging if absolutely necessary
+  if (import.meta.env.DEV && import.meta.env.DEBUG_LOGGING === 'true') {
+    console.log('Debug info');
+  }
+
+  // ✅ Better: Use Sentry or analytics for production monitoring
+  ```
+- **Detection**:
+  ```bash
+  # Find all console.log in global components
+  grep -r "console\." src/layout/ src/components/ui/
+  ```
+- **Files Affected**:
+  - `/src/layout/Layout.astro` - Service Worker logging removed
+  - `/src/components/ui/Navigation.astro` - Header data logging removed
+- **Performance Impact**: Removing 10 console.log statements reduced page load from 50 seconds to <5 seconds
+- **Verified**: 2025-11-02
+- **Attempts Before Success**: Multiple server restarts required
+- **Prevention**:
+  - Code review all global components before committing
+  - Use linter rules to prevent console.log in production code
+  - Document this in astro-developer agent guidelines
 
 ---
 

@@ -1,0 +1,658 @@
+---
+import Layout from "../../layout/Layout.astro";
+import StatBox from "../../components/location-pages/StatBox.astro";
+import HighlightBox from "../../components/location-pages/HighlightBox.astro";
+import StatCard from "../../components/location-pages/StatCard.astro";
+import ServiceCard from "../../components/location-pages/ServiceCard.astro";
+
+// SEO Meta Data
+const pageTitle = "Business Loans Toowoomba | Edgeview Finance";
+const pageDescription = "Expert business loans in Toowoomba. Equipment finance, working capital & commercial property loans. Fast approvals for Queensland trade businesses.";
+const pageUrl = "https://www.edgeviewfinance.com.au/locations/toowoomba";
+
+// Breadcrumb configuration
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "Business Finance", href: "/equipment-finance" },
+  { label: "Locations", href: "/locations" },
+  { label: "Toowoomba", href: "/locations/toowoomba" }
+];
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  canonical={pageUrl}
+  ogType="website"
+>
+  <!-- Schema.org Markup -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FinancialService",
+    "name": "Edgeview Finance - Toowoomba",
+    "description": "Business finance broker serving Toowoomba and Darling Downs",
+    "areaServed": "Toowoomba, Queensland, Australia",
+    "url": pageUrl,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Toowoomba",
+      "addressRegion": "QLD",
+      "addressCountry": "AU"
+    }
+  })} />
+
+  <!-- Section 1: Hero / Introduction -->
+  <section class="hero-section">
+    <div class="container">
+      <!-- Breadcrumb Navigation -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        {breadcrumbs.map((crumb, index) => (
+          <Fragment>
+            {index > 0 && <span class="breadcrumb-separator">›</span>}
+            <a href={crumb.href} class="breadcrumb-link">
+              {crumb.label}
+            </a>
+          </Fragment>
+        ))}
+      </nav>
+
+      <div class="hero-content">
+        <h1 class="page-title">Business Loans Toowoomba - Commercial Finance Solutions</h1>
+
+        <div class="hero-text">
+          <p>Edgeview Finance specialises in business finance for Toowoomba and Darling Downs trade businesses. We understand the unique needs of Queensland's largest inland city, from agricultural equipment financing to commercial property loans for expanding manufacturing operations.</p>
+
+          <p>Our Toowoomba business finance services cover the entire Darling Downs region, including Oakey, Pittsworth, Dalby, and Chinchilla. Whether you're operating from the Toowoomba CBD, Wellcamp industrial precinct, or rural Darling Downs, we deliver fast approvals and competitive rates tailored to regional business needs.</p>
+
+          <p>We serve construction companies, earthmoving contractors, agricultural businesses, logistics operators, and manufacturing enterprises across Southern Queensland. From excavator finance and truck loans to working capital for seasonal agricultural operations, our commercial finance solutions support your growth without the complexity of major banks.</p>
+
+          <p>Unlike metropolitan brokers who don't understand regional business cycles, we structure business loans around Darling Downs economic realities. Harvest timing affects equipment purchases, freight contracts determine working capital needs, and commercial property opportunities emerge from infrastructure projects like Inland Rail.</p>
+
+          <p>Book your free consultation to discuss how we can help your Toowoomba business access the equipment finance, working capital, or commercial property loans you need.</p>
+        </div>
+
+        <div class="hero-cta">
+          <a href="mailto:enquiries@edgeviewfinance.com.au" class="btn-primary">Book Your Free Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Economic Context -->
+  <section class="economic-context-section">
+    <div class="container">
+      <h2 class="section-heading">Toowoomba's Growing Economy</h2>
+
+      <div class="stat-grid">
+        <StatBox
+          number="$7.5B"
+          label="Regional Gross Product"
+          source="ABS Regional Data 2023"
+        />
+        <StatBox
+          number="75,000+"
+          label="Employed Workforce"
+          source="Queensland Treasury 2023"
+        />
+        <StatBox
+          number="160,000+"
+          label="Population (Queensland's Largest Inland City)"
+          source="ABS Population Statistics 2023"
+        />
+        <StatBox
+          number="$2.5B"
+          label="Annual Agricultural Production (Darling Downs)"
+          source="Queensland Department of Agriculture 2023"
+        />
+      </div>
+
+      <div class="economic-text">
+        <p>Toowoomba's economy continues to strengthen as Queensland's premier regional centre, with a $7.5 billion gross regional product supporting over 75,000 employed workers. The city's strategic position as the Darling Downs economic hub creates consistent demand for business finance across agriculture, logistics, construction, education, and manufacturing sectors.</p>
+
+        <p>The region's $2.5 billion agricultural industry drives significant equipment finance opportunities, from modern tractors and harvesters to irrigation systems and grain handling equipment. Precision agriculture technology investments require substantial capital, making equipment finance solutions essential for competitive farming operations. Construction and earthmoving businesses benefit from Toowoomba's steady population growth of 160,000-plus residents, creating ongoing demand for commercial property development, residential construction, and infrastructure projects.</p>
+
+        <p>Trade businesses in Toowoomba require responsive finance solutions that understand regional business cycles. Agricultural equipment purchases often coincide with harvest seasons when cash flow peaks, while construction financing needs to align with project payment milestones. Working capital requirements for Darling Downs businesses differ significantly from metropolitan operations, where income arrives monthly rather than seasonally. We structure business loans to match these unique cash flow patterns, providing flexibility during quieter periods and capitalising on peak seasons.</p>
+
+        <p>Whether you're expanding your workshop in Harristown, purchasing transport equipment for Inland Rail opportunities, or financing commercial property in the Wellcamp industrial precinct, business finance tailored to Toowoomba's economy ensures your investment timing aligns with regional growth.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Inland Rail Opportunity -->
+  <section class="inland-rail-section">
+    <div class="container">
+      <h2 class="section-heading">Inland Rail Opportunity for Local Businesses</h2>
+
+      <HighlightBox
+        title="Brisbane - Melbourne Freight Corridor"
+        subtitle="Toowoomba: Key Hub & Service Centre"
+        items={[
+          "Logistics and Warehousing Expansion - New freight terminals and distribution centres require commercial property investment and materials handling equipment",
+          "Transport Fleet Growth - Interstate freight demand increases truck and trailer financing needs for local transport operators",
+          "Commercial Property Development - Industrial land along the rail corridor presents investment opportunities near Wellcamp and Charlton",
+          "Manufacturing Supply Chain Integration - Local manufacturers can access Melbourne and Brisbane markets faster, justifying production equipment upgrades",
+          "Construction and Trades Demand - Rail infrastructure and associated commercial developments create multi-year work pipelines"
+        ]}
+        description="The Inland Rail project transforms Toowoomba into a critical freight and logistics hub on Australia's busiest interstate freight corridor between Melbourne and Brisbane. This $14.5 billion infrastructure project creates substantial equipment finance and commercial property opportunities for forward-thinking Toowoomba businesses positioned to capitalise on increased freight volumes and distribution demand."
+        additionalText="Business loans for Toowoomba transport operators now support interstate expansion capabilities, not just regional work. Equipment finance for larger fleets, B-double trucks, and refrigerated trailers positions local businesses to secure long-term freight contracts with major retailers and manufacturers. Working capital financing helps businesses bridge the gap between securing Inland Rail-related contracts and receiving payment, particularly important for smaller operators tendering on larger projects. Commercial property near the Toowoomba rail corridor represents strategic investment for manufacturing, warehousing, and distribution businesses. Finance solutions for industrial land purchases, warehouse construction, or depot expansion unlock these time-sensitive opportunities. The Inland Rail timeline creates urgency for businesses to position themselves strategically before property values fully reflect the completed infrastructure."
+      />
+    </div>
+  </section>
+
+  <!-- Section 4: Industrial Areas -->
+  <section class="industrial-areas-section">
+    <div class="container">
+      <h2 class="section-heading">Key Industrial Areas We Serve</h2>
+
+      <div class="stat-card-grid">
+        <StatCard
+          icon="Building"
+          label="Toowoomba CBD & Suburbs"
+          number="160,000+"
+          unit="population"
+          description="Commercial centre, professional services, construction"
+        />
+        <StatCard
+          icon="Plane"
+          label="Wellcamp Industrial Precinct"
+          number="Airport-adjacent"
+          unit="logistics hub"
+          description="Manufacturing, warehousing, freight operations"
+        />
+        <StatCard
+          icon="Tractor"
+          label="Darling Downs Region"
+          number="$2.5B"
+          unit="agricultural production"
+          description="Farming, grain, livestock, rural services"
+        />
+      </div>
+
+      <div class="industrial-text">
+        <p>Toowoomba's diverse industrial landscape creates varied business finance needs across the city's key commercial zones. The Toowoomba CBD and inner suburbs house professional services, construction companies, and trades businesses requiring workshop fit-outs, vehicle fleets, and working capital for commercial projects. Established businesses upgrade equipment as projects scale, while new entrants need comprehensive finance packages covering premises, tools, and vehicles.</p>
+
+        <p>Wellcamp has emerged as Queensland's premier inland industrial precinct, anchored by Toowoomba Wellcamp Airport and direct access to the Warrego Highway. Businesses operating from Wellcamp require substantial equipment finance for logistics operations, materials handling machinery, and freight vehicles. Commercial property loans support warehouse purchases and industrial site development in this rapidly expanding zone, where land values reflect growing demand for distribution facilities.</p>
+
+        <p>The broader Darling Downs region encompasses Australia's second-largest agricultural area, with Oakey, Pittsworth, Dalby, and Chinchilla representing significant rural business centres. Agricultural equipment finance dominates this sector, from multi-million dollar harvester purchases to irrigation system upgrades and tractor fleet renewals. Seasonal working capital helps farming enterprises manage cash flow between planting and harvest cycles, ensuring operations continue smoothly year-round.</p>
+
+        <p>Charlton and Harristown industrial estates serve manufacturing and light industrial businesses requiring factory fit-outs, production equipment, and commercial vehicles. These established industrial areas offer stable business environments with existing infrastructure, making commercial property investment more accessible for growing Toowoomba manufacturers.</p>
+
+        <p>Our regional knowledge allows us to structure business loans that reflect Toowoomba's economic reality. We understand grain prices affect Darling Downs cash flow, construction cycles impact Toowoomba CBD businesses, and freight contracts determine Wellcamp equipment purchases.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Finance Solutions -->
+  <section class="finance-solutions-section">
+    <div class="container">
+      <h2 class="section-heading">Commercial Finance Solutions</h2>
+
+      <div class="service-card-grid">
+        <ServiceCard
+          icon="Forklift"
+          title="Equipment Finance"
+          descriptions={[
+            "Equipment finance for Toowoomba businesses covers agricultural machinery, construction equipment, and commercial vehicles. We finance excavators, loaders, and earthmoving equipment for construction contractors, trucks and trailers for transport operators capitalising on Inland Rail opportunities, and utes for trades businesses maintaining reliable fleets. Agricultural equipment finance structures align with seasonal Darling Downs cash flow, supporting tractors, harvesters, grain handling equipment, and irrigation systems. Manufacturing businesses in Wellcamp and Charlton industrial estates access production equipment finance for CNC machinery, food processing equipment, and materials handling systems. Fast approvals and competitive rates ensure equipment finance strengthens your operations."
+          ]}
+          link="/equipment-finance"
+          linkText="Learn More →"
+        />
+        <ServiceCard
+          icon="CashBanknote"
+          title="Working Capital Solutions"
+          descriptions={[
+            "Working capital finance addresses cash flow challenges for Toowoomba businesses facing seasonal income patterns or extended payment terms. Agricultural businesses bridge gaps between harvest revenue and year-round operating expenses without requiring asset security. Construction companies secure funding to purchase materials, pay subcontractors, and cover wages while awaiting progress payments on major commercial developments. Growth initiatives require investment before returns arrive—inventory finance supports stock purchases for peak seasons, while working capital funds market expansion or new service launches. Bridge financing provides short-term funding for businesses awaiting property settlements, insurance payouts, or contract payments. Flexible working capital solutions respond to regional business cycles."
+          ]}
+          link="/working-capital-finance"
+          linkText="Learn More →"
+        />
+        <ServiceCard
+          icon="Building"
+          title="Commercial Property Loans"
+          descriptions={[
+            "Commercial property finance supports workshop purchases, industrial warehouse investments, and depot expansions for Toowoomba businesses. Trade businesses operating from residential properties face council restrictions and limited growth capacity. Purchasing commercial property in Harristown, Charlton, or Wellcamp industrial estates provides legitimate business premises with equipment storage, workforce expansion, and enhanced professional credibility. Industrial property in Wellcamp's growing precinct represents strategic investment for logistics and manufacturing operations. Commercial property loans feature competitive interest rates and flexible deposit requirements, enabling purchases without exhausting business cash reserves. Investment properties in Toowoomba's CBD offer additional income streams and capital growth potential for commercial business owners."
+          ]}
+          link="/commercial-property-finance"
+          linkText="Learn More →"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Service Area & Contact -->
+  <section class="service-area-section">
+    <div class="container">
+      <h2 class="section-heading">Service Area Across the Darling Downs</h2>
+
+      <div class="service-area-text">
+        <p>Edgeview Finance serves the entire Toowoomba region and greater Darling Downs, providing local expertise with responsive service you won't receive from Brisbane-based brokers unfamiliar with regional business conditions.</p>
+      </div>
+
+      <div class="suburbs-container">
+        <h3 class="suburbs-heading">Toowoomba Suburbs</h3>
+        <ul class="suburb-grid">
+          <li>Toowoomba CBD</li>
+          <li>Wellcamp</li>
+          <li>Charlton</li>
+          <li>Harristown</li>
+          <li>Wilsonton</li>
+          <li>Newtown</li>
+          <li>East Toowoomba</li>
+          <li>South Toowoomba</li>
+          <li>North Toowoomba</li>
+          <li>West Toowoomba</li>
+          <li>Rangeville</li>
+          <li>Middle Ridge</li>
+          <li>Centenary Heights</li>
+          <li>Kearneys Spring</li>
+          <li>Mount Lofty</li>
+          <li>Highfields</li>
+        </ul>
+
+        <h3 class="suburbs-heading">Darling Downs Region</h3>
+        <p class="regional-list">Oakey • Pittsworth • Dalby • Chinchilla • Goondiwindi</p>
+      </div>
+
+      <div class="service-area-text">
+        <p>We provide Queensland-wide business finance services, but our Toowoomba focus ensures we understand regional business challenges. Seasonal agricultural patterns, construction project timing, and Inland Rail infrastructure opportunities all influence when Toowoomba businesses need finance solutions. Whether you operate from the Toowoomba CBD, Wellcamp industrial precinct, or rural Darling Downs properties, we deliver business loans tailored to local market conditions.</p>
+      </div>
+
+      <!-- Contact Box -->
+      <div class="contact-box">
+        <h3 class="contact-heading">Ready to Get Started?</h3>
+        <a href="mailto:enquiries@edgeviewfinance.com.au" class="contact-cta">Book Your Free Consultation</a>
+        <div class="contact-info">
+          <a href="mailto:enquiries@edgeviewfinance.com.au" class="contact-item">enquiries@edgeviewfinance.com.au</a>
+          <a href="tel:1300280895" class="contact-item">1300 280 895</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Container & Layout */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      padding: 0 40px;
+    }
+  }
+
+  /* Hero Section */
+  .hero-section {
+    padding: 60px 20px;
+    background: #FFFFFF;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .hero-section {
+      padding: 100px 40px;
+    }
+  }
+
+  .breadcrumb {
+    font-size: 14px;
+    color: #6B7280;
+    margin-bottom: 32px;
+    text-align: left;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .breadcrumb-link {
+    color: #6B7280;
+    text-decoration: none;
+  }
+
+  .breadcrumb-link:hover {
+    color: #f97316;
+  }
+
+  .breadcrumb-separator {
+    margin: 0 8px;
+  }
+
+  .page-title {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 400;
+    font-size: 36px;
+    color: #1C2C3B;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (min-width: 768px) {
+    .page-title {
+      font-size: 48px;
+    }
+  }
+
+  .hero-text {
+    max-width: 800px;
+    margin: 0 auto 32px;
+    text-align: left;
+  }
+
+  .hero-text p {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #333333;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .hero-cta {
+    margin-top: 32px;
+  }
+
+  .btn-primary {
+    background: #f97316;
+    color: #FFFFFF;
+    border: 2px solid #f97316;
+    padding: 16px 32px;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 0px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    background: #E6890E;
+    border-color: #E6890E;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+  }
+
+  /* Economic Context Section */
+  .economic-context-section {
+    padding: 80px 20px;
+    background: #f8f9fa;
+  }
+
+  @media (min-width: 768px) {
+    .economic-context-section {
+      padding: 120px 40px;
+    }
+  }
+
+  .section-heading {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 500;
+    font-size: 28px;
+    color: #1C2C3B;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  @media (min-width: 768px) {
+    .section-heading {
+      font-size: 36px;
+    }
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  @media (min-width: 768px) {
+    .stat-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+  }
+
+  .economic-text {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .economic-text p {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #333333;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  /* Inland Rail Section */
+  .inland-rail-section {
+    padding: 80px 20px;
+    background: #FFFFFF;
+  }
+
+  @media (min-width: 768px) {
+    .inland-rail-section {
+      padding: 120px 40px;
+    }
+  }
+
+  /* Industrial Areas Section */
+  .industrial-areas-section {
+    padding: 80px 20px;
+    background: #FFFFFF;
+  }
+
+  @media (min-width: 768px) {
+    .industrial-areas-section {
+      padding: 120px 40px;
+    }
+  }
+
+  .stat-card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  @media (min-width: 768px) {
+    .stat-card-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+  }
+
+  .industrial-text {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .industrial-text p {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #333333;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  /* Finance Solutions Section */
+  .finance-solutions-section {
+    padding: 80px 20px;
+    background: #f8f9fa;
+  }
+
+  @media (min-width: 768px) {
+    .finance-solutions-section {
+      padding: 120px 40px;
+    }
+  }
+
+  .service-card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  @media (min-width: 768px) {
+    .service-card-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+  }
+
+  /* Service Area Section */
+  .service-area-section {
+    padding: 80px 20px 0;
+    background: #FFFFFF;
+  }
+
+  @media (min-width: 768px) {
+    .service-area-section {
+      padding: 120px 40px 0;
+    }
+  }
+
+  .service-area-text {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    text-align: center;
+  }
+
+  .service-area-text p {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #333333;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .suburbs-container {
+    max-width: 900px;
+    margin: 0 auto 40px;
+  }
+
+  .suburbs-heading {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: #1C2C3B;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .suburb-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 20px;
+    margin: 24px 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  @media (min-width: 768px) {
+    .suburb-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px 24px;
+    }
+  }
+
+  .suburb-grid li {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: #333333;
+    line-height: 1.4;
+  }
+
+  .regional-list {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #333333;
+    text-align: center;
+    margin: 16px 0 32px;
+  }
+
+  /* Contact Box */
+  .contact-box {
+    background: #1C2C3B;
+    padding: 60px 40px;
+    border-radius: 0px;
+    text-align: center;
+    margin-top: 60px;
+  }
+
+  .contact-heading {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    color: #FFFFFF;
+    margin-bottom: 32px;
+    line-height: 1.2;
+  }
+
+  .contact-cta {
+    background: #FFFFFF;
+    color: #1C2C3B;
+    border: 2px solid #FFFFFF;
+    padding: 16px 32px;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 0px;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 32px;
+    transition: all 0.2s ease;
+  }
+
+  .contact-cta:hover {
+    background: #f97316;
+    color: #FFFFFF;
+    border-color: #f97316;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .contact-info {
+      flex-direction: row;
+      justify-content: center;
+      gap: 32px;
+    }
+  }
+
+  .contact-item {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #FFFFFF;
+    text-decoration: none;
+  }
+
+  .contact-item:hover {
+    color: #f97316;
+    text-decoration: underline;
+  }
+</style>
