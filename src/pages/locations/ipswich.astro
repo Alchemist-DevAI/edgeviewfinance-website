@@ -1,0 +1,376 @@
+---
+import Layout from "../../layout/Layout.astro";
+import StatBox from "../../components/location-pages/StatBox.astro";
+import HighlightBox from "../../components/location-pages/HighlightBox.astro";
+import StatCard from "../../components/location-pages/StatCard.astro";
+import ServiceCard from "../../components/location-pages/ServiceCard.astro";
+
+// SEO Meta Data
+const pageTitle = "Business Loans Ipswich | Equipment Finance | Edgeview";
+const pageDescription = "Expert business loans in Ipswich. Equipment finance for manufacturing, construction & logistics. Fast approvals for Queensland's fastest-growing economy.";
+const pageUrl = "https://www.edgeviewfinance.com.au/locations/ipswich";
+
+// Breadcrumb configuration
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "Ipswich", href: "/locations/ipswich" }
+];
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  canonical={pageUrl}
+  ogType="website"
+>
+  <!-- Schema.org Markup -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FinancialService",
+    "name": "Edgeview Finance - Ipswich",
+    "description": "Business loans and equipment finance for Ipswich Queensland",
+    "areaServed": {
+      "@type": "City",
+      "name": "Ipswich",
+      "containedIn": {
+        "@type": "State",
+        "name": "Queensland"
+      }
+    },
+    "telephone": "1300280895",
+    "email": "enquiries@edgeviewfinance.com.au",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Finance Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Equipment Finance",
+            "description": "Manufacturing and industrial equipment financing"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Working Capital Finance",
+            "description": "Business cash flow and expansion capital"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Commercial Property Finance",
+            "description": "Industrial property and warehouse financing"
+          }
+        }
+      ]
+    }
+  })} />
+
+  <!-- Section 1: Hero -->
+  <section class="py-16 md:py-20 bg-[#FDFBF9]">
+    <div class="container-default">
+      <!-- Breadcrumb Navigation -->
+      <nav class="mb-6 text-sm text-gray-600" aria-label="Breadcrumb">
+        {breadcrumbs.map((crumb, index) => (
+          <Fragment>
+            {index > 0 && <span class="mx-2">›</span>}
+            <a href={crumb.href} class="hover:text-[#f97316]">
+              {crumb.label}
+            </a>
+          </Fragment>
+        ))}
+      </nav>
+
+      <div class="max-w-4xl">
+        <h1 class="text-4xl md:text-5xl font-bold text-[#1C2C3B] mb-6 leading-tight">
+          Business Loans Ipswich - Commercial & Equipment Finance Solutions
+        </h1>
+
+        <div class="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
+          <p class="mb-4">Fast business finance solutions for Queensland's fastest-growing regional economy. Edgeview Finance provides specialised business loans, equipment finance, and working capital for Ipswich's thriving manufacturing, defence, construction, and logistics sectors.</p>
+
+          <p class="mb-4">With Ipswich's economy reaching a record <strong>$15.08 billion gross regional product</strong> and creating over <strong>2,120 new jobs</strong> in the past year, businesses across the region need reliable finance partners who understand rapid growth. From manufacturing equipment at food processing facilities to warehouse forklifts in Redbank Plains, construction vehicles for infrastructure projects to working capital for defence contractors near RAAF Amberley—we provide tailored finance solutions for Ipswich businesses.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+          <div class="flex items-start">
+            <span class="text-[#f97316] mr-3 text-xl">✓</span>
+            <div>
+              <strong>Manufacturing & Industrial Finance Specialists</strong> - Expert equipment finance for Ipswich's dominant manufacturing sector (14.6% of all employment)
+            </div>
+          </div>
+          <div class="flex items-start">
+            <span class="text-[#f97316] mr-3 text-xl">✓</span>
+            <div>
+              <strong>25-Minute Response Time</strong> - Fast local service from our Brisbane office to all Ipswich industrial estates
+            </div>
+          </div>
+          <div class="flex items-start">
+            <span class="text-[#f97316] mr-3 text-xl">✓</span>
+            <div>
+              <strong>Same-Day Approvals Available</strong> - Quick decisions for urgent equipment needs and project deadlines
+            </div>
+          </div>
+          <div class="flex items-start">
+            <span class="text-[#f97316] mr-3 text-xl">✓</span>
+            <div>
+              <strong>Comprehensive Solutions</strong> - Equipment finance, working capital, and commercial property loans for growing businesses
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <a href="/contact" class="inline-block bg-[#f97316] text-white px-8 py-4 font-semibold hover:bg-[#ea580c] transition-colors">
+            Get Fast Approval
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Economic Context -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container-default">
+      <h2 class="text-3xl md:text-4xl font-bold text-[#1C2C3B] mb-6 text-center">
+        Financing Ipswich's Record Economic Growth
+      </h2>
+
+      <div class="max-w-3xl mx-auto text-lg text-gray-700 mb-12 text-center">
+        <p>Ipswich is experiencing unprecedented economic expansion, outpacing all other south-east Queensland councils and nearly doubling the state average growth rate. This creates exceptional opportunities for businesses seeking finance to capitalise on the region's industrial strength and infrastructure boom.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <StatBox
+          number="$15.08B"
+          label="Gross Regional Product"
+          description="Record economy (2024)"
+          source="Ipswich City Council"
+        />
+        <StatBox
+          number="95,532"
+          label="Total Local Jobs"
+          description="Surpassed 2027 target early"
+          source="Ipswich City Council"
+        />
+        <StatBox
+          number="13,049"
+          label="Registered Businesses"
+          description="Thriving SME landscape"
+          source="Incahoots Economic Story 2025"
+        />
+        <StatBox
+          number="4.2%"
+          label="Annual Growth Rate"
+          description="Nearly double QLD average"
+          source="Ipswich City Council"
+        />
+      </div>
+
+      <div class="max-w-4xl mx-auto text-base text-gray-700 space-y-4">
+        <p>The Ipswich economy achieved a record <strong>$15.08 billion gross regional product</strong> in 2024, representing 4.2% annual growth—significantly higher than Queensland's 2.9% average and outperforming major centres like Gold Coast (1.96%) and Logan (2.6%). This robust economic performance has created <strong>95,532 local jobs</strong>, surpassing the council's 2027 employment target three years ahead of schedule.</p>
+
+        <p>With <strong>13,049 registered businesses</strong> operating across the region, Ipswich's business landscape is dominated by micro and small enterprises in manufacturing, construction, transport, and professional services. Recent job growth has been strongest in construction (+793 jobs), manufacturing (+516 jobs), and transport and warehousing (+504 jobs)—all sectors requiring significant equipment investment and working capital.</p>
+
+        <p>The region's <strong>manufacturing sector alone generates $2.7 billion in annual exports</strong>, whilst major infrastructure projects including Inland Rail, the $1.5 billion Ripley Town Centre, and $700 million hospital expansion are driving unprecedented demand for business finance across construction, logistics, and support services.</p>
+
+        <p class="text-sm text-gray-600 italic">Source: <a href="https://www.ipswich.qld.gov.au/News-Articles-Folder/2025/Ipswich-economy-booms-as-it-bursts-through-15-billion-barrier" class="text-[#f97316] hover:underline" target="_blank" rel="noopener">Ipswich City Council Economic Data</a>, <a href="https://www.incahootsco.com.au/the-ipswich-economic-story-in-2025" class="text-[#f97316] hover:underline" target="_blank" rel="noopener">Ipswich Economic Story 2025</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Unique Opportunity -->
+  <section class="py-16 md:py-20 bg-[#FDFBF9]">
+    <div class="container-default">
+      <h2 class="text-3xl md:text-4xl font-bold text-[#1C2C3B] mb-8 text-center">
+        Powering Ipswich's Manufacturing & Defence Industries
+      </h2>
+
+      <div class="max-w-3xl mx-auto text-lg text-gray-700 mb-10">
+        <p>Ipswich has established itself as Queensland's manufacturing and defence industry powerhouse, creating unique equipment finance and working capital opportunities across industrial, aerospace, and infrastructure sectors.</p>
+      </div>
+
+      <HighlightBox
+        title="Manufacturing & Defence Finance Specialists"
+        icon="🏭"
+        bulletPoints={[
+          "14.6% employment in manufacturing (1 in 8 workers)",
+          "$2.7 billion manufacturing exports annually",
+          "RAAF Amberley - Australia's largest Air Force base",
+          "Defence industry hub with aerospace cluster",
+          "Inland Rail logistics positioning",
+          "$2.2 billion infrastructure pipeline"
+        ]}
+        closingStatement="Supporting manufacturers, defence contractors, and infrastructure businesses with specialised finance."
+      />
+
+      <div class="max-w-4xl mx-auto text-base text-gray-700 space-y-4 mt-10">
+        <p>The region's manufacturing dominance creates substantial equipment finance requirements—from factory machinery at large-scale food processing operations to warehouse automation equipment in logistics facilities. Defence industry contractors near RAAF Amberley require specialised equipment and working capital for aerospace maintenance, vehicle manufacturing, and advanced communications systems.</p>
+
+        <p>Major employer investments from companies including JBS Australia (employing 1,200+ in food processing), L'Oréal (consumer manufacturing), Coles and Australia Post (distribution logistics), and Officeworks (establishing major facilities at Redbank Plains) demonstrate the scale of Ipswich's industrial finance market.</p>
+
+        <p class="text-sm text-gray-600 italic">Source: <a href="https://www.businessipswich.com.au/key-industries/manufacturing/" class="text-[#f97316] hover:underline" target="_blank" rel="noopener">Business Ipswich Manufacturing</a>, <a href="https://www.defenceindustries.qld.gov.au" class="text-[#f97316] hover:underline" target="_blank" rel="noopener">Defence Industries Queensland</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Geographic Focus -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container-default">
+      <h2 class="text-3xl md:text-4xl font-bold text-[#1C2C3B] mb-6 text-center">
+        Ipswich Industrial Estate Finance Coverage
+      </h2>
+
+      <div class="max-w-3xl mx-auto text-lg text-gray-700 mb-12 text-center">
+        <p>We provide comprehensive business finance coverage across all major Ipswich industrial estates and business precincts, with fast 25-minute response times and local market knowledge of the region's manufacturing and logistics sectors.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <StatCard
+          number="25 Minutes"
+          heading="Fast Response Time"
+          description="From our Brisbane office to all Ipswich industrial areas"
+          icon="⏱️"
+        />
+        <StatCard
+          number="4"
+          heading="Major Industrial Estates"
+          description="Redbank Plains, Bundamba, Carole Park, Swanbank - full coverage"
+          icon="🏭"
+        />
+        <StatCard
+          number="$500M+"
+          heading="Industrial Investment"
+          description="Active investment in Ipswich corridor (2024)"
+          icon="💰"
+        />
+      </div>
+
+      <div class="max-w-4xl mx-auto text-base text-gray-700 space-y-6">
+        <div>
+          <h3 class="font-bold text-[#1C2C3B] mb-2">Redbank Plains Industrial</h3>
+          <p>Premier logistics and distribution location off the Ipswich Motorway, home to major facilities including Officeworks' regional distribution centre. We finance warehouse equipment, delivery vehicles, and facility expansions for businesses capitalising on this strategic location's motorway access and proximity to the Port of Brisbane.</p>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-[#1C2C3B] mb-2">Swanbank Enterprise Park</h3>
+          <p>The 130-hectare BrisWest development opposite Cunningham Highway provides direct access to major transport corridors. We support manufacturing and logistics businesses with equipment finance for factory machinery, warehouse automation, and commercial vehicle fleets serving this growing clean energy and industrial hub.</p>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-[#1C2C3B] mb-2">Bundamba Industrial</h3>
+          <p>Ipswich's established manufacturing base north of Brisbane Road houses diverse industrial operations. We finance equipment for metal fabrication, automotive services, and transport businesses operating from this accessible industrial precinct.</p>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-[#1C2C3B] mb-2">Carole Park Industrial Estate</h3>
+          <p>This expanding industrial area offers affordable premises for growing businesses. We provide commercial property finance for warehouse acquisitions and equipment loans for businesses establishing or expanding operations in this strategic location.</p>
+        </div>
+
+        <p class="mt-6">The Ipswich industrial corridor has attracted over <strong>$500 million in investment</strong> during 2024, with rental growth averaging 13.2% and vacancy rates below 2%—demonstrating strong demand for quality industrial space and creating ongoing equipment finance opportunities.</p>
+
+        <p class="text-sm text-gray-600 italic">Source: <a href="https://www.cushmanwakefield.com/en/australia/news/2024/09/queensland-industrial-sector-sees-surge-in-buyer-activity" class="text-[#f97316] hover:underline" target="_blank" rel="noopener">Cushman & Wakefield QLD Industrial Report</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Finance Solutions -->
+  <section class="py-16 md:py-20 bg-[#FDFBF9]">
+    <div class="container-default">
+      <h2 class="text-3xl md:text-4xl font-bold text-[#1C2C3B] mb-6 text-center">
+        Business Finance Solutions for Ipswich
+      </h2>
+
+      <div class="max-w-3xl mx-auto text-lg text-gray-700 mb-12 text-center">
+        <p>Whether you're a manufacturer needing production equipment, a construction business requiring vehicles for infrastructure projects, or a logistics operator expanding your warehouse capabilities, Edgeview Finance provides fast, flexible business finance solutions tailored to Ipswich's industrial economy.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <ServiceCard
+          heading="Equipment Finance"
+          icon="🏭"
+          description="Manufacturing machinery and production equipment, warehouse equipment, commercial vehicles and delivery fleet, construction equipment, defence contractor equipment."
+          examples="Factory machinery, warehouse forklifts, delivery trucks, construction equipment, defence contractor tools"
+          ctaText="Get Equipment Quote"
+          link="/equipment-finance"
+        />
+        <ServiceCard
+          heading="Working Capital Finance"
+          icon="💰"
+          description="Infrastructure project cash flow, manufacturing export cycles, contract fulfillment funding, business expansion capital, seasonal requirements."
+          examples="Project cash flow, export financing, expansion capital, contract fulfillment, seasonal working capital"
+          ctaText="Explore Working Capital"
+          link="/working-capital-finance"
+        />
+        <ServiceCard
+          heading="Commercial Property Finance"
+          icon="🏢"
+          description="Industrial warehouse purchases, manufacturing facility acquisition, business premises ownership, industrial estate property investment."
+          examples="Industrial warehouses, manufacturing facilities, business premises, investment properties"
+          ctaText="Finance Your Property"
+          link="/commercial-property-finance"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Service Area & Contact -->
+  <section class="py-16 md:py-20 bg-[#1C2C3B] text-white">
+    <div class="container-default text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">
+        Get Fast Business Finance in Ipswich
+      </h2>
+
+      <div class="max-w-3xl mx-auto text-lg mb-8">
+        <p class="mb-6">Edgeview Finance provides comprehensive business finance coverage across Ipswich CBD, all major industrial estates, and surrounding business precincts. Our Brisbane office is just 25 minutes away via the Ipswich Motorway, enabling fast response times and face-to-face meetings when required.</p>
+
+        <p class="mb-6"><strong>Service Areas</strong>: Ipswich CBD, Redbank Plains, Bundamba, Carole Park, Swanbank, Springfield, Ripley, Yamanto, Booval, Goodna, and all surrounding industrial and commercial areas.</p>
+
+        <p class="mb-6"><strong>Response Time</strong>: 25 minutes guaranteed from our Brisbane office to any Ipswich business location. Same-day approvals available for urgent equipment needs and time-sensitive projects.</p>
+
+        <p class="mb-8"><strong>Business Hours</strong>: Monday to Friday 8:30am-5:30pm, with weekend and after-hours service available for emergencies.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto mb-10">
+        <div class="flex flex-col items-center">
+          <div class="text-4xl mb-3">📞</div>
+          <div class="text-sm uppercase tracking-wider mb-2">Phone</div>
+          <a href="tel:1300280895" class="text-2xl font-bold text-[#f97316] hover:text-[#ea580c]">
+            1300 280 895
+          </a>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="text-4xl mb-3">✉️</div>
+          <div class="text-sm uppercase tracking-wider mb-2">Email</div>
+          <a href="mailto:enquiries@edgeviewfinance.com.au" class="text-xl font-semibold text-[#f97316] hover:text-[#ea580c] break-all">
+            enquiries@edgeviewfinance.com.au
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <a href="/contact" class="inline-block bg-[#f97316] text-white px-10 py-4 text-lg font-semibold hover:bg-[#ea580c] transition-colors">
+          Contact Ipswich Finance Specialist
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .container-default {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  @media (min-width: 1024px) {
+    .container-default {
+      padding: 0 2rem;
+    }
+  }
+</style>
