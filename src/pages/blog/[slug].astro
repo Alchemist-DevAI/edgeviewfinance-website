@@ -6,10 +6,36 @@ import NewsletterSignup from "../../components/Blog/NewsletterSignup.astro";
 import BlogCard from "../../components/Blog/BlogCard.astro";
 import { Image } from "astro:assets";
 
+// Prerender blog pages at build time for better performance and SSG
+export const prerender = true;
+
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blogs");
-  return blogEntries.map(entry => ({
-    params: { slug: entry.slug }, 
+
+  // Filter out invalid entries and verify render method exists
+  const validEntries = blogEntries.filter(entry => {
+    if (!entry || !entry.slug) {
+      console.warn('[Blog getStaticPaths] Invalid entry found:', entry);
+      return false;
+    }
+
+    // Verify entry has render method (critical for Astro content collections)
+    if (!entry.render || typeof entry.render !== 'function') {
+      console.error('[Blog getStaticPaths] Entry missing render method:', {
+        slug: entry.slug,
+        id: entry.id,
+        hasRender: !!entry.render
+      });
+      return false;
+    }
+
+    return true;
+  });
+
+  console.log(`[Blog getStaticPaths] Found ${validEntries.length}/${blogEntries.length} valid blog entries`);
+
+  return validEntries.map(entry => ({
+    params: { slug: entry.slug },
     props: { entry },
   }));
 }
@@ -22,10 +48,42 @@ const { entry } = Astro.props;
 
 // Handle case where entry is undefined (404)
 if (!entry) {
+  console.error('[Blog Route] Entry is undefined', {
+    slug: Astro.params.slug,
+    url: Astro.url.pathname
+  });
   return Astro.redirect("/404");
 }
 
-const { Content } = await entry.render();
+// Verify entry has render method before calling
+if (!entry.render || typeof entry.render !== 'function') {
+  console.error('[Blog Route] Entry missing render method', {
+    slug: Astro.params.slug,
+    url: Astro.url.pathname,
+    entry: {
+      slug: entry.slug,
+      id: entry.id,
+      collection: entry.collection,
+      hasRender: !!entry.render,
+      entryKeys: Object.keys(entry)
+    }
+  });
+  return Astro.redirect("/404");
+}
+
+let Content;
+try {
+  const renderResult = await entry.render();
+  Content = renderResult.Content;
+} catch (error) {
+  console.error('[Blog Route] Render failed', {
+    slug: Astro.params.slug,
+    url: Astro.url.pathname,
+    error: error.message,
+    stack: error.stack
+  });
+  return Astro.redirect("/404");
+}
 
 // Get all blogs for sidebar and related articles
 const allBlogs = await getCollection("blogs");
