@@ -99,9 +99,7 @@ const { siteName, description, favicon } = MetaData?.data;
     {Astro.url.pathname === '/' && (
       <link rel='preload' as='image' href='/assets/images/hero-tradie-optimized.webp' fetchpriority='high' />
     )}
-    {(Astro.url.pathname === '/equipment-finance' || Astro.url.pathname === '/vehicle-finance') && (
-      <link rel='preload' as='image' href='/assets/images/hero-tradie-optimized.webp' fetchpriority='high' />
-    )}
+    <!-- Equipment Finance and Vehicle Finance pages have text-only heroes - no image preload needed -->
 
     <!-- Critical CSS inlined for LCP -->
     <style>

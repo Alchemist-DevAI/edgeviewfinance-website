@@ -23,4 +23,3 @@ All it takes to launch a full-fledged Agency website is installing and configuri
 - Showcase your Expert Areas, Partners, Methods, Team.
 - Showcase your Projects and also Client Feedback on Project.
 - Special sections like About Us, Blogs, Portfolio, Contact.
-# Deployment trigger for meta description update
