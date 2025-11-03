@@ -51,6 +51,13 @@ const { siteName, description, favicon } = MetaData?.data;
       name='description'
       content={description ? description : "Agency11 Theme"}
     />
+
+    <!-- Preconnect to external domains for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://assets.calendly.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.clarity.ms" />
+
     <!-- Favicon Support for All Browsers -->
     <link rel='icon' type='image/x-icon' href='/favicon.ico' />
     <link rel='icon' type='image/png' sizes='16x16' href='/favicon.png' />
@@ -92,6 +99,9 @@ const { siteName, description, favicon } = MetaData?.data;
     {Astro.url.pathname === '/' && (
       <link rel='preload' as='image' href='/assets/images/hero-tradie-optimized.webp' fetchpriority='high' />
     )}
+    {(Astro.url.pathname === '/equipment-finance' || Astro.url.pathname === '/vehicle-finance') && (
+      <link rel='preload' as='image' href='/assets/images/hero-tradie-optimized.webp' fetchpriority='high' />
+    )}
 
     <!-- Critical CSS inlined for LCP -->
     <style>
@@ -101,8 +111,9 @@ const { siteName, description, favicon } = MetaData?.data;
 
     <!-- Force mobile menu submenu styling -->
     <link rel='stylesheet' href='/assets/css/mobile-menu-fix.css' />
-    <!-- Calendly widget styling -->
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <!-- Calendly widget styling - deferred for performance -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"></noscript>
     <!-- Google Analytics GA4 - Optimized Component -->
     <GoogleAnalytics />
     <!-- Microsoft Clarity - Heatmaps and Session Recording -->
@@ -120,13 +131,13 @@ const { siteName, description, favicon } = MetaData?.data;
 </html>
 
 <script src='/assets/js/menu.js' is:inline></script>
-<script src='/assets/js/countdown.js' is:inline></script>
-<script src='/assets/js/counterup.js' is:inline></script>
-<script src='/assets/js/main.js' is:inline></script>
-<!-- Calendly widget script -->
-<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-<!-- Analytics Initialization -->
-<script type="module" src="/src/scripts/analytics-init.js"></script>
+<script src='/assets/js/countdown.js' is:inline defer></script>
+<script src='/assets/js/counterup.js' is:inline defer></script>
+<script src='/assets/js/main.js' is:inline defer></script>
+<!-- Calendly widget script - deferred for performance -->
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" defer></script>
+<!-- Analytics Initialization - deferred for performance -->
+<script type="module" src="/src/scripts/analytics-init.js" defer></script>
 <!-- Service Worker Registration -->
 <script>
   // Register service worker for offline functionality
