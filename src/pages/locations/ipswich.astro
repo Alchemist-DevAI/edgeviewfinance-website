@@ -72,123 +72,83 @@ const breadcrumbs = [
   })} />
 
   <!-- Section 1: Hero -->
-  <section class="py-16 md:py-20 bg-[#FDFBF9]">
-    <div class="container-default text-center">
-      <!-- Breadcrumb Navigation -->
-      <nav class="mb-6 text-sm text-gray-600" aria-label="Breadcrumb">
-        {breadcrumbs.map((crumb, index) => (
-          <>
-            {index > 0 && <span class="mx-2">›</span>}
-            <a href={crumb.href} class="hover:text-[#f97316]">
-              {crumb.label}
-            </a>
-          </>
-        ))}
+  <section class="hero-section">
+    <div class="container-default">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li><a href="/">Home</a></li>
+          <li aria-current="page">Ipswich</li>
+        </ol>
       </nav>
 
-      <div class="max-w-4xl mx-auto">
-        <h1 class="text-4xl md:text-5xl font-bold text-[#1C2C3B] mb-6 leading-tight">
-          Business Loans Ipswich - Commercial & Equipment Finance Solutions
-        </h1>
+      <h1 class="page-title">
+        Business Loans Ipswich - Commercial & Equipment Finance Solutions
+      </h1>
 
-        <div class="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed text-left">
-          <p class="mb-4">Edgeview Finance provides specialised business loans, equipment finance, and working capital for Ipswich's thriving manufacturing, defence, construction, and logistics sectors.</p>
+      <div class="intro-text">
+        <p>Edgeview Finance provides specialised business loans, equipment finance, and working capital for Ipswich's thriving manufacturing, defence, construction, and logistics sectors.</p>
 
-          <p class="mb-4">With Ipswich's economy reaching a record <strong>$15.08 billion gross regional product</strong> and creating over <strong>2,120 new jobs</strong> in the past year, businesses across the region need reliable finance partners who understand rapid growth. From manufacturing equipment at food processing facilities to warehouse forklifts in Redbank Plains, construction vehicles for infrastructure projects to working capital for defence contractors near RAAF Amberley—we provide tailored finance solutions for Ipswich businesses.</p>
-        </div>
+        <p>With Ipswich's economy reaching a record $15.08 billion gross regional product and creating over 2,120 new jobs in the past year, businesses across the region need reliable finance partners who understand rapid growth. From manufacturing equipment at food processing facilities to warehouse forklifts in Redbank Plains, construction vehicles for infrastructure projects to working capital for defence contractors near RAAF Amberley—we provide tailored finance solutions for Ipswich businesses.</p>
+      </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 text-left">
-          <div class="flex items-start">
-            <span class="text-[#f97316] mr-3 text-xl">✓</span>
-            <div>
-              <strong>Manufacturing & Industrial Finance Specialists</strong> - Expert equipment finance for Ipswich's dominant manufacturing sector (14.6% of all employment)
-            </div>
-          </div>
-          <div class="flex items-start">
-            <span class="text-[#f97316] mr-3 text-xl">✓</span>
-            <div>
-              <strong>25-Minute Response Time</strong> - Fast local service from our Brisbane office to all Ipswich industrial estates
-            </div>
-          </div>
-          <div class="flex items-start">
-            <span class="text-[#f97316] mr-3 text-xl">✓</span>
-            <div>
-              <strong>Comprehensive Solutions</strong> - Equipment finance, working capital, and commercial property loans for growing businesses
-            </div>
-          </div>
-          <div class="flex items-start">
-            <span class="text-[#f97316] mr-3 text-xl">✓</span>
-            <div>
-              <strong>Expert Local Knowledge</strong> - Deep understanding of Ipswich's industrial estates, manufacturing sector, and defence industries
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <a href="/contact" class="inline-block bg-[#f97316] text-white px-8 py-4 font-semibold hover:bg-[#E6890E] hover:border-[#E6890E] hover:shadow-[0_4px_12px_rgba(249,115,22,0.3)] transition-all duration-300 border-2 border-[#f97316]">
-            Book Your Free Consultation
-          </a>
-        </div>
+      <div class="cta-container">
+        <a href="/contact" class="btn-primary btn-lg">
+          Book Your Free Consultation
+        </a>
       </div>
     </div>
   </section>
 
   <!-- Section 2: Economic Context -->
-  <section class="py-16 md:py-20 bg-white">
+  <section class="economic-context-section">
     <div class="container-default">
-      <h2 class="text-3xl md:text-4xl font-bold text-[#1C2C3B] mb-6 text-center">
+      <h2 class="section-title">
         Financing Ipswich's Record Economic Growth
       </h2>
 
-      <div class="max-w-3xl mx-auto text-lg text-gray-700 mb-12 text-center">
-        <p>Ipswich is experiencing unprecedented economic expansion, outpacing all other south-east Queensland councils and nearly doubling the state average growth rate. This creates exceptional opportunities for businesses seeking finance to capitalise on the region's industrial strength and infrastructure boom.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+      <div class="stat-grid">
         <StatBox
           number="$15.08B"
-          label="Gross Regional Product - Record economy (2024)"
+          label="Gross Regional Product (2024)"
           source="Source: Ipswich City Council"
+          change="↑ 4.2% annual growth rate"
         />
         <StatBox
           number="95,532"
-          label="Total Local Jobs - Surpassed 2027 target early"
+          label="Total Local Jobs"
           source="Source: Ipswich City Council"
+          change="↑ Surpassed 2027 target early"
         />
         <StatBox
           number="13,049"
-          label="Registered Businesses - Thriving SME landscape"
+          label="Registered Businesses"
           source="Source: Incahoots Economic Story 2025"
+          change="↑ Thriving SME landscape"
         />
         <StatBox
           number="4.2%"
-          label="Annual Growth Rate - Nearly double QLD average"
+          label="Annual Growth Rate"
           source="Source: Ipswich City Council"
+          change="↑ Nearly double QLD average"
         />
       </div>
 
-      <div class="max-w-4xl mx-auto text-base text-gray-700 space-y-4">
-        <p>The Ipswich economy achieved a record <strong>$15.08 billion gross regional product</strong> in 2024, representing 4.2% annual growth—significantly higher than Queensland's 2.9% average and outperforming major centres like Gold Coast (1.96%) and Logan (2.6%). This robust economic performance has created <strong>95,532 local jobs</strong>, surpassing the council's 2027 employment target three years ahead of schedule.</p>
+      <div class="context-text">
+        <p>Ipswich is experiencing unprecedented economic expansion, outpacing all other south-east Queensland councils and nearly doubling the state average growth rate. The region's economy achieved a record $15.08 billion gross regional product in 2024, representing 4.2% annual growth—significantly higher than Queensland's 2.9% average and outperforming major centres like Gold Coast (1.96%) and Logan (2.6%).</p>
 
-        <p>With <strong>13,049 registered businesses</strong> operating across the region, Ipswich's business landscape is dominated by micro and small enterprises in manufacturing, construction, transport, and professional services. Recent job growth has been strongest in construction (+793 jobs), manufacturing (+516 jobs), and transport and warehousing (+504 jobs)—all sectors requiring significant equipment investment and working capital.</p>
+        <p>This robust economic performance has created 95,532 local jobs, surpassing the council's 2027 employment target three years ahead of schedule. With 13,049 registered businesses operating across the region, Ipswich's business landscape is dominated by micro and small enterprises in manufacturing, construction, transport, and professional services.</p>
 
-        <p>The region's <strong>manufacturing sector alone generates $2.7 billion in annual exports</strong>, whilst major infrastructure projects including Inland Rail, the $1.5 billion Ripley Town Centre, and $700 million hospital expansion are driving unprecedented demand for business finance across construction, logistics, and support services.</p>
-
-        <p class="text-sm text-gray-600 italic">Source: <a href="https://www.ipswich.qld.gov.au/News-Articles-Folder/2025/Ipswich-economy-booms-as-it-bursts-through-15-billion-barrier" class="text-[#f97316] hover:underline" target="_blank" rel="noopener">Ipswich City Council Economic Data</a>, <a href="https://www.incahootsco.com.au/the-ipswich-economic-story-in-2025" class="text-[#f97316] hover:underline" target="_blank" rel="noopener">Ipswich Economic Story 2025</a></p>
+        <p>Recent job growth has been strongest in construction (+793 jobs), manufacturing (+516 jobs), and transport and warehousing (+504 jobs)—all sectors requiring significant equipment investment and working capital. The region's manufacturing sector alone generates $2.7 billion in annual exports, whilst major infrastructure projects including Inland Rail, the $1.5 billion Ripley Town Centre, and $700 million hospital expansion are driving unprecedented demand for business finance across construction, logistics, and support services.</p>
       </div>
     </div>
   </section>
 
   <!-- Section 3: Unique Opportunity -->
-  <section class="py-16 md:py-20 bg-[#FDFBF9]">
+  <section class="olympics-section">
     <div class="container-default">
-      <h2 class="text-3xl md:text-4xl font-bold text-[#1C2C3B] mb-8 text-center">
+      <h2 class="section-title">
         Powering Ipswich's Manufacturing & Defence Industries
       </h2>
-
-      <div class="max-w-3xl mx-auto text-lg text-gray-700 mb-10">
-        <p>Ipswich has established itself as Queensland's manufacturing and defence industry powerhouse, creating unique equipment finance and working capital opportunities across industrial, aerospace, and infrastructure sectors.</p>
-      </div>
 
       <HighlightBox
         number="14.6%"
@@ -204,158 +164,126 @@ const breadcrumbs = [
         ]}
       />
 
-      <div class="max-w-4xl mx-auto text-base text-gray-700 space-y-4 mt-10">
-        <p>The region's manufacturing dominance creates substantial equipment finance requirements—from factory machinery at large-scale food processing operations to warehouse automation equipment in logistics facilities. Defence industry contractors near RAAF Amberley require specialised equipment and working capital for aerospace maintenance, vehicle manufacturing, and advanced communications systems.</p>
+      <div class="context-text">
+        <p>Ipswich has established itself as Queensland's manufacturing and defence industry powerhouse, creating unique equipment finance and working capital opportunities across industrial, aerospace, and infrastructure sectors. The region's manufacturing dominance creates substantial equipment finance requirements—from factory machinery at large-scale food processing operations to warehouse automation equipment in logistics facilities.</p>
 
-        <p>Major employer investments from companies including JBS Australia (employing 1,200+ in food processing), L'Oréal (consumer manufacturing), Coles and Australia Post (distribution logistics), and Officeworks (establishing major facilities at Redbank Plains) demonstrate the scale of Ipswich's industrial finance market.</p>
-
-        <p class="text-sm text-gray-600 italic">Source: <a href="https://www.businessipswich.com.au/key-industries/manufacturing/" class="text-[#f97316] hover:underline" target="_blank" rel="noopener">Business Ipswich Manufacturing</a>, <a href="https://www.defenceindustries.qld.gov.au" class="text-[#f97316] hover:underline" target="_blank" rel="noopener">Defence Industries Queensland</a></p>
+        <p>Defence industry contractors near RAAF Amberley require specialised equipment and working capital for aerospace maintenance, vehicle manufacturing, and advanced communications systems. Major employer investments from companies including JBS Australia (employing 1,200+ in food processing), L'Oréal (consumer manufacturing), Coles and Australia Post (distribution logistics), and Officeworks (establishing major facilities at Redbank Plains) demonstrate the scale of Ipswich's industrial finance market.</p>
       </div>
     </div>
   </section>
 
   <!-- Section 4: Geographic Focus -->
-  <section class="py-16 md:py-20 bg-white">
+  <section class="yatala-section">
     <div class="container-default">
-      <h2 class="text-3xl md:text-4xl font-bold text-[#1C2C3B] mb-6 text-center">
+      <h2 class="section-title">
         Ipswich Industrial Estate Finance Coverage
       </h2>
 
-      <div class="max-w-3xl mx-auto text-lg text-gray-700 mb-12 text-center">
-        <p>We provide comprehensive business finance coverage across all major Ipswich industrial estates and business precincts, with fast 25-minute response times and local market knowledge of the region's manufacturing and logistics sectors.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-        <StatCard
-          icon="BuildingStore"
-          number="25"
-          unit="Minutes"
-          label="Fast Response Time from Brisbane office"
-        />
+      <div class="stat-card-grid">
         <StatCard
           icon="BuildingFactory"
           number="4"
-          unit="Industrial Estates"
+          unit="Major Estates"
           label="Redbank, Bundamba, Carole Park, Swanbank"
         />
         <StatCard
           icon="Users"
-          number="500M+"
+          number="$500M+"
           unit="Investment"
-          label="Active industrial corridor investment (2024)"
+          label="Industrial Corridor Investment (2024)"
+        />
+        <StatCard
+          icon="BuildingStore"
+          number="13,049"
+          unit="Businesses"
+          label="Registered Businesses Operating"
         />
       </div>
 
-      <div class="max-w-4xl mx-auto text-base text-gray-700 space-y-6">
-        <div>
-          <h3 class="font-bold text-[#1C2C3B] mb-2">Redbank Plains Industrial</h3>
-          <p>Premier logistics and distribution location off the Ipswich Motorway, home to major facilities including Officeworks' regional distribution centre. We finance warehouse equipment, delivery vehicles, and facility expansions for businesses capitalising on this strategic location's motorway access and proximity to the Port of Brisbane.</p>
-        </div>
+      <div class="context-text">
+        <p>We provide comprehensive business finance coverage across all major Ipswich industrial estates and business precincts with local market knowledge of the region's manufacturing and logistics sectors. The Ipswich industrial corridor has attracted over $500 million in investment during 2024, with rental growth averaging 13.2% and vacancy rates below 2%—demonstrating strong demand for quality industrial space and creating ongoing equipment finance opportunities.</p>
 
-        <div>
-          <h3 class="font-bold text-[#1C2C3B] mb-2">Swanbank Enterprise Park</h3>
-          <p>The 130-hectare BrisWest development opposite Cunningham Highway provides direct access to major transport corridors. We support manufacturing and logistics businesses with equipment finance for factory machinery, warehouse automation, and commercial vehicle fleets serving this growing clean energy and industrial hub.</p>
-        </div>
+        <p>Redbank Plains Industrial serves as the premier logistics and distribution location off the Ipswich Motorway, home to major facilities including Officeworks' regional distribution centre. We finance warehouse equipment, delivery vehicles, and facility expansions for businesses capitalising on this strategic location's motorway access and proximity to the Port of Brisbane.</p>
 
-        <div>
-          <h3 class="font-bold text-[#1C2C3B] mb-2">Bundamba Industrial</h3>
-          <p>Ipswich's established manufacturing base north of Brisbane Road houses diverse industrial operations. We finance equipment for metal fabrication, automotive services, and transport businesses operating from this accessible industrial precinct.</p>
-        </div>
-
-        <div>
-          <h3 class="font-bold text-[#1C2C3B] mb-2">Carole Park Industrial Estate</h3>
-          <p>This expanding industrial area offers affordable premises for growing businesses. We provide commercial property finance for warehouse acquisitions and equipment loans for businesses establishing or expanding operations in this strategic location.</p>
-        </div>
-
-        <p class="mt-6">The Ipswich industrial corridor has attracted over <strong>$500 million in investment</strong> during 2024, with rental growth averaging 13.2% and vacancy rates below 2%—demonstrating strong demand for quality industrial space and creating ongoing equipment finance opportunities.</p>
-
-        <p class="text-sm text-gray-600 italic">Source: <a href="https://www.cushmanwakefield.com/en/australia/news/2024/09/queensland-industrial-sector-sees-surge-in-buyer-activity" class="text-[#f97316] hover:underline" target="_blank" rel="noopener">Cushman & Wakefield QLD Industrial Report</a></p>
+        <p>Swanbank Enterprise Park's 130-hectare BrisWest development opposite Cunningham Highway provides direct access to major transport corridors. We support manufacturing and logistics businesses with equipment finance for factory machinery, warehouse automation, and commercial vehicle fleets serving this growing clean energy and industrial hub. Bundamba Industrial houses Ipswich's established manufacturing base north of Brisbane Road with diverse industrial operations, whilst Carole Park Industrial Estate offers affordable premises for growing businesses seeking commercial property finance and equipment loans.</p>
       </div>
     </div>
   </section>
 
   <!-- Section 5: Finance Solutions -->
-  <section class="py-16 md:py-20 bg-[#FDFBF9]">
+  <section class="finance-solutions-section">
     <div class="container-default">
-      <h2 class="text-3xl md:text-4xl font-bold text-[#1C2C3B] mb-6 text-center">
-        Business Finance Solutions for Ipswich
+      <h2 class="section-title">
+        Finance Solutions for Ipswich Trade & Manufacturing Businesses
       </h2>
 
-      <div class="max-w-3xl mx-auto text-lg text-gray-700 mb-12 text-center">
-        <p>Whether you're a manufacturer needing production equipment, a construction business requiring vehicles for infrastructure projects, or a logistics operator expanding your warehouse capabilities, Edgeview Finance provides fast, flexible business finance solutions tailored to Ipswich's industrial economy.</p>
+      <div class="section-intro">
+        <p>Business loans and finance solutions for Ipswich trade and manufacturing businesses include equipment finance for machinery and vehicles, working capital for project cash flow, and commercial property lending for workshop ownership and industrial facilities.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="service-card-grid">
         <ServiceCard
           icon="Forklift"
           title="Equipment Finance"
           descriptions={[
-            "Manufacturing machinery and production equipment, warehouse equipment, commercial vehicles and delivery fleet, construction equipment, defence contractor equipment.",
-            "Examples: Factory machinery, warehouse forklifts, delivery trucks, construction equipment, defence contractor tools"
+            "Equipment loans and finance solutions for manufacturing machinery, commercial vehicles, and construction equipment across Ipswich. Whether you're acquiring factory equipment for food processing operations, warehouse forklifts for Redbank Plains logistics facilities, commercial vehicles for your business fleet, or specialised equipment for defence contractors near RAAF Amberley, we provide tailored equipment finance structures.",
+            "Our equipment finance options include chattel mortgages for tax optimization, commercial hire purchase for newer equipment, and operating leases for technology and vehicles. We understand the equipment cycles of manufacturing and construction businesses, from heavy industrial machinery to commercial vehicle fleets servicing Ipswich projects."
           ]}
           link="/equipment-finance"
-          linkText="Get Equipment Quote"
         />
         <ServiceCard
           icon="CashBanknote"
-          title="Working Capital Finance"
+          title="Working Capital"
           descriptions={[
-            "Infrastructure project cash flow, manufacturing export cycles, contract fulfillment funding, business expansion capital, seasonal requirements.",
-            "Examples: Project cash flow, export financing, expansion capital, contract fulfillment, seasonal working capital"
+            "Working capital and cash flow solutions designed for the project-based revenue cycles of manufacturing and construction businesses. Invoice financing options help bridge the payment terms common in commercial construction, while business overdraft facilities provide flexibility for materials purchases and wage payments during project delivery.",
+            "Ipswich manufacturing businesses often face cash flow challenges when taking on larger infrastructure projects with staged payment milestones. Our working capital solutions help manage these timing gaps, allowing you to accept profitable projects without cash flow constraints limiting your growth in Queensland's fastest-growing regional economy."
           ]}
           link="/working-capital-finance"
-          linkText="Explore Working Capital"
         />
         <ServiceCard
           icon="Building"
           title="Commercial Property Finance"
           descriptions={[
-            "Industrial warehouse purchases, manufacturing facility acquisition, business premises ownership, industrial estate property investment.",
-            "Examples: Industrial warehouses, manufacturing facilities, business premises, investment properties"
+            "Commercial and industrial property finance for workshop ownership, warehouse acquisitions in Ipswich industrial estates, and investment properties across the region. Many manufacturing and trade business owners are moving from leased premises to property ownership, particularly in estates like Redbank Plains and Swanbank where industrial lot prices offer strong investment opportunities.",
+            "Whether you're purchasing your first workshop, investing in industrial property within expanding Ipswich estates, or acquiring commercial premises in established business hubs, we provide commercial property finance structures suited to trade and manufacturing business ownership. The region's industrial corridor with over $500 million in active investment offers opportunities for businesses seeking strategic positioning."
           ]}
           link="/commercial-property-finance"
-          linkText="Finance Your Property"
         />
       </div>
     </div>
   </section>
 
   <!-- Section 6: Service Area & Contact -->
-  <section class="py-16 md:py-20 bg-[#F9FAFB]">
-    <div class="container-default text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-[#1C2C3B]">
-        Get Business Finance in Ipswich
+  <section class="service-area-section">
+    <div class="container-default">
+      <h2 class="section-title">
+        Ipswich Service Areas
       </h2>
 
-      <div class="max-w-3xl mx-auto text-lg mb-8 text-gray-700">
-        <p class="mb-6">Edgeview Finance provides comprehensive business finance coverage across Ipswich CBD, all major industrial estates, and surrounding business precincts. Our Brisbane office is just 25 minutes away via the Ipswich Motorway, enabling fast response times and face-to-face meetings when required.</p>
-
-        <p class="mb-6"><strong>Service Areas</strong>: Ipswich CBD, Redbank Plains, Bundamba, Carole Park, Swanbank, Springfield, Ripley, Yamanto, Booval, Goodna, and all surrounding industrial and commercial areas.</p>
-
-        <p class="mb-6"><strong>Response Time</strong>: 25 minutes from our Brisbane office to any Ipswich business location. We provide timely service for equipment needs and time-sensitive projects.</p>
-
-        <p class="mb-8"><strong>Business Hours</strong>: Monday to Friday 8:30am-5:30pm, with weekend and after-hours service available for emergencies.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto mb-10">
-        <div class="flex flex-col items-center">
-          <div class="text-4xl mb-3">📞</div>
-          <div class="text-sm uppercase tracking-wider mb-2 text-gray-600">Phone</div>
-          <a href="tel:1300280895" class="text-2xl font-bold text-[#f97316] hover:text-[#ea580c]">
-            1300 280 895
-          </a>
+      <div class="coverage-grid">
+        <div class="coverage-box">
+          <h4 class="coverage-box-title">Business Hubs</h4>
+          <p class="coverage-box-list">Ipswich CBD, Springfield, Ripley, Yamanto, Booval, Goodna</p>
         </div>
-        <div class="flex flex-col items-center">
-          <div class="text-4xl mb-3">✉️</div>
-          <div class="text-sm uppercase tracking-wider mb-2 text-gray-600">Email</div>
-          <a href="mailto:enquiries@edgeviewfinance.com.au" class="text-xl font-semibold text-[#f97316] hover:text-[#ea580c] break-all">
-            enquiries@edgeviewfinance.com.au
-          </a>
+
+        <div class="coverage-box">
+          <h4 class="coverage-box-title">Industrial Areas</h4>
+          <p class="coverage-box-list">Redbank Plains, Bundamba, Carole Park, Swanbank Enterprise Park, Ebenezer</p>
         </div>
       </div>
 
-      <div>
-        <a href="/contact" class="inline-block bg-[#f97316] text-white px-10 py-4 text-lg font-semibold hover:bg-[#E6890E] hover:border-[#E6890E] hover:shadow-[0_4px_12px_rgba(249,115,22,0.3)] transition-all duration-300 border-2 border-[#f97316]">
+      <div class="coverage-statement">
+        <p>We provide business finance services to trade, manufacturing, and construction businesses across all Ipswich suburbs and surrounding regions. Our understanding of Ipswich's record economic growth with $15.08 billion gross regional product, dominant manufacturing sector employing 14.6% of the workforce, and defence industry opportunities ensures we can structure finance solutions that align with local market conditions and opportunities.</p>
+      </div>
+
+      <div class="contact-info">
+        <p><strong>Phone:</strong> 1300 280 895</p>
+        <p><strong>Email:</strong> enquiries@edgeviewfinance.com.au</p>
+        <p><strong>Coverage:</strong> All Ipswich suburbs and industrial estates</p>
+      </div>
+
+      <div class="cta-container">
+        <a href="/contact" class="btn-primary btn-lg">
           Book Your Free Consultation
         </a>
       </div>
@@ -364,15 +292,367 @@ const breadcrumbs = [
 </Layout>
 
 <style>
-  .container-default {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+  /* Container (uses existing container-default from theme) */
+
+  /* Section 1: Hero */
+  .hero-section {
+    padding: 60px 20px;
+    background: #FFFFFF;
+    text-align: center;
   }
 
-  @media (min-width: 1024px) {
-    .container-default {
-      padding: 0 2rem;
+  @media (min-width: 768px) {
+    .hero-section {
+      padding: 100px 40px;
     }
+  }
+
+  .breadcrumb {
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .breadcrumb-list {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    color: #6B7280;
+  }
+
+  .breadcrumb-list li:not(:last-child)::after {
+    content: ">";
+    margin-left: 8px;
+    color: #D1D5DB;
+  }
+
+  .breadcrumb-list a {
+    color: #6B7280;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .breadcrumb-list a:hover {
+    color: #f97316;
+    text-decoration: underline;
+  }
+
+  .breadcrumb-list li[aria-current="page"] {
+    color: #1C2C3B;
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .breadcrumb-list {
+      font-size: 12px;
+    }
+  }
+
+  .page-title {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 400;
+    font-size: 48px;
+    color: #1C2C3B;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 32px;
+  }
+
+  @media (max-width: 768px) {
+    .page-title {
+      font-size: 36px;
+    }
+  }
+
+  .intro-text {
+    max-width: 800px;
+    margin: 0 auto 32px;
+  }
+
+  .intro-text p {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #333333;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    text-align: left;
+  }
+
+  .intro-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .cta-container {
+    margin-top: 32px;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: #f97316;
+    color: #FFFFFF;
+    border: 2px solid #f97316;
+    padding: 16px 32px;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 6px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    background: #E6890E;
+    border-color: #E6890E;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    .btn-primary {
+      display: block;
+      width: 100%;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  /* Section 2: Economic Context */
+  .economic-context-section {
+    padding: 60px 20px;
+    background: #FFFFFF;
+  }
+
+  @media (min-width: 768px) {
+    .economic-context-section {
+      padding: 100px 40px;
+    }
+  }
+
+  .section-title {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 500;
+    font-size: 32px;
+    color: #1C2C3B;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 28px;
+    }
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 800px;
+    margin: 0 auto 32px;
+  }
+
+  @media (max-width: 768px) {
+    .stat-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+  .context-text {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .context-text p {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #333333;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    text-align: left;
+  }
+
+  .context-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Section 3: Olympics */
+  .olympics-section {
+    padding: 60px 20px;
+    background: #FFFFFF;
+  }
+
+  @media (min-width: 768px) {
+    .olympics-section {
+      padding: 100px 40px;
+    }
+  }
+
+  /* Section 4: Yatala */
+  .yatala-section {
+    padding: 60px 20px;
+    background: #F9FAFB;
+  }
+
+  @media (min-width: 768px) {
+    .yatala-section {
+      padding: 100px 40px;
+    }
+  }
+
+  .stat-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto 32px;
+  }
+
+  @media (max-width: 768px) {
+    .stat-card-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+  /* Section 5: Finance Solutions */
+  .finance-solutions-section {
+    padding: 60px 20px;
+    background: #FFFFFF;
+  }
+
+  @media (min-width: 768px) {
+    .finance-solutions-section {
+      padding: 100px 40px;
+    }
+  }
+
+  .section-intro {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    text-align: center;
+  }
+
+  .section-intro p {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #333333;
+    line-height: 1.6;
+  }
+
+  .service-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 1024px) {
+    .service-card-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  /* Section 6: Service Area */
+  .service-area-section {
+    padding: 60px 20px;
+    background: #F9FAFB;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .service-area-section {
+      padding: 100px 40px;
+    }
+  }
+
+  .coverage-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 800px;
+    margin: 0 auto 32px;
+  }
+
+  @media (max-width: 768px) {
+    .coverage-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+  .coverage-box {
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 0px;
+    padding: 24px;
+    text-align: center;
+  }
+
+  .coverage-box-title {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #1C2C3B;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+  }
+
+  .coverage-box-list {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #333333;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .coverage-statement {
+    max-width: 800px;
+    margin: 0 auto 32px;
+    text-align: center;
+  }
+
+  .coverage-statement p {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #333333;
+    line-height: 1.6;
+  }
+
+  .contact-info {
+    max-width: 600px;
+    margin: 0 auto 32px;
+    text-align: center;
+  }
+
+  .contact-info p {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #333333;
+    line-height: 1.8;
+    margin-bottom: 8px;
+  }
+
+  .contact-info strong {
+    font-weight: 500;
+    color: #1C2C3B;
   }
 </style>
