@@ -36,9 +36,10 @@ import GoogleAnalytics from "../components/analytics/GoogleAnalytics.astro";
 import MicrosoftClarity from "../components/analytics/MicrosoftClarity.astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
 import { getEntry } from "astro:content";
-const { title } = Astro.props;
+const { title, description: pageDescription } = Astro.props;
 const MetaData = await getEntry({ collection: "site", id: "meta" });
-const { siteName, description, favicon } = MetaData?.data;
+const { siteName, description: siteDescription, favicon } = MetaData?.data;
+const description = pageDescription || siteDescription;
 ---
 
 <!doctype html>
