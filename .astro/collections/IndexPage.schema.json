@@ -1,0 +1,641 @@
+{
+  "$ref": "#/definitions/IndexPage",
+  "definitions": {
+    "IndexPage": {
+      "type": "object",
+      "properties": {
+        "header": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "subheading": {
+          "type": "string"
+        },
+        "bodyText": {
+          "type": "string"
+        },
+        "trustIndicator": {
+          "type": "string"
+        },
+        "heroImage": {
+          "type": "string"
+        },
+        "buttonPrimary": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string"
+            },
+            "link": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "text",
+            "link"
+          ],
+          "additionalProperties": false
+        },
+        "buttonSecondary": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string"
+            },
+            "link": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "text",
+            "link"
+          ],
+          "additionalProperties": false
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "valueStack": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "item": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "item",
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "totalValue": {
+          "type": "string"
+        },
+        "investment": {
+          "type": "string"
+        },
+        "investmentSubtext": {
+          "type": "string"
+        },
+        "disclaimer": {
+          "type": "string"
+        },
+        "proofPoints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "experienceYears": {
+          "type": "number"
+        },
+        "customers": {
+          "type": "number"
+        },
+        "projectsCompleted": {
+          "type": "number"
+        },
+        "fundsArranged": {
+          "type": "string"
+        },
+        "successes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "image": {
+          "type": "string"
+        },
+        "button": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string"
+            },
+            "link": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "text",
+            "link"
+          ],
+          "additionalProperties": false
+        },
+        "process": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "step": {
+                "type": "number"
+              },
+              "title": {
+                "type": "string"
+              },
+              "duration": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "step",
+              "title",
+              "duration",
+              "description"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "services": {
+          "type": "object",
+          "properties": {
+            "quickWins": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "services": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "timing": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "string"
+                      },
+                      "feature": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "timing",
+                      "amount",
+                      "feature"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "services"
+              ],
+              "additionalProperties": false
+            },
+            "growthFuel": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "services": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "timing": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "string"
+                      },
+                      "feature": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "timing",
+                      "amount",
+                      "feature"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "services"
+              ],
+              "additionalProperties": false
+            },
+            "wealthBuild": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "services": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "timing": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "string"
+                      },
+                      "feature": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "timing",
+                      "amount",
+                      "feature"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "services"
+              ],
+              "additionalProperties": false
+            },
+            "urgentNeeds": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "services": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "timing": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "string"
+                      },
+                      "feature": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "timing",
+                      "amount",
+                      "feature"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "services"
+              ],
+              "additionalProperties": false
+            },
+            "strategic": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "services": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "timing": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "string"
+                      },
+                      "feature": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "timing",
+                      "amount",
+                      "feature"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "services"
+              ],
+              "additionalProperties": false
+            },
+            "personal": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "services": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "timing": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "string"
+                      },
+                      "feature": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "timing",
+                      "amount",
+                      "feature"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": [
+                "title",
+                "services"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "costs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "impact": {
+                "type": "string"
+              },
+              "amount": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "impact",
+              "amount"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "totalCost": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "limitedCapacity": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "spotsRemaining": {
+              "type": "number"
+            },
+            "lastUpdated": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "title",
+            "description",
+            "spotsRemaining",
+            "lastUpdated"
+          ],
+          "additionalProperties": false
+        },
+        "strategy": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "validity": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "title",
+            "validity"
+          ],
+          "additionalProperties": false
+        },
+        "majorBanks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "logo": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "logo"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "specialistLenders": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "type": "string"
+            },
+            "display": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "source",
+            "display"
+          ],
+          "additionalProperties": false
+        },
+        "form": {
+          "type": "object",
+          "properties": {
+            "placeholder": {
+              "type": "string"
+            },
+            "buttonText": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "placeholder",
+            "buttonText"
+          ],
+          "additionalProperties": false
+        },
+        "callBenefits": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "callDetails": {
+          "type": "object",
+          "properties": {
+            "duration": {
+              "type": "string"
+            },
+            "commitment": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "duration",
+            "commitment"
+          ],
+          "additionalProperties": false
+        },
+        "security": {
+          "type": "string"
+        },
+        "Header": {
+          "type": "string"
+        },
+        "testimonials": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "post": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "rating": {
+                "type": "number"
+              },
+              "verified": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "post",
+              "title",
+              "description",
+              "rating"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "videoLink": {
+          "type": "string"
+        },
+        "guarantees": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "title",
+              "description"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "content": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Q": {
+                "type": "string"
+              },
+              "A": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "Q",
+              "A"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -34,6 +34,7 @@ import Header from "../components/ui/Header.astro";
 import Footer from "../components/ui/Footer.astro";
 import GoogleAnalytics from "../components/analytics/GoogleAnalytics.astro";
 import MicrosoftClarity from "../components/analytics/MicrosoftClarity.astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
 import { getEntry } from "astro:content";
 const { title } = Astro.props;
 const MetaData = await getEntry({ collection: "site", id: "meta" });
@@ -113,6 +114,8 @@ const { siteName, description, favicon } = MetaData?.data;
       <slot />
       <Footer />
     </div>
+    <!-- Vercel Speed Insights - Real User Monitoring -->
+    <SpeedInsights />
   </body>
 </html>
 

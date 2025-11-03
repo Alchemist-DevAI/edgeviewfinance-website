@@ -77,12 +77,12 @@ const breadcrumbs = [
       <!-- Breadcrumb Navigation -->
       <nav class="mb-6 text-sm text-gray-600" aria-label="Breadcrumb">
         {breadcrumbs.map((crumb, index) => (
-          <Fragment>
+          <>
             {index > 0 && <span class="mx-2">›</span>}
             <a href={crumb.href} class="hover:text-[#f97316]">
               {crumb.label}
             </a>
-          </Fragment>
+          </>
         ))}
       </nav>
 
@@ -147,27 +147,23 @@ const breadcrumbs = [
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
         <StatBox
           number="$15.08B"
-          label="Gross Regional Product"
-          description="Record economy (2024)"
-          source="Ipswich City Council"
+          label="Gross Regional Product - Record economy (2024)"
+          source="Source: Ipswich City Council"
         />
         <StatBox
           number="95,532"
-          label="Total Local Jobs"
-          description="Surpassed 2027 target early"
-          source="Ipswich City Council"
+          label="Total Local Jobs - Surpassed 2027 target early"
+          source="Source: Ipswich City Council"
         />
         <StatBox
           number="13,049"
-          label="Registered Businesses"
-          description="Thriving SME landscape"
-          source="Incahoots Economic Story 2025"
+          label="Registered Businesses - Thriving SME landscape"
+          source="Source: Incahoots Economic Story 2025"
         />
         <StatBox
           number="4.2%"
-          label="Annual Growth Rate"
-          description="Nearly double QLD average"
-          source="Ipswich City Council"
+          label="Annual Growth Rate - Nearly double QLD average"
+          source="Source: Ipswich City Council"
         />
       </div>
 
@@ -195,17 +191,17 @@ const breadcrumbs = [
       </div>
 
       <HighlightBox
+        number="14.6%"
         title="Manufacturing & Defence Finance Specialists"
-        icon="🏭"
-        bulletPoints={[
+        items={[
           "14.6% employment in manufacturing (1 in 8 workers)",
           "$2.7 billion manufacturing exports annually",
           "RAAF Amberley - Australia's largest Air Force base",
           "Defence industry hub with aerospace cluster",
           "Inland Rail logistics positioning",
-          "$2.2 billion infrastructure pipeline"
+          "$2.2 billion infrastructure pipeline",
+          "Supporting manufacturers, defence contractors, and infrastructure businesses with specialised finance"
         ]}
-        closingStatement="Supporting manufacturers, defence contractors, and infrastructure businesses with specialised finance."
       />
 
       <div class="max-w-4xl mx-auto text-base text-gray-700 space-y-4 mt-10">
@@ -231,22 +227,22 @@ const breadcrumbs = [
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
         <StatCard
-          number="25 Minutes"
-          heading="Fast Response Time"
-          description="From our Brisbane office to all Ipswich industrial areas"
-          icon="⏱️"
+          icon="BuildingStore"
+          number="25"
+          unit="Minutes"
+          label="Fast Response Time from Brisbane office"
         />
         <StatCard
+          icon="BuildingFactory"
           number="4"
-          heading="Major Industrial Estates"
-          description="Redbank Plains, Bundamba, Carole Park, Swanbank - full coverage"
-          icon="🏭"
+          unit="Industrial Estates"
+          label="Redbank, Bundamba, Carole Park, Swanbank"
         />
         <StatCard
+          icon="Users"
           number="$500M+"
-          heading="Industrial Investment"
-          description="Active investment in Ipswich corridor (2024)"
-          icon="💰"
+          unit="Investment"
+          label="Active industrial corridor investment (2024)"
         />
       </div>
 
@@ -291,28 +287,34 @@ const breadcrumbs = [
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <ServiceCard
-          heading="Equipment Finance"
-          icon="🏭"
-          description="Manufacturing machinery and production equipment, warehouse equipment, commercial vehicles and delivery fleet, construction equipment, defence contractor equipment."
-          examples="Factory machinery, warehouse forklifts, delivery trucks, construction equipment, defence contractor tools"
-          ctaText="Get Equipment Quote"
+          icon="Forklift"
+          title="Equipment Finance"
+          descriptions={[
+            "Manufacturing machinery and production equipment, warehouse equipment, commercial vehicles and delivery fleet, construction equipment, defence contractor equipment.",
+            "Examples: Factory machinery, warehouse forklifts, delivery trucks, construction equipment, defence contractor tools"
+          ]}
           link="/equipment-finance"
+          linkText="Get Equipment Quote"
         />
         <ServiceCard
-          heading="Working Capital Finance"
-          icon="💰"
-          description="Infrastructure project cash flow, manufacturing export cycles, contract fulfillment funding, business expansion capital, seasonal requirements."
-          examples="Project cash flow, export financing, expansion capital, contract fulfillment, seasonal working capital"
-          ctaText="Explore Working Capital"
+          icon="CashBanknote"
+          title="Working Capital Finance"
+          descriptions={[
+            "Infrastructure project cash flow, manufacturing export cycles, contract fulfillment funding, business expansion capital, seasonal requirements.",
+            "Examples: Project cash flow, export financing, expansion capital, contract fulfillment, seasonal working capital"
+          ]}
           link="/working-capital-finance"
+          linkText="Explore Working Capital"
         />
         <ServiceCard
-          heading="Commercial Property Finance"
-          icon="🏢"
-          description="Industrial warehouse purchases, manufacturing facility acquisition, business premises ownership, industrial estate property investment."
-          examples="Industrial warehouses, manufacturing facilities, business premises, investment properties"
-          ctaText="Finance Your Property"
+          icon="Building"
+          title="Commercial Property Finance"
+          descriptions={[
+            "Industrial warehouse purchases, manufacturing facility acquisition, business premises ownership, industrial estate property investment.",
+            "Examples: Industrial warehouses, manufacturing facilities, business premises, investment properties"
+          ]}
           link="/commercial-property-finance"
+          linkText="Finance Your Property"
         />
       </div>
     </div>
