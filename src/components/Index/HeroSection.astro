@@ -58,16 +58,27 @@ const { header, subheading, bodyText, trustIndicator, buttonPrimary, heroImage }
           <div class='lg:col-span-2 order-1 lg:order-2'>
             <div class='relative'>
               {heroImage && (
-                <Image
-                  src={heroImage}
-                  alt='Queensland Trades Business Owner'
-                  width='400'
-                  height='400'
-                  loading='eager'
-                  fetchpriority='high'
-                  class='w-full h-auto object-cover shadow-2xl max-h-[500px] object-top'
-                  sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw'
-                />
+                <picture>
+                  <source
+                    media='(max-width: 640px)'
+                    srcset='/assets/images/hero-tradie-mobile.webp'
+                    type='image/webp'
+                  />
+                  <source
+                    media='(min-width: 641px)'
+                    srcset='/assets/images/hero-tradie-final.webp'
+                    type='image/webp'
+                  />
+                  <img
+                    src='/assets/images/hero-tradie-final.webp'
+                    alt='Queensland Trades Business Owner'
+                    width='400'
+                    height='400'
+                    loading='eager'
+                    fetchpriority='high'
+                    class='w-full h-auto object-cover shadow-2xl max-h-[500px] object-top'
+                  />
+                </picture>
               )}
             </div>
           </div>
