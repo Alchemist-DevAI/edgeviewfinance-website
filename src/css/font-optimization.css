@@ -5,7 +5,7 @@
   font-family: 'Instrument Sans';
   font-style: normal;
   font-weight: 400;
-  font-display: optional; /* Prevents layout shift, uses fallback if font not loaded in 100ms */
+  font-display: swap; /* Faster rendering - shows fallback immediately, swaps when font loads */
   src: local('Instrument Sans'), local('InstrumentSans-Regular');
 }
 
@@ -13,7 +13,7 @@
   font-family: 'Instrument Sans';
   font-style: normal;
   font-weight: 500;
-  font-display: optional;
+  font-display: swap;
   src: local('Instrument Sans Medium'), local('InstrumentSans-Medium');
 }
 
@@ -21,7 +21,7 @@
   font-family: 'Instrument Sans';
   font-style: normal;
   font-weight: 600;
-  font-display: optional;
+  font-display: swap;
   src: local('Instrument Sans SemiBold'), local('InstrumentSans-SemiBold');
 }
 
@@ -29,7 +29,7 @@
   font-family: 'Instrument Sans';
   font-style: normal;
   font-weight: 700;
-  font-display: optional;
+  font-display: swap;
   src: local('Instrument Sans Bold'), local('InstrumentSans-Bold');
 }
 

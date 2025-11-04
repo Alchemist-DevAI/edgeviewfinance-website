@@ -6,7 +6,7 @@ import "@fontsource/instrument-sans/400.css";
 import "@fontsource/instrument-sans/500.css";
 import "@fontsource/instrument-sans/600.css";
 import "@fontsource/instrument-sans/700.css";
-import "@fortawesome/fontawesome-free/css/all.css";
+// FontAwesome removed - not used on homepage, loaded on-demand by other pages
 
 // 2. Framework Base Layer
 import "../css/tailwind.css";
@@ -98,7 +98,7 @@ const description = pageDescription || siteDescription;
     <link rel="canonical" href={Astro.url.href} />
     <!-- Preload critical hero image for LCP optimization -->
     {Astro.url.pathname === '/' && (
-      <link rel='preload' as='image' href='/assets/images/hero-tradie-optimized.webp' fetchpriority='high' />
+      <link rel='preload' as='image' href='/assets/images/hero-tradie-final.webp' fetchpriority='high' />
     )}
     <!-- Equipment Finance and Vehicle Finance pages have text-only heroes - no image preload needed -->
 
@@ -129,17 +129,19 @@ const description = pageDescription || siteDescription;
   </body>
 </html>
 
+<!-- Critical menu script - must load early for mobile menu functionality -->
 <script src='/assets/js/menu.js' is:inline></script>
+<!-- Non-critical scripts - deferred for LCP optimization -->
 <script src='/assets/js/countdown.js' is:inline defer></script>
 <script src='/assets/js/counterup.js' is:inline defer></script>
 <script src='/assets/js/main.js' is:inline defer></script>
-<!-- Calendly widget script - deferred for performance -->
-<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" defer></script>
-<!-- Analytics Initialization - deferred for performance -->
-<script type="module" src="/src/scripts/analytics-init.js" defer></script>
-<!-- Service Worker Registration -->
-<script>
-  // Register service worker for offline functionality
+<!-- Calendly widget script - fully async, non-blocking -->
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<!-- Analytics Initialization - fully async, non-blocking -->
+<script type="module" src="/src/scripts/analytics-init.js" async></script>
+<!-- Service Worker Registration - Async, non-blocking -->
+<script async>
+  // Register service worker for offline functionality (after page load)
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/sw.js', {
