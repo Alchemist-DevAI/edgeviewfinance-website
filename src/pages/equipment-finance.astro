@@ -27,7 +27,79 @@ const heroData = {
 };
 ---
 
-<!-- Performance optimization handled in Layout.astro -->
+<!-- Structured Data for SEO -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FinancialService",
+  "name": "Edgeview Finance",
+  "description": "Commercial finance broker specializing in equipment finance for Queensland trade businesses",
+  "url": "https://www.edgeviewfinance.com.au",
+  "telephone": "1300-280-895",
+  "areaServed": {
+    "@type": "State",
+    "name": "Queensland",
+    "containsPlace": [
+      { "@type": "City", "name": "Brisbane" },
+      { "@type": "City", "name": "Gold Coast" },
+      { "@type": "City", "name": "Sunshine Coast" }
+    ]
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "Queensland",
+    "addressCountry": "AU"
+  },
+  "openingHours": ["Mo-Fr 08:00-17:00"],
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "08:00",
+    "closes": "17:00"
+  },
+  "availableChannel": [
+    { "@type": "ServiceChannel", "serviceType": "Phone consultation", "availableLanguage": "English" },
+    { "@type": "ServiceChannel", "serviceType": "Video consultation", "availableLanguage": "English" },
+    { "@type": "ServiceChannel", "serviceType": "Email consultation", "availableLanguage": "English" }
+  ],
+  "sameAs": ["https://au.linkedin.com/company/edgeview-finance"]
+})} />
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LoanOrCredit",
+  "name": "Equipment Finance",
+  "description": "Commercial equipment loans for Queensland trade businesses. Finance excavators, trucks, machinery, and tools with flexible terms.",
+  "provider": {
+    "@type": "FinancialService",
+    "name": "Edgeview Finance",
+    "url": "https://www.edgeviewfinance.com.au"
+  },
+  "category": "Equipment Finance",
+  "url": "https://www.edgeviewfinance.com.au/equipment-finance",
+  "termsOfService": "Subject to credit approval and lender terms. Commission paid by lender, no fees to applicants.",
+  "amount": {
+    "@type": "MonetaryAmount",
+    "currency": "AUD",
+    "minValue": "20000",
+    "maxValue": "5000000",
+    "value": "Loan amounts from $20,000 to $5,000,000+"
+  },
+  "loanType": "Equipment Finance",
+  "feesAndCommissionsSpecification": "No fees to applicants - broker commission paid by lender",
+  "areaServed": {
+    "@type": "State",
+    "name": "Queensland",
+    "containsPlace": [
+      { "@type": "City", "name": "Brisbane" },
+      { "@type": "City", "name": "Gold Coast" },
+      { "@type": "City", "name": "Sunshine Coast" }
+    ]
+  },
+  "audience": {
+    "@type": "BusinessAudience",
+    "audienceType": "Trade Businesses - Construction, Electrical, Plumbing, HVAC, Earthmoving, Transport, Landscaping, Manufacturing"
+  }
+})} />
 
 <Layout title={meta.title} description={meta.description}>
   <!-- Hero Section using Homepage styling -->
