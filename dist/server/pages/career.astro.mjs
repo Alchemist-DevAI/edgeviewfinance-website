@@ -1,7 +1,7 @@
 /* empty css                                 */
 import { b as createAstro, c as createComponent, m as maybeRenderHead, e as addAttribute, r as renderComponent, a as renderTemplate } from '../chunks/astro/server_BL0ualZl.mjs';
 import 'kleur/colors';
-import { a as getEntry, g as getCollection, $ as $$Layout } from '../chunks/Layout_D_HeogzB.mjs';
+import { a as getEntry, g as getCollection, $ as $$Layout } from '../chunks/Layout_BxlbnLjU.mjs';
 import { $ as $$Button } from '../chunks/Button_BwHZM1FZ.mjs';
 import { $ as $$BreadCumb } from '../chunks/BreadCumb_CKVOUZJi.mjs';
 export { renderers } from '../renderers.mjs';

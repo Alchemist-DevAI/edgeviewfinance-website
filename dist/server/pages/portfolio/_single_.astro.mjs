@@ -1,7 +1,7 @@
 /* empty css                                    */
 import { b as createAstro, c as createComponent, m as maybeRenderHead, r as renderComponent, J as Fragment, a as renderTemplate, e as addAttribute } from '../../chunks/astro/server_BL0ualZl.mjs';
 import 'kleur/colors';
-import { g as getCollection, a as getEntry, $ as $$Layout } from '../../chunks/Layout_D_HeogzB.mjs';
+import { g as getCollection, a as getEntry, $ as $$Layout } from '../../chunks/Layout_BxlbnLjU.mjs';
 import { slug } from 'github-slugger';
 /* empty css                                       */
 import '../../chunks/index_BS0v8091.mjs';

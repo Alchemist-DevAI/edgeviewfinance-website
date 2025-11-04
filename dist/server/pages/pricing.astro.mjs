@@ -3,7 +3,7 @@ import { c as createComponent, m as maybeRenderHead, e as addAttribute, r as ren
 import 'kleur/colors';
 import '../chunks/index_BS0v8091.mjs';
 import { $ as $$Image } from '../chunks/_astro_assets_C4tS8mBi.mjs';
-import { g as getCollection, a as getEntry, $ as $$Layout } from '../chunks/Layout_D_HeogzB.mjs';
+import { g as getCollection, a as getEntry, $ as $$Layout } from '../chunks/Layout_BxlbnLjU.mjs';
 import { $ as $$BreadCumb } from '../chunks/BreadCumb_CKVOUZJi.mjs';
 export { renderers } from '../renderers.mjs';
 

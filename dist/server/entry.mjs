@@ -1,6 +1,6 @@
 import { renderers } from './renderers.mjs';
 import { c as createExports, s as serverEntrypointModule } from './chunks/_@astrojs-ssr-adapter_BBa86Xsp.mjs';
-import { manifest } from './manifest_BbuVyaCo.mjs';
+import { manifest } from './manifest_CAAkscIC.mjs';
 
 const serverIslandMap = new Map();;
 
@@ -33,28 +33,29 @@ const _page25 = () => import('./pages/finance-ready-assessment/thank-you.astro.m
 const _page26 = () => import('./pages/finance-ready-assessment.astro.mjs');
 const _page27 = () => import('./pages/home-loans.astro.mjs');
 const _page28 = () => import('./pages/invoice-trade-finance.astro.mjs');
-const _page29 = () => import('./pages/locations/brisbane.astro.mjs');
-const _page30 = () => import('./pages/locations/gold-coast.astro.mjs');
-const _page31 = () => import('./pages/locations/ipswich.astro.mjs');
-const _page32 = () => import('./pages/locations/sunshine-coast.astro.mjs');
-const _page33 = () => import('./pages/locations/toowoomba.astro.mjs');
-const _page34 = () => import('./pages/locations/yatala.astro.mjs');
-const _page35 = () => import('./pages/portfolio/_single_.astro.mjs');
-const _page36 = () => import('./pages/portfolio.astro.mjs');
-const _page37 = () => import('./pages/pricing.astro.mjs');
-const _page38 = () => import('./pages/privacy-policy.astro.mjs');
-const _page39 = () => import('./pages/service/_single_.astro.mjs');
-const _page40 = () => import('./pages/services.astro.mjs');
-const _page41 = () => import('./pages/success-stories/equipment-finance-excavator.astro.mjs');
-const _page42 = () => import('./pages/success-stories.astro.mjs');
-const _page43 = () => import('./pages/team.astro.mjs');
-const _page44 = () => import('./pages/terms-condition.astro.mjs');
-const _page45 = () => import('./pages/terms-of-use.astro.mjs');
-const _page46 = () => import('./pages/test.astro.mjs');
-const _page47 = () => import('./pages/test-sentry.astro.mjs');
-const _page48 = () => import('./pages/vehicle-finance.astro.mjs');
-const _page49 = () => import('./pages/working-capital-finance.astro.mjs');
-const _page50 = () => import('./pages/index.astro.mjs');
+const _page29 = () => import('./pages/locations/brendale-industrial.astro.mjs');
+const _page30 = () => import('./pages/locations/brisbane.astro.mjs');
+const _page31 = () => import('./pages/locations/gold-coast.astro.mjs');
+const _page32 = () => import('./pages/locations/ipswich.astro.mjs');
+const _page33 = () => import('./pages/locations/sunshine-coast.astro.mjs');
+const _page34 = () => import('./pages/locations/toowoomba.astro.mjs');
+const _page35 = () => import('./pages/locations/yatala.astro.mjs');
+const _page36 = () => import('./pages/portfolio/_single_.astro.mjs');
+const _page37 = () => import('./pages/portfolio.astro.mjs');
+const _page38 = () => import('./pages/pricing.astro.mjs');
+const _page39 = () => import('./pages/privacy-policy.astro.mjs');
+const _page40 = () => import('./pages/service/_single_.astro.mjs');
+const _page41 = () => import('./pages/services.astro.mjs');
+const _page42 = () => import('./pages/success-stories/equipment-finance-excavator.astro.mjs');
+const _page43 = () => import('./pages/success-stories.astro.mjs');
+const _page44 = () => import('./pages/team.astro.mjs');
+const _page45 = () => import('./pages/terms-condition.astro.mjs');
+const _page46 = () => import('./pages/terms-of-use.astro.mjs');
+const _page47 = () => import('./pages/test.astro.mjs');
+const _page48 = () => import('./pages/test-sentry.astro.mjs');
+const _page49 = () => import('./pages/vehicle-finance.astro.mjs');
+const _page50 = () => import('./pages/working-capital-finance.astro.mjs');
+const _page51 = () => import('./pages/index.astro.mjs');
 const pageMap = new Map([
     ["node_modules/astro/dist/assets/endpoint/generic.js", _page0],
     ["src/pages/404.astro", _page1],
@@ -85,28 +86,29 @@ const pageMap = new Map([
     ["src/pages/finance-ready-assessment.astro", _page26],
     ["src/pages/home-loans.astro", _page27],
     ["src/pages/invoice-trade-finance.astro", _page28],
-    ["src/pages/locations/brisbane.astro", _page29],
-    ["src/pages/locations/gold-coast.astro", _page30],
-    ["src/pages/locations/ipswich.astro", _page31],
-    ["src/pages/locations/sunshine-coast.astro", _page32],
-    ["src/pages/locations/toowoomba.astro", _page33],
-    ["src/pages/locations/yatala.astro", _page34],
-    ["src/pages/portfolio/[single].astro", _page35],
-    ["src/pages/portfolio/index.astro", _page36],
-    ["src/pages/pricing.astro", _page37],
-    ["src/pages/privacy-policy.astro", _page38],
-    ["src/pages/service/[single].astro", _page39],
-    ["src/pages/services.astro", _page40],
-    ["src/pages/success-stories/equipment-finance-excavator.astro", _page41],
-    ["src/pages/success-stories.astro", _page42],
-    ["src/pages/team.astro", _page43],
-    ["src/pages/terms-condition.astro", _page44],
-    ["src/pages/terms-of-use.astro", _page45],
-    ["src/pages/test.astro", _page46],
-    ["src/pages/test-sentry.astro", _page47],
-    ["src/pages/vehicle-finance.astro", _page48],
-    ["src/pages/working-capital-finance.astro", _page49],
-    ["src/pages/index.astro", _page50]
+    ["src/pages/locations/brendale-industrial.astro", _page29],
+    ["src/pages/locations/brisbane.astro", _page30],
+    ["src/pages/locations/gold-coast.astro", _page31],
+    ["src/pages/locations/ipswich.astro", _page32],
+    ["src/pages/locations/sunshine-coast.astro", _page33],
+    ["src/pages/locations/toowoomba.astro", _page34],
+    ["src/pages/locations/yatala.astro", _page35],
+    ["src/pages/portfolio/[single].astro", _page36],
+    ["src/pages/portfolio/index.astro", _page37],
+    ["src/pages/pricing.astro", _page38],
+    ["src/pages/privacy-policy.astro", _page39],
+    ["src/pages/service/[single].astro", _page40],
+    ["src/pages/services.astro", _page41],
+    ["src/pages/success-stories/equipment-finance-excavator.astro", _page42],
+    ["src/pages/success-stories.astro", _page43],
+    ["src/pages/team.astro", _page44],
+    ["src/pages/terms-condition.astro", _page45],
+    ["src/pages/terms-of-use.astro", _page46],
+    ["src/pages/test.astro", _page47],
+    ["src/pages/test-sentry.astro", _page48],
+    ["src/pages/vehicle-finance.astro", _page49],
+    ["src/pages/working-capital-finance.astro", _page50],
+    ["src/pages/index.astro", _page51]
 ]);
 
 const _manifest = Object.assign(manifest, {
@@ -117,7 +119,7 @@ const _manifest = Object.assign(manifest, {
     middleware: () => import('./_noop-middleware.mjs')
 });
 const _args = {
-    "middlewareSecret": "955992ab-f6fa-44ce-a50b-e7bec641fc29",
+    "middlewareSecret": "d68cb060-be45-4d6d-974d-e62045f6b4b5",
     "skewProtection": false
 };
 const _exports = createExports(_manifest, _args);

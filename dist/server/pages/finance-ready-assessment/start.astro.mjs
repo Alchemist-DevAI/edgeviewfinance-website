@@ -1,7 +1,7 @@
 /* empty css                                    */
 import { c as createComponent, r as renderComponent, d as renderScript, a as renderTemplate, m as maybeRenderHead } from '../../chunks/astro/server_BL0ualZl.mjs';
 import 'kleur/colors';
-import { $ as $$Layout, c as $$Header } from '../../chunks/Layout_D_HeogzB.mjs';
+import { $ as $$Layout, c as $$Header } from '../../chunks/Layout_BxlbnLjU.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const $$Start = createComponent(($$result, $$props, $$slots) => {

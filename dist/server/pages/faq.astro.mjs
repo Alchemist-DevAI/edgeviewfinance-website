@@ -1,9 +1,9 @@
 /* empty css                                 */
 import { c as createComponent, r as renderComponent, a as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_BL0ualZl.mjs';
 import 'kleur/colors';
-import { $ as $$FaqSection } from '../chunks/FaqSection_DTowvZwq.mjs';
+import { $ as $$FaqSection } from '../chunks/FaqSection_RCDettwB.mjs';
 import { $ as $$BreadCumb } from '../chunks/BreadCumb_CKVOUZJi.mjs';
-import { $ as $$Layout } from '../chunks/Layout_D_HeogzB.mjs';
+import { $ as $$Layout } from '../chunks/Layout_BxlbnLjU.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Faq = createComponent(($$result, $$props, $$slots) => {

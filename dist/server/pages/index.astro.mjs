@@ -1,14 +1,14 @@
 /* empty css                                 */
 import { b as createAstro, c as createComponent, m as maybeRenderHead, e as addAttribute, r as renderComponent, J as Fragment, a as renderTemplate, w as spreadAttributes, u as unescapeHTML } from '../chunks/astro/server_BL0ualZl.mjs';
 import 'kleur/colors';
-import { a as getEntry, g as getCollection, $ as $$Layout } from '../chunks/Layout_D_HeogzB.mjs';
+import { a as getEntry, g as getCollection, $ as $$Layout } from '../chunks/Layout_BxlbnLjU.mjs';
 import '../chunks/index_BS0v8091.mjs';
 import { $ as $$Image } from '../chunks/_astro_assets_C4tS8mBi.mjs';
 import 'clsx';
 /* empty css                                 */
 import { $ as $$ProcessSection } from '../chunks/ProcessSection_C2-53Ggn.mjs';
 import { slug } from 'github-slugger';
-import { $ as $$NewsLetter } from '../chunks/NewsLetter_DLHpuT10.mjs';
+import { $ as $$NewsLetter } from '../chunks/NewsLetter_w0wF31jJ.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Astro$1 = createAstro("https://www.edgeviewfinance.com.au");

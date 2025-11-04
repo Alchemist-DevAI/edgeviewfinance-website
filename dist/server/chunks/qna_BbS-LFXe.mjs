@@ -1,8 +1,8 @@
 async function getMod() {
 						return import('./qna_BgZV0TPg.mjs');
 					}
-					const collectedLinks = "@@ASTRO-LINKS@@";
-					const collectedStyles = "@@ASTRO-STYLES@@";
+					const collectedLinks = [];
+					const collectedStyles = [];
 					const defaultMod = { __astroPropagation: true, getMod, collectedLinks, collectedStyles, collectedScripts: [] };
 
 export { defaultMod as default };

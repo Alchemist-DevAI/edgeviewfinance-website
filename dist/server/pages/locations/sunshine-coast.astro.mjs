@@ -1,8 +1,8 @@
 /* empty css                                    */
 import { c as createComponent, a as renderTemplate, r as renderComponent, m as maybeRenderHead } from '../../chunks/astro/server_BL0ualZl.mjs';
 import 'kleur/colors';
-import { $ as $$Layout } from '../../chunks/Layout_D_HeogzB.mjs';
-import { $ as $$StatBox, a as $$HighlightBox, b as $$StatCard, c as $$ServiceCard } from '../../chunks/ServiceCard_DBFKKVaC.mjs';
+import { $ as $$Layout } from '../../chunks/Layout_BxlbnLjU.mjs';
+import { $ as $$StatBox, a as $$HighlightBox, b as $$StatCard, c as $$ServiceCard } from '../../chunks/ServiceCard_DpzcDYbT.mjs';
 /* empty css                                             */
 export { renderers } from '../../renderers.mjs';
 

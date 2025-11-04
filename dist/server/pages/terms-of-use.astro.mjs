@@ -1,7 +1,7 @@
 /* empty css                                 */
 import { c as createComponent, r as renderComponent, a as renderTemplate, m as maybeRenderHead, d as renderScript } from '../chunks/astro/server_BL0ualZl.mjs';
 import 'kleur/colors';
-import { $ as $$Layout } from '../chunks/Layout_D_HeogzB.mjs';
+import { $ as $$Layout } from '../chunks/Layout_BxlbnLjU.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$TermsOfUse = createComponent(($$result, $$props, $$slots) => {

@@ -1,9 +1,9 @@
 /* empty css                                 */
 import { c as createComponent, r as renderComponent, a as renderTemplate, m as maybeRenderHead, e as addAttribute, d as renderScript } from '../chunks/astro/server_BL0ualZl.mjs';
 import 'kleur/colors';
-import { $ as $$Layout } from '../chunks/Layout_D_HeogzB.mjs';
+import { $ as $$Layout } from '../chunks/Layout_BxlbnLjU.mjs';
 import { $ as $$ProcessSection } from '../chunks/ProcessSection_C2-53Ggn.mjs';
-import { $ as $$NewsLetter } from '../chunks/NewsLetter_DLHpuT10.mjs';
+import { $ as $$NewsLetter } from '../chunks/NewsLetter_w0wF31jJ.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$VehicleFinance = createComponent(($$result, $$props, $$slots) => {
