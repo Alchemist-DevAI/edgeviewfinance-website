@@ -185,11 +185,12 @@ const description = pageDescription || siteDescription;
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 <!-- Analytics Initialization - fully async, non-blocking -->
 <script type="module" src="/src/scripts/analytics-init.js" async></script>
-<!-- Service Worker Registration - Async, non-blocking -->
+<!-- Service Worker Registration - Deferred to idle time for LCP optimization -->
 <script async>
-  // Register service worker for offline functionality (after page load)
+  // Register service worker for offline functionality (deferred to idle time)
   if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
+    // Defer to idle time to avoid blocking main thread during page load
+    const registerServiceWorker = () => {
       navigator.serviceWorker.register('/sw.js', {
         scope: '/'
       })
@@ -212,7 +213,14 @@ const description = pageDescription || siteDescription;
       .catch(error => {
         // Service worker registration failed - silently fail
       });
-    });
+    };
+
+    // Use requestIdleCallback for better performance, fallback to setTimeout
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(registerServiceWorker, { timeout: 2000 });
+    } else {
+      setTimeout(registerServiceWorker, 2000);
+    }
 
     // Listen for service worker messages
     navigator.serviceWorker.addEventListener('message', event => {

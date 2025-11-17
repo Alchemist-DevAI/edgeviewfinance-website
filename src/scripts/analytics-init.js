@@ -6,13 +6,23 @@
 // Import analytics utilities (this will be bundled by Astro/Vite)
 import { initAnalytics, trackFinanceEvents, callTracking, utmTracking } from '../utils/analytics.ts';
 
-// Initialize analytics on DOM content loaded
+// Initialize analytics when browser is idle (better for LCP/TBT)
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize core analytics features
-  initAnalytics();
+  // Defer analytics initialization to idle time to avoid blocking main thread
+  const initializeAnalytics = () => {
+    // Initialize core analytics features
+    initAnalytics();
 
-  // Set up automatic tracking for common interactions
-  setupAutomaticTracking();
+    // Set up automatic tracking for common interactions
+    setupAutomaticTracking();
+  };
+
+  // Use requestIdleCallback for better performance, fallback to setTimeout
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(initializeAnalytics, { timeout: 3000 });
+  } else {
+    setTimeout(initializeAnalytics, 3000);
+  }
 });
 
 function setupAutomaticTracking() {
