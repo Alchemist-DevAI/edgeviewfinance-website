@@ -179,15 +179,7 @@ import Layout from '../../layout/Layout.astro';
 <script>
   // Handle Calendly integration
   document.getElementById('calendly-btn')?.addEventListener('click', () => {
-    // Placeholder for Calendly integration
-    // When Calendly embed is configured, this will open the scheduling widget
-    console.log('Would open Calendly widget');
-    
-    // For now, redirect to contact page
-    window.location.href = '/contact';
-    
-    // When ready, replace with:
-    // Calendly.initPopupWidget({url: 'https://calendly.com/your-link'});
+    Calendly.initPopupWidget({url: 'https://calendly.com/dan-peters-edgeviewfinance/finance-readiness-call'});
   });
 
   // Track page visit
